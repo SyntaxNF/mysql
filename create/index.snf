@@ -3,24 +3,14 @@
 CREATE [ UNIQUE | FULLTEXT | SPATIAL ] INDEX index
     [ USING { BTREE | HASH } ]
     ON table ( key_part [, ...] )
-    [ index_option ... ]
-    [ algorithm_option | lock_option ] [...]
+    [ KEY_BLOCK_SIZE [=] value ]
+    [ WITH PARSER parser ]
+    [ COMMENT 'comment' ]
+    [ VISIBLE | INVISIBLE ]
+    [ ENGINE_ATTRIBUTE [=] 'engine_attribute' ]
+    [ SECONDARY_ENGINE_ATTRIBUTE [=] 'secondary_engine_attribute' ]
+    [ ALGORITHM [=] { DEFAULT | INPLACE | COPY } ]
+    [ LOCK [=] { DEFAULT | NONE | SHARED | EXCLUSIVE } ]
 
 # WHERE key_part
 { colname [ ( length ) ] | ( expression ) } [ ASC | DESC ]
-
-# ONEOFIS index_option
-KEY_BLOCK_SIZE [=] value
-USING { BTREE | HASH }
-WITH PARSER parser
-COMMENT string
-VISIBLE
-INVISIBLE
-ENGINE_ATTRIBUTE [=] string
-SECONDARY_ENGINE_ATTRIBUTE [=] string
-
-# WHERE algorithm_option
-ALGORITHM [=] { DEFAULT | INPLACE | COPY }
-
-# WHERE lock_option
-LOCK [=] { DEFAULT | NONE | SHARED | EXCLUSIVE }

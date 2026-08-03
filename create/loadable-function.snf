@@ -2,4 +2,4 @@
 
 CREATE [ AGGREGATE ] FUNCTION [ IF NOT EXISTS ] function
     RETURNS { STRING | INTEGER | REAL | DECIMAL }
-    SONAME shared_library
+    SONAME 'shared_library'

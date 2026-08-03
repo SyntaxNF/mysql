@@ -2,14 +2,14 @@
 
 # CASE REPLACE
 CREATE OR REPLACE SPATIAL REFERENCE SYSTEM srid
-    srs_attribute [...]
+    NAME 'srs_name'
+    DEFINITION 'definition'
+    [ ORGANIZATION 'organization_name' IDENTIFIED BY organization_id ]
+    [ DESCRIPTION 'description' ]
 
 # CASE NORMAL
 CREATE SPATIAL REFERENCE SYSTEM [ IF NOT EXISTS ] srid
-    srs_attribute [...]
-
-# ONEOFIS srs_attribute
-NAME string
-DEFINITION string
-ORGANIZATION string IDENTIFIED BY organization_id
-DESCRIPTION string
+    NAME 'srs_name'
+    DEFINITION 'definition'
+    [ ORGANIZATION 'organization_name' IDENTIFIED BY organization_id ]
+    [ DESCRIPTION 'description' ]

@@ -1,45 +1,127 @@
 # https://dev.mysql.com/doc/refman/8.4/en/show.html
 
-# CASE SHOW
-show_statement
-
-# ONEOFIS show_statement
+# CASE BINARY_LOG_STATUS
 SHOW BINARY LOG STATUS
+
+# CASE BINARY_LOGS
 SHOW BINARY LOGS
-SHOW BINLOG EVENTS [ IN log ] [ FROM position ] [ LIMIT [ offset , ] row_count ]
+
+# CASE BINLOG_EVENTS
+SHOW BINLOG EVENTS [ IN 'log' ] [ FROM position ] [ LIMIT [ offset , ] row_count ]
+
+# CASE CHARACTER_SET
 SHOW { CHARACTER SET | CHARSET } [ like_or_where ]
+
+# CASE COLLATION
 SHOW COLLATION [ like_or_where ]
+
+# CASE COLUMNS
 SHOW [ FULL ] COLUMNS FROM table [ FROM database ] [ like_or_where ]
-SHOW CREATE { DATABASE database | EVENT event | FUNCTION function | PROCEDURE procedure | TABLE table | TRIGGER trigger | USER account | VIEW view }
+
+# CASE CREATE_DATABASE
+SHOW CREATE DATABASE database
+
+# CASE CREATE_EVENT
+SHOW CREATE EVENT event
+
+# CASE CREATE_FUNCTION
+SHOW CREATE FUNCTION function
+
+# CASE CREATE_PROCEDURE
+SHOW CREATE PROCEDURE procedure
+
+# CASE CREATE_TABLE
+SHOW CREATE TABLE table
+
+# CASE CREATE_TRIGGER
+SHOW CREATE TRIGGER trigger
+
+# CASE CREATE_USER
+SHOW CREATE USER account
+
+# CASE CREATE_VIEW
+SHOW CREATE VIEW view
+
+# CASE DATABASES
 SHOW DATABASES [ like_or_where ]
+
+# CASE ENGINE
 SHOW ENGINE engine { STATUS | MUTEX }
+
+# CASE ENGINES
 SHOW [ STORAGE ] ENGINES
+
+# CASE ERRORS
 SHOW ERRORS [ LIMIT [ offset , ] row_count ]
+
+# CASE EVENTS
 SHOW EVENTS [ FROM database ] [ like_or_where ]
+
+# CASE FUNCTION_CODE
 SHOW FUNCTION CODE function
+
+# CASE FUNCTION_STATUS
 SHOW FUNCTION STATUS [ like_or_where ]
+
+# CASE GRANTS
 SHOW GRANTS [ FOR account ] [ USING role [, ...] ]
+
+# CASE INDEX
 SHOW INDEX FROM table [ FROM database ]
+
+# CASE OPEN_TABLES
 SHOW OPEN TABLES [ FROM database ] [ like_or_where ]
+
+# CASE PLUGINS
 SHOW PLUGINS
+
+# CASE PROCEDURE_CODE
 SHOW PROCEDURE CODE procedure
+
+# CASE PROCEDURE_STATUS
 SHOW PROCEDURE STATUS [ like_or_where ]
+
+# CASE PRIVILEGES
 SHOW PRIVILEGES
+
+# CASE PROCESSLIST
 SHOW [ FULL ] PROCESSLIST
-SHOW PROFILE [ profile_type [, ...] ] [ FOR QUERY number ] [ OFFSET number ] [ LIMIT number ]
+
+# CASE PROFILE
+SHOW PROFILE [ profile_type [, ...] ] [ FOR QUERY number ] [ LIMIT row_count [ OFFSET offset ] ]
+
+# CASE PROFILES
 SHOW PROFILES
-SHOW RELAYLOG EVENTS [ IN log ] [ FROM position ] [ LIMIT [ offset , ] row_count ]
-SHOW REPLICA STATUS [ FOR CHANNEL channel ]
+
+# CASE RELAYLOG_EVENTS
+SHOW RELAYLOG EVENTS [ IN 'log' ] [ FROM position ] [ LIMIT [ offset , ] row_count ]
+
+# CASE REPLICA_STATUS
+SHOW REPLICA STATUS [ FOR CHANNEL 'channel' ]
+
+# CASE REPLICAS
 SHOW REPLICAS
+
+# CASE STATUS
 SHOW [ GLOBAL | SESSION ] STATUS [ like_or_where ]
+
+# CASE TABLE_STATUS
 SHOW TABLE STATUS [ FROM database ] [ like_or_where ]
+
+# CASE TABLES
 SHOW [ FULL ] TABLES [ FROM database ] [ like_or_where ]
+
+# CASE TRIGGERS
 SHOW TRIGGERS [ FROM database ] [ like_or_where ]
+
+# CASE VARIABLES
 SHOW [ GLOBAL | SESSION ] VARIABLES [ like_or_where ]
+
+# CASE WARNINGS
 SHOW WARNINGS [ LIMIT [ offset , ] row_count ]
 
 # ONEOFIS like_or_where
-LIKE pattern
+LIKE 'pattern'
 WHERE expression
 
 # ONEOFIS profile_type

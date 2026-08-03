@@ -4,7 +4,7 @@
 OPEN cursor
 
 # CASE FETCH
-FETCH [ NEXT FROM ] cursor INTO variable [, ...]
+FETCH cursor INTO variable [, ...]
 
 # CASE CLOSE
 CLOSE cursor

@@ -3,5 +3,5 @@
 DECLARE condition CONDITION FOR condition_value
 
 # ONEOFIS condition_value
-SQLSTATE [ VALUE ] sqlstate
+SQLSTATE [ VALUE ] 'sqlstate'
 number

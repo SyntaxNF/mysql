@@ -1,8 +1,10 @@
 # https://dev.mysql.com/doc/refman/8.4/en/while.html
 
-[ begin_label : ] WHILE boolean_expression DO
+[ begin_label : ]
+WHILE boolean_expression DO
     statement [; ...]
-END WHILE [ end_label ]
+END WHILE
+[ end_label ]
 
 # STATEMENT statement
 sql_statement

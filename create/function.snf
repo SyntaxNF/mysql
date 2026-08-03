@@ -1,22 +1,18 @@
 # https://dev.mysql.com/doc/refman/8.4/en/create-procedure.html
 
-CREATE [ DEFINER = user ] FUNCTION [ IF NOT EXISTS ] function ( [ function_parameter [, ...] ] )
+CREATE [ DEFINER = user ] FUNCTION [ IF NOT EXISTS ] function (
+    [ function_parameter [, ...] ] 
+)
     RETURNS type
-    [ routine_characteristic ... ]
+    [ COMMENT 'comment' ]
+    [ LANGUAGE SQL ]
+    [ [ NOT ] DETERMINISTIC ]
+    [ { CONTAINS SQL | NO SQL | READS SQL DATA | MODIFIES SQL DATA } ]
+    [ SQL SECURITY { DEFINER | INVOKER } ]
     routine_body
 
 # WHERE function_parameter
 parameter type
-
-# ONEOFIS routine_characteristic
-COMMENT string
-LANGUAGE SQL
-[ NOT ] DETERMINISTIC
-CONTAINS SQL
-NO SQL
-READS SQL DATA
-MODIFIES SQL DATA
-SQL SECURITY { DEFINER | INVOKER }
 
 # STATEMENT routine_body
 sql_statement

@@ -1,13 +1,36 @@
 # https://dev.mysql.com/doc/refman/8.4/en/change-replication-filter.html
 
-CHANGE REPLICATION FILTER replication_filter [, ...]
-    [ FOR CHANNEL channel ]
+# CASE DO_DATABASE
+CHANGE REPLICATION FILTER
+    REPLICATE_DO_DB = ( database [, ...] )
+    [ FOR CHANNEL 'channel' ]
 
-# ONEOFIS replication_filter
-REPLICATE_DO_DB = ( database [, ...] )
-REPLICATE_IGNORE_DB = ( database [, ...] )
-REPLICATE_DO_TABLE = ( table [, ...] )
-REPLICATE_IGNORE_TABLE = ( table [, ...] )
-REPLICATE_WILD_DO_TABLE = ( table_pattern [, ...] )
-REPLICATE_WILD_IGNORE_TABLE = ( table_pattern [, ...] )
-REPLICATE_REWRITE_DB = ( ( from_database , to_database ) [, ...] )
+# CASE IGNORE_DATABASE
+CHANGE REPLICATION FILTER
+    REPLICATE_IGNORE_DB = ( database [, ...] )
+    [ FOR CHANNEL 'channel' ]
+
+# CASE DO_TABLE
+CHANGE REPLICATION FILTER
+    REPLICATE_DO_TABLE = ( table [, ...] )
+    [ FOR CHANNEL 'channel' ]
+
+# CASE IGNORE_TABLE
+CHANGE REPLICATION FILTER
+    REPLICATE_IGNORE_TABLE = ( table [, ...] )
+    [ FOR CHANNEL 'channel' ]
+
+# CASE WILD_DO_TABLE
+CHANGE REPLICATION FILTER
+    REPLICATE_WILD_DO_TABLE = ( 'table_pattern' [, ...] )
+    [ FOR CHANNEL 'channel' ]
+
+# CASE WILD_IGNORE_TABLE
+CHANGE REPLICATION FILTER
+    REPLICATE_WILD_IGNORE_TABLE = ( 'table_pattern' [, ...] )
+    [ FOR CHANNEL 'channel' ]
+
+# CASE REWRITE_DATABASE
+CHANGE REPLICATION FILTER
+    REPLICATE_REWRITE_DB = ( ( from_database , to_database ) [, ...] )
+    [ FOR CHANNEL 'channel' ]
