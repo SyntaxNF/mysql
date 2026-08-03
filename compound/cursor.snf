@@ -1,0 +1,10 @@
+# https://dev.mysql.com/doc/refman/8.4/en/cursors.html
+
+# CASE OPEN
+OPEN cursor
+
+# CASE FETCH
+FETCH [ NEXT FROM ] cursor INTO variable [, ...]
+
+# CASE CLOSE
+CLOSE cursor

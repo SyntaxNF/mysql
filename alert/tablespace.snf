@@ -1,0 +1,12 @@
+# https://dev.mysql.com/doc/refman/8.4/en/alter-tablespace.html
+
+ALTER [ UNDO ] TABLESPACE tablespace
+    [ { ADD | DROP } DATAFILE datafile ]
+    [ INITIAL_SIZE [=] size ]
+    [ WAIT ]
+    [ RENAME TO new_tablespace ]
+    [ AUTOEXTEND_SIZE [=] value ]
+    [ SET { ACTIVE | INACTIVE } ]
+    [ ENCRYPTION [=] { 'Y' | 'N' } ]
+    [ ENGINE [=] engine ]
+    [ ENGINE_ATTRIBUTE [=] string ]

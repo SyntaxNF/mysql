@@ -1,0 +1,104 @@
+# https://dev.mysql.com/doc/refman/8.4/en/select.html
+
+[ WITH [ RECURSIVE ] common_table_expression [, ...] ]
+SELECT [ ALL | DISTINCT | DISTINCTROW ]
+    [ HIGH_PRIORITY ] [ STRAIGHT_JOIN ]
+    [ SQL_SMALL_RESULT ] [ SQL_BIG_RESULT ] [ SQL_BUFFER_RESULT ]
+    [ SQL_NO_CACHE ] [ SQL_CALC_FOUND_ROWS ]
+    select_expression [, ...]
+    [ into_option ]
+    [ FROM table_reference [, ...] [ PARTITION partition [, ...] ] ]
+    [ WHERE boolean_expression ]
+    [ GROUP BY group_expression [, ...] [ WITH ROLLUP ] | ROLLUP ( group_expression [, ...] ) ]
+    [ HAVING boolean_expression ]
+    [ WINDOW window AS ( window_specification ) [, ...] ]
+    [ ORDER BY order_expression [, ...] [ WITH ROLLUP ] ]
+    [ LIMIT { [ offset , ] row_count | row_count OFFSET offset } ]
+    [ into_option ]
+    [ locking_clause ]
+    [ into_option ]
+    [ set_operation query_block ] [...]
+
+# WHERE common_table_expression
+name [ ( colname [, ...] ) ] AS ( query_expression )
+
+# WHERE select_expression
+{ * | expression [ [ AS ] alias ] }
+
+# PARTOFIS table_reference
+table [ PARTITION ( partition [, ...] ) ]
+[ [ AS ] alias [ ( colname [, ...] ) ] ] [ index_hint ... ]
+
+[ LATERAL ] table_function [ AS ] alias [ ( colname [, ...] ) ]
+
+( table_reference [, ...] )
+
+table_reference [ INNER | CROSS ] JOIN table_reference [ join_condition ]
+
+table_reference STRAIGHT_JOIN table_reference [ ON boolean_expression ]
+
+table_reference { LEFT | RIGHT } [ OUTER ] JOIN table_reference join_condition
+
+table_reference NATURAL [ INNER | { LEFT | RIGHT } [ OUTER ] ] JOIN table_reference
+
+# ONEOFIS join_condition
+ON boolean_expression
+USING ( colname [, ...] )
+
+# WHERE index_hint
+{ USE | FORCE | IGNORE } { INDEX | KEY }
+    [ FOR { JOIN | ORDER BY | GROUP BY } ]
+    ( index [, ...] )
+
+# WHERE group_expression
+{ colname | expression | position }
+
+# WHERE order_expression
+{ colname | expression | position } [ ASC | DESC ]
+
+# WHERE window_specification
+[ window ]
+    [ PARTITION BY expression [, ...] ]
+    [ ORDER BY order_expression [, ...] ]
+    [ frame_clause ]
+
+# PARTOFIS frame_clause
+{ ROWS | RANGE | GROUPS } frame_bound
+
+{ ROWS | RANGE | GROUPS } BETWEEN frame_bound AND frame_bound
+
+# ONEOFIS frame_bound
+UNBOUNDED PRECEDING
+expression PRECEDING
+CURRENT ROW
+expression FOLLOWING
+UNBOUNDED FOLLOWING
+
+# ONEOFIS into_option
+INTO OUTFILE file [ CHARACTER SET charset ] export_option
+INTO DUMPFILE file
+INTO variable [, ...]
+
+# WHERE export_option
+[ { FIELDS | COLUMNS }
+    [ TERMINATED BY string ]
+    [ [ OPTIONALLY ] ENCLOSED BY character ]
+    [ ESCAPED BY character ] ]
+[ LINES [ STARTING BY string ] [ TERMINATED BY string ] ]
+
+# ONEOFIS locking_clause
+FOR { UPDATE | SHARE } [ OF table [, ...] ] [ NOWAIT | SKIP LOCKED ]
+LOCK IN SHARE MODE
+
+# WHERE set_operation
+{ UNION | INTERSECT | EXCEPT } [ ALL | DISTINCT ]
+
+# STATEMENT query_block
+SELECT
+TABLE
+VALUES
+
+# STATEMENT query_expression
+SELECT
+TABLE
+VALUES

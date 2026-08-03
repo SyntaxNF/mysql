@@ -1,0 +1,28 @@
+# https://dev.mysql.com/doc/refman/8.4/en/replace.html
+
+# CASE VALUES
+REPLACE [ LOW_PRIORITY | DELAYED ] [ INTO ] table
+    [ PARTITION ( partition [, ...] ) ]
+    [ ( colname [, ...] ) ]
+    { { VALUES | VALUE } ( value [, ...] ) [, ...] | VALUES ROW ( value [, ...] ) [, ...] }
+
+# CASE SET
+REPLACE [ LOW_PRIORITY | DELAYED ] [ INTO ] table
+    [ PARTITION ( partition [, ...] ) ]
+    SET assignment [, ...]
+
+# CASE QUERY
+REPLACE [ LOW_PRIORITY | DELAYED ] [ INTO ] table
+    [ PARTITION ( partition [, ...] ) ]
+    [ ( colname [, ...] ) ]
+    query_expression
+
+# WHERE value
+{ expression | DEFAULT }
+
+# WHERE assignment
+colname = value
+
+# STATEMENT query_expression
+SELECT
+TABLE

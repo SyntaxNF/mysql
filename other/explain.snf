@@ -1,0 +1,20 @@
+# https://dev.mysql.com/doc/refman/8.4/en/explain.html
+
+# CASE QUERY
+EXPLAIN [ ANALYZE ] [ FORMAT = { TRADITIONAL | JSON | TREE } ]
+    explainable_statement
+
+# CASE CONNECTION
+EXPLAIN [ FORMAT = { TRADITIONAL | JSON | TREE } ]
+    FOR CONNECTION connection_id
+
+# CASE TABLE
+{ EXPLAIN | DESCRIBE | DESC } table [ colname | pattern ]
+
+# STATEMENT explainable_statement
+SELECT
+TABLE
+DELETE
+INSERT
+REPLACE
+UPDATE

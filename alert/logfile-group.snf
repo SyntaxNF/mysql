@@ -1,0 +1,7 @@
+# https://dev.mysql.com/doc/refman/8.4/en/alter-logfile-group.html
+
+ALTER LOGFILE GROUP logfile_group
+    ADD UNDOFILE file
+    [ INITIAL_SIZE [=] size ]
+    [ WAIT ]
+    ENGINE [=] engine

@@ -1,0 +1,22 @@
+# https://dev.mysql.com/doc/refman/8.4/en/create-procedure.html
+
+CREATE [ DEFINER = user ] PROCEDURE [ IF NOT EXISTS ] procedure ( [ procedure_parameter [, ...] ] )
+    [ routine_characteristic ... ]
+    routine_body
+
+# WHERE procedure_parameter
+[ IN | OUT | INOUT ] parameter type
+
+# ONEOFIS routine_characteristic
+COMMENT string
+LANGUAGE SQL
+[ NOT ] DETERMINISTIC
+CONTAINS SQL
+NO SQL
+READS SQL DATA
+MODIFIES SQL DATA
+SQL SECURITY { DEFINER | INVOKER }
+
+# STATEMENT routine_body
+sql_statement
+compound_statement

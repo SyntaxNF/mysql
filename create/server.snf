@@ -1,0 +1,14 @@
+# https://dev.mysql.com/doc/refman/8.4/en/create-server.html
+
+CREATE SERVER server
+    FOREIGN DATA WRAPPER wrapper
+    OPTIONS ( server_option [, ...] )
+
+# ONEOFIS server_option
+HOST string
+DATABASE string
+USER string
+PASSWORD string
+SOCKET string
+OWNER string
+PORT number

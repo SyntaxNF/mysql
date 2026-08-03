@@ -1,0 +1,24 @@
+# https://dev.mysql.com/doc/refman/8.4/en/flush.html
+
+FLUSH [ NO_WRITE_TO_BINLOG | LOCAL ]
+    { flush_option [, ...] | table_option }
+
+# ONEOFIS flush_option
+BINARY LOGS
+ENGINE LOGS
+ERROR LOGS
+GENERAL LOGS
+LOGS
+PRIVILEGES
+OPTIMIZER_COSTS
+RELAY LOGS [ FOR CHANNEL channel ]
+SLOW LOGS
+STATUS
+USER_RESOURCES
+
+# ONEOFIS table_option
+{ TABLE | TABLES }
+{ TABLE | TABLES } table [, ...]
+{ TABLE | TABLES } WITH READ LOCK
+{ TABLE | TABLES } table [, ...] WITH READ LOCK
+{ TABLE | TABLES } table [, ...] FOR EXPORT

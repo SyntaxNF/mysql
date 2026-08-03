@@ -1,0 +1,23 @@
+# https://dev.mysql.com/doc/refman/8.4/en/update.html
+
+# CASE SINGLE_TABLE
+UPDATE [ LOW_PRIORITY ] [ IGNORE ] table_reference
+    SET assignment [, ...]
+    [ WHERE boolean_expression ]
+    [ ORDER BY order_expression [, ...] ]
+    [ LIMIT row_count ]
+
+# CASE MULTI_TABLE
+UPDATE [ LOW_PRIORITY ] [ IGNORE ] table_reference [, ...]
+    SET assignment [, ...]
+    [ WHERE boolean_expression ]
+
+# WHERE assignment
+colname = { expression | DEFAULT }
+
+# WHERE order_expression
+{ colname | expression } [ ASC | DESC ]
+
+# STATEMENT table_reference
+table
+joined_table

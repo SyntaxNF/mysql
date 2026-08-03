@@ -1,0 +1,171 @@
+# https://dev.mysql.com/doc/refman/8.4/en/alter-table.html
+
+ALTER TABLE table
+    [ alter_option [, ...] ]
+    [ partition_option ... ]
+
+# PARTOFIS alter_option
+table_option
+
+ADD [ COLUMN ] colname column_definition [ FIRST | AFTER colname ]
+
+ADD [ COLUMN ] ( colname column_definition [, ...] )
+
+ADD { INDEX | KEY } [ index ] [ USING { BTREE | HASH } ]
+( key_part [, ...] ) [ index_option ... ]
+
+ADD { FULLTEXT | SPATIAL } [ INDEX | KEY ] [ index ]
+( key_part [, ...] ) [ index_option ... ]
+
+ADD [ CONSTRAINT [ symbol ] ] PRIMARY KEY
+[ USING { BTREE | HASH } ] ( key_part [, ...] ) [ index_option ... ]
+
+ADD [ CONSTRAINT [ symbol ] ] UNIQUE [ INDEX | KEY ] [ index ]
+[ USING { BTREE | HASH } ] ( key_part [, ...] ) [ index_option ... ]
+
+ADD [ CONSTRAINT [ symbol ] ] FOREIGN KEY [ index ]
+( colname [, ...] ) reference_definition
+
+ADD [ CONSTRAINT [ symbol ] ] CHECK ( expression ) [ [ NOT ] ENFORCED ]
+
+DROP { CHECK | CONSTRAINT } symbol
+
+ALTER { CHECK | CONSTRAINT } symbol [ NOT ] ENFORCED
+
+ALGORITHM [=] { DEFAULT | INSTANT | INPLACE | COPY }
+
+ALTER [ COLUMN ] colname { SET DEFAULT { literal | ( expression ) } | SET { VISIBLE | INVISIBLE } | DROP DEFAULT }
+
+ALTER INDEX index { VISIBLE | INVISIBLE }
+
+CHANGE [ COLUMN ] old_colname new_colname column_definition [ FIRST | AFTER colname ]
+
+[ DEFAULT ] CHARACTER SET [=] charset [ COLLATE [=] collation ]
+
+CONVERT TO CHARACTER SET charset [ COLLATE collation ]
+
+{ DISABLE | ENABLE } KEYS
+
+{ DISCARD | IMPORT } TABLESPACE
+
+DROP [ COLUMN ] colname
+
+DROP { INDEX | KEY } index
+
+DROP PRIMARY KEY
+
+DROP FOREIGN KEY foreign_key
+
+FORCE
+
+LOCK [=] { DEFAULT | NONE | SHARED | EXCLUSIVE }
+
+MODIFY [ COLUMN ] colname column_definition [ FIRST | AFTER colname ]
+
+ORDER BY colname [, ...]
+
+RENAME COLUMN old_colname TO new_colname
+
+RENAME { INDEX | KEY } old_index TO new_index
+
+RENAME [ TO | AS ] new_table
+
+{ WITHOUT | WITH } VALIDATION
+
+# PARTOFIS column_definition
+type [ NOT NULL | NULL ] [ DEFAULT { literal | ( expression ) } ]
+[ VISIBLE | INVISIBLE ] [ AUTO_INCREMENT ] [ UNIQUE [ KEY ] ] [ [ PRIMARY ] KEY ]
+[ COMMENT string ] [ COLLATE collation ]
+[ COLUMN_FORMAT { FIXED | DYNAMIC | DEFAULT } ]
+[ ENGINE_ATTRIBUTE [=] string ] [ SECONDARY_ENGINE_ATTRIBUTE [=] string ]
+[ STORAGE { DISK | MEMORY } ] [ reference_definition ] [ check_constraint_definition ]
+
+type [ COLLATE collation ] [ GENERATED ALWAYS ] AS ( expression )
+[ VIRTUAL | STORED ] [ NOT NULL | NULL ] [ VISIBLE | INVISIBLE ]
+[ UNIQUE [ KEY ] ] [ [ PRIMARY ] KEY ] [ COMMENT string ]
+[ reference_definition ] [ check_constraint_definition ]
+
+# WHERE key_part
+{ colname [ ( length ) ] | ( expression ) } [ ASC | DESC ]
+
+# WHERE reference_definition
+REFERENCES table ( key_part [, ...] )
+    [ MATCH FULL | MATCH PARTIAL | MATCH SIMPLE ]
+    [ ON DELETE reference_action ]
+    [ ON UPDATE reference_action ]
+
+# WHERE reference_action
+{ RESTRICT | CASCADE | SET NULL | NO ACTION | SET DEFAULT }
+
+# WHERE check_constraint_definition
+[ CONSTRAINT [ symbol ] ] CHECK ( expression ) [ [ NOT ] ENFORCED ]
+
+# ONEOFIS index_option
+KEY_BLOCK_SIZE [=] value
+USING { BTREE | HASH }
+WITH PARSER parser
+COMMENT string
+VISIBLE
+INVISIBLE
+ENGINE_ATTRIBUTE [=] string
+SECONDARY_ENGINE_ATTRIBUTE [=] string
+
+# ONEOFIS table_option
+AUTOEXTEND_SIZE [=] value
+AUTO_INCREMENT [=] value
+AVG_ROW_LENGTH [=] value
+[ DEFAULT ] CHARACTER SET [=] charset
+CHECKSUM [=] { 0 | 1 }
+[ DEFAULT ] COLLATE [=] collation
+COMMENT [=] string
+COMPRESSION [=] { 'ZLIB' | 'LZ4' | 'NONE' }
+CONNECTION [=] string
+{ DATA | INDEX } DIRECTORY [=] directory
+DELAY_KEY_WRITE [=] { 0 | 1 }
+ENCRYPTION [=] { 'Y' | 'N' }
+ENGINE [=] engine
+ENGINE_ATTRIBUTE [=] string
+INSERT_METHOD [=] { NO | FIRST | LAST }
+KEY_BLOCK_SIZE [=] value
+MAX_ROWS [=] value
+MIN_ROWS [=] value
+PACK_KEYS [=] { 0 | 1 | DEFAULT }
+PASSWORD [=] string
+ROW_FORMAT [=] { DEFAULT | DYNAMIC | FIXED | COMPRESSED | REDUNDANT | COMPACT }
+SECONDARY_ENGINE_ATTRIBUTE [=] string
+STATS_AUTO_RECALC [=] { DEFAULT | 0 | 1 }
+STATS_PERSISTENT [=] { DEFAULT | 0 | 1 }
+STATS_SAMPLE_PAGES [=] value
+TABLESPACE tablespace [ STORAGE { DISK | MEMORY } ]
+UNION [=] ( table [, ...] )
+
+# PARTOFIS partition_option
+ADD PARTITION ( partition_definition [, ...] )
+
+DROP PARTITION partition [, ...]
+
+DISCARD PARTITION { partition [, ...] | ALL } TABLESPACE
+
+IMPORT PARTITION { partition [, ...] | ALL } TABLESPACE
+
+TRUNCATE PARTITION { partition [, ...] | ALL }
+
+COALESCE PARTITION number
+
+REORGANIZE PARTITION partition [, ...] INTO ( partition_definition [, ...] )
+
+EXCHANGE PARTITION partition WITH TABLE table [ { WITH | WITHOUT } VALIDATION ]
+
+{ ANALYZE | CHECK | OPTIMIZE | REBUILD | REPAIR } PARTITION { partition [, ...] | ALL }
+
+REMOVE PARTITIONING
+
+# WHERE partition_definition
+PARTITION partition
+    [ VALUES { LESS THAN { ( value [, ...] ) | MAXVALUE } | IN ( value [, ...] ) } ]
+    [ [ STORAGE ] ENGINE [=] engine ]
+    [ COMMENT [=] string ]
+    [ DATA DIRECTORY [=] directory ]
+    [ INDEX DIRECTORY [=] directory ]
+    [ MAX_ROWS [=] value ] [ MIN_ROWS [=] value ]
+    [ TABLESPACE [=] tablespace ]

@@ -1,0 +1,26 @@
+# https://dev.mysql.com/doc/refman/8.4/en/create-index.html
+
+CREATE [ UNIQUE | FULLTEXT | SPATIAL ] INDEX index
+    [ USING { BTREE | HASH } ]
+    ON table ( key_part [, ...] )
+    [ index_option ... ]
+    [ algorithm_option | lock_option ] [...]
+
+# WHERE key_part
+{ colname [ ( length ) ] | ( expression ) } [ ASC | DESC ]
+
+# ONEOFIS index_option
+KEY_BLOCK_SIZE [=] value
+USING { BTREE | HASH }
+WITH PARSER parser
+COMMENT string
+VISIBLE
+INVISIBLE
+ENGINE_ATTRIBUTE [=] string
+SECONDARY_ENGINE_ATTRIBUTE [=] string
+
+# WHERE algorithm_option
+ALGORITHM [=] { DEFAULT | INPLACE | COPY }
+
+# WHERE lock_option
+LOCK [=] { DEFAULT | NONE | SHARED | EXCLUSIVE }
