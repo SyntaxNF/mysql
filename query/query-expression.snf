@@ -1,0 +1,33 @@
+# https://dev.mysql.com/doc/refman/8.4/en/parenthesized-query-expressions.html
+
+# CASE PARENTHESIZED
+( query_expression [ order_by_clause ] [ limit_clause ] )
+    [ order_by_clause ]
+    [ limit_clause ]
+    [ into_clause ]
+
+# CASE SET_OPERATION
+query_block [ set_operation query_block ] [...]
+    [ order_by_clause ]
+    [ limit_clause ]
+    [ into_clause ]
+
+# WHERE order_by_clause
+ORDER BY order_expression [, ...]
+
+# WHERE order_expression
+{ colname | expression | position } [ ASC | DESC ]
+
+# WHERE limit_clause
+LIMIT { [ offset , ] row_count | row_count OFFSET offset }
+
+# WHERE into_clause
+INTO { OUTFILE file | DUMPFILE file | variable [, ...] }
+
+# WHERE set_operation
+{ UNION | INTERSECT | EXCEPT } [ ALL | DISTINCT ]
+
+# STATEMENT query_block, query_expression
+SELECT
+TABLE
+VALUES

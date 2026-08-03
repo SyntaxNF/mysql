@@ -1,0 +1,36 @@
+# https://dev.mysql.com/doc/refman/8.4/en/grant.html
+
+# CASE PRIVILEGES
+GRANT privilege [ ( colname [, ...] ) ] [, ...]
+    ON [ object_type ] privilege_level
+    TO account_or_role [, ...]
+    [ WITH GRANT OPTION ]
+    [ AS account [ WITH ROLE role_context ] ]
+
+# CASE PROXY
+GRANT PROXY ON account_or_role
+    TO account_or_role [, ...]
+    [ WITH GRANT OPTION ]
+
+# CASE ROLES
+GRANT role [, ...]
+    TO account_or_role [, ...]
+    [ WITH ADMIN OPTION ]
+
+# WHERE object_type
+{ TABLE | FUNCTION | PROCEDURE }
+
+# ONEOFIS privilege_level
+*
+* . *
+database . *
+database . table
+table
+database . routine
+
+# ONEOFIS role_context
+DEFAULT
+NONE
+ALL
+ALL EXCEPT role [, ...]
+role [, ...]

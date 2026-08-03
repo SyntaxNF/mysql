@@ -1,0 +1,19 @@
+# https://dev.mysql.com/doc/refman/8.4/en/case.html
+
+# CASE SIMPLE
+CASE case_value
+    WHEN when_value THEN statement [; ...]
+    [ WHEN when_value THEN statement [; ...] ] [...]
+    [ ELSE statement [; ...] ]
+END CASE
+
+# CASE SEARCHED
+CASE
+    WHEN boolean_expression THEN statement [; ...]
+    [ WHEN boolean_expression THEN statement [; ...] ] [...]
+    [ ELSE statement [; ...] ]
+END CASE
+
+# STATEMENT statement
+sql_statement
+compound_statement

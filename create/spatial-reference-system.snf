@@ -1,0 +1,15 @@
+# https://dev.mysql.com/doc/refman/8.4/en/create-spatial-reference-system.html
+
+# CASE REPLACE
+CREATE OR REPLACE SPATIAL REFERENCE SYSTEM srid
+    srs_attribute [...]
+
+# CASE NORMAL
+CREATE SPATIAL REFERENCE SYSTEM [ IF NOT EXISTS ] srid
+    srs_attribute [...]
+
+# ONEOFIS srs_attribute
+NAME string
+DEFINITION string
+ORGANIZATION string IDENTIFIED BY organization_id
+DESCRIPTION string

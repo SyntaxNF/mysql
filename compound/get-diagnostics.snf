@@ -1,0 +1,17 @@
+# https://dev.mysql.com/doc/refman/8.4/en/get-diagnostics.html
+
+GET [ CURRENT | STACKED ] DIAGNOSTICS
+    { statement_information | condition_information }
+
+# WHERE statement_information
+statement_item = statement_information_item [, ...]
+
+# WHERE condition_information
+CONDITION condition_number
+    condition_item = condition_information_item [, ...]
+
+# WHERE statement_information_item
+{ NUMBER | ROW_COUNT }
+
+# WHERE condition_information_item
+{ CLASS_ORIGIN | SUBCLASS_ORIGIN | RETURNED_SQLSTATE | MESSAGE_TEXT | MYSQL_ERRNO | CONSTRAINT_CATALOG | CONSTRAINT_SCHEMA | CONSTRAINT_NAME | CATALOG_NAME | SCHEMA_NAME | TABLE_NAME | COLUMN_NAME | CURSOR_NAME }

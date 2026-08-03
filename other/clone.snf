@@ -1,0 +1,10 @@
+# https://dev.mysql.com/doc/refman/8.4/en/clone.html
+
+# CASE LOCAL
+CLONE LOCAL DATA DIRECTORY [=] directory
+
+# CASE INSTANCE
+CLONE INSTANCE FROM account : port
+    IDENTIFIED BY password
+    [ DATA DIRECTORY [=] directory ]
+    [ REQUIRE [ NO ] SSL ]

@@ -1,0 +1,9 @@
+# https://dev.mysql.com/doc/refman/8.4/en/begin-end.html
+
+[ begin_label : ] BEGIN [ NOT ATOMIC ]
+    stored_program_statement [; ...]
+END [ end_label ]
+
+# STATEMENT stored_program_statement
+sql_statement
+compound_statement

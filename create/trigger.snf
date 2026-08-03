@@ -1,0 +1,11 @@
+# https://dev.mysql.com/doc/refman/8.4/en/create-trigger.html
+
+CREATE [ DEFINER = user ] TRIGGER [ IF NOT EXISTS ] trigger
+    { BEFORE | AFTER } { INSERT | UPDATE | DELETE }
+    ON table FOR EACH ROW
+    [ { FOLLOWS | PRECEDES } other_trigger ]
+    trigger_body
+
+# STATEMENT trigger_body
+sql_statement
+compound_statement

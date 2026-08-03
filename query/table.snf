@@ -1,0 +1,18 @@
+# https://dev.mysql.com/doc/refman/8.4/en/table.html
+
+TABLE table
+    [ ORDER BY colname [ ASC | DESC ] [, ...] ]
+    [ LIMIT number [ OFFSET number ] ]
+    [ into_option ]
+
+# ONEOFIS into_option
+INTO OUTFILE file export_option
+INTO DUMPFILE file
+INTO variable [, ...]
+
+# WHERE export_option
+[ { FIELDS | COLUMNS }
+    [ TERMINATED BY string ]
+    [ [ OPTIONALLY ] ENCLOSED BY character ]
+    [ ESCAPED BY character ] ]
+[ LINES [ STARTING BY string ] [ TERMINATED BY string ] ]

@@ -1,0 +1,51 @@
+# https://dev.mysql.com/doc/refman/8.4/en/create-user.html
+
+CREATE USER [ IF NOT EXISTS ]
+    account [ auth_option ] [, ...]
+    [ DEFAULT ROLE role [, ...] ]
+    [ REQUIRE { NONE | tls_option [ [ AND ] tls_option ] ... } ]
+    [ WITH resource_option [ resource_option ] ... ]
+    [ password_option | lock_option ] [...]
+    [ COMMENT string | ATTRIBUTE json ]
+
+# PARTOFIS auth_option
+IDENTIFIED BY { auth_string | RANDOM PASSWORD } [ AND second_auth_option ]
+
+IDENTIFIED WITH auth_plugin [ BY { auth_string | RANDOM PASSWORD } | AS auth_string ]
+[ AND second_auth_option ]
+
+IDENTIFIED WITH auth_plugin initial_auth_option
+
+# WHERE second_auth_option
+IDENTIFIED [ WITH auth_plugin ] [ BY { auth_string | RANDOM PASSWORD } | AS auth_string ] [ AND third_auth_option ]
+
+# WHERE third_auth_option
+IDENTIFIED [ WITH auth_plugin ] [ BY { auth_string | RANDOM PASSWORD } | AS auth_string ]
+
+# WHERE initial_auth_option
+INITIAL AUTHENTICATION IDENTIFIED [ WITH auth_plugin ] { BY { RANDOM PASSWORD | auth_string } | AS auth_string }
+
+# ONEOFIS tls_option
+SSL
+X509
+CIPHER string
+ISSUER string
+SUBJECT string
+
+# ONEOFIS resource_option
+MAX_QUERIES_PER_HOUR count
+MAX_UPDATES_PER_HOUR count
+MAX_CONNECTIONS_PER_HOUR count
+MAX_USER_CONNECTIONS count
+
+# ONEOFIS password_option
+PASSWORD EXPIRE [ DEFAULT | NEVER | INTERVAL number DAY ]
+PASSWORD HISTORY { DEFAULT | number }
+PASSWORD REUSE INTERVAL { DEFAULT | number DAY }
+PASSWORD REQUIRE CURRENT [ DEFAULT | OPTIONAL ]
+FAILED_LOGIN_ATTEMPTS number
+PASSWORD_LOCK_TIME { number | UNBOUNDED }
+
+# ONEOFIS lock_option
+ACCOUNT LOCK
+ACCOUNT UNLOCK

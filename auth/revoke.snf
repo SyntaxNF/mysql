@@ -1,0 +1,33 @@
+# https://dev.mysql.com/doc/refman/8.4/en/revoke.html
+
+# CASE PRIVILEGES
+REVOKE [ IF EXISTS ] privilege [ ( colname [, ...] ) ] [, ...]
+    ON [ object_type ] privilege_level
+    FROM account_or_role [, ...]
+    [ IGNORE UNKNOWN USER ]
+
+# CASE ALL
+REVOKE [ IF EXISTS ] ALL [ PRIVILEGES ], GRANT OPTION
+    FROM account_or_role [, ...]
+    [ IGNORE UNKNOWN USER ]
+
+# CASE PROXY
+REVOKE [ IF EXISTS ] PROXY ON account_or_role
+    FROM account_or_role [, ...]
+    [ IGNORE UNKNOWN USER ]
+
+# CASE ROLES
+REVOKE [ IF EXISTS ] role [, ...]
+    FROM account_or_role [, ...]
+    [ IGNORE UNKNOWN USER ]
+
+# WHERE object_type
+{ TABLE | FUNCTION | PROCEDURE }
+
+# ONEOFIS privilege_level
+*
+* . *
+database . *
+database . table
+table
+database . routine

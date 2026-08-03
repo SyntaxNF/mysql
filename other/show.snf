@@ -1,0 +1,54 @@
+# https://dev.mysql.com/doc/refman/8.4/en/show.html
+
+# CASE SHOW
+show_statement
+
+# ONEOFIS show_statement
+SHOW BINARY LOG STATUS
+SHOW BINARY LOGS
+SHOW BINLOG EVENTS [ IN log ] [ FROM position ] [ LIMIT [ offset , ] row_count ]
+SHOW { CHARACTER SET | CHARSET } [ like_or_where ]
+SHOW COLLATION [ like_or_where ]
+SHOW [ FULL ] COLUMNS FROM table [ FROM database ] [ like_or_where ]
+SHOW CREATE { DATABASE database | EVENT event | FUNCTION function | PROCEDURE procedure | TABLE table | TRIGGER trigger | USER account | VIEW view }
+SHOW DATABASES [ like_or_where ]
+SHOW ENGINE engine { STATUS | MUTEX }
+SHOW [ STORAGE ] ENGINES
+SHOW ERRORS [ LIMIT [ offset , ] row_count ]
+SHOW EVENTS [ FROM database ] [ like_or_where ]
+SHOW FUNCTION CODE function
+SHOW FUNCTION STATUS [ like_or_where ]
+SHOW GRANTS [ FOR account ] [ USING role [, ...] ]
+SHOW INDEX FROM table [ FROM database ]
+SHOW OPEN TABLES [ FROM database ] [ like_or_where ]
+SHOW PLUGINS
+SHOW PROCEDURE CODE procedure
+SHOW PROCEDURE STATUS [ like_or_where ]
+SHOW PRIVILEGES
+SHOW [ FULL ] PROCESSLIST
+SHOW PROFILE [ profile_type [, ...] ] [ FOR QUERY number ] [ OFFSET number ] [ LIMIT number ]
+SHOW PROFILES
+SHOW RELAYLOG EVENTS [ IN log ] [ FROM position ] [ LIMIT [ offset , ] row_count ]
+SHOW REPLICA STATUS [ FOR CHANNEL channel ]
+SHOW REPLICAS
+SHOW [ GLOBAL | SESSION ] STATUS [ like_or_where ]
+SHOW TABLE STATUS [ FROM database ] [ like_or_where ]
+SHOW [ FULL ] TABLES [ FROM database ] [ like_or_where ]
+SHOW TRIGGERS [ FROM database ] [ like_or_where ]
+SHOW [ GLOBAL | SESSION ] VARIABLES [ like_or_where ]
+SHOW WARNINGS [ LIMIT [ offset , ] row_count ]
+
+# ONEOFIS like_or_where
+LIKE pattern
+WHERE expression
+
+# ONEOFIS profile_type
+ALL
+BLOCK IO
+CONTEXT SWITCHES
+CPU
+IPC
+MEMORY
+PAGE FAULTS
+SOURCE
+SWAPS

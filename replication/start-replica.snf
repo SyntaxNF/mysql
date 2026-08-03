@@ -1,0 +1,23 @@
+# https://dev.mysql.com/doc/refman/8.4/en/start-replica.html
+
+START REPLICA
+    [ replication_thread [, ...] ]
+    [ until_option ]
+    [ connection_option ... ]
+    [ FOR CHANNEL channel ]
+
+# ONEOFIS replication_thread
+IO_THREAD
+SQL_THREAD
+
+# ONEOFIS until_option
+UNTIL { SQL_BEFORE_GTIDS | SQL_AFTER_GTIDS } = gtid_set
+UNTIL SOURCE_LOG_FILE = log , SOURCE_LOG_POS = position
+UNTIL RELAY_LOG_FILE = log , RELAY_LOG_POS = position
+UNTIL SQL_AFTER_MTS_GAPS
+
+# ONEOFIS connection_option
+USER = user
+PASSWORD = password
+DEFAULT_AUTH = plugin
+PLUGIN_DIR = directory

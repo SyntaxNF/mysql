@@ -1,0 +1,17 @@
+# https://dev.mysql.com/doc/refman/8.4/en/declare-handler.html
+
+DECLARE { CONTINUE | EXIT | UNDO } HANDLER
+    FOR condition_value [, ...]
+    stored_program_statement
+
+# ONEOFIS condition_value
+SQLSTATE [ VALUE ] sqlstate
+condition
+SQLWARNING
+NOT FOUND
+SQLEXCEPTION
+number
+
+# STATEMENT stored_program_statement
+sql_statement
+compound_statement

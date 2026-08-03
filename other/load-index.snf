@@ -1,0 +1,8 @@
+# https://dev.mysql.com/doc/refman/8.4/en/load-index.html
+
+LOAD INDEX INTO CACHE table_index_list [, ...]
+
+# WHERE table_index_list
+table [ PARTITION ( { partition [, ...] | ALL } ) ]
+    [ { INDEX | KEY } ( index [, ...] ) ]
+    [ IGNORE LEAVES ]

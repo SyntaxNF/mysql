@@ -1,0 +1,15 @@
+# https://dev.mysql.com/doc/refman/8.4/en/load-data.html
+
+LOAD DATA [ LOW_PRIORITY | CONCURRENT ] [ LOCAL ]
+    INFILE file [ REPLACE | IGNORE ]
+    INTO TABLE table
+    [ PARTITION ( partition [, ...] ) ]
+    [ CHARACTER SET charset ]
+    [ { FIELDS | COLUMNS }
+        [ TERMINATED BY string ]
+        [ [ OPTIONALLY ] ENCLOSED BY character ]
+        [ ESCAPED BY character ] ]
+    [ LINES [ STARTING BY string ] [ TERMINATED BY string ] ]
+    [ IGNORE number { LINES | ROWS } ]
+    [ ( colname_or_variable [, ...] ) ]
+    [ SET colname = { expression | DEFAULT } [, ...] ]

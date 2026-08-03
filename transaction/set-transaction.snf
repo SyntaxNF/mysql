@@ -1,0 +1,8 @@
+# https://dev.mysql.com/doc/refman/8.4/en/set-transaction.html
+
+SET [ GLOBAL | SESSION ] TRANSACTION transaction_characteristic [, ...]
+
+# ONEOFIS transaction_characteristic
+ISOLATION LEVEL { REPEATABLE READ | READ COMMITTED | READ UNCOMMITTED | SERIALIZABLE }
+READ WRITE
+READ ONLY

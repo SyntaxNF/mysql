@@ -1,0 +1,9 @@
+# https://dev.mysql.com/doc/refman/8.4/en/loop.html
+
+[ begin_label : ] LOOP
+    statement [; ...]
+END LOOP [ end_label ]
+
+# STATEMENT statement
+sql_statement
+compound_statement

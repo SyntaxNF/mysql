@@ -1,0 +1,14 @@
+{
+  "name": "snf-mysql",
+  "version": "0.0.1",
+  "description": "MySQL 8.4 LTS SNF definitions",
+  "type": "module",
+  "author": {
+    "name": "baskwind",
+    "email": "baskwind@163.com"
+  },
+  "keywords": [
+    "snf",
+    "mysql"
+  ]
+}

@@ -1,0 +1,10 @@
+# https://dev.mysql.com/doc/refman/8.4/en/set-variable.html
+
+SET variable_assignment [, ...]
+
+# PARTOFIS variable_assignment
+[ { GLOBAL | PERSIST | PERSIST_ONLY | SESSION } ] system_variable = expression
+
+[ @@ [ GLOBAL . | PERSIST . | PERSIST_ONLY . | SESSION . ] ] system_variable = expression
+
+@ user_variable = expression

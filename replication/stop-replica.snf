@@ -1,0 +1,5 @@
+# https://dev.mysql.com/doc/refman/8.4/en/stop-replica.html
+
+STOP REPLICA
+    [ { IO_THREAD | SQL_THREAD } [, ...] ]
+    [ FOR CHANNEL channel ]
