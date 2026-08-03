@@ -1,3 +1,7 @@
 # https://dev.mysql.com/doc/refman/8.4/en/reset.html
 
-RESET { BINARY LOGS AND GTIDS | REPLICA } [, ...]
+# CASE BINARY_LOGS_AND_GTIDS
+RESET BINARY LOGS AND GTIDS
+
+# CASE REPLICA
+RESET REPLICA

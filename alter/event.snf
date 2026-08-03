@@ -1,12 +1,17 @@
 # https://dev.mysql.com/doc/refman/8.4/en/alter-event.html
 
+# CASE OPTIONS
 ALTER [ DEFINER = user ] EVENT event
     [ ON SCHEDULE schedule ]
     [ ON COMPLETION [ NOT ] PRESERVE ]
-    [ RENAME TO new_event ]
     [ ENABLE | DISABLE | DISABLE ON { REPLICA | SLAVE } ]
-    [ COMMENT string ]
-    [ DO event_body ]
+    [ COMMENT 'comment' ]
+
+# CASE RENAME
+ALTER [ DEFINER = user ] EVENT event RENAME TO new_event
+
+# CASE BODY
+ALTER [ DEFINER = user ] EVENT event DO event_body
 
 # ONEOFIS schedule
 AT timestamp [ + INTERVAL interval ] [...]

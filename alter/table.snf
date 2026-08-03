@@ -1,10 +1,54 @@
 # https://dev.mysql.com/doc/refman/8.4/en/alter-table.html
 
-ALTER TABLE table
-    [ alter_option [, ...] ]
-    [ partition_option ... ]
+# CASE OPTIONS
+ALTER TABLE table action [, ...]
 
-# PARTOFIS alter_option
+# CASE RENAME_COLUMN
+ALTER TABLE table RENAME COLUMN old_colname TO new_colname
+
+# CASE RENAME_INDEX
+ALTER TABLE table RENAME { INDEX | KEY } old_index TO new_index
+
+# CASE RENAME
+ALTER TABLE table RENAME [ TO | AS ] new_table
+
+# CASE ADD_PARTITION
+ALTER TABLE table ADD PARTITION ( partition_definition [, ...] )
+
+# CASE DROP_PARTITION
+ALTER TABLE table DROP PARTITION partition [, ...]
+
+# CASE DISCARD_PARTITION
+ALTER TABLE table DISCARD PARTITION { partition [, ...] | ALL } TABLESPACE
+
+# CASE IMPORT_PARTITION
+ALTER TABLE table IMPORT PARTITION { partition [, ...] | ALL } TABLESPACE
+
+# CASE TRUNCATE_PARTITION
+ALTER TABLE table TRUNCATE PARTITION { partition [, ...] | ALL }
+
+# CASE COALESCE_PARTITION
+ALTER TABLE table COALESCE PARTITION number
+
+# CASE REORGANIZE_PARTITION
+ALTER TABLE table
+    REORGANIZE PARTITION partition [, ...]
+    INTO ( partition_definition [, ...] )
+
+# CASE EXCHANGE_PARTITION
+ALTER TABLE table
+    EXCHANGE PARTITION partition WITH TABLE table
+    [ { WITH | WITHOUT } VALIDATION ]
+
+# CASE MAINTAIN_PARTITION
+ALTER TABLE table
+    { ANALYZE | CHECK | OPTIMIZE | REBUILD | REPAIR }
+    PARTITION { partition [, ...] | ALL }
+
+# CASE REMOVE_PARTITIONING
+ALTER TABLE table REMOVE PARTITIONING
+
+# PARTOFIS action
 table_option
 
 ADD [ COLUMN ] colname column_definition [ FIRST | AFTER colname ]
@@ -12,16 +56,16 @@ ADD [ COLUMN ] colname column_definition [ FIRST | AFTER colname ]
 ADD [ COLUMN ] ( colname column_definition [, ...] )
 
 ADD { INDEX | KEY } [ index ] [ USING { BTREE | HASH } ]
-( key_part [, ...] ) [ index_option ... ]
+( key_part [, ...] ) index_options
 
 ADD { FULLTEXT | SPATIAL } [ INDEX | KEY ] [ index ]
-( key_part [, ...] ) [ index_option ... ]
+( key_part [, ...] ) index_options
 
 ADD [ CONSTRAINT [ symbol ] ] PRIMARY KEY
-[ USING { BTREE | HASH } ] ( key_part [, ...] ) [ index_option ... ]
+[ USING { BTREE | HASH } ] ( key_part [, ...] ) index_options
 
 ADD [ CONSTRAINT [ symbol ] ] UNIQUE [ INDEX | KEY ] [ index ]
-[ USING { BTREE | HASH } ] ( key_part [, ...] ) [ index_option ... ]
+[ USING { BTREE | HASH } ] ( key_part [, ...] ) index_options
 
 ADD [ CONSTRAINT [ symbol ] ] FOREIGN KEY [ index ]
 ( colname [, ...] ) reference_definition
@@ -64,25 +108,19 @@ MODIFY [ COLUMN ] colname column_definition [ FIRST | AFTER colname ]
 
 ORDER BY colname [, ...]
 
-RENAME COLUMN old_colname TO new_colname
-
-RENAME { INDEX | KEY } old_index TO new_index
-
-RENAME [ TO | AS ] new_table
-
 { WITHOUT | WITH } VALIDATION
 
 # PARTOFIS column_definition
 type [ NOT NULL | NULL ] [ DEFAULT { literal | ( expression ) } ]
 [ VISIBLE | INVISIBLE ] [ AUTO_INCREMENT ] [ UNIQUE [ KEY ] ] [ [ PRIMARY ] KEY ]
-[ COMMENT string ] [ COLLATE collation ]
+[ COMMENT 'comment' ] [ COLLATE collation ]
 [ COLUMN_FORMAT { FIXED | DYNAMIC | DEFAULT } ]
-[ ENGINE_ATTRIBUTE [=] string ] [ SECONDARY_ENGINE_ATTRIBUTE [=] string ]
+[ ENGINE_ATTRIBUTE [=] 'engine_attribute' ] [ SECONDARY_ENGINE_ATTRIBUTE [=] 'secondary_engine_attribute' ]
 [ STORAGE { DISK | MEMORY } ] [ reference_definition ] [ check_constraint_definition ]
 
 type [ COLLATE collation ] [ GENERATED ALWAYS ] AS ( expression )
 [ VIRTUAL | STORED ] [ NOT NULL | NULL ] [ VISIBLE | INVISIBLE ]
-[ UNIQUE [ KEY ] ] [ [ PRIMARY ] KEY ] [ COMMENT string ]
+[ UNIQUE [ KEY ] ] [ [ PRIMARY ] KEY ] [ COMMENT 'comment' ]
 [ reference_definition ] [ check_constraint_definition ]
 
 # WHERE key_part
@@ -100,15 +138,13 @@ REFERENCES table ( key_part [, ...] )
 # WHERE check_constraint_definition
 [ CONSTRAINT [ symbol ] ] CHECK ( expression ) [ [ NOT ] ENFORCED ]
 
-# ONEOFIS index_option
-KEY_BLOCK_SIZE [=] value
-USING { BTREE | HASH }
-WITH PARSER parser
-COMMENT string
-VISIBLE
-INVISIBLE
-ENGINE_ATTRIBUTE [=] string
-SECONDARY_ENGINE_ATTRIBUTE [=] string
+# WHERE index_options
+[ KEY_BLOCK_SIZE [=] value ]
+[ WITH PARSER parser ]
+[ COMMENT 'comment' ]
+[ VISIBLE | INVISIBLE ]
+[ ENGINE_ATTRIBUTE [=] 'engine_attribute' ]
+[ SECONDARY_ENGINE_ATTRIBUTE [=] 'secondary_engine_attribute' ]
 
 # ONEOFIS table_option
 AUTOEXTEND_SIZE [=] value
@@ -117,55 +153,34 @@ AVG_ROW_LENGTH [=] value
 [ DEFAULT ] CHARACTER SET [=] charset
 CHECKSUM [=] { 0 | 1 }
 [ DEFAULT ] COLLATE [=] collation
-COMMENT [=] string
+COMMENT [=] 'comment'
 COMPRESSION [=] { 'ZLIB' | 'LZ4' | 'NONE' }
-CONNECTION [=] string
-{ DATA | INDEX } DIRECTORY [=] directory
+CONNECTION [=] 'connection'
+{ DATA | INDEX } DIRECTORY [=] 'directory'
 DELAY_KEY_WRITE [=] { 0 | 1 }
 ENCRYPTION [=] { 'Y' | 'N' }
 ENGINE [=] engine
-ENGINE_ATTRIBUTE [=] string
+ENGINE_ATTRIBUTE [=] 'engine_attribute'
 INSERT_METHOD [=] { NO | FIRST | LAST }
 KEY_BLOCK_SIZE [=] value
 MAX_ROWS [=] value
 MIN_ROWS [=] value
 PACK_KEYS [=] { 0 | 1 | DEFAULT }
-PASSWORD [=] string
+PASSWORD [=] 'password'
 ROW_FORMAT [=] { DEFAULT | DYNAMIC | FIXED | COMPRESSED | REDUNDANT | COMPACT }
-SECONDARY_ENGINE_ATTRIBUTE [=] string
+SECONDARY_ENGINE_ATTRIBUTE [=] 'secondary_engine_attribute'
 STATS_AUTO_RECALC [=] { DEFAULT | 0 | 1 }
 STATS_PERSISTENT [=] { DEFAULT | 0 | 1 }
 STATS_SAMPLE_PAGES [=] value
 TABLESPACE tablespace [ STORAGE { DISK | MEMORY } ]
 UNION [=] ( table [, ...] )
 
-# PARTOFIS partition_option
-ADD PARTITION ( partition_definition [, ...] )
-
-DROP PARTITION partition [, ...]
-
-DISCARD PARTITION { partition [, ...] | ALL } TABLESPACE
-
-IMPORT PARTITION { partition [, ...] | ALL } TABLESPACE
-
-TRUNCATE PARTITION { partition [, ...] | ALL }
-
-COALESCE PARTITION number
-
-REORGANIZE PARTITION partition [, ...] INTO ( partition_definition [, ...] )
-
-EXCHANGE PARTITION partition WITH TABLE table [ { WITH | WITHOUT } VALIDATION ]
-
-{ ANALYZE | CHECK | OPTIMIZE | REBUILD | REPAIR } PARTITION { partition [, ...] | ALL }
-
-REMOVE PARTITIONING
-
 # WHERE partition_definition
 PARTITION partition
     [ VALUES { LESS THAN { ( value [, ...] ) | MAXVALUE } | IN ( value [, ...] ) } ]
     [ [ STORAGE ] ENGINE [=] engine ]
-    [ COMMENT [=] string ]
-    [ DATA DIRECTORY [=] directory ]
-    [ INDEX DIRECTORY [=] directory ]
+    [ COMMENT [=] 'comment' ]
+    [ DATA DIRECTORY [=] 'directory' ]
+    [ INDEX DIRECTORY [=] 'directory' ]
     [ MAX_ROWS [=] value ] [ MIN_ROWS [=] value ]
     [ TABLESPACE [=] tablespace ]

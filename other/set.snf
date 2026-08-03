@@ -1,10 +1,25 @@
 # https://dev.mysql.com/doc/refman/8.4/en/set-variable.html
 
-SET variable_assignment [, ...]
+# CASE SYSTEM_VARIABLE
+SET system_variable_assignment [, ...]
 
-# PARTOFIS variable_assignment
-[ { GLOBAL | PERSIST | PERSIST_ONLY | SESSION } ] system_variable = expression
+# CASE SYSTEM_VARIABLE_REFERENCE
+SET system_variable_reference_assignment [, ...]
 
-[ @@ [ GLOBAL . | PERSIST . | PERSIST_ONLY . | SESSION . ] ] system_variable = expression
+# CASE USER_VARIABLE
+SET user_variable_assignment [, ...]
 
-@ user_variable = expression
+# CASE LOCAL_OR_PARAMETER_VARIABLE
+SET local_or_parameter_variable_assignment [, ...]
+
+# WHERE system_variable_assignment
+[ { GLOBAL | PERSIST | PERSIST_ONLY | SESSION } ] system_variable { = | := } expression
+
+# WHERE system_variable_reference_assignment
+{ @@GLOBAL.system_variable | @@PERSIST.system_variable | @@PERSIST_ONLY.system_variable | @@SESSION.system_variable | @@system_variable } { = | := } expression
+
+# WHERE user_variable_assignment
+@user_variable { = | := } expression
+
+# WHERE local_or_parameter_variable_assignment
+{ local_variable | parameter } { = | := } expression

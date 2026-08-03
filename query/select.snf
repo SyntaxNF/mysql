@@ -6,18 +6,15 @@ SELECT [ ALL | DISTINCT | DISTINCTROW ]
     [ SQL_SMALL_RESULT ] [ SQL_BIG_RESULT ] [ SQL_BUFFER_RESULT ]
     [ SQL_NO_CACHE ] [ SQL_CALC_FOUND_ROWS ]
     select_expression [, ...]
-    [ into_option ]
-    [ FROM table_reference [, ...] [ PARTITION partition [, ...] ] ]
+    [ FROM table_reference [, ...] ]
     [ WHERE boolean_expression ]
     [ GROUP BY group_expression [, ...] [ WITH ROLLUP ] | ROLLUP ( group_expression [, ...] ) ]
     [ HAVING boolean_expression ]
     [ WINDOW window AS ( window_specification ) [, ...] ]
     [ ORDER BY order_expression [, ...] [ WITH ROLLUP ] ]
     [ LIMIT { [ offset , ] row_count | row_count OFFSET offset } ]
-    [ into_option ]
     [ locking_clause ]
     [ into_option ]
-    [ set_operation query_block ] [...]
 
 # WHERE common_table_expression
 name [ ( colname [, ...] ) ] AS ( query_expression )
@@ -27,13 +24,15 @@ name [ ( colname [, ...] ) ] AS ( query_expression )
 
 # PARTOFIS table_reference
 table [ PARTITION ( partition [, ...] ) ]
-[ [ AS ] alias [ ( colname [, ...] ) ] ] [ index_hint ... ]
+[ [ AS ] alias [ ( colname [, ...] ) ] ] [ index_hint ]
 
 [ LATERAL ] table_function [ AS ] alias [ ( colname [, ...] ) ]
 
 ( table_reference [, ...] )
 
-table_reference [ INNER | CROSS ] JOIN table_reference [ join_condition ]
+table_reference [ INNER ] JOIN table_reference [ join_condition ]
+
+table_reference CROSS JOIN table_reference
 
 table_reference STRAIGHT_JOIN table_reference [ ON boolean_expression ]
 
@@ -75,28 +74,20 @@ expression FOLLOWING
 UNBOUNDED FOLLOWING
 
 # ONEOFIS into_option
-INTO OUTFILE file [ CHARACTER SET charset ] export_option
-INTO DUMPFILE file
+INTO OUTFILE 'file' [ CHARACTER SET charset ] export_option
+INTO DUMPFILE 'file'
 INTO variable [, ...]
 
 # WHERE export_option
 [ { FIELDS | COLUMNS }
-    [ TERMINATED BY string ]
-    [ [ OPTIONALLY ] ENCLOSED BY character ]
-    [ ESCAPED BY character ] ]
-[ LINES [ STARTING BY string ] [ TERMINATED BY string ] ]
+    [ TERMINATED BY 'string' ]
+    [ [ OPTIONALLY ] ENCLOSED BY 'character' ]
+    [ ESCAPED BY 'character' ] ]
+[ LINES [ STARTING BY 'string' ] [ TERMINATED BY 'string' ] ]
 
 # ONEOFIS locking_clause
 FOR { UPDATE | SHARE } [ OF table [, ...] ] [ NOWAIT | SKIP LOCKED ]
 LOCK IN SHARE MODE
-
-# WHERE set_operation
-{ UNION | INTERSECT | EXCEPT } [ ALL | DISTINCT ]
-
-# STATEMENT query_block
-SELECT
-TABLE
-VALUES
 
 # STATEMENT query_expression
 SELECT

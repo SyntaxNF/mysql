@@ -1,5 +1,6 @@
 # https://dev.mysql.com/doc/refman/8.4/en/alter-view.html
 
+# CASE DEFINITION
 ALTER [ ALGORITHM = { UNDEFINED | MERGE | TEMPTABLE } ]
     [ DEFINER = user ]
     [ SQL SECURITY { DEFINER | INVOKER } ]

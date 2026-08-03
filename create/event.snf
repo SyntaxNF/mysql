@@ -4,7 +4,7 @@ CREATE [ DEFINER = user ] EVENT [ IF NOT EXISTS ] event
     ON SCHEDULE schedule
     [ ON COMPLETION [ NOT ] PRESERVE ]
     [ ENABLE | DISABLE | DISABLE ON { REPLICA | SLAVE } ]
-    [ COMMENT string ]
+    [ COMMENT 'comment' ]
     DO event_body
 
 # ONEOFIS schedule

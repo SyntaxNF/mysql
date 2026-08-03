@@ -1,0 +1,47 @@
+# https://dev.mysql.com/doc/refman/8.4/en/alter-user.html
+
+# CASE CURRENT_PASSWORD
+ALTER USER [ IF EXISTS ] USER ( ) IDENTIFIED BY 'auth_string'
+    [ REPLACE 'current_auth_string' ]
+    [ RETAIN CURRENT PASSWORD | DISCARD OLD PASSWORD ]
+
+# CASE OPTIONS
+ALTER USER [ IF EXISTS ]
+    account [ auth_option ] [, ...]
+    [ REQUIRE { NONE | tls_requirements } ]
+    [ WITH resource_options ]
+    [ PASSWORD EXPIRE [ DEFAULT | NEVER | INTERVAL number DAY ] ]
+    [ PASSWORD HISTORY { DEFAULT | number } ]
+    [ PASSWORD REUSE INTERVAL { DEFAULT | number DAY } ]
+    [ PASSWORD REQUIRE CURRENT [ DEFAULT | OPTIONAL ] ]
+    [ FAILED_LOGIN_ATTEMPTS number ]
+    [ PASSWORD_LOCK_TIME { number | UNBOUNDED } ]
+    [ ACCOUNT LOCK | ACCOUNT UNLOCK ]
+    [ COMMENT 'comment' | ATTRIBUTE 'json' ]
+
+# CASE REGISTRATION
+ALTER USER [ IF EXISTS ] account
+    [ MODIFY factor ] FINISH REGISTRATION SET CHALLENGE_RESPONSE AS 'auth_string'
+
+# ONEOFIS auth_option
+IDENTIFIED BY 'auth_string' [ REPLACE 'current_auth_string' ] [ RETAIN CURRENT PASSWORD | DISCARD OLD PASSWORD ]
+IDENTIFIED BY RANDOM PASSWORD [ RETAIN CURRENT PASSWORD | DISCARD OLD PASSWORD ]
+IDENTIFIED WITH auth_plugin [ BY 'auth_string' | BY RANDOM PASSWORD | AS 'auth_string' ]
+ADD factor IDENTIFIED WITH auth_plugin [ BY 'auth_string' | BY RANDOM PASSWORD ]
+MODIFY factor IDENTIFIED WITH auth_plugin [ BY 'auth_string' | BY RANDOM PASSWORD ]
+DROP factor
+
+# WHERE factor
+{ 2 | 3 } FACTOR
+
+# WHERE tls_requirements
+[ SSL | X509 ]
+[ [ AND ] CIPHER 'cipher' ]
+[ [ AND ] ISSUER 'issuer' ]
+[ [ AND ] SUBJECT 'subject' ]
+
+# WHERE resource_options
+[ MAX_QUERIES_PER_HOUR count ]
+[ MAX_UPDATES_PER_HOUR count ]
+[ MAX_CONNECTIONS_PER_HOUR count ]
+[ MAX_USER_CONNECTIONS count ]

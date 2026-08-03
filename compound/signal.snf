@@ -4,7 +4,7 @@ SIGNAL condition_value
     [ SET condition_information_item = value [, ...] ]
 
 # ONEOFIS condition_value
-SQLSTATE [ VALUE ] sqlstate
+SQLSTATE [ VALUE ] 'sqlstate'
 condition
 
 # WHERE condition_information_item

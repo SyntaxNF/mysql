@@ -1,9 +1,11 @@
 # https://dev.mysql.com/doc/refman/8.4/en/repeat.html
 
-[ begin_label : ] REPEAT
+[ begin_label : ]
+REPEAT
     statement [; ...]
 UNTIL boolean_expression
-END REPEAT [ end_label ]
+END REPEAT
+[ end_label ]
 
 # STATEMENT statement
 sql_statement

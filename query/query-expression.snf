@@ -22,7 +22,7 @@ ORDER BY order_expression [, ...]
 LIMIT { [ offset , ] row_count | row_count OFFSET offset }
 
 # WHERE into_clause
-INTO { OUTFILE file | DUMPFILE file | variable [, ...] }
+INTO { OUTFILE 'file' | DUMPFILE 'file' | variable [, ...] }
 
 # WHERE set_operation
 { UNION | INTERSECT | EXCEPT } [ ALL | DISTINCT ]

@@ -2,4 +2,8 @@
 
 CHECK TABLE table [, ...]
     [ FOR UPGRADE ]
-    [ QUICK | FAST | MEDIUM | EXTENDED | CHANGED ] [...]
+    [ QUICK ]
+    [ FAST ]
+    [ MEDIUM ]
+    [ EXTENDED ]
+    [ CHANGED ]

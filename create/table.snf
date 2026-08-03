@@ -4,13 +4,13 @@
 CREATE [ TEMPORARY ] TABLE [ IF NOT EXISTS ] table (
     create_definition [, ...]
 )
-    [ table_option [[,] table_option] ... ]
+    table_options
     [ partition_options ]
 
 # CASE QUERY
 CREATE [ TEMPORARY ] TABLE [ IF NOT EXISTS ] table
     [ ( create_definition [, ...] ) ]
-    [ table_option [[,] table_option] ... ]
+    table_options
     [ partition_options ]
     [ IGNORE | REPLACE ] [ AS ] query_expression
 
@@ -20,38 +20,36 @@ CREATE [ TEMPORARY ] TABLE [ IF NOT EXISTS ] table
 
 # ONEOFIS create_definition
 colname column_definition
-{ INDEX | KEY } [ index ] [ USING { BTREE | HASH } ] ( key_part [, ...] ) [ index_option ... ]
-{ FULLTEXT | SPATIAL } [ INDEX | KEY ] [ index ] ( key_part [, ...] ) [ index_option ... ]
-[ CONSTRAINT [ symbol ] ] PRIMARY KEY [ USING { BTREE | HASH } ] ( key_part [, ...] ) [ index_option ... ]
-[ CONSTRAINT [ symbol ] ] UNIQUE [ INDEX | KEY ] [ index ] [ USING { BTREE | HASH } ] ( key_part [, ...] ) [ index_option ... ]
+{ INDEX | KEY } [ index ] [ USING { BTREE | HASH } ] ( key_part [, ...] ) index_options
+{ FULLTEXT | SPATIAL } [ INDEX | KEY ] [ index ] ( key_part [, ...] ) index_options
+[ CONSTRAINT [ symbol ] ] PRIMARY KEY [ USING { BTREE | HASH } ] ( key_part [, ...] ) index_options
+[ CONSTRAINT [ symbol ] ] UNIQUE [ INDEX | KEY ] [ index ] [ USING { BTREE | HASH } ] ( key_part [, ...] ) index_options
 [ CONSTRAINT [ symbol ] ] FOREIGN KEY [ index ] ( colname [, ...] ) reference_definition
 check_constraint_definition
 
 # PARTOFIS column_definition
 type [ NOT NULL | NULL ] [ DEFAULT { literal | ( expression ) } ]
 [ VISIBLE | INVISIBLE ] [ AUTO_INCREMENT ] [ UNIQUE [ KEY ] ] [ [ PRIMARY ] KEY ]
-[ COMMENT string ] [ COLLATE collation ]
+[ COMMENT 'comment' ] [ COLLATE collation ]
 [ COLUMN_FORMAT { FIXED | DYNAMIC | DEFAULT } ]
-[ ENGINE_ATTRIBUTE [=] string ] [ SECONDARY_ENGINE_ATTRIBUTE [=] string ]
+[ ENGINE_ATTRIBUTE [=] 'engine_attribute' ] [ SECONDARY_ENGINE_ATTRIBUTE [=] 'secondary_engine_attribute' ]
 [ STORAGE { DISK | MEMORY } ] [ reference_definition ] [ check_constraint_definition ]
 
 type [ COLLATE collation ] [ GENERATED ALWAYS ] AS ( expression )
 [ VIRTUAL | STORED ] [ NOT NULL | NULL ] [ VISIBLE | INVISIBLE ]
-[ UNIQUE [ KEY ] ] [ [ PRIMARY ] KEY ] [ COMMENT string ]
+[ UNIQUE [ KEY ] ] [ [ PRIMARY ] KEY ] [ COMMENT 'comment' ]
 [ reference_definition ] [ check_constraint_definition ]
 
 # WHERE key_part
 { colname [ ( length ) ] | ( expression ) } [ ASC | DESC ]
 
-# ONEOFIS index_option
-KEY_BLOCK_SIZE [=] value
-USING { BTREE | HASH }
-WITH PARSER parser
-COMMENT string
-VISIBLE
-INVISIBLE
-ENGINE_ATTRIBUTE [=] string
-SECONDARY_ENGINE_ATTRIBUTE [=] string
+# WHERE index_options
+[ KEY_BLOCK_SIZE [=] value ]
+[ WITH PARSER parser ]
+[ COMMENT 'comment' ]
+[ VISIBLE | INVISIBLE ]
+[ ENGINE_ATTRIBUTE [=] 'engine_attribute' ]
+[ SECONDARY_ENGINE_ATTRIBUTE [=] 'secondary_engine_attribute' ]
 
 # WHERE check_constraint_definition
 [ CONSTRAINT [ symbol ] ] CHECK ( expression ) [ [ NOT ] ENFORCED ]
@@ -65,36 +63,40 @@ REFERENCES table ( key_part [, ...] )
 # WHERE reference_action
 { RESTRICT | CASCADE | SET NULL | NO ACTION | SET DEFAULT }
 
-# ONEOFIS table_option
-AUTOEXTEND_SIZE [=] value
-AUTO_INCREMENT [=] value
-AVG_ROW_LENGTH [=] value
-[ DEFAULT ] CHARACTER SET [=] charset
-CHECKSUM [=] { 0 | 1 }
-[ DEFAULT ] COLLATE [=] collation
-COMMENT [=] string
-COMPRESSION [=] { 'ZLIB' | 'LZ4' | 'NONE' }
-CONNECTION [=] string
-{ DATA | INDEX } DIRECTORY [=] directory
-DELAY_KEY_WRITE [=] { 0 | 1 }
-ENCRYPTION [=] { 'Y' | 'N' }
-ENGINE [=] engine
-ENGINE_ATTRIBUTE [=] string
-INSERT_METHOD [=] { NO | FIRST | LAST }
-KEY_BLOCK_SIZE [=] value
-MAX_ROWS [=] value
-MIN_ROWS [=] value
-PACK_KEYS [=] { 0 | 1 | DEFAULT }
-PASSWORD [=] string
-ROW_FORMAT [=] { DEFAULT | DYNAMIC | FIXED | COMPRESSED | REDUNDANT | COMPACT }
-START TRANSACTION
-SECONDARY_ENGINE_ATTRIBUTE [=] string
-STATS_AUTO_RECALC [=] { DEFAULT | 0 | 1 }
-STATS_PERSISTENT [=] { DEFAULT | 0 | 1 }
-STATS_SAMPLE_PAGES [=] value
+# WHERE table_options
+[ AUTOEXTEND_SIZE [=] value ]
+[ AUTO_INCREMENT [=] value ]
+[ AVG_ROW_LENGTH [=] value ]
+[ [ DEFAULT ] CHARACTER SET [=] charset ]
+[ CHECKSUM [=] { 0 | 1 } ]
+[ [ DEFAULT ] COLLATE [=] collation ]
+[ COMMENT [=] 'comment' ]
+[ COMPRESSION [=] { 'ZLIB' | 'LZ4' | 'NONE' } ]
+[ CONNECTION [=] 'connection' ]
+[ DATA DIRECTORY [=] 'directory' ]
+[ INDEX DIRECTORY [=] 'directory' ]
+[ DELAY_KEY_WRITE [=] { 0 | 1 } ]
+[ ENCRYPTION [=] { 'Y' | 'N' } ]
+[ ENGINE [=] engine ]
+[ ENGINE_ATTRIBUTE [=] 'engine_attribute' ]
+[ INSERT_METHOD [=] { NO | FIRST | LAST } ]
+[ KEY_BLOCK_SIZE [=] value ]
+[ MAX_ROWS [=] value ]
+[ MIN_ROWS [=] value ]
+[ PACK_KEYS [=] { 0 | 1 | DEFAULT } ]
+[ PASSWORD [=] 'password' ]
+[ ROW_FORMAT [=] { DEFAULT | DYNAMIC | FIXED | COMPRESSED | REDUNDANT | COMPACT } ]
+[ START TRANSACTION ]
+[ SECONDARY_ENGINE_ATTRIBUTE [=] 'secondary_engine_attribute' ]
+[ STATS_AUTO_RECALC [=] { DEFAULT | 0 | 1 } ]
+[ STATS_PERSISTENT [=] { DEFAULT | 0 | 1 } ]
+[ STATS_SAMPLE_PAGES [=] value ]
+[ tablespace_option ]
+[ UNION [=] ( table [, ...] ) ]
+
+# ONEOFIS tablespace_option
 TABLESPACE tablespace [ STORAGE DISK ]
 [ TABLESPACE tablespace ] STORAGE MEMORY
-UNION [=] ( table [, ...] )
 
 # WHERE partition_options
 PARTITION BY partition_method
@@ -116,9 +118,9 @@ LIST { ( expression ) | COLUMNS ( colname [, ...] ) }
 PARTITION partition
     [ VALUES { LESS THAN { ( value [, ...] ) | MAXVALUE } | IN ( value [, ...] ) } ]
     [ [ STORAGE ] ENGINE [=] engine ]
-    [ COMMENT [=] string ]
-    [ DATA DIRECTORY [=] directory ]
-    [ INDEX DIRECTORY [=] directory ]
+    [ COMMENT [=] 'comment' ]
+    [ DATA DIRECTORY [=] 'directory' ]
+    [ INDEX DIRECTORY [=] 'directory' ]
     [ MAX_ROWS [=] value ] [ MIN_ROWS [=] value ]
     [ TABLESPACE [=] tablespace ]
     [ ( subpartition_definition [, ...] ) ]
@@ -126,9 +128,9 @@ PARTITION partition
 # WHERE subpartition_definition
 SUBPARTITION subpartition
     [ [ STORAGE ] ENGINE [=] engine ]
-    [ COMMENT [=] string ]
-    [ DATA DIRECTORY [=] directory ]
-    [ INDEX DIRECTORY [=] directory ]
+    [ COMMENT [=] 'comment' ]
+    [ DATA DIRECTORY [=] 'directory' ]
+    [ INDEX DIRECTORY [=] 'directory' ]
     [ MAX_ROWS [=] value ] [ MIN_ROWS [=] value ]
     [ TABLESPACE [=] tablespace ]
 

@@ -1,3 +1,3 @@
 # https://dev.mysql.com/doc/refman/8.4/en/install-plugin.html
 
-INSTALL PLUGIN plugin SONAME shared_library
+INSTALL PLUGIN plugin SONAME 'shared_library'
