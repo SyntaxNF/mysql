@@ -2,27 +2,27 @@
 
 # CASE SINGLE_TABLE
 DELETE [ LOW_PRIORITY ] [ QUICK ] [ IGNORE ]
-    FROM table [ [ AS ] alias ]
+    FROM table [ [ AS ] table_alias ]
     [ PARTITION ( partition [, ...] ) ]
     [ WHERE boolean_expression ]
-    [ ORDER BY order_expression [, ...] ]
-    [ LIMIT row_count ]
+    [ ORDER BY order_by_expression [, ...] ]
+    [ LIMIT limit ]
 
 # CASE MULTI_TABLE_FROM
 DELETE [ LOW_PRIORITY ] [ QUICK ] [ IGNORE ]
     table [ . * ] [, ...]
-    FROM table_reference [, ...]
+    FROM from_expression [, ...]
     [ WHERE boolean_expression ]
 
 # CASE MULTI_TABLE_USING
 DELETE [ LOW_PRIORITY ] [ QUICK ] [ IGNORE ]
     FROM table [ . * ] [, ...]
-    USING table_reference [, ...]
+    USING from_expression [, ...]
     [ WHERE boolean_expression ]
 
-# WHERE order_expression
-{ colname | expression } [ ASC | DESC ]
+# WHERE order_by_expression
+{ colname | col_expression } [ ASC | DESC ]
 
-# STATEMENT table_reference
+# STATEMENT from_expression
 table
 joined_table

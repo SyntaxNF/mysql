@@ -1,3 +1,3 @@
 # https://dev.mysql.com/doc/refman/8.4/en/drop-trigger.html
 
-DROP TRIGGER [ IF EXISTS ] [ schema . ] trigger
+DROP TRIGGER [ IF EXISTS ] [ schema . ] name

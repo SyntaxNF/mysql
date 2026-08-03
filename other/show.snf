@@ -7,7 +7,7 @@ SHOW BINARY LOG STATUS
 SHOW BINARY LOGS
 
 # CASE BINLOG_EVENTS
-SHOW BINLOG EVENTS [ IN 'log' ] [ FROM position ] [ LIMIT [ offset , ] row_count ]
+SHOW BINLOG EVENTS [ IN 'log' ] [ FROM position ] [ LIMIT [ offset , ] limit ]
 
 # CASE CHARACTER_SET
 SHOW { CHARACTER SET | CHARSET } [ like_or_where ]
@@ -52,7 +52,7 @@ SHOW ENGINE engine { STATUS | MUTEX }
 SHOW [ STORAGE ] ENGINES
 
 # CASE ERRORS
-SHOW ERRORS [ LIMIT [ offset , ] row_count ]
+SHOW ERRORS [ LIMIT [ offset , ] limit ]
 
 # CASE EVENTS
 SHOW EVENTS [ FROM database ] [ like_or_where ]
@@ -88,13 +88,13 @@ SHOW PRIVILEGES
 SHOW [ FULL ] PROCESSLIST
 
 # CASE PROFILE
-SHOW PROFILE [ profile_type [, ...] ] [ FOR QUERY number ] [ LIMIT row_count [ OFFSET offset ] ]
+SHOW PROFILE [ profile_type [, ...] ] [ FOR QUERY number ] [ LIMIT limit [ OFFSET offset ] ]
 
 # CASE PROFILES
 SHOW PROFILES
 
 # CASE RELAYLOG_EVENTS
-SHOW RELAYLOG EVENTS [ IN 'log' ] [ FROM position ] [ LIMIT [ offset , ] row_count ]
+SHOW RELAYLOG EVENTS [ IN 'log' ] [ FROM position ] [ LIMIT [ offset , ] limit ]
 
 # CASE REPLICA_STATUS
 SHOW REPLICA STATUS [ FOR CHANNEL 'channel' ]
@@ -118,11 +118,11 @@ SHOW TRIGGERS [ FROM database ] [ like_or_where ]
 SHOW [ GLOBAL | SESSION ] VARIABLES [ like_or_where ]
 
 # CASE WARNINGS
-SHOW WARNINGS [ LIMIT [ offset , ] row_count ]
+SHOW WARNINGS [ LIMIT [ offset , ] limit ]
 
 # ONEOFIS like_or_where
 LIKE 'pattern'
-WHERE expression
+WHERE boolean_expression
 
 # ONEOFIS profile_type
 ALL

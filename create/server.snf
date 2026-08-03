@@ -1,6 +1,6 @@
 # https://dev.mysql.com/doc/refman/8.4/en/create-server.html
 
-CREATE SERVER server FOREIGN DATA WRAPPER wrapper OPTIONS (
+CREATE SERVER name FOREIGN DATA WRAPPER wrapper OPTIONS (
     [ HOST 'host', ]
     [ DATABASE 'database', ]
     [ USER 'user', ]

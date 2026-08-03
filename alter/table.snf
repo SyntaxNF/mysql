@@ -1,52 +1,52 @@
 # https://dev.mysql.com/doc/refman/8.4/en/alter-table.html
 
 # CASE OPTIONS
-ALTER TABLE table action [, ...]
+ALTER TABLE name action [, ...]
 
 # CASE RENAME_COLUMN
-ALTER TABLE table RENAME COLUMN old_colname TO new_colname
+ALTER TABLE name RENAME COLUMN colname TO new_colname
 
 # CASE RENAME_INDEX
-ALTER TABLE table RENAME { INDEX | KEY } old_index TO new_index
+ALTER TABLE name RENAME { INDEX | KEY } index TO new_index
 
 # CASE RENAME
-ALTER TABLE table RENAME [ TO | AS ] new_table
+ALTER TABLE name RENAME [ TO | AS ] new_name
 
 # CASE ADD_PARTITION
-ALTER TABLE table ADD PARTITION ( partition_definition [, ...] )
+ALTER TABLE name ADD PARTITION ( partition_definition [, ...] )
 
 # CASE DROP_PARTITION
-ALTER TABLE table DROP PARTITION partition [, ...]
+ALTER TABLE name DROP PARTITION partition [, ...]
 
 # CASE DISCARD_PARTITION
-ALTER TABLE table DISCARD PARTITION { partition [, ...] | ALL } TABLESPACE
+ALTER TABLE name DISCARD PARTITION { partition [, ...] | ALL } TABLESPACE
 
 # CASE IMPORT_PARTITION
-ALTER TABLE table IMPORT PARTITION { partition [, ...] | ALL } TABLESPACE
+ALTER TABLE name IMPORT PARTITION { partition [, ...] | ALL } TABLESPACE
 
 # CASE TRUNCATE_PARTITION
-ALTER TABLE table TRUNCATE PARTITION { partition [, ...] | ALL }
+ALTER TABLE name TRUNCATE PARTITION { partition [, ...] | ALL }
 
 # CASE COALESCE_PARTITION
-ALTER TABLE table COALESCE PARTITION number
+ALTER TABLE name COALESCE PARTITION number
 
 # CASE REORGANIZE_PARTITION
-ALTER TABLE table
+ALTER TABLE name
     REORGANIZE PARTITION partition [, ...]
     INTO ( partition_definition [, ...] )
 
 # CASE EXCHANGE_PARTITION
-ALTER TABLE table
+ALTER TABLE name
     EXCHANGE PARTITION partition WITH TABLE table
     [ { WITH | WITHOUT } VALIDATION ]
 
 # CASE MAINTAIN_PARTITION
-ALTER TABLE table
+ALTER TABLE name
     { ANALYZE | CHECK | OPTIMIZE | REBUILD | REPAIR }
     PARTITION { partition [, ...] | ALL }
 
 # CASE REMOVE_PARTITIONING
-ALTER TABLE table REMOVE PARTITIONING
+ALTER TABLE name REMOVE PARTITIONING
 
 # PARTOFIS action
 table_option
@@ -56,37 +56,37 @@ ADD [ COLUMN ] colname column_definition [ FIRST | AFTER colname ]
 ADD [ COLUMN ] ( colname column_definition [, ...] )
 
 ADD { INDEX | KEY } [ index ] [ USING { BTREE | HASH } ]
-( key_part [, ...] ) index_options
+( index_column_expression [, ...] ) index_options
 
 ADD { FULLTEXT | SPATIAL } [ INDEX | KEY ] [ index ]
-( key_part [, ...] ) index_options
+( index_column_expression [, ...] ) index_options
 
-ADD [ CONSTRAINT [ symbol ] ] PRIMARY KEY
-[ USING { BTREE | HASH } ] ( key_part [, ...] ) index_options
+ADD [ CONSTRAINT [ constraint ] ] PRIMARY KEY
+[ USING { BTREE | HASH } ] ( index_column_expression [, ...] ) index_options
 
-ADD [ CONSTRAINT [ symbol ] ] UNIQUE [ INDEX | KEY ] [ index ]
-[ USING { BTREE | HASH } ] ( key_part [, ...] ) index_options
+ADD [ CONSTRAINT [ constraint ] ] UNIQUE [ INDEX | KEY ] [ index ]
+[ USING { BTREE | HASH } ] ( index_column_expression [, ...] ) index_options
 
-ADD [ CONSTRAINT [ symbol ] ] FOREIGN KEY [ index ]
-( colname [, ...] ) reference_definition
+ADD [ CONSTRAINT [ constraint ] ] FOREIGN KEY [ index ]
+( colname [, ...] ) references
 
-ADD [ CONSTRAINT [ symbol ] ] CHECK ( expression ) [ [ NOT ] ENFORCED ]
+ADD [ CONSTRAINT [ constraint ] ] CHECK ( boolean_expression ) [ [ NOT ] ENFORCED ]
 
-DROP { CHECK | CONSTRAINT } symbol
+DROP { CHECK | CONSTRAINT } constraint
 
-ALTER { CHECK | CONSTRAINT } symbol [ NOT ] ENFORCED
+ALTER { CHECK | CONSTRAINT } constraint [ NOT ] ENFORCED
 
 ALGORITHM [=] { DEFAULT | INSTANT | INPLACE | COPY }
 
-ALTER [ COLUMN ] colname { SET DEFAULT { literal | ( expression ) } | SET { VISIBLE | INVISIBLE } | DROP DEFAULT }
+ALTER [ COLUMN ] colname { SET DEFAULT { value | ( value_expression ) } | SET { VISIBLE | INVISIBLE } | DROP DEFAULT }
 
 ALTER INDEX index { VISIBLE | INVISIBLE }
 
-CHANGE [ COLUMN ] old_colname new_colname column_definition [ FIRST | AFTER colname ]
+CHANGE [ COLUMN ] colname new_colname column_definition [ FIRST | AFTER colname ]
 
-[ DEFAULT ] CHARACTER SET [=] charset [ COLLATE [=] collation ]
+[ DEFAULT ] CHARACTER SET [=] charset [ COLLATE [=] collate ]
 
-CONVERT TO CHARACTER SET charset [ COLLATE collation ]
+CONVERT TO CHARACTER SET charset [ COLLATE collate ]
 
 { DISABLE | ENABLE } KEYS
 
@@ -111,32 +111,32 @@ ORDER BY colname [, ...]
 { WITHOUT | WITH } VALIDATION
 
 # PARTOFIS column_definition
-type [ NOT NULL | NULL ] [ DEFAULT { literal | ( expression ) } ]
+type [ NOT NULL | NULL ] [ DEFAULT { value | ( value_expression ) } ]
 [ VISIBLE | INVISIBLE ] [ AUTO_INCREMENT ] [ UNIQUE [ KEY ] ] [ [ PRIMARY ] KEY ]
-[ COMMENT 'comment' ] [ COLLATE collation ]
+[ COMMENT 'comment' ] [ COLLATE collate ]
 [ COLUMN_FORMAT { FIXED | DYNAMIC | DEFAULT } ]
 [ ENGINE_ATTRIBUTE [=] 'engine_attribute' ] [ SECONDARY_ENGINE_ATTRIBUTE [=] 'secondary_engine_attribute' ]
-[ STORAGE { DISK | MEMORY } ] [ reference_definition ] [ check_constraint_definition ]
+[ STORAGE { DISK | MEMORY } ] [ references ] [ check_constraint_definition ]
 
-type [ COLLATE collation ] [ GENERATED ALWAYS ] AS ( expression )
+type [ COLLATE collate ] [ GENERATED ALWAYS ] AS ( col_expression )
 [ VIRTUAL | STORED ] [ NOT NULL | NULL ] [ VISIBLE | INVISIBLE ]
 [ UNIQUE [ KEY ] ] [ [ PRIMARY ] KEY ] [ COMMENT 'comment' ]
-[ reference_definition ] [ check_constraint_definition ]
+[ references ] [ check_constraint_definition ]
 
-# WHERE key_part
-{ colname [ ( length ) ] | ( expression ) } [ ASC | DESC ]
+# WHERE index_column_expression
+{ colname [ ( length ) ] | ( col_expression ) } [ ASC | DESC ]
 
-# WHERE reference_definition
-REFERENCES table ( key_part [, ...] )
+# WHERE references
+REFERENCES table ( colname [, ...] )
     [ MATCH FULL | MATCH PARTIAL | MATCH SIMPLE ]
-    [ ON DELETE reference_action ]
-    [ ON UPDATE reference_action ]
+    [ ON DELETE on_delete_action ]
+    [ ON UPDATE on_update_action ]
 
-# WHERE reference_action
+# WHERE on_delete_action, on_update_action
 { RESTRICT | CASCADE | SET NULL | NO ACTION | SET DEFAULT }
 
 # WHERE check_constraint_definition
-[ CONSTRAINT [ symbol ] ] CHECK ( expression ) [ [ NOT ] ENFORCED ]
+[ CONSTRAINT [ constraint ] ] CHECK ( boolean_expression ) [ [ NOT ] ENFORCED ]
 
 # WHERE index_options
 [ KEY_BLOCK_SIZE [=] value ]
@@ -152,7 +152,7 @@ AUTO_INCREMENT [=] value
 AVG_ROW_LENGTH [=] value
 [ DEFAULT ] CHARACTER SET [=] charset
 CHECKSUM [=] { 0 | 1 }
-[ DEFAULT ] COLLATE [=] collation
+[ DEFAULT ] COLLATE [=] collate
 COMMENT [=] 'comment'
 COMPRESSION [=] { 'ZLIB' | 'LZ4' | 'NONE' }
 CONNECTION [=] 'connection'

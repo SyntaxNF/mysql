@@ -1,47 +1,47 @@
 # https://dev.mysql.com/doc/refman/8.4/en/create-table.html
 
 # CASE NORMAL
-CREATE [ TEMPORARY ] TABLE [ IF NOT EXISTS ] table (
+CREATE [ TEMPORARY ] TABLE [ IF NOT EXISTS ] name (
     create_definition [, ...]
 )
     table_options
     [ partition_options ]
 
 # CASE QUERY
-CREATE [ TEMPORARY ] TABLE [ IF NOT EXISTS ] table
+CREATE [ TEMPORARY ] TABLE [ IF NOT EXISTS ] name
     [ ( create_definition [, ...] ) ]
     table_options
     [ partition_options ]
-    [ IGNORE | REPLACE ] [ AS ] query_expression
+    [ IGNORE | REPLACE ] [ AS ] query_statement
 
 # CASE LIKE
-CREATE [ TEMPORARY ] TABLE [ IF NOT EXISTS ] table
-    { LIKE old_table | ( LIKE old_table ) }
+CREATE [ TEMPORARY ] TABLE [ IF NOT EXISTS ] name
+    { LIKE like_table | ( LIKE like_table ) }
 
 # ONEOFIS create_definition
 colname column_definition
-{ INDEX | KEY } [ index ] [ USING { BTREE | HASH } ] ( key_part [, ...] ) index_options
-{ FULLTEXT | SPATIAL } [ INDEX | KEY ] [ index ] ( key_part [, ...] ) index_options
-[ CONSTRAINT [ symbol ] ] PRIMARY KEY [ USING { BTREE | HASH } ] ( key_part [, ...] ) index_options
-[ CONSTRAINT [ symbol ] ] UNIQUE [ INDEX | KEY ] [ index ] [ USING { BTREE | HASH } ] ( key_part [, ...] ) index_options
-[ CONSTRAINT [ symbol ] ] FOREIGN KEY [ index ] ( colname [, ...] ) reference_definition
+{ INDEX | KEY } [ index ] [ USING { BTREE | HASH } ] ( index_column_expression [, ...] ) index_options
+{ FULLTEXT | SPATIAL } [ INDEX | KEY ] [ index ] ( index_column_expression [, ...] ) index_options
+[ CONSTRAINT [ constraint ] ] PRIMARY KEY [ USING { BTREE | HASH } ] ( index_column_expression [, ...] ) index_options
+[ CONSTRAINT [ constraint ] ] UNIQUE [ INDEX | KEY ] [ index ] [ USING { BTREE | HASH } ] ( index_column_expression [, ...] ) index_options
+[ CONSTRAINT [ constraint ] ] FOREIGN KEY [ index ] ( colname [, ...] ) references
 check_constraint_definition
 
 # PARTOFIS column_definition
-type [ NOT NULL | NULL ] [ DEFAULT { literal | ( expression ) } ]
+type [ NOT NULL | NULL ] [ DEFAULT { value | ( value_expression ) } ]
 [ VISIBLE | INVISIBLE ] [ AUTO_INCREMENT ] [ UNIQUE [ KEY ] ] [ [ PRIMARY ] KEY ]
-[ COMMENT 'comment' ] [ COLLATE collation ]
+[ COMMENT 'comment' ] [ COLLATE collate ]
 [ COLUMN_FORMAT { FIXED | DYNAMIC | DEFAULT } ]
 [ ENGINE_ATTRIBUTE [=] 'engine_attribute' ] [ SECONDARY_ENGINE_ATTRIBUTE [=] 'secondary_engine_attribute' ]
-[ STORAGE { DISK | MEMORY } ] [ reference_definition ] [ check_constraint_definition ]
+[ STORAGE { DISK | MEMORY } ] [ references ] [ check_constraint_definition ]
 
-type [ COLLATE collation ] [ GENERATED ALWAYS ] AS ( expression )
+type [ COLLATE collate ] [ GENERATED ALWAYS ] AS ( col_expression )
 [ VIRTUAL | STORED ] [ NOT NULL | NULL ] [ VISIBLE | INVISIBLE ]
 [ UNIQUE [ KEY ] ] [ [ PRIMARY ] KEY ] [ COMMENT 'comment' ]
-[ reference_definition ] [ check_constraint_definition ]
+[ references ] [ check_constraint_definition ]
 
-# WHERE key_part
-{ colname [ ( length ) ] | ( expression ) } [ ASC | DESC ]
+# WHERE index_column_expression
+{ colname [ ( length ) ] | ( col_expression ) } [ ASC | DESC ]
 
 # WHERE index_options
 [ KEY_BLOCK_SIZE [=] value ]
@@ -52,15 +52,15 @@ type [ COLLATE collation ] [ GENERATED ALWAYS ] AS ( expression )
 [ SECONDARY_ENGINE_ATTRIBUTE [=] 'secondary_engine_attribute' ]
 
 # WHERE check_constraint_definition
-[ CONSTRAINT [ symbol ] ] CHECK ( expression ) [ [ NOT ] ENFORCED ]
+[ CONSTRAINT [ constraint ] ] CHECK ( boolean_expression ) [ [ NOT ] ENFORCED ]
 
-# WHERE reference_definition
-REFERENCES table ( key_part [, ...] )
+# WHERE references
+REFERENCES table ( colname [, ...] )
     [ MATCH FULL | MATCH PARTIAL | MATCH SIMPLE ]
-    [ ON DELETE reference_action ]
-    [ ON UPDATE reference_action ]
+    [ ON DELETE on_delete_action ]
+    [ ON UPDATE on_update_action ]
 
-# WHERE reference_action
+# WHERE on_delete_action, on_update_action
 { RESTRICT | CASCADE | SET NULL | NO ACTION | SET DEFAULT }
 
 # WHERE table_options
@@ -69,7 +69,7 @@ REFERENCES table ( key_part [, ...] )
 [ AVG_ROW_LENGTH [=] value ]
 [ [ DEFAULT ] CHARACTER SET [=] charset ]
 [ CHECKSUM [=] { 0 | 1 } ]
-[ [ DEFAULT ] COLLATE [=] collation ]
+[ [ DEFAULT ] COLLATE [=] collate ]
 [ COMMENT [=] 'comment' ]
 [ COMPRESSION [=] { 'ZLIB' | 'LZ4' | 'NONE' } ]
 [ CONNECTION [=] 'connection' ]
@@ -105,13 +105,13 @@ PARTITION BY partition_method
     [ ( partition_definition [, ...] ) ]
 
 # ONEOFIS partition_method
-[ LINEAR ] HASH ( expression )
+[ LINEAR ] HASH ( col_expression )
 [ LINEAR ] KEY [ ALGORITHM = { 1 | 2 } ] ( colname [, ...] )
-RANGE { ( expression ) | COLUMNS ( colname [, ...] ) }
-LIST { ( expression ) | COLUMNS ( colname [, ...] ) }
+RANGE { ( col_expression ) | COLUMNS ( colname [, ...] ) }
+LIST { ( col_expression ) | COLUMNS ( colname [, ...] ) }
 
 # ONEOFIS subpartition_method
-[ LINEAR ] HASH ( expression )
+[ LINEAR ] HASH ( col_expression )
 [ LINEAR ] KEY [ ALGORITHM = { 1 | 2 } ] ( colname [, ...] )
 
 # WHERE partition_definition
@@ -134,7 +134,7 @@ SUBPARTITION subpartition
     [ MAX_ROWS [=] value ] [ MIN_ROWS [=] value ]
     [ TABLESPACE [=] tablespace ]
 
-# STATEMENT query_expression
+# STATEMENT query_statement
 SELECT
 TABLE
 VALUES

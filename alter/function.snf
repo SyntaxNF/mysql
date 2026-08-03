@@ -1,7 +1,7 @@
 # https://dev.mysql.com/doc/refman/8.4/en/alter-function.html
 
 # CASE OPTIONS
-ALTER FUNCTION function
+ALTER FUNCTION name
     [ COMMENT 'comment' ]
     [ LANGUAGE SQL ]
     [ { CONTAINS SQL | NO SQL | READS SQL DATA | MODIFIES SQL DATA } ]

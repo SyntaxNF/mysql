@@ -4,7 +4,7 @@
 ALTER [ ALGORITHM = { UNDEFINED | MERGE | TEMPTABLE } ]
     [ DEFINER = user ]
     [ SQL SECURITY { DEFINER | INVOKER } ]
-    VIEW view [ ( colname [, ...] ) ]
+    VIEW name [ ( colname [, ...] ) ]
     AS select_statement
     [ WITH [ CASCADED | LOCAL ] CHECK OPTION ]
 

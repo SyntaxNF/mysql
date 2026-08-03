@@ -1,4 +1,4 @@
 # https://dev.mysql.com/doc/refman/8.4/en/drop-table.html
 
-DROP [ TEMPORARY ] TABLE [ IF EXISTS ] table [, ...]
+DROP [ TEMPORARY ] TABLE [ IF EXISTS ] name [, ...]
     [ RESTRICT | CASCADE ]

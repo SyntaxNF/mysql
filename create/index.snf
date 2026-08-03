@@ -1,8 +1,8 @@
 # https://dev.mysql.com/doc/refman/8.4/en/create-index.html
 
-CREATE [ UNIQUE | FULLTEXT | SPATIAL ] INDEX index
+CREATE [ UNIQUE | FULLTEXT | SPATIAL ] INDEX name
     [ USING { BTREE | HASH } ]
-    ON table ( key_part [, ...] )
+    ON table ( index_column_expression [, ...] )
     [ KEY_BLOCK_SIZE [=] value ]
     [ WITH PARSER parser ]
     [ COMMENT 'comment' ]
@@ -12,5 +12,5 @@ CREATE [ UNIQUE | FULLTEXT | SPATIAL ] INDEX index
     [ ALGORITHM [=] { DEFAULT | INPLACE | COPY } ]
     [ LOCK [=] { DEFAULT | NONE | SHARED | EXCLUSIVE } ]
 
-# WHERE key_part
-{ colname [ ( length ) ] | ( expression ) } [ ASC | DESC ]
+# WHERE index_column_expression
+{ colname [ ( length ) ] | ( col_expression ) } [ ASC | DESC ]

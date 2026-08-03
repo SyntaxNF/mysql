@@ -1,8 +1,8 @@
 # https://dev.mysql.com/doc/refman/8.4/en/values.html
 
-VALUES ROW ( value [, ...] ) [, ...]
+VALUES ROW ( value_expression [, ...] ) [, ...]
     [ ORDER BY column_designator [ ASC | DESC ] ]
-    [ LIMIT number ]
+    [ LIMIT limit ]
 
 # WHERE column_designator
 column_index
