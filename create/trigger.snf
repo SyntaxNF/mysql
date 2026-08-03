@@ -1,6 +1,6 @@
 # https://dev.mysql.com/doc/refman/8.4/en/create-trigger.html
 
-CREATE [ DEFINER = user ] TRIGGER [ IF NOT EXISTS ] trigger
+CREATE [ DEFINER = user ] TRIGGER [ IF NOT EXISTS ] name
     { BEFORE | AFTER } { INSERT | UPDATE | DELETE }
     ON table FOR EACH ROW
     [ { FOLLOWS | PRECEDES } other_trigger ]

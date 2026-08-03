@@ -1,3 +1,3 @@
 # https://dev.mysql.com/doc/refman/8.4/en/deallocate-prepare.html
 
-{ DEALLOCATE PREPARE | DROP PREPARE } statement
+{ DEALLOCATE PREPARE | DROP PREPARE } prepare

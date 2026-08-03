@@ -13,13 +13,13 @@ SET user_variable_assignment [, ...]
 SET local_or_parameter_variable_assignment [, ...]
 
 # WHERE system_variable_assignment
-[ { GLOBAL | PERSIST | PERSIST_ONLY | SESSION } ] system_variable { = | := } expression
+[ { GLOBAL | PERSIST | PERSIST_ONLY | SESSION } ] system_variable { = | := } value_expression
 
 # WHERE system_variable_reference_assignment
-{ @@GLOBAL.system_variable | @@PERSIST.system_variable | @@PERSIST_ONLY.system_variable | @@SESSION.system_variable | @@system_variable } { = | := } expression
+{ @@GLOBAL.system_variable | @@PERSIST.system_variable | @@PERSIST_ONLY.system_variable | @@SESSION.system_variable | @@system_variable } { = | := } value_expression
 
 # WHERE user_variable_assignment
-@user_variable { = | := } expression
+@user_variable { = | := } value_expression
 
 # WHERE local_or_parameter_variable_assignment
-{ local_variable | parameter } { = | := } expression
+{ local_variable | parameter } { = | := } value_expression

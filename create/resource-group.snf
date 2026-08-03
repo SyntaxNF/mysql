@@ -1,6 +1,6 @@
 # https://dev.mysql.com/doc/refman/8.4/en/create-resource-group.html
 
-CREATE RESOURCE GROUP resource_group
+CREATE RESOURCE GROUP name
     TYPE = { SYSTEM | USER }
     [ VCPU [=] vcpu [, ...] ]
     [ THREAD_PRIORITY [=] priority ]

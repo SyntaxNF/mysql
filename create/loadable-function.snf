@@ -1,5 +1,5 @@
 # https://dev.mysql.com/doc/refman/8.4/en/create-function-loadable.html
 
-CREATE [ AGGREGATE ] FUNCTION [ IF NOT EXISTS ] function
+CREATE [ AGGREGATE ] FUNCTION [ IF NOT EXISTS ] name
     RETURNS { STRING | INTEGER | REAL | DECIMAL }
     SONAME 'shared_library'

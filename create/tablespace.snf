@@ -1,7 +1,7 @@
 # https://dev.mysql.com/doc/refman/8.4/en/create-tablespace.html
 
 # CASE INNODB_GENERAL
-CREATE TABLESPACE tablespace
+CREATE TABLESPACE name
     [ ADD DATAFILE 'datafile' ]
     [ AUTOEXTEND_SIZE [=] value ]
     [ FILE_BLOCK_SIZE [=] value ]
@@ -10,14 +10,14 @@ CREATE TABLESPACE tablespace
     [ ENGINE_ATTRIBUTE [=] 'engine_attribute' ]
 
 # CASE INNODB_UNDO
-CREATE UNDO TABLESPACE tablespace
+CREATE UNDO TABLESPACE name
     ADD DATAFILE 'datafile'
     [ AUTOEXTEND_SIZE [=] value ]
     [ ENGINE [=] INNODB ]
     [ ENGINE_ATTRIBUTE [=] 'engine_attribute' ]
 
 # CASE NDB
-CREATE TABLESPACE tablespace
+CREATE TABLESPACE name
     ADD DATAFILE 'datafile'
     [ AUTOEXTEND_SIZE [=] value ]
     USE LOGFILE GROUP logfile_group

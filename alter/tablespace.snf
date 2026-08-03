@@ -1,42 +1,38 @@
 # https://dev.mysql.com/doc/refman/8.4/en/alter-tablespace.html
 
 # CASE INNODB_GENERAL_OPTIONS
-ALTER TABLESPACE tablespace
+ALTER TABLESPACE name
     [ AUTOEXTEND_SIZE [=] value ]
     [ ENCRYPTION [=] { 'Y' | 'N' } ]
     [ ENGINE [=] INNODB ]
     [ ENGINE_ATTRIBUTE [=] 'engine_attribute' ]
 
 # CASE INNODB_GENERAL_RENAME
-ALTER TABLESPACE tablespace
-    RENAME TO new_tablespace
+ALTER TABLESPACE name RENAME TO new_name
     [ ENGINE [=] INNODB ]
     [ ENGINE_ATTRIBUTE [=] 'engine_attribute' ]
 
 # CASE INNODB_UNDO_OPTIONS
-ALTER UNDO TABLESPACE tablespace
+ALTER UNDO TABLESPACE name
     [ AUTOEXTEND_SIZE [=] value ]
     [ SET { ACTIVE | INACTIVE } ]
     [ ENGINE [=] INNODB ]
     [ ENGINE_ATTRIBUTE [=] 'engine_attribute' ]
 
 # CASE NDB_ADD_DATAFILE
-ALTER TABLESPACE tablespace
-    ADD DATAFILE 'datafile'
+ALTER TABLESPACE name ADD DATAFILE 'datafile'
     [ INITIAL_SIZE [=] size ]
     [ WAIT ]
     [ ENGINE [=] NDB ]
     [ ENGINE_ATTRIBUTE [=] 'engine_attribute' ]
 
 # CASE NDB_DROP_DATAFILE
-ALTER TABLESPACE tablespace
-    DROP DATAFILE 'datafile'
+ALTER TABLESPACE name DROP DATAFILE 'datafile'
     [ WAIT ]
     [ ENGINE [=] NDB ]
     [ ENGINE_ATTRIBUTE [=] 'engine_attribute' ]
 
 # CASE NDB_RENAME
-ALTER TABLESPACE tablespace
-    RENAME TO new_tablespace
+ALTER TABLESPACE name RENAME TO new_name
     [ ENGINE [=] NDB ]
     [ ENGINE_ATTRIBUTE [=] 'engine_attribute' ]

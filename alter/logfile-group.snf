@@ -1,7 +1,7 @@
 # https://dev.mysql.com/doc/refman/8.4/en/alter-logfile-group.html
 
 # CASE ADD_UNDOFILE
-ALTER LOGFILE GROUP logfile_group
+ALTER LOGFILE GROUP name
     ADD UNDOFILE 'file'
     [ INITIAL_SIZE [=] size ]
     [ WAIT ]

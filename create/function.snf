@@ -1,7 +1,7 @@
 # https://dev.mysql.com/doc/refman/8.4/en/create-procedure.html
 
-CREATE [ DEFINER = user ] FUNCTION [ IF NOT EXISTS ] function (
-    [ function_parameter [, ...] ] 
+CREATE [ DEFINER = user ] FUNCTION [ IF NOT EXISTS ] name (
+    [ arg [, ...] ]
 )
     RETURNS type
     [ COMMENT 'comment' ]
@@ -11,8 +11,8 @@ CREATE [ DEFINER = user ] FUNCTION [ IF NOT EXISTS ] function (
     [ SQL SECURITY { DEFINER | INVOKER } ]
     routine_body
 
-# WHERE function_parameter
-parameter type
+# WHERE arg
+argname argtype
 
 # STATEMENT routine_body
 sql_statement

@@ -1,6 +1,6 @@
 # https://dev.mysql.com/doc/refman/8.4/en/create-logfile-group.html
 
-CREATE LOGFILE GROUP logfile_group
+CREATE LOGFILE GROUP name
     ADD UNDOFILE 'undo_file'
     [ INITIAL_SIZE [=] initial_size ]
     [ UNDO_BUFFER_SIZE [=] undo_buffer_size ]

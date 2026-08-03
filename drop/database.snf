@@ -1,3 +1,3 @@
 # https://dev.mysql.com/doc/refman/8.4/en/drop-database.html
 
-DROP { DATABASE | SCHEMA } [ IF EXISTS ] database
+DROP { DATABASE | SCHEMA } [ IF EXISTS ] name

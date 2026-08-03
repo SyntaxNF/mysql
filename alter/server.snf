@@ -1,7 +1,7 @@
 # https://dev.mysql.com/doc/refman/8.4/en/alter-server.html
 
 # CASE OPTIONS
-ALTER SERVER server OPTIONS (
+ALTER SERVER name OPTIONS (
     [ HOST 'host', ]
     [ DATABASE 'database', ]
     [ USER 'user', ]

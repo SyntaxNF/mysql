@@ -1,19 +1,19 @@
 # https://dev.mysql.com/doc/refman/8.4/en/handler.html
 
 # CASE OPEN
-HANDLER table OPEN [ [ AS ] alias ]
+HANDLER table OPEN [ [ AS ] table_alias ]
 
 # CASE READ_KEY
 HANDLER table READ index { = | <= | >= | < | > } ( value [, ...] )
-    [ WHERE boolean_expression ] [ LIMIT [ offset , ] row_count ]
+    [ WHERE boolean_expression ] [ LIMIT [ offset , ] limit ]
 
 # CASE READ_INDEX
 HANDLER table READ index { FIRST | NEXT | PREV | LAST }
-    [ WHERE boolean_expression ] [ LIMIT [ offset , ] row_count ]
+    [ WHERE boolean_expression ] [ LIMIT [ offset , ] limit ]
 
 # CASE READ_TABLE
 HANDLER table READ { FIRST | NEXT }
-    [ WHERE boolean_expression ] [ LIMIT [ offset , ] row_count ]
+    [ WHERE boolean_expression ] [ LIMIT [ offset , ] limit ]
 
 # CASE CLOSE
 HANDLER table CLOSE

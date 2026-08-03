@@ -1,44 +1,41 @@
 # https://dev.mysql.com/doc/refman/8.4/en/select.html
 
-[ WITH [ RECURSIVE ] common_table_expression [, ...] ]
+[ WITH [ RECURSIVE ] with_query [, ...] ]
 SELECT [ ALL | DISTINCT | DISTINCTROW ]
     [ HIGH_PRIORITY ] [ STRAIGHT_JOIN ]
     [ SQL_SMALL_RESULT ] [ SQL_BIG_RESULT ] [ SQL_BUFFER_RESULT ]
     [ SQL_NO_CACHE ] [ SQL_CALC_FOUND_ROWS ]
-    select_expression [, ...]
-    [ FROM table_reference [, ...] ]
+    { * | col_expression [ [ AS ] col_alias ] [, ...] }
+    [ FROM from_expression [, ...] ]
     [ WHERE boolean_expression ]
-    [ GROUP BY group_expression [, ...] [ WITH ROLLUP ] | ROLLUP ( group_expression [, ...] ) ]
+    [ GROUP BY group_by_expression [, ...] [ WITH ROLLUP ] | ROLLUP ( group_by_expression [, ...] ) ]
     [ HAVING boolean_expression ]
-    [ WINDOW window AS ( window_specification ) [, ...] ]
-    [ ORDER BY order_expression [, ...] [ WITH ROLLUP ] ]
-    [ LIMIT { [ offset , ] row_count | row_count OFFSET offset } ]
+    [ WINDOW window AS ( window_expression ) [, ...] ]
+    [ ORDER BY order_by_expression [, ...] [ WITH ROLLUP ] ]
+    [ LIMIT { [ offset , ] limit | limit OFFSET offset } ]
     [ locking_clause ]
     [ into_option ]
 
-# WHERE common_table_expression
-name [ ( colname [, ...] ) ] AS ( query_expression )
+# WHERE with_query
+with_name [ ( colname [, ...] ) ] AS ( query_statement )
 
-# WHERE select_expression
-{ * | expression [ [ AS ] alias ] }
-
-# PARTOFIS table_reference
+# PARTOFIS from_expression
 table [ PARTITION ( partition [, ...] ) ]
-[ [ AS ] alias [ ( colname [, ...] ) ] ] [ index_hint ]
+[ [ AS ] table_alias [ ( col_alias [, ...] ) ] ] [ index_hint ]
 
-[ LATERAL ] table_function [ AS ] alias [ ( colname [, ...] ) ]
+[ LATERAL ] table_function [ AS ] function_alias [ ( col_alias [, ...] ) ]
 
-( table_reference [, ...] )
+( from_expression [, ...] )
 
-table_reference [ INNER ] JOIN table_reference [ join_condition ]
+from_expression [ INNER ] JOIN from_expression [ join_condition ]
 
-table_reference CROSS JOIN table_reference
+from_expression CROSS JOIN from_expression
 
-table_reference STRAIGHT_JOIN table_reference [ ON boolean_expression ]
+from_expression STRAIGHT_JOIN from_expression [ ON boolean_expression ]
 
-table_reference { LEFT | RIGHT } [ OUTER ] JOIN table_reference join_condition
+from_expression { LEFT | RIGHT } [ OUTER ] JOIN from_expression join_condition
 
-table_reference NATURAL [ INNER | { LEFT | RIGHT } [ OUTER ] ] JOIN table_reference
+from_expression NATURAL [ INNER | { LEFT | RIGHT } [ OUTER ] ] JOIN from_expression
 
 # ONEOFIS join_condition
 ON boolean_expression
@@ -49,16 +46,16 @@ USING ( colname [, ...] )
     [ FOR { JOIN | ORDER BY | GROUP BY } ]
     ( index [, ...] )
 
-# WHERE group_expression
-{ colname | expression | position }
+# WHERE group_by_expression
+{ colname | col_expression | position }
 
-# WHERE order_expression
-{ colname | expression | position } [ ASC | DESC ]
+# WHERE order_by_expression
+{ colname | col_expression | position } [ ASC | DESC ]
 
-# WHERE window_specification
+# WHERE window_expression
 [ window ]
-    [ PARTITION BY expression [, ...] ]
-    [ ORDER BY order_expression [, ...] ]
+    [ PARTITION BY col_expression [, ...] ]
+    [ ORDER BY order_by_expression [, ...] ]
     [ frame_clause ]
 
 # PARTOFIS frame_clause
@@ -68,9 +65,9 @@ USING ( colname [, ...] )
 
 # ONEOFIS frame_bound
 UNBOUNDED PRECEDING
-expression PRECEDING
+value_expression PRECEDING
 CURRENT ROW
-expression FOLLOWING
+value_expression FOLLOWING
 UNBOUNDED FOLLOWING
 
 # ONEOFIS into_option
@@ -89,7 +86,7 @@ INTO variable [, ...]
 FOR { UPDATE | SHARE } [ OF table [, ...] ] [ NOWAIT | SKIP LOCKED ]
 LOCK IN SHARE MODE
 
-# STATEMENT query_expression
+# STATEMENT query_statement
 SELECT
 TABLE
 VALUES

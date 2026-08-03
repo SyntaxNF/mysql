@@ -35,3 +35,5 @@ SNF 用于生成规范 SQL，而不是照搬服务端解析器能够容忍的全
 生成 SQL 时会统一移除圆括号 `()` 内最后一个逗号。因此，圆括号内相互独立的可选字段可以各自保留尾逗号，以固定顺序直接表达，无需使用 `PARTOFIS` 穷举字段组合。
 
 每个 `.snf` 文件首行链接到对应的 MySQL 8.4 官方语法页。关键字使用大写，语法占位符使用小写。
+
+通用语义的占位符命名与同级 PostgreSQL SNF 保持一致。当前文件的主对象使用 `name`，主对象的重命名目标使用 `new_name`；文件内的其他对象必须使用类型名，例如 `constraint`、`index`、`new_index`、`colname`。查询结构使用 `query_statement`、`col_expression`、`from_expression`、`order_by_expression` 等上下文明确的名称。MySQL 专属概念继续使用对应的领域名称，不为形式一致而改成通用占位符。
