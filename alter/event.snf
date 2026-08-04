@@ -2,7 +2,7 @@
 
 # CASE OPTIONS
 ALTER [ DEFINER = user ] EVENT name
-    [ ON SCHEDULE schedule ]
+    [ ON SCHEDULE schedule_definition ]
     [ ON COMPLETION [ NOT ] PRESERVE ]
     [ ENABLE | DISABLE | DISABLE ON { REPLICA | SLAVE } ]
     [ COMMENT 'comment' ]
@@ -11,15 +11,15 @@ ALTER [ DEFINER = user ] EVENT name
 ALTER [ DEFINER = user ] EVENT name RENAME TO new_name
 
 # CASE BODY
-ALTER [ DEFINER = user ] EVENT name DO event_body
+ALTER [ DEFINER = user ] EVENT name DO event_statement
 
-# ONEOFIS schedule
-AT timestamp [ + INTERVAL interval ] [...]
-EVERY interval [ STARTS timestamp [ + INTERVAL interval ] [...] ] [ ENDS timestamp [ + INTERVAL interval ] [...] ]
+# ONEOFIS schedule_definition
+AT datetime_expression [ + INTERVAL interval_expression ] [...]
+EVERY interval_expression [ STARTS datetime_expression [ + INTERVAL interval_expression ] [...] ] [ ENDS datetime_expression [ + INTERVAL interval_expression ] [...] ]
 
-# WHERE interval
+# WHERE interval_expression
 quantity { YEAR | QUARTER | MONTH | DAY | HOUR | MINUTE | WEEK | SECOND | YEAR_MONTH | DAY_HOUR | DAY_MINUTE | DAY_SECOND | HOUR_MINUTE | HOUR_SECOND | MINUTE_SECOND }
 
-# STATEMENT event_body
+# STATEMENT event_statement
 sql_statement
 compound_statement

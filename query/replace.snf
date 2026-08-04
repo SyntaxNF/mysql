@@ -9,7 +9,7 @@ REPLACE [ LOW_PRIORITY | DELAYED ] [ INTO ] table
 # CASE SET
 REPLACE [ LOW_PRIORITY | DELAYED ] [ INTO ] table
     [ PARTITION ( partition [, ...] ) ]
-    SET assignment [, ...]
+    SET column_assignment [, ...]
 
 # CASE QUERY
 REPLACE [ LOW_PRIORITY | DELAYED ] [ INTO ] table
@@ -17,7 +17,7 @@ REPLACE [ LOW_PRIORITY | DELAYED ] [ INTO ] table
     [ ( colname [, ...] ) ]
     query_statement
 
-# WHERE assignment
+# WHERE column_assignment
 colname = value_expression
 
 # STATEMENT query_statement

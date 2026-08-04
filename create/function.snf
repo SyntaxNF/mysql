@@ -1,7 +1,7 @@
 # https://dev.mysql.com/doc/refman/8.4/en/create-procedure.html
 
 CREATE [ DEFINER = user ] FUNCTION [ IF NOT EXISTS ] name (
-    [ arg [, ...] ]
+    [ argument_definition [, ...] ]
 )
     RETURNS type
     [ COMMENT 'comment' ]
@@ -9,11 +9,11 @@ CREATE [ DEFINER = user ] FUNCTION [ IF NOT EXISTS ] name (
     [ [ NOT ] DETERMINISTIC ]
     [ { CONTAINS SQL | NO SQL | READS SQL DATA | MODIFIES SQL DATA } ]
     [ SQL SECURITY { DEFINER | INVOKER } ]
-    routine_body
+    routine_statement
 
-# WHERE arg
+# WHERE argument_definition
 argname argtype
 
-# STATEMENT routine_body
+# STATEMENT routine_statement
 sql_statement
 compound_statement

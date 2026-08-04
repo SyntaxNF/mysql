@@ -2,17 +2,17 @@
 
 # CASE SINGLE_TABLE
 UPDATE [ LOW_PRIORITY ] [ IGNORE ] from_expression
-    SET assignment [, ...]
+    SET column_assignment [, ...]
     [ WHERE boolean_expression ]
     [ ORDER BY order_by_expression [, ...] ]
     [ LIMIT limit ]
 
 # CASE MULTI_TABLE
 UPDATE [ LOW_PRIORITY ] [ IGNORE ] from_expression [, ...]
-    SET assignment [, ...]
+    SET column_assignment [, ...]
     [ WHERE boolean_expression ]
 
-# WHERE assignment
+# WHERE column_assignment
 colname = { value_expression | DEFAULT }
 
 # WHERE order_by_expression

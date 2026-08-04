@@ -4,8 +4,8 @@ CREATE [ DEFINER = user ] TRIGGER [ IF NOT EXISTS ] name
     { BEFORE | AFTER } { INSERT | UPDATE | DELETE }
     ON table FOR EACH ROW
     [ { FOLLOWS | PRECEDES } other_trigger ]
-    trigger_body
+    trigger_statement
 
-# STATEMENT trigger_body
+# STATEMENT trigger_statement
 sql_statement
 compound_statement
