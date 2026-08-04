@@ -68,7 +68,7 @@ ADD [ CONSTRAINT [ constraint ] ] UNIQUE [ INDEX | KEY ] [ index ]
 [ USING { BTREE | HASH } ] ( index_column_expression [, ...] ) index_options
 
 ADD [ CONSTRAINT [ constraint ] ] FOREIGN KEY [ index ]
-( colname [, ...] ) references
+( colname [, ...] ) reference_definition
 
 ADD [ CONSTRAINT [ constraint ] ] CHECK ( boolean_expression ) [ [ NOT ] ENFORCED ]
 
@@ -116,17 +116,17 @@ type [ NOT NULL | NULL ] [ DEFAULT { value | ( value_expression ) } ]
 [ COMMENT 'comment' ] [ COLLATE collate ]
 [ COLUMN_FORMAT { FIXED | DYNAMIC | DEFAULT } ]
 [ ENGINE_ATTRIBUTE [=] 'engine_attribute' ] [ SECONDARY_ENGINE_ATTRIBUTE [=] 'secondary_engine_attribute' ]
-[ STORAGE { DISK | MEMORY } ] [ references ] [ check_constraint_definition ]
+[ STORAGE { DISK | MEMORY } ] [ reference_definition ] [ check_constraint_definition ]
 
 type [ COLLATE collate ] [ GENERATED ALWAYS ] AS ( col_expression )
 [ VIRTUAL | STORED ] [ NOT NULL | NULL ] [ VISIBLE | INVISIBLE ]
 [ UNIQUE [ KEY ] ] [ [ PRIMARY ] KEY ] [ COMMENT 'comment' ]
-[ references ] [ check_constraint_definition ]
+[ reference_definition ] [ check_constraint_definition ]
 
 # WHERE index_column_expression
 { colname [ ( length ) ] | ( col_expression ) } [ ASC | DESC ]
 
-# WHERE references
+# WHERE reference_definition
 REFERENCES table ( colname [, ...] )
     [ MATCH FULL | MATCH PARTIAL | MATCH SIMPLE ]
     [ ON DELETE on_delete_action ]

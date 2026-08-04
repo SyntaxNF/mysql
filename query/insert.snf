@@ -6,23 +6,23 @@ INSERT [ LOW_PRIORITY | DELAYED | HIGH_PRIORITY ] [ IGNORE ]
     [ ( colname [, ...] ) ]
     { VALUES | VALUE } ( { value_expression | DEFAULT } [, ...] ) [, ...]
     [ AS row_alias [ ( col_alias [, ...] ) ] ]
-    [ ON DUPLICATE KEY UPDATE assignment [, ...] ]
+    [ ON DUPLICATE KEY UPDATE column_assignment [, ...] ]
 
 # CASE SET
 INSERT [ LOW_PRIORITY | DELAYED | HIGH_PRIORITY ] [ IGNORE ]
     [ INTO ] table [ PARTITION ( partition [, ...] ) ]
-    SET assignment [, ...]
+    SET column_assignment [, ...]
     [ AS row_alias [ ( col_alias [, ...] ) ] ]
-    [ ON DUPLICATE KEY UPDATE assignment [, ...] ]
+    [ ON DUPLICATE KEY UPDATE column_assignment [, ...] ]
 
 # CASE QUERY
 INSERT [ LOW_PRIORITY | HIGH_PRIORITY ] [ IGNORE ]
     [ INTO ] table [ PARTITION ( partition [, ...] ) ]
     [ ( colname [, ...] ) ]
     query_statement
-    [ ON DUPLICATE KEY UPDATE assignment [, ...] ]
+    [ ON DUPLICATE KEY UPDATE column_assignment [, ...] ]
 
-# WHERE assignment
+# WHERE column_assignment
 colname = { value_expression | [ row_alias . ] colname | [ table . ] colname | [ row_alias . ] col_alias }
 
 # STATEMENT query_statement

@@ -7,7 +7,7 @@
     [ into_clause ]
 
 # CASE SET_OPERATION
-query_block [ set_operation query_block ] [...]
+query_block_statement [ set_operation query_block_statement ] [...]
     [ order_by_clause ]
     [ limit_clause ]
     [ into_clause ]
@@ -27,7 +27,7 @@ INTO { OUTFILE 'file' | DUMPFILE 'file' | variable [, ...] }
 # WHERE set_operation
 { UNION | INTERSECT | EXCEPT } [ ALL | DISTINCT ]
 
-# STATEMENT query_block, query_statement
+# STATEMENT query_block_statement, query_statement
 SELECT
 TABLE
 VALUES

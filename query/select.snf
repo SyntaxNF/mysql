@@ -1,6 +1,6 @@
 # https://dev.mysql.com/doc/refman/8.4/en/select.html
 
-[ WITH [ RECURSIVE ] with_query [, ...] ]
+[ WITH [ RECURSIVE ] with_query_definition [, ...] ]
 SELECT [ ALL | DISTINCT | DISTINCTROW ]
     [ HIGH_PRIORITY ] [ STRAIGHT_JOIN ]
     [ SQL_SMALL_RESULT ] [ SQL_BIG_RESULT ] [ SQL_BUFFER_RESULT ]
@@ -16,7 +16,7 @@ SELECT [ ALL | DISTINCT | DISTINCTROW ]
     [ locking_clause ]
     [ into_option ]
 
-# WHERE with_query
+# WHERE with_query_definition
 with_name [ ( colname [, ...] ) ] AS ( query_statement )
 
 # PARTOFIS from_expression

@@ -1,9 +1,9 @@
 # https://dev.mysql.com/doc/refman/8.4/en/case.html
 
 # CASE SIMPLE
-CASE case_value
-    WHEN when_value THEN statement [; ...]
-    [ WHEN when_value THEN statement [; ...] ] [...]
+CASE case_expression
+    WHEN when_expression THEN statement [; ...]
+    [ WHEN when_expression THEN statement [; ...] ] [...]
     [ ELSE statement [; ...] ]
 END CASE
 
