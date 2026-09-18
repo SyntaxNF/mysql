@@ -8,7 +8,8 @@ ALTER TABLESPACE name
     [ ENGINE_ATTRIBUTE [=] 'engine_attribute' ]
 
 # CASE INNODB_GENERAL_RENAME
-ALTER TABLESPACE name RENAME TO new_name
+ALTER TABLESPACE name
+    RENAME TO new_name
     [ ENGINE [=] INNODB ]
     [ ENGINE_ATTRIBUTE [=] 'engine_attribute' ]
 
@@ -20,19 +21,22 @@ ALTER UNDO TABLESPACE name
     [ ENGINE_ATTRIBUTE [=] 'engine_attribute' ]
 
 # CASE NDB_ADD_DATAFILE
-ALTER TABLESPACE name ADD DATAFILE 'datafile'
+ALTER TABLESPACE name
+    ADD DATAFILE 'datafile'
     [ INITIAL_SIZE [=] size ]
     [ WAIT ]
     [ ENGINE [=] NDB ]
     [ ENGINE_ATTRIBUTE [=] 'engine_attribute' ]
 
 # CASE NDB_DROP_DATAFILE
-ALTER TABLESPACE name DROP DATAFILE 'datafile'
+ALTER TABLESPACE name
+    DROP DATAFILE 'datafile'
     [ WAIT ]
     [ ENGINE [=] NDB ]
     [ ENGINE_ATTRIBUTE [=] 'engine_attribute' ]
 
 # CASE NDB_RENAME
-ALTER TABLESPACE name RENAME TO new_name
+ALTER TABLESPACE name
+    RENAME TO new_name
     [ ENGINE [=] NDB ]
     [ ENGINE_ATTRIBUTE [=] 'engine_attribute' ]

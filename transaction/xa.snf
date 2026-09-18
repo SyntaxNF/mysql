@@ -1,16 +1,22 @@
 # https://dev.mysql.com/doc/refman/8.4/en/xa-statements.html
 
 # CASE START
-XA { START | BEGIN } xid [ JOIN | RESUME ]
+XA { START | BEGIN }
+    xid
+    [ JOIN | RESUME ]
 
 # CASE END
-XA END xid [ SUSPEND [ FOR MIGRATE ] ]
+XA END
+    xid
+    [ SUSPEND [ FOR MIGRATE ] ]
 
 # CASE PREPARE
 XA PREPARE xid
 
 # CASE COMMIT
-XA COMMIT xid [ ONE PHASE ]
+XA COMMIT
+    xid
+    [ ONE PHASE ]
 
 # CASE ROLLBACK
 XA ROLLBACK xid
