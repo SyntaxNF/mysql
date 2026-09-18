@@ -7,16 +7,20 @@ SHOW BINARY LOG STATUS
 SHOW BINARY LOGS
 
 # CASE BINLOG_EVENTS
-SHOW BINLOG EVENTS [ IN 'log' ] [ FROM position ] [ LIMIT [ offset , ] limit ]
+SHOW BINLOG EVENTS [ IN 'log' ] [ FROM position ]
+    [ LIMIT [ offset , ] limit ]
 
 # CASE CHARACTER_SET
-SHOW { CHARACTER SET | CHARSET } [ like_or_where ]
+SHOW { CHARACTER SET | CHARSET }
+    [ like_or_where ]
 
 # CASE COLLATION
-SHOW COLLATION [ like_or_where ]
+SHOW COLLATION
+    [ like_or_where ]
 
 # CASE COLUMNS
-SHOW [ FULL ] COLUMNS FROM table [ FROM database ] [ like_or_where ]
+SHOW [ FULL ] COLUMNS FROM table [ FROM database ]
+    [ like_or_where ]
 
 # CASE CREATE_DATABASE
 SHOW CREATE DATABASE database
@@ -43,7 +47,8 @@ SHOW CREATE USER account
 SHOW CREATE VIEW view
 
 # CASE DATABASES
-SHOW DATABASES [ like_or_where ]
+SHOW DATABASES
+    [ like_or_where ]
 
 # CASE ENGINE
 SHOW ENGINE engine { STATUS | MUTEX }
@@ -55,13 +60,15 @@ SHOW [ STORAGE ] ENGINES
 SHOW ERRORS [ LIMIT [ offset , ] limit ]
 
 # CASE EVENTS
-SHOW EVENTS [ FROM database ] [ like_or_where ]
+SHOW EVENTS [ FROM database ]
+    [ like_or_where ]
 
 # CASE FUNCTION_CODE
 SHOW FUNCTION CODE function
 
 # CASE FUNCTION_STATUS
-SHOW FUNCTION STATUS [ like_or_where ]
+SHOW FUNCTION STATUS
+    [ like_or_where ]
 
 # CASE GRANTS
 SHOW GRANTS [ FOR account ] [ USING role [, ...] ]
@@ -70,7 +77,8 @@ SHOW GRANTS [ FOR account ] [ USING role [, ...] ]
 SHOW INDEX FROM table [ FROM database ]
 
 # CASE OPEN_TABLES
-SHOW OPEN TABLES [ FROM database ] [ like_or_where ]
+SHOW OPEN TABLES [ FROM database ]
+    [ like_or_where ]
 
 # CASE PLUGINS
 SHOW PLUGINS
@@ -79,7 +87,8 @@ SHOW PLUGINS
 SHOW PROCEDURE CODE procedure
 
 # CASE PROCEDURE_STATUS
-SHOW PROCEDURE STATUS [ like_or_where ]
+SHOW PROCEDURE STATUS
+    [ like_or_where ]
 
 # CASE PRIVILEGES
 SHOW PRIVILEGES
@@ -88,13 +97,17 @@ SHOW PRIVILEGES
 SHOW [ FULL ] PROCESSLIST
 
 # CASE PROFILE
-SHOW PROFILE [ profile_type [, ...] ] [ FOR QUERY number ] [ LIMIT limit [ OFFSET offset ] ]
+SHOW PROFILE [ profile_type [, ...] ]
+    [ FOR QUERY number ]
+    [ LIMIT limit [ OFFSET offset ] ]
 
 # CASE PROFILES
 SHOW PROFILES
 
 # CASE RELAYLOG_EVENTS
-SHOW RELAYLOG EVENTS [ IN 'log' ] [ FROM position ] [ LIMIT [ offset , ] limit ]
+SHOW RELAYLOG EVENTS [ IN 'log' ]
+    [ FROM position ]
+    [ LIMIT [ offset , ] limit ]
 
 # CASE REPLICA_STATUS
 SHOW REPLICA STATUS [ FOR CHANNEL 'channel' ]
@@ -103,19 +116,24 @@ SHOW REPLICA STATUS [ FOR CHANNEL 'channel' ]
 SHOW REPLICAS
 
 # CASE STATUS
-SHOW [ GLOBAL | SESSION ] STATUS [ like_or_where ]
+SHOW [ GLOBAL | SESSION ] STATUS
+    [ like_or_where ]
 
 # CASE TABLE_STATUS
-SHOW TABLE STATUS [ FROM database ] [ like_or_where ]
+SHOW TABLE STATUS [ FROM database ]
+    [ like_or_where ]
 
 # CASE TABLES
-SHOW [ FULL ] TABLES [ FROM database ] [ like_or_where ]
+SHOW [ FULL ] TABLES [ FROM database ]
+    [ like_or_where ]
 
 # CASE TRIGGERS
-SHOW TRIGGERS [ FROM database ] [ like_or_where ]
+SHOW TRIGGERS [ FROM database ]
+    [ like_or_where ]
 
 # CASE VARIABLES
-SHOW [ GLOBAL | SESSION ] VARIABLES [ like_or_where ]
+SHOW [ GLOBAL | SESSION ] VARIABLES
+    [ like_or_where ]
 
 # CASE WARNINGS
 SHOW WARNINGS [ LIMIT [ offset , ] limit ]

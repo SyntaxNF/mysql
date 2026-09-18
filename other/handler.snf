@@ -5,15 +5,18 @@ HANDLER table OPEN [ [ AS ] table_alias ]
 
 # CASE READ_KEY
 HANDLER table READ index { = | <= | >= | < | > } ( value [, ...] )
-    [ WHERE boolean_expression ] [ LIMIT [ offset , ] limit ]
+    [ WHERE boolean_expression ]
+    [ LIMIT [ offset , ] limit ]
 
 # CASE READ_INDEX
 HANDLER table READ index { FIRST | NEXT | PREV | LAST }
-    [ WHERE boolean_expression ] [ LIMIT [ offset , ] limit ]
+    [ WHERE boolean_expression ]
+    [ LIMIT [ offset , ] limit ]
 
 # CASE READ_TABLE
 HANDLER table READ { FIRST | NEXT }
-    [ WHERE boolean_expression ] [ LIMIT [ offset , ] limit ]
+    [ WHERE boolean_expression ]
+    [ LIMIT [ offset , ] limit ]
 
 # CASE CLOSE
 HANDLER table CLOSE

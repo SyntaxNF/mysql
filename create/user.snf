@@ -1,7 +1,7 @@
 # https://dev.mysql.com/doc/refman/8.4/en/create-user.html
 
 CREATE USER [ IF NOT EXISTS ]
-    account [ auth_option ] [, ...]
+    { account [ auth_option ] } [, ...]
     [ DEFAULT ROLE role [, ...] ]
     [ REQUIRE { NONE | tls_requirements } ]
     [ WITH resource_options ]
@@ -15,21 +15,28 @@ CREATE USER [ IF NOT EXISTS ]
     [ COMMENT 'comment' | ATTRIBUTE 'json' ]
 
 # PARTOFIS auth_option
-IDENTIFIED BY { 'auth_string' | RANDOM PASSWORD } [ AND second_auth_option ]
+IDENTIFIED BY { 'auth_string' | RANDOM PASSWORD }
+[ AND second_auth_option ]
 
-IDENTIFIED WITH auth_plugin [ BY { 'auth_string' | RANDOM PASSWORD } | AS 'auth_string' ]
+IDENTIFIED WITH auth_plugin
+[ BY { 'auth_string' | RANDOM PASSWORD } | AS 'auth_string' ]
 [ AND second_auth_option ]
 
 IDENTIFIED WITH auth_plugin initial_auth_option
 
 # WHERE second_auth_option
-IDENTIFIED [ WITH auth_plugin ] [ BY { 'auth_string' | RANDOM PASSWORD } | AS 'auth_string' ] [ AND third_auth_option ]
+IDENTIFIED [ WITH auth_plugin ]
+[ BY { 'auth_string' | RANDOM PASSWORD } | AS 'auth_string' ]
+[ AND third_auth_option ]
 
 # WHERE third_auth_option
-IDENTIFIED [ WITH auth_plugin ] [ BY { 'auth_string' | RANDOM PASSWORD } | AS 'auth_string' ]
+IDENTIFIED [ WITH auth_plugin ]
+[ BY { 'auth_string' | RANDOM PASSWORD } | AS 'auth_string' ]
 
 # WHERE initial_auth_option
-INITIAL AUTHENTICATION IDENTIFIED [ WITH auth_plugin ] { BY { RANDOM PASSWORD | 'auth_string' } | AS 'auth_string' }
+INITIAL AUTHENTICATION IDENTIFIED
+[ WITH auth_plugin ]
+{ BY { RANDOM PASSWORD | 'auth_string' } | AS 'auth_string' }
 
 # WHERE tls_requirements
 [ SSL | X509 ]

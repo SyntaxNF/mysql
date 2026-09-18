@@ -12,47 +12,82 @@ CREATE [ TEMPORARY ] TABLE [ IF NOT EXISTS ] name
     [ ( create_definition [, ...] ) ]
     table_options
     [ partition_options ]
-    [ IGNORE | REPLACE ] [ AS ] query_statement
+    [ IGNORE | REPLACE ]
+    [ AS ] query_statement
 
 # CASE LIKE
 CREATE [ TEMPORARY ] TABLE [ IF NOT EXISTS ] name
     { LIKE like_table | ( LIKE like_table ) }
 
-# ONEOFIS create_definition
+# PARTOFIS create_definition
 colname column_definition
-{ INDEX | KEY } [ index ] [ USING { BTREE | HASH } ] ( index_column_expression [, ...] ) index_options
-{ FULLTEXT | SPATIAL } [ INDEX | KEY ] [ index ] ( index_column_expression [, ...] ) index_options
-[ CONSTRAINT [ constraint ] ] PRIMARY KEY [ USING { BTREE | HASH } ] ( index_column_expression [, ...] ) index_options
-[ CONSTRAINT [ constraint ] ] UNIQUE [ INDEX | KEY ] [ index ] [ USING { BTREE | HASH } ] ( index_column_expression [, ...] ) index_options
-[ CONSTRAINT [ constraint ] ] FOREIGN KEY [ index ] ( colname [, ...] ) reference_definition
+
+{ INDEX | KEY } [ index ]
+[ USING { BTREE | HASH } ] (
+    index_column_expression [, ...]
+)
+index_options
+
+{ FULLTEXT | SPATIAL } [ INDEX | KEY ] [ index ] (
+    index_column_expression [, ...]
+)
+index_options
+
+[ CONSTRAINT [ constraint ] ]
+PRIMARY KEY [ USING { BTREE | HASH } ] (
+    index_column_expression [, ...]
+)
+index_options
+
+[ CONSTRAINT [ constraint ] ]
+UNIQUE [ INDEX | KEY ] [ index ] [ USING { BTREE | HASH } ] (
+    index_column_expression [, ...]
+)
+index_options
+
+[ CONSTRAINT [ constraint ] ]
+FOREIGN KEY [ index ] (
+    colname [, ...]
+)
+reference_definition
 check_constraint_definition
 
 # PARTOFIS column_definition
-type [ NOT NULL | NULL ] [ DEFAULT { value | ( value_expression ) } ]
-[ VISIBLE | INVISIBLE ] [ AUTO_INCREMENT ] [ UNIQUE [ KEY ] ] [ [ PRIMARY ] KEY ]
-[ COMMENT 'comment' ] [ COLLATE collate ]
+type
+[ NOT NULL | NULL ]
+[ DEFAULT { value | ( value_expression ) } ]
+[ VISIBLE | INVISIBLE ]
+[ AUTO_INCREMENT ]
+[ UNIQUE [ KEY ] ]
+[ [ PRIMARY ] KEY ]
+[ COLLATE collate ]
 [ COLUMN_FORMAT { FIXED | DYNAMIC | DEFAULT } ]
-[ ENGINE_ATTRIBUTE [=] 'engine_attribute' ] [ SECONDARY_ENGINE_ATTRIBUTE [=] 'secondary_engine_attribute' ]
-[ STORAGE { DISK | MEMORY } ] [ reference_definition ] [ check_constraint_definition ]
+[ ENGINE_ATTRIBUTE [=] 'engine_attribute' ]
+[ SECONDARY_ENGINE_ATTRIBUTE [=] 'secondary_engine_attribute' ]
+[ STORAGE { DISK | MEMORY } ]
+[ reference_definition ]
+[ check_constraint_definition ]
+[ COMMENT 'comment' ]
 
-type [ COLLATE collate ] [ GENERATED ALWAYS ] AS ( col_expression )
-[ VIRTUAL | STORED ] [ NOT NULL | NULL ] [ VISIBLE | INVISIBLE ]
-[ UNIQUE [ KEY ] ] [ [ PRIMARY ] KEY ] [ COMMENT 'comment' ]
-[ reference_definition ] [ check_constraint_definition ]
+type
+[ NOT NULL | NULL ]
+[ VISIBLE | INVISIBLE ]
+[ UNIQUE [ KEY ] ]
+[ [ PRIMARY ] KEY ]
+[ COLLATE collate ]
+[ GENERATED ALWAYS ] AS ( col_expression )
+[ VIRTUAL | STORED ]
+[ reference_definition ]
+[ check_constraint_definition ]
+[ COMMENT 'comment' ]
 
 # WHERE index_column_expression
 { colname [ ( length ) ] | ( col_expression ) } [ ASC | DESC ]
 
-# WHERE index_options
-[ KEY_BLOCK_SIZE [=] value ]
-[ WITH PARSER parser ]
-[ COMMENT 'comment' ]
-[ VISIBLE | INVISIBLE ]
-[ ENGINE_ATTRIBUTE [=] 'engine_attribute' ]
-[ SECONDARY_ENGINE_ATTRIBUTE [=] 'secondary_engine_attribute' ]
-
 # WHERE check_constraint_definition
-[ CONSTRAINT [ constraint ] ] CHECK ( boolean_expression ) [ [ NOT ] ENFORCED ]
+[ CONSTRAINT [ constraint ] ]
+    CHECK ( boolean_expression )
+    [ [ NOT ] ENFORCED ]
 
 # WHERE reference_definition
 REFERENCES table ( colname [, ...] )
@@ -62,6 +97,14 @@ REFERENCES table ( colname [, ...] )
 
 # WHERE on_delete_action, on_update_action
 { RESTRICT | CASCADE | SET NULL | NO ACTION | SET DEFAULT }
+
+# WHERE index_options
+[ KEY_BLOCK_SIZE [=] value ]
+[ WITH PARSER parser ]
+[ COMMENT 'comment' ]
+[ VISIBLE | INVISIBLE ]
+[ ENGINE_ATTRIBUTE [=] 'engine_attribute' ]
+[ SECONDARY_ENGINE_ATTRIBUTE [=] 'secondary_engine_attribute' ]
 
 # WHERE table_options
 [ AUTOEXTEND_SIZE [=] value ]

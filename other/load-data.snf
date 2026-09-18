@@ -5,10 +5,12 @@ LOAD DATA [ LOW_PRIORITY | CONCURRENT ] [ LOCAL ]
     INTO TABLE table
     [ PARTITION ( partition [, ...] ) ]
     [ CHARACTER SET charset ]
-    [ { FIELDS | COLUMNS }
+    [
+    { FIELDS | COLUMNS }
         [ TERMINATED BY 'string' ]
         [ [ OPTIONALLY ] ENCLOSED BY 'character' ]
-        [ ESCAPED BY 'character' ] ]
+        [ ESCAPED BY 'character' ]
+    ]
     [ LINES [ STARTING BY 'string' ] [ TERMINATED BY 'string' ] ]
     [ IGNORE number { LINES | ROWS } ]
     [ ( colname_or_variable [, ...] ) ]

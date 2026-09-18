@@ -32,5 +32,5 @@ CHANGE REPLICATION FILTER
 
 # CASE REWRITE_DATABASE
 CHANGE REPLICATION FILTER
-    REPLICATE_REWRITE_DB = ( ( from_database , to_database ) [, ...] )
+    REPLICATE_REWRITE_DB = ( { ( from_database , to_database ) } [, ...] )
     [ FOR CHANNEL 'channel' ]

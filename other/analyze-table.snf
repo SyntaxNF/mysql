@@ -1,5 +1,19 @@
 # https://dev.mysql.com/doc/refman/8.4/en/analyze-table.html
 
+# CASE ANALYZE
 ANALYZE [ NO_WRITE_TO_BINLOG | LOCAL ] TABLE table [, ...]
-    [ UPDATE HISTOGRAM ON colname [, ...] [ WITH number BUCKETS ]
-    | DROP HISTOGRAM ON colname [, ...] ]
+
+# CASE UPDATE_HISTOGRAM
+ANALYZE [ NO_WRITE_TO_BINLOG | LOCAL ] TABLE table
+    UPDATE HISTOGRAM ON colname [, ...]
+    [ WITH number BUCKETS ]
+    [ { MANUAL | AUTO } UPDATE ]
+
+# CASE UPDATE_HISTOGRAM_USING_DATA
+ANALYZE [ NO_WRITE_TO_BINLOG | LOCAL ] TABLE table
+    UPDATE HISTOGRAM ON colname
+    USING DATA 'json_data'
+
+# CASE DROP_HISTOGRAM
+ANALYZE [ NO_WRITE_TO_BINLOG | LOCAL ] TABLE table
+    DROP HISTOGRAM ON colname [, ...]

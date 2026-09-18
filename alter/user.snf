@@ -1,7 +1,8 @@
 # https://dev.mysql.com/doc/refman/8.4/en/alter-user.html
 
 # CASE CURRENT_PASSWORD
-ALTER USER [ IF EXISTS ] USER ( ) IDENTIFIED BY 'auth_string'
+ALTER USER [ IF EXISTS ] USER ( )
+    IDENTIFIED BY 'auth_string'
     [ REPLACE 'current_auth_string' ]
     [ RETAIN CURRENT PASSWORD | DISCARD OLD PASSWORD ]
 
@@ -21,14 +22,28 @@ ALTER USER [ IF EXISTS ]
 
 # CASE REGISTRATION
 ALTER USER [ IF EXISTS ] account
-    [ MODIFY factor ] FINISH REGISTRATION SET CHALLENGE_RESPONSE AS 'auth_string'
+    [ MODIFY factor ] FINISH REGISTRATION SET CHALLENGE_RESPONSE
+    AS 'auth_string'
 
-# ONEOFIS auth_option
-IDENTIFIED BY 'auth_string' [ REPLACE 'current_auth_string' ] [ RETAIN CURRENT PASSWORD | DISCARD OLD PASSWORD ]
-IDENTIFIED BY RANDOM PASSWORD [ RETAIN CURRENT PASSWORD | DISCARD OLD PASSWORD ]
-IDENTIFIED WITH auth_plugin [ BY 'auth_string' | BY RANDOM PASSWORD | AS 'auth_string' ]
-ADD factor IDENTIFIED WITH auth_plugin [ BY 'auth_string' | BY RANDOM PASSWORD ]
-MODIFY factor IDENTIFIED WITH auth_plugin [ BY 'auth_string' | BY RANDOM PASSWORD ]
+# PARTOFIS auth_option
+IDENTIFIED BY 'auth_string'
+[ REPLACE 'current_auth_string' ]
+[ RETAIN CURRENT PASSWORD | DISCARD OLD PASSWORD ]
+
+IDENTIFIED BY RANDOM PASSWORD
+[ RETAIN CURRENT PASSWORD | DISCARD OLD PASSWORD ]
+
+IDENTIFIED WITH auth_plugin
+[ BY 'auth_string' | BY RANDOM PASSWORD | AS 'auth_string' ]
+
+ADD factor
+IDENTIFIED WITH auth_plugin
+[ BY 'auth_string' | BY RANDOM PASSWORD ]
+
+MODIFY factor
+IDENTIFIED WITH auth_plugin
+[ BY 'auth_string' | BY RANDOM PASSWORD ]
+
 DROP factor
 
 # WHERE factor

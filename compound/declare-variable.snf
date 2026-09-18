@@ -1,3 +1,4 @@
 # https://dev.mysql.com/doc/refman/8.4/en/declare-local-variable.html
 
-DECLARE variable [, ...] type [ DEFAULT value_expression ]
+DECLARE variable [, ...]
+    type [ DEFAULT value_expression ]
