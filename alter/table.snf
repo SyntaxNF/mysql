@@ -1,39 +1,55 @@
 # https://dev.mysql.com/doc/refman/8.4/en/alter-table.html
 
 # CASE OPTIONS
-ALTER TABLE name action [, ...]
+ALTER TABLE name
+    action [, ...]
 
 # CASE RENAME_COLUMN
-ALTER TABLE name RENAME COLUMN colname TO new_colname
+ALTER TABLE name
+    RENAME COLUMN colname TO new_colname
 
 # CASE RENAME_INDEX
-ALTER TABLE name RENAME { INDEX | KEY } index TO new_index
+ALTER TABLE name
+    RENAME { INDEX | KEY } index TO new_index
 
 # CASE RENAME
-ALTER TABLE name RENAME [ TO | AS ] new_name
+ALTER TABLE name
+    RENAME [ TO | AS ] new_name
 
 # CASE ADD_PARTITION
-ALTER TABLE name ADD PARTITION ( partition_definition [, ...] )
+ALTER TABLE name
+    ADD PARTITION (
+        partition_definition [, ...]
+    )
 
 # CASE DROP_PARTITION
-ALTER TABLE name DROP PARTITION partition [, ...]
+ALTER TABLE name
+    DROP PARTITION partition [, ...]
 
 # CASE DISCARD_PARTITION
-ALTER TABLE name DISCARD PARTITION { partition [, ...] | ALL } TABLESPACE
+ALTER TABLE name
+    DISCARD PARTITION { partition [, ...] | ALL }
+    TABLESPACE
 
 # CASE IMPORT_PARTITION
-ALTER TABLE name IMPORT PARTITION { partition [, ...] | ALL } TABLESPACE
+ALTER TABLE name
+    IMPORT PARTITION { partition [, ...] | ALL }
+    TABLESPACE
 
 # CASE TRUNCATE_PARTITION
-ALTER TABLE name TRUNCATE PARTITION { partition [, ...] | ALL }
+ALTER TABLE name
+    TRUNCATE PARTITION { partition [, ...] | ALL }
 
 # CASE COALESCE_PARTITION
-ALTER TABLE name COALESCE PARTITION number
+ALTER TABLE name
+    COALESCE PARTITION number
 
 # CASE REORGANIZE_PARTITION
 ALTER TABLE name
     REORGANIZE PARTITION partition [, ...]
-    INTO ( partition_definition [, ...] )
+    INTO (
+        partition_definition [, ...]
+    )
 
 # CASE EXCHANGE_PARTITION
 ALTER TABLE name
@@ -49,44 +65,120 @@ ALTER TABLE name
 ALTER TABLE name REMOVE PARTITIONING
 
 # PARTOFIS action
-table_option
+AUTOEXTEND_SIZE [=] value
 
-ADD [ COLUMN ] colname column_definition [ FIRST | AFTER colname ]
+AUTO_INCREMENT [=] value
 
-ADD [ COLUMN ] ( colname column_definition [, ...] )
+AVG_ROW_LENGTH [=] value
 
-ADD { INDEX | KEY } [ index ] [ USING { BTREE | HASH } ]
-( index_column_expression [, ...] ) index_options
+[ DEFAULT ] CHARACTER SET [=] charset
+
+CHECKSUM [=] { 0 | 1 }
+
+[ DEFAULT ] COLLATE [=] collate
+
+COMMENT [=] 'comment'
+
+COMPRESSION [=] { 'ZLIB' | 'LZ4' | 'NONE' }
+
+CONNECTION [=] 'connection'
+
+{ DATA | INDEX } DIRECTORY [=] 'directory'
+
+DELAY_KEY_WRITE [=] { 0 | 1 }
+
+ENCRYPTION [=] { 'Y' | 'N' }
+
+ENGINE [=] engine
+
+ENGINE_ATTRIBUTE [=] 'engine_attribute'
+
+INSERT_METHOD [=] { NO | FIRST | LAST }
+
+KEY_BLOCK_SIZE [=] value
+
+MAX_ROWS [=] value
+
+MIN_ROWS [=] value
+
+PACK_KEYS [=] { 0 | 1 | DEFAULT }
+
+PASSWORD [=] 'password'
+
+ROW_FORMAT [=] { DEFAULT | DYNAMIC | FIXED | COMPRESSED | REDUNDANT | COMPACT }
+
+SECONDARY_ENGINE_ATTRIBUTE [=] 'secondary_engine_attribute'
+
+STATS_AUTO_RECALC [=] { DEFAULT | 0 | 1 }
+
+STATS_PERSISTENT [=] { DEFAULT | 0 | 1 }
+
+STATS_SAMPLE_PAGES [=] value
+
+TABLESPACE tablespace [ STORAGE { DISK | MEMORY } ]
+
+UNION [=] ( table [, ...] )
+
+ADD [ COLUMN ] colname
+    column_definition
+    [ FIRST | AFTER colname ]
+
+ADD [ COLUMN ] (
+    { colname column_definition } [, ...]
+)
+
+ADD { INDEX | KEY } [ index ]
+    [ USING { BTREE | HASH } ]
+    ( index_column_expression [, ...] )
+    index_options
 
 ADD { FULLTEXT | SPATIAL } [ INDEX | KEY ] [ index ]
-( index_column_expression [, ...] ) index_options
+    ( index_column_expression [, ...] )
+    index_options
 
-ADD [ CONSTRAINT [ constraint ] ] PRIMARY KEY
-[ USING { BTREE | HASH } ] ( index_column_expression [, ...] ) index_options
+ADD [ CONSTRAINT [ constraint ] ]
+    PRIMARY KEY
+    [ USING { BTREE | HASH } ]
+    ( index_column_expression [, ...] )
+    index_options
 
-ADD [ CONSTRAINT [ constraint ] ] UNIQUE [ INDEX | KEY ] [ index ]
-[ USING { BTREE | HASH } ] ( index_column_expression [, ...] ) index_options
+ADD [ CONSTRAINT [ constraint ] ]
+    UNIQUE [ INDEX | KEY ] [ index ]
+    [ USING { BTREE | HASH } ]
+    ( index_column_expression [, ...] )
+    index_options
 
-ADD [ CONSTRAINT [ constraint ] ] FOREIGN KEY [ index ]
-( colname [, ...] ) reference_definition
+ADD [ CONSTRAINT [ constraint ] ]
+    FOREIGN KEY [ index ]
+    ( colname [, ...] )
+    reference_definition
 
-ADD [ CONSTRAINT [ constraint ] ] CHECK ( boolean_expression ) [ [ NOT ] ENFORCED ]
+ADD [ CONSTRAINT [ constraint ] ]
+    CHECK ( boolean_expression )
+    [ [ NOT ] ENFORCED ]
 
 DROP { CHECK | CONSTRAINT } constraint
 
-ALTER { CHECK | CONSTRAINT } constraint [ NOT ] ENFORCED
+ALTER { CHECK | CONSTRAINT } constraint
+    [ NOT ] ENFORCED
 
 ALGORITHM [=] { DEFAULT | INSTANT | INPLACE | COPY }
 
-ALTER [ COLUMN ] colname { SET DEFAULT { value | ( value_expression ) } | SET { VISIBLE | INVISIBLE } | DROP DEFAULT }
+ALTER [ COLUMN ] colname
+    { SET DEFAULT { value | ( value_expression ) } | SET { VISIBLE | INVISIBLE } | DROP DEFAULT }
 
-ALTER INDEX index { VISIBLE | INVISIBLE }
+ALTER INDEX index
+    { VISIBLE | INVISIBLE }
 
-CHANGE [ COLUMN ] colname new_colname column_definition [ FIRST | AFTER colname ]
+CHANGE [ COLUMN ] colname new_colname
+    column_definition
+    [ FIRST | AFTER colname ]
 
-[ DEFAULT ] CHARACTER SET [=] charset [ COLLATE [=] collate ]
+[ DEFAULT ] CHARACTER SET [=] charset
+    [ COLLATE [=] collate ]
 
-CONVERT TO CHARACTER SET charset [ COLLATE collate ]
+CONVERT TO CHARACTER SET charset
+    [ COLLATE collate ]
 
 { DISABLE | ENABLE } KEYS
 
@@ -104,24 +196,42 @@ FORCE
 
 LOCK [=] { DEFAULT | NONE | SHARED | EXCLUSIVE }
 
-MODIFY [ COLUMN ] colname column_definition [ FIRST | AFTER colname ]
+MODIFY [ COLUMN ] colname
+    column_definition
+    [ FIRST | AFTER colname ]
 
 ORDER BY colname [, ...]
 
 { WITHOUT | WITH } VALIDATION
 
 # PARTOFIS column_definition
-type [ NOT NULL | NULL ] [ DEFAULT { value | ( value_expression ) } ]
-[ VISIBLE | INVISIBLE ] [ AUTO_INCREMENT ] [ UNIQUE [ KEY ] ] [ [ PRIMARY ] KEY ]
-[ COMMENT 'comment' ] [ COLLATE collate ]
+type
+[ NOT NULL | NULL ]
+[ DEFAULT { value | ( value_expression ) } ]
+[ VISIBLE | INVISIBLE ]
+[ AUTO_INCREMENT ]
+[ UNIQUE [ KEY ] ]
+[ [ PRIMARY ] KEY ]
+[ COMMENT 'comment' ]
+[ COLLATE collate ]
 [ COLUMN_FORMAT { FIXED | DYNAMIC | DEFAULT } ]
-[ ENGINE_ATTRIBUTE [=] 'engine_attribute' ] [ SECONDARY_ENGINE_ATTRIBUTE [=] 'secondary_engine_attribute' ]
-[ STORAGE { DISK | MEMORY } ] [ reference_definition ] [ check_constraint_definition ]
+[ ENGINE_ATTRIBUTE [=] 'engine_attribute' ]
+[ SECONDARY_ENGINE_ATTRIBUTE [=] 'secondary_engine_attribute' ]
+[ STORAGE { DISK | MEMORY } ]
+[ reference_definition ]
+[ check_constraint_definition ]
 
-type [ COLLATE collate ] [ GENERATED ALWAYS ] AS ( col_expression )
-[ VIRTUAL | STORED ] [ NOT NULL | NULL ] [ VISIBLE | INVISIBLE ]
-[ UNIQUE [ KEY ] ] [ [ PRIMARY ] KEY ] [ COMMENT 'comment' ]
-[ reference_definition ] [ check_constraint_definition ]
+type
+[ COLLATE collate ]
+[ GENERATED ALWAYS ] AS ( col_expression )
+[ VIRTUAL | STORED ]
+[ NOT NULL | NULL ]
+[ VISIBLE | INVISIBLE ]
+[ UNIQUE [ KEY ] ]
+[ [ PRIMARY ] KEY ]
+[ COMMENT 'comment' ]
+[ reference_definition ]
+[ check_constraint_definition ]
 
 # WHERE index_column_expression
 { colname [ ( length ) ] | ( col_expression ) } [ ASC | DESC ]
@@ -136,7 +246,9 @@ REFERENCES table ( colname [, ...] )
 { RESTRICT | CASCADE | SET NULL | NO ACTION | SET DEFAULT }
 
 # WHERE check_constraint_definition
-[ CONSTRAINT [ constraint ] ] CHECK ( boolean_expression ) [ [ NOT ] ENFORCED ]
+[ CONSTRAINT [ constraint ] ]
+    CHECK ( boolean_expression )
+    [ [ NOT ] ENFORCED ]
 
 # WHERE index_options
 [ KEY_BLOCK_SIZE [=] value ]
@@ -145,35 +257,6 @@ REFERENCES table ( colname [, ...] )
 [ VISIBLE | INVISIBLE ]
 [ ENGINE_ATTRIBUTE [=] 'engine_attribute' ]
 [ SECONDARY_ENGINE_ATTRIBUTE [=] 'secondary_engine_attribute' ]
-
-# ONEOFIS table_option
-AUTOEXTEND_SIZE [=] value
-AUTO_INCREMENT [=] value
-AVG_ROW_LENGTH [=] value
-[ DEFAULT ] CHARACTER SET [=] charset
-CHECKSUM [=] { 0 | 1 }
-[ DEFAULT ] COLLATE [=] collate
-COMMENT [=] 'comment'
-COMPRESSION [=] { 'ZLIB' | 'LZ4' | 'NONE' }
-CONNECTION [=] 'connection'
-{ DATA | INDEX } DIRECTORY [=] 'directory'
-DELAY_KEY_WRITE [=] { 0 | 1 }
-ENCRYPTION [=] { 'Y' | 'N' }
-ENGINE [=] engine
-ENGINE_ATTRIBUTE [=] 'engine_attribute'
-INSERT_METHOD [=] { NO | FIRST | LAST }
-KEY_BLOCK_SIZE [=] value
-MAX_ROWS [=] value
-MIN_ROWS [=] value
-PACK_KEYS [=] { 0 | 1 | DEFAULT }
-PASSWORD [=] 'password'
-ROW_FORMAT [=] { DEFAULT | DYNAMIC | FIXED | COMPRESSED | REDUNDANT | COMPACT }
-SECONDARY_ENGINE_ATTRIBUTE [=] 'secondary_engine_attribute'
-STATS_AUTO_RECALC [=] { DEFAULT | 0 | 1 }
-STATS_PERSISTENT [=] { DEFAULT | 0 | 1 }
-STATS_SAMPLE_PAGES [=] value
-TABLESPACE tablespace [ STORAGE { DISK | MEMORY } ]
-UNION [=] ( table [, ...] )
 
 # WHERE partition_definition
 PARTITION partition

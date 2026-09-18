@@ -1,6 +1,7 @@
 # https://dev.mysql.com/doc/refman/8.4/en/declare-cursor.html
 
-DECLARE cursor CURSOR FOR select_statement
+DECLARE cursor
+    CURSOR FOR select_statement
 
 # STATEMENT select_statement
 SELECT
