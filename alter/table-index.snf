@@ -1,0 +1,37 @@
+# https://dev.mysql.com/doc/refman/8.4/en/alter-table.html
+
+# CASE OPTIONS
+ALTER TABLE name
+    action [, ...]
+
+# PARTOFIS action
+ADD { INDEX | KEY } [ index ]
+    [ USING { BTREE | HASH } ]
+    ( index_column_expression [, ...] )
+    index_options
+
+ADD { FULLTEXT | SPATIAL } [ INDEX | KEY ] [ index ]
+    ( index_column_expression [, ...] )
+    index_options
+
+ALTER INDEX index
+    { VISIBLE | INVISIBLE }
+
+RENAME { INDEX | KEY } index TO new_index
+
+DROP { INDEX | KEY } index
+
+ALGORITHM [=] { DEFAULT | INSTANT | INPLACE | COPY }
+
+LOCK [=] { DEFAULT | NONE | SHARED | EXCLUSIVE }
+
+# WHERE index_column_expression
+{ colname [ ( length ) ] | ( col_expression ) } [ ASC | DESC ]
+
+# WHERE index_options
+[ KEY_BLOCK_SIZE [=] value ]
+[ WITH PARSER parser ]
+[ COMMENT 'comment' ]
+[ VISIBLE | INVISIBLE ]
+[ ENGINE_ATTRIBUTE [=] 'engine_attribute' ]
+[ SECONDARY_ENGINE_ATTRIBUTE [=] 'secondary_engine_attribute' ]

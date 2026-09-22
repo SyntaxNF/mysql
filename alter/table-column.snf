@@ -1,0 +1,76 @@
+# https://dev.mysql.com/doc/refman/8.4/en/alter-table.html
+
+# CASE OPTIONS
+ALTER TABLE name
+    action [, ...]
+
+# PARTOFIS action
+ADD [ COLUMN ] colname
+    column_definition
+    [ FIRST | AFTER colname ]
+
+ADD [ COLUMN ] (
+    { colname column_definition } [, ...]
+)
+
+CHANGE [ COLUMN ] colname new_colname
+    column_definition
+    [ FIRST | AFTER colname ]
+
+MODIFY [ COLUMN ] colname
+    column_definition
+    [ FIRST | AFTER colname ]
+
+ALTER [ COLUMN ] colname
+    { SET DEFAULT { value | ( value_expression ) } | SET { VISIBLE | INVISIBLE } | DROP DEFAULT }
+
+RENAME COLUMN colname TO new_colname
+
+DROP [ COLUMN ] colname
+
+ALGORITHM [=] { DEFAULT | INSTANT | INPLACE | COPY }
+
+LOCK [=] { DEFAULT | NONE | SHARED | EXCLUSIVE }
+
+# PARTOFIS column_definition
+type
+[ NOT NULL | NULL ]
+[ DEFAULT { value | ( value_expression ) } ]
+[ VISIBLE | INVISIBLE ]
+[ AUTO_INCREMENT ]
+[ UNIQUE [ KEY ] ]
+[ [ PRIMARY ] KEY ]
+[ COMMENT 'comment' ]
+[ COLLATE collate ]
+[ COLUMN_FORMAT { FIXED | DYNAMIC | DEFAULT } ]
+[ ENGINE_ATTRIBUTE [=] 'engine_attribute' ]
+[ SECONDARY_ENGINE_ATTRIBUTE [=] 'secondary_engine_attribute' ]
+[ STORAGE { DISK | MEMORY } ]
+[ reference_definition ]
+[ check_constraint_definition ]
+
+type
+[ COLLATE collate ]
+[ GENERATED ALWAYS ] AS ( col_expression )
+[ VIRTUAL | STORED ]
+[ NOT NULL | NULL ]
+[ VISIBLE | INVISIBLE ]
+[ UNIQUE [ KEY ] ]
+[ [ PRIMARY ] KEY ]
+[ COMMENT 'comment' ]
+[ reference_definition ]
+[ check_constraint_definition ]
+
+# WHERE reference_definition
+REFERENCES table ( colname [, ...] )
+    [ MATCH FULL | MATCH PARTIAL | MATCH SIMPLE ]
+    [ ON DELETE on_delete_action ]
+    [ ON UPDATE on_update_action ]
+
+# WHERE on_delete_action, on_update_action
+{ RESTRICT | CASCADE | SET NULL | NO ACTION | SET DEFAULT }
+
+# WHERE check_constraint_definition
+[ CONSTRAINT [ constraint ] ]
+    CHECK ( boolean_expression )
+    [ [ NOT ] ENFORCED ]
