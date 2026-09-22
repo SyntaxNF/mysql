@@ -1,0 +1,19 @@
+# https://dev.mysql.com/doc/refman/8.4/en/create-procedure.html
+
+# CASE OPTIONS
+CREATE [ DEFINER = user ] PROCEDURE name (
+    [ argument_definition [, ...] ]
+)
+    [ COMMENT 'comment' ]
+    [ LANGUAGE SQL ]
+    [ [ NOT ] DETERMINISTIC ]
+    [ { CONTAINS SQL | NO SQL | READS SQL DATA | MODIFIES SQL DATA } ]
+    [ SQL SECURITY { DEFINER | INVOKER } ]
+    routine_statement
+
+# WHERE argument_definition
+[ argmode ] argname argtype
+
+# STATEMENT routine_statement
+sql_statement
+compound_statement
