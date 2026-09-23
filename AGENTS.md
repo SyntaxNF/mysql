@@ -11,3 +11,7 @@ Name grammar nodes by their actual role: suffix complete executable or fully nes
 Use a context-qualified `_alias` for aliases, `_target` for operation or clause targets, `_assignment` for complete assignment structures, `_parameter` for configuration parameter names, and `_item`/`_list` for one member versus a homogeneous member list. Use `_mode` for behavioral or state selections, `_method` for implementation or algorithm selections, and `_value` only for values or enumerations that are not arbitrary SQL expressions. Avoid generic `config`; choose `_option`, `_options`, `_parameter`, or `_definition` by role. Prefer the referenced object's semantic type, such as `table`, `constraint`, or `referenced_table`, over a generic `_reference`. Reserve `_condition` for structured condition grammar such as `join_condition`; use `boolean_expression` for ordinary predicates.
 
 After modifying files, do not run tests or type checks automatically. The user will trigger them when needed.
+
+## SQL grammar ownership
+
+Organize definitions by SQL statement, using CASE for syntax variants. Do not copy or trim a definition for an application menu, object action, or safety policy. Consumers own operation-to-definition mappings, case/branch allowlists, defaults, target locks, authorization and execution workflows. Represent SQL options in the grammar even when a consumer restricts them. Reuse CREATE definitions for replacement actions; do not add rebuild or definition copies.
