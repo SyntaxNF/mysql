@@ -188,6 +188,10 @@ DROP [ COLUMN ] colname
 
 DROP { INDEX | KEY } index
 
+RENAME COLUMN colname TO new_colname
+
+RENAME { INDEX | KEY } index TO new_index
+
 DROP PRIMARY KEY
 
 DROP FOREIGN KEY foreign_key
