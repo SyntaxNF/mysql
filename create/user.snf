@@ -1,7 +1,7 @@
 # https://dev.mysql.com/doc/refman/8.4/en/create-user.html
 
 CREATE USER [ IF NOT EXISTS ]
-    { account [ auth_option ] } [, ...]
+    account_definition [, ...]
     [ DEFAULT ROLE role [, ...] ]
     [ REQUIRE { NONE | tls_requirements } ]
     [ WITH resource_options ]
@@ -14,6 +14,12 @@ CREATE USER [ IF NOT EXISTS ]
     [ ACCOUNT LOCK | ACCOUNT UNLOCK ]
     [ COMMENT 'comment' | ATTRIBUTE 'json' ]
 
+# WHERE account_definition
+{
+account
+[ auth_option ]
+}
+
 # PARTOFIS auth_option
 IDENTIFIED BY { 'auth_string' | RANDOM PASSWORD }
 [ AND second_auth_option ]
@@ -22,12 +28,14 @@ IDENTIFIED WITH auth_plugin
 [ BY { 'auth_string' | RANDOM PASSWORD } | AS 'auth_string' ]
 [ AND second_auth_option ]
 
-IDENTIFIED WITH auth_plugin initial_auth_option
+IDENTIFIED WITH auth_plugin
+initial_auth_option
 
 # WHERE second_auth_option
 IDENTIFIED [ WITH auth_plugin ]
 [ BY { 'auth_string' | RANDOM PASSWORD } | AS 'auth_string' ]
-[ AND third_auth_option ]
+[ AND
+third_auth_option ]
 
 # WHERE third_auth_option
 IDENTIFIED [ WITH auth_plugin ]
