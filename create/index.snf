@@ -2,7 +2,9 @@
 
 CREATE [ UNIQUE | FULLTEXT | SPATIAL ] INDEX name
     [ USING { BTREE | HASH } ]
-    ON table ( index_column_expression [, ...] )
+    ON table (
+        index_column_expression [, ...]
+    )
     [ KEY_BLOCK_SIZE [=] value ]
     [ WITH PARSER parser ]
     [ COMMENT 'comment' ]
