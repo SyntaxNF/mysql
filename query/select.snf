@@ -21,7 +21,9 @@ with_name [ ( colname [, ...] ) ] AS ( query_statement )
 
 # PARTOFIS from_expression
 table [ PARTITION ( partition [, ...] ) ]
-[ [ AS ] table_alias [ ( col_alias [, ...] ) ] ] [ index_hint ]
+[ [ AS ] table_alias ] [ index_hint [...] ]
+
+[ LATERAL ] ( query_statement ) [ AS ] table_alias [ ( col_alias [, ...] ) ]
 
 [ LATERAL ] table_function [ AS ] function_alias [ ( col_alias [, ...] ) ]
 
@@ -29,7 +31,7 @@ table [ PARTITION ( partition [, ...] ) ]
 
 from_expression [ INNER ] JOIN from_expression [ join_condition ]
 
-from_expression CROSS JOIN from_expression
+from_expression CROSS JOIN from_expression [ join_condition ]
 
 from_expression STRAIGHT_JOIN from_expression [ ON boolean_expression ]
 
@@ -41,8 +43,12 @@ from_expression NATURAL [ INNER | { LEFT | RIGHT } [ OUTER ] ] JOIN from_express
 ON boolean_expression
 USING ( colname [, ...] )
 
-# WHERE index_hint
-{ USE | FORCE | IGNORE } { INDEX | KEY }
+# PARTOFIS index_hint
+USE { INDEX | KEY }
+    [ FOR { JOIN | ORDER BY | GROUP BY } ]
+    ( [ index [, ...] ] )
+
+{ FORCE | IGNORE } { INDEX | KEY }
     [ FOR { JOIN | ORDER BY | GROUP BY } ]
     ( index [, ...] )
 
@@ -59,12 +65,17 @@ USING ( colname [, ...] )
     [ frame_clause ]
 
 # PARTOFIS frame_clause
-{ ROWS | RANGE | GROUPS } frame_bound
+{ ROWS | RANGE } frame_start
 
-{ ROWS | RANGE | GROUPS } BETWEEN frame_bound AND frame_bound
+{ ROWS | RANGE } BETWEEN frame_start AND frame_end
 
-# ONEOFIS frame_bound
+# ONEOFIS frame_start
 UNBOUNDED PRECEDING
+value_expression PRECEDING
+CURRENT ROW
+value_expression FOLLOWING
+
+# ONEOFIS frame_end
 value_expression PRECEDING
 CURRENT ROW
 value_expression FOLLOWING

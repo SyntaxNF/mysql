@@ -50,6 +50,7 @@ FOREIGN KEY [ index ] (
     colname [, ...]
 )
 reference_definition
+
 check_constraint_definition
 
 # PARTOFIS column_definition

@@ -23,7 +23,7 @@ INSERT [ LOW_PRIORITY | HIGH_PRIORITY ] [ IGNORE ]
     [ ON DUPLICATE KEY UPDATE column_assignment [, ...] ]
 
 # WHERE column_assignment
-colname = { value_expression | [ row_alias . ] colname | [ table . ] colname | [ row_alias . ] col_alias }
+colname = { DEFAULT | value_expression | [ row_alias . ] colname | [ table . ] colname | [ row_alias . ] col_alias }
 
 # STATEMENT query_statement
 SELECT
