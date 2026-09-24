@@ -140,3 +140,7 @@ col_expression [ ASC | DESC ]
 | `system_variable`、`user_variable` | MySQL 系统变量和用户变量。 |
 | `source_log`、`source_position` | 复制源的二进制日志文件和位置。 |
 | `relay_log`、`relay_position` | 副本的中继日志文件和位置。 |
+
+## 覆盖状态
+
+语句入口覆盖、本轮修正和剩余缺口见 [SQL 定义覆盖检查](docs/coverage.md)。文件存在不代表全部语法组合已经验证。

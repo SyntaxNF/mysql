@@ -18,7 +18,7 @@ REPLACE [ LOW_PRIORITY | DELAYED ] [ INTO ] table
     query_statement
 
 # WHERE column_assignment
-colname = value_expression
+colname = { value_expression | DEFAULT }
 
 # STATEMENT query_statement
 SELECT

@@ -74,11 +74,21 @@ SHOW FUNCTION STATUS
 SHOW GRANTS [ FOR account ] [ USING role [, ...] ]
 
 # CASE INDEX
-SHOW INDEX FROM table [ FROM database ]
+SHOW [ EXTENDED ] { INDEX | INDEXES | KEYS } FROM table [ FROM database ]
+    [ WHERE boolean_expression ]
 
 # CASE OPEN_TABLES
 SHOW OPEN TABLES [ FROM database ]
     [ like_or_where ]
+
+# CASE PARSE_TREE
+SHOW PARSE_TREE select_statement
+
+# CASE ERROR_COUNT
+SHOW COUNT ( * ) ERRORS
+
+# CASE WARNING_COUNT
+SHOW COUNT ( * ) WARNINGS
 
 # CASE PLUGINS
 SHOW PLUGINS
@@ -152,3 +162,6 @@ MEMORY
 PAGE FAULTS
 SOURCE
 SWAPS
+
+# STATEMENT select_statement
+SELECT
