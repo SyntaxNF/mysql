@@ -1,6 +1,7 @@
 # https://dev.mysql.com/doc/refman/8.4/en/update.html
 
 # CASE SINGLE_TABLE
+[ WITH [ RECURSIVE ] with_query_definition [, ...] ]
 UPDATE [ LOW_PRIORITY ] [ IGNORE ] from_expression
     SET column_assignment [, ...]
     [ WHERE boolean_expression ]
@@ -8,6 +9,7 @@ UPDATE [ LOW_PRIORITY ] [ IGNORE ] from_expression
     [ LIMIT limit ]
 
 # CASE MULTI_TABLE
+[ WITH [ RECURSIVE ] with_query_definition [, ...] ]
 UPDATE [ LOW_PRIORITY ] [ IGNORE ] from_expression [, ...]
     SET column_assignment [, ...]
     [ WHERE boolean_expression ]
@@ -18,6 +20,43 @@ colname = { value_expression | DEFAULT }
 # WHERE order_by_expression
 { colname | col_expression } [ ASC | DESC ]
 
-# STATEMENT from_expression
-table
-joined_table
+# PARTOFIS from_expression
+table [ PARTITION ( partition [, ...] ) ]
+[ [ AS ] table_alias ] [ index_hint [...] ]
+
+[ LATERAL ] ( query_statement ) [ AS ] table_alias [ ( col_alias [, ...] ) ]
+
+[ LATERAL ] table_function [ AS ] function_alias [ ( col_alias [, ...] ) ]
+
+( from_expression [, ...] )
+
+from_expression [ INNER ] JOIN from_expression [ join_condition ]
+
+from_expression CROSS JOIN from_expression [ join_condition ]
+
+from_expression STRAIGHT_JOIN from_expression [ ON boolean_expression ]
+
+from_expression { LEFT | RIGHT } [ OUTER ] JOIN from_expression join_condition
+
+from_expression NATURAL [ INNER | { LEFT | RIGHT } [ OUTER ] ] JOIN from_expression
+
+# ONEOFIS join_condition
+ON boolean_expression
+USING ( colname [, ...] )
+
+# PARTOFIS index_hint
+USE { INDEX | KEY }
+    [ FOR { JOIN | ORDER BY | GROUP BY } ]
+    ( [ index [, ...] ] )
+
+{ FORCE | IGNORE } { INDEX | KEY }
+    [ FOR { JOIN | ORDER BY | GROUP BY } ]
+    ( index [, ...] )
+
+# WHERE with_query_definition
+with_name [ ( colname [, ...] ) ] AS ( query_statement )
+
+# STATEMENT query_statement
+SELECT
+TABLE
+VALUES
