@@ -1,11 +1,24 @@
 # https://dev.mysql.com/doc/refman/8.4/en/begin-end.html
 
 [ begin_label : ]
-BEGIN [ NOT ATOMIC ]
-    stored_program_statement [; ...]
+BEGIN
+    [ variable_or_condition_declaration [; ...] ; ]
+    [ cursor_declaration [; ...] ; ]
+    [ handler_declaration [; ...] ; ]
+    [ stored_program_statement [; ...] ; ]
 END
 [ end_label ]
 
 # STATEMENT stored_program_statement
-sql_statement
-compound_statement
+SQL
+COMPOUND
+
+# STATEMENT variable_or_condition_declaration
+DECLARE_VARIABLE
+DECLARE_CONDITION
+
+# STATEMENT cursor_declaration
+DECLARE_CURSOR
+
+# STATEMENT handler_declaration
+DECLARE_HANDLER

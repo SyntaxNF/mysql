@@ -2,7 +2,7 @@
 
 # CASE PRIVILEGES
 REVOKE [ IF EXISTS ]
-    { privilege [ ( colname [, ...] ) ] } [, ...]
+    privilege_definition [, ...]
     ON [ object_type ] privilege_level
     FROM account_or_role [, ...]
     [ IGNORE UNKNOWN USER ]
@@ -21,6 +21,46 @@ REVOKE [ IF EXISTS ] PROXY ON account_or_role
 REVOKE [ IF EXISTS ] role [, ...]
     FROM account_or_role [, ...]
     [ IGNORE UNKNOWN USER ]
+
+# PARTOFIS privilege_definition
+{ INSERT | REFERENCES | SELECT | UPDATE } [ ( colname [, ...] ) ]
+
+static_privilege
+
+dynamic_privilege
+
+# ONEOFIS static_privilege
+ALL [ PRIVILEGES ]
+ALTER
+ALTER ROUTINE
+CREATE
+CREATE ROLE
+CREATE ROUTINE
+CREATE TABLESPACE
+CREATE TEMPORARY TABLES
+CREATE USER
+CREATE VIEW
+DELETE
+DROP
+DROP ROLE
+EVENT
+EXECUTE
+FILE
+FLUSH_PRIVILEGES
+GRANT OPTION
+INDEX
+LOCK TABLES
+OPTIMIZE_LOCAL_TABLE
+PROCESS
+RELOAD
+REPLICATION CLIENT
+REPLICATION SLAVE
+SHOW DATABASES
+SHOW VIEW
+SHUTDOWN
+SUPER
+TRIGGER
+USAGE
 
 # WHERE object_type
 { TABLE | FUNCTION | PROCEDURE }

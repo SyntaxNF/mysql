@@ -143,4 +143,6 @@ col_expression [ ASC | DESC ]
 
 ## 覆盖状态
 
-语句入口覆盖、本轮修正和剩余缺口见 [SQL 定义覆盖检查](docs/coverage.md)。文件存在不代表全部语法组合已经验证。
+语句入口覆盖、本轮修正和剩余缺口见 [SQL 定义覆盖检查](docs/coverage.md)。官方 248 个主题与全部 136 个文件有逐项映射；文件存在不代表全部语法组合已经验证。
+
+输入和存储程序/引擎/复制约束见 [输入与上下文契约](docs/input-contracts.md)。用户主动执行的 parser、round-trip、项目约定及回归检查见 [验证说明](docs/validation.md)；本轮结果见 [验证报告](docs/validation-report.md)。这些检查不执行 SQL，也不自动启动 CI。

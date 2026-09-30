@@ -4,7 +4,7 @@
 CREATE TABLESPACE name
     [ ADD DATAFILE 'datafile' ]
     [ AUTOEXTEND_SIZE [=] value ]
-    [ FILE_BLOCK_SIZE [=] value ]
+    [ FILE_BLOCK_SIZE = value ]
     [ ENCRYPTION [=] { 'Y' | 'N' } ]
     [ ENGINE [=] INNODB ]
     [ ENGINE_ATTRIBUTE [=] 'engine_attribute' ]
@@ -27,5 +27,5 @@ CREATE TABLESPACE name
     [ NODEGROUP [=] nodegroup_id ]
     [ WAIT ]
     [ COMMENT [=] 'comment' ]
-    [ ENGINE [=] NDB ]
+    [ ENGINE [=] { NDB | NDBCLUSTER } ]
     [ ENGINE_ATTRIBUTE [=] 'engine_attribute' ]

@@ -2,10 +2,10 @@
 
 [ begin_label : ]
 LOOP
-    statement [; ...]
+    statement [; ...] ;
 END LOOP
 [ end_label ]
 
 # STATEMENT statement
-sql_statement
-compound_statement
+SQL
+COMPOUND

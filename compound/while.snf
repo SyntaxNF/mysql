@@ -2,10 +2,10 @@
 
 [ begin_label : ]
 WHILE boolean_expression DO
-    statement [; ...]
+    statement [; ...] ;
 END WHILE
 [ end_label ]
 
 # STATEMENT statement
-sql_statement
-compound_statement
+SQL
+COMPOUND

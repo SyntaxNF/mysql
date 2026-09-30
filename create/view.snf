@@ -5,8 +5,9 @@ CREATE [ OR REPLACE ]
     [ DEFINER = user ]
     [ SQL SECURITY { DEFINER | INVOKER } ]
     VIEW name [ ( colname [, ...] ) ]
-    [ WITH [ CASCADED | LOCAL ] CHECK OPTION ]
     AS select_statement
+    [ WITH [ CASCADED | LOCAL ] CHECK OPTION ]
 
 # STATEMENT select_statement
 SELECT
+TABLE

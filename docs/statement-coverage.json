@@ -1,0 +1,2678 @@
+{
+  "baseline": "MySQL 8.4 LTS",
+  "checked": "2026-09-30",
+  "source_index": "https://dev.mysql.com/doc/refman/8.4/en/sql-statements.html",
+  "scope": "All 248 Chapter 15 sidebar entries, including linked leaf syntax and context pages. Rows are documentation topics, not statement or file counts.",
+  "entries": [
+    {
+      "page": "sql-statements.html",
+      "title": "SQL Statements",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/sql-statements.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "7c19ee6536845ed4d7bc61e5902653e64805920171038eb72d594e422f56379a"
+    },
+    {
+      "page": "sql-data-definition-statements.html",
+      "title": "Data Definition Statements",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/sql-data-definition-statements.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "00ab7a471ac62423d176fa6b0c01205312069f3d56a3330bccd57a04d8bc3007"
+    },
+    {
+      "page": "atomic-ddl.html",
+      "title": "Atomic Data Definition Statement Support",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/atomic-ddl.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "01a6e9bfd9f88c9965cbf18b71e2b341fd88f1c79461ec39da290eec333594d0"
+    },
+    {
+      "page": "alter-database.html",
+      "title": "ALTER DATABASE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/alter-database.html",
+      "files": [
+        "alter/database.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "faebce79b3b40c8cfaa52a9f2d3539113ac06e2210f1dcda8e8d6731843766c6"
+    },
+    {
+      "page": "alter-event.html",
+      "title": "ALTER EVENT Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/alter-event.html",
+      "files": [
+        "alter/event.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "977dc461efcdd79f23717a27049534d8d0a8abb72ebb50d9d19b50433f9d2a3d"
+    },
+    {
+      "page": "alter-function.html",
+      "title": "ALTER FUNCTION Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/alter-function.html",
+      "files": [
+        "alter/function.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "688a9c5c07a46d0c779b36e0815a5010ccd923874b15907d74fe5a49857b1b1f"
+    },
+    {
+      "page": "alter-instance.html",
+      "title": "ALTER INSTANCE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/alter-instance.html",
+      "files": [
+        "alter/instance.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "b539a882fa3119bc58859167084e3ac290dc1bef39708e20a0b4bc5ebd79fedb"
+    },
+    {
+      "page": "alter-logfile-group.html",
+      "title": "ALTER LOGFILE GROUP Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/alter-logfile-group.html",
+      "files": [
+        "alter/logfile-group.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "82bd811f27fa345344c64ecc3bba5006b11c70bf2fc11f5503f36aa2af47eea6"
+    },
+    {
+      "page": "alter-procedure.html",
+      "title": "ALTER PROCEDURE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/alter-procedure.html",
+      "files": [
+        "alter/procedure.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "bb70fcf5f690a6b9cfcd6a50ce56c4f98f6778ca363e5c7366ff801292f1ed48"
+    },
+    {
+      "page": "alter-server.html",
+      "title": "ALTER SERVER Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/alter-server.html",
+      "files": [
+        "alter/server.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "7e05127b7ea2088b6c7e06a08810082e9cef64c804ca94c6e62492bc232ea014"
+    },
+    {
+      "page": "alter-table.html",
+      "title": "ALTER TABLE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/alter-table.html",
+      "files": [
+        "alter/table.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "28f5eaca430e2f3fd8e3315dbbfbd906dfd4f00cc06301f1a3e7df293dcd0d04"
+    },
+    {
+      "page": "alter-table-partition-operations.html",
+      "title": "ALTER TABLE Partition Operations",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/alter-table-partition-operations.html",
+      "files": [
+        "alter/table.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "2245960c7bb874b4792b6b159a08f1266a36505181210498419ab8b98eb5df28"
+    },
+    {
+      "page": "alter-table-generated-columns.html",
+      "title": "ALTER TABLE and Generated Columns",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/alter-table-generated-columns.html",
+      "files": [
+        "alter/table.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "427483f12e4acdae8c5435b635bb829f84426a2e75ff1884442fd5c19afd9521"
+    },
+    {
+      "page": "alter-table-examples.html",
+      "title": "ALTER TABLE Examples",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/alter-table-examples.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "ac5753bba3dc544507fc07c3ce969731e9d69f57e4af7f73ca895949ac15c641"
+    },
+    {
+      "page": "alter-tablespace.html",
+      "title": "ALTER TABLESPACE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/alter-tablespace.html",
+      "files": [
+        "alter/tablespace.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "162b40ac90b567b61f33887dfc0e9bf04ea2de50678a9384fc68918ad505e314"
+    },
+    {
+      "page": "alter-view.html",
+      "title": "ALTER VIEW Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/alter-view.html",
+      "files": [
+        "alter/view.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "5149282af81c772ee1f378361a7fd22281c13f6e63e010fe8c3d376add7935a5"
+    },
+    {
+      "page": "create-database.html",
+      "title": "CREATE DATABASE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-database.html",
+      "files": [
+        "create/database.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "ee46e0ec889f59e835a700549976a277b20555e21a4a1a5769d03c5f2f504e31"
+    },
+    {
+      "page": "create-event.html",
+      "title": "CREATE EVENT Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-event.html",
+      "files": [
+        "create/event.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "b5b5fcc2c1592c1fc99ecbde7688c0ca0a72a2c71edb0dcd8d69944a39e6463b"
+    },
+    {
+      "page": "create-function.html",
+      "title": "CREATE FUNCTION Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-function.html",
+      "files": [
+        "create/function.snf",
+        "create/loadable-function.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "38752e5db8f6cc668407b38332c8460a6688167c98932b3abe543cfff734f049"
+    },
+    {
+      "page": "create-index.html",
+      "title": "CREATE INDEX Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-index.html",
+      "files": [
+        "create/index.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "02ae75dd7c71f4b0a14042ca42843e8d7b6b90360ea6e776ed84140749380480"
+    },
+    {
+      "page": "create-logfile-group.html",
+      "title": "CREATE LOGFILE GROUP Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-logfile-group.html",
+      "files": [
+        "create/logfile-group.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "c8123b8b670f5b07215094fcff3b43d02d8c5b90786c45aaad938b1031947ec3"
+    },
+    {
+      "page": "create-procedure.html",
+      "title": "CREATE PROCEDURE and CREATE FUNCTION Statements",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-procedure.html",
+      "files": [
+        "create/function.snf",
+        "create/procedure.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "e5a6d8d38c2908cb8fc022e448422b56143c68ec7eb5de7889d7e53daa2df8de"
+    },
+    {
+      "page": "create-server.html",
+      "title": "CREATE SERVER Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-server.html",
+      "files": [
+        "create/server.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "497698dde692522415b2371988f3bbca0d071a6c66c6ec27f5d8a485859e5a85"
+    },
+    {
+      "page": "create-spatial-reference-system.html",
+      "title": "CREATE SPATIAL REFERENCE SYSTEM Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-spatial-reference-system.html",
+      "files": [
+        "create/spatial-reference-system.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "72f6d53129f842a1b1703d51aeab5272d8a88bd738734ed7adc1a19e2d04c68f"
+    },
+    {
+      "page": "create-table.html",
+      "title": "CREATE TABLE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table.html",
+      "files": [
+        "create/table.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "8ed793d4c0923616654010aef2a498077f01e0e2191ed97a3d41c634255affa4"
+    },
+    {
+      "page": "create-table-files.html",
+      "title": "Files Created by CREATE TABLE",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-files.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "90a16a589688aac9282f8006d781928b225092c96d0befc7221c550b379a391e"
+    },
+    {
+      "page": "create-temporary-table.html",
+      "title": "CREATE TEMPORARY TABLE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-temporary-table.html",
+      "files": [
+        "create/table.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "823e36426b79867539c0e00d0c83b4523294b482e576b8844ab1139b9ab96de3"
+    },
+    {
+      "page": "create-table-like.html",
+      "title": "CREATE TABLE ... LIKE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-like.html",
+      "files": [
+        "create/table.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "8306f9ab455c67c6a7f58f3ec930a7070e2c2033c3ca518ce114e77c3bd40f71"
+    },
+    {
+      "page": "create-table-select.html",
+      "title": "CREATE TABLE ... SELECT Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-select.html",
+      "files": [
+        "create/table.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "5359c9d07bb211df251d25038f9f0780f9de02f71ce762d0586d1f5dea07d530"
+    },
+    {
+      "page": "create-table-foreign-keys.html",
+      "title": "FOREIGN KEY Constraints",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html",
+      "files": [
+        "alter/table.snf",
+        "create/table.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "f4f6cc2fb0209a58c5ae33d5e9f3f91e7b9dccaa666d371375c397c9a4fca086"
+    },
+    {
+      "page": "create-table-check-constraints.html",
+      "title": "CHECK Constraints",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-check-constraints.html",
+      "files": [
+        "alter/table.snf",
+        "create/table.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "c0f853a9185fd59e804caae91a0745215444ccdfd01150909534b49535d701e8"
+    },
+    {
+      "page": "silent-column-changes.html",
+      "title": "Silent Column Specification Changes",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/silent-column-changes.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "170fc7a5240970dcc4c46ec6b49214d635919c587f840ccf96af2ead950d2ed3"
+    },
+    {
+      "page": "create-table-generated-columns.html",
+      "title": "CREATE TABLE and Generated Columns",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-generated-columns.html",
+      "files": [
+        "create/table.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "dc3ba9049c19af387927f133789e7e1cc80772d3800aa2eb40ec616f3dec3320"
+    },
+    {
+      "page": "create-table-secondary-indexes.html",
+      "title": "Secondary Indexes and Generated Columns",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-secondary-indexes.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "324e4e51c4834134d7e73ec16ffb9669f7c7b55fa0457fb3e267b66b2f90bc8b"
+    },
+    {
+      "page": "invisible-columns.html",
+      "title": "Invisible Columns",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/invisible-columns.html",
+      "files": [
+        "alter/table.snf",
+        "create/table.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "9e7c1fd6f08980de06996b66ad80558d9a205f500f6d219ef71c75e153ddcf97"
+    },
+    {
+      "page": "create-table-gipks.html",
+      "title": "Generated Invisible Primary Keys",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-gipks.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "689e30acfe4b81b72e53fdb27cb815b6d6c0412d6abf481d039226dace61f89a"
+    },
+    {
+      "page": "create-table-ndb-comment-options.html",
+      "title": "Setting NDB Comment Options",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-ndb-comment-options.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "2f487d8ffc31470a1c26af26c006fd5812af0b09f80f447caa950720450de328"
+    },
+    {
+      "page": "create-tablespace.html",
+      "title": "CREATE TABLESPACE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-tablespace.html",
+      "files": [
+        "create/tablespace.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "e9cb1a895481e1058b1bc369afcc3ace1cc9ebe8919d230035ceabf1fd9b087b"
+    },
+    {
+      "page": "create-trigger.html",
+      "title": "CREATE TRIGGER Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-trigger.html",
+      "files": [
+        "create/trigger.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "7cf57b978b3c447f5969e5178e81d8ced7e0fa99c3d2069fc1b524a03be0927c"
+    },
+    {
+      "page": "create-view.html",
+      "title": "CREATE VIEW Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-view.html",
+      "files": [
+        "create/view.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "25c7d2c1de0a6464f130cdc97e8987882391e195bb3e69fb3e9aa0bb103a62ce"
+    },
+    {
+      "page": "drop-database.html",
+      "title": "DROP DATABASE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/drop-database.html",
+      "files": [
+        "drop/database.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "ef3dbdccc45a1a95810c2728e22217f07a18254f28f4801504c404ab01401f4b"
+    },
+    {
+      "page": "drop-event.html",
+      "title": "DROP EVENT Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/drop-event.html",
+      "files": [
+        "drop/event.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "b716aa9e11f5ffeedcfb706bc511c9644f582477a34984a7647e2c12b4be17e8"
+    },
+    {
+      "page": "drop-function.html",
+      "title": "DROP FUNCTION Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/drop-function.html",
+      "files": [
+        "drop/function.snf",
+        "drop/loadable-function.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "1fb5857f787af1de78dac2267a38c8b0cd3ac0bda43fd48c6ca4cdf66e2cf8d7"
+    },
+    {
+      "page": "drop-index.html",
+      "title": "DROP INDEX Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/drop-index.html",
+      "files": [
+        "drop/index.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "35b41528d73cda1356779907c0332967a8380f4d2a142680bd0bc5faed7a90a1"
+    },
+    {
+      "page": "drop-logfile-group.html",
+      "title": "DROP LOGFILE GROUP Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/drop-logfile-group.html",
+      "files": [
+        "drop/logfile-group.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "13c9bb01d063cdad32a952ac4c59f46dc7d3d45b9860ec74ecba195b2991e8ed"
+    },
+    {
+      "page": "drop-procedure.html",
+      "title": "DROP PROCEDURE and DROP FUNCTION Statements",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/drop-procedure.html",
+      "files": [
+        "drop/function.snf",
+        "drop/procedure.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "241c47932bdbfb8254696252008469c51aa03a74384b7f5d0e344a4dedca1969"
+    },
+    {
+      "page": "drop-server.html",
+      "title": "DROP SERVER Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/drop-server.html",
+      "files": [
+        "drop/server.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "7ddc11e5ad8591d95444fdf3177e7b83e8b6b289f0fcf9c05c86b5b6e522be76"
+    },
+    {
+      "page": "drop-spatial-reference-system.html",
+      "title": "DROP SPATIAL REFERENCE SYSTEM Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/drop-spatial-reference-system.html",
+      "files": [
+        "drop/spatial-reference-system.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "27fc9ae48c6184f42e8f85128bff24494367f867b78b7e3976aad365a01192b1"
+    },
+    {
+      "page": "drop-table.html",
+      "title": "DROP TABLE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/drop-table.html",
+      "files": [
+        "drop/table.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "63b7ed8b6ee720df1208720dcd4b708c82d1ea594953a32d21ea5a251d4781b6"
+    },
+    {
+      "page": "drop-tablespace.html",
+      "title": "DROP TABLESPACE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/drop-tablespace.html",
+      "files": [
+        "drop/tablespace.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "769b12c761dfb0b0e471cc3369745ece68223f6ae1791d37144383f254604053"
+    },
+    {
+      "page": "drop-trigger.html",
+      "title": "DROP TRIGGER Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/drop-trigger.html",
+      "files": [
+        "drop/trigger.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "b7b7d33cc571c0758eb34095d02a72ec4ace52a5bb695a9eb78992d1ba52b2b4"
+    },
+    {
+      "page": "drop-view.html",
+      "title": "DROP VIEW Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/drop-view.html",
+      "files": [
+        "drop/view.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "78007d41239273dcb3a393d172ece9ec7b4f38e85c2b26385382320d3cd3b207"
+    },
+    {
+      "page": "rename-table.html",
+      "title": "RENAME TABLE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/rename-table.html",
+      "files": [
+        "other/rename-table.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "225783e4b985d0be3542c3d17d257a6a77f0ab3194dfec76682f28cc4c7f1c45"
+    },
+    {
+      "page": "truncate-table.html",
+      "title": "TRUNCATE TABLE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/truncate-table.html",
+      "files": [
+        "other/truncate-table.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "27e912c17cacd804e2aedab52673db9aef5b8a897ee350b755cc28fc8f31aa34"
+    },
+    {
+      "page": "sql-data-manipulation-statements.html",
+      "title": "Data Manipulation Statements",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/sql-data-manipulation-statements.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "44995bdcbf39a5ae38f1d7a35ab95eea1bbea32bde26f893cb499691cdf6323c"
+    },
+    {
+      "page": "call.html",
+      "title": "CALL Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/call.html",
+      "files": [
+        "other/call.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "1cc16af1301f05af3bc886f24ecb11b7047e864948d00db090cfefd5b130aaf3"
+    },
+    {
+      "page": "delete.html",
+      "title": "DELETE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/delete.html",
+      "files": [
+        "query/delete.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "7b79302998c58ced27362de1cf6fc67de3477404e039de29f14006e13ae465ce"
+    },
+    {
+      "page": "do.html",
+      "title": "DO Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/do.html",
+      "files": [
+        "other/do.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "c99af1c747de31faa10b1f95cca67b9330c53361f425c59fade432c28945d6b3"
+    },
+    {
+      "page": "except.html",
+      "title": "EXCEPT Clause",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/except.html",
+      "files": [
+        "query/query-expression.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "21ef75ca628a14494acfa78f4c931b30815dd335045fad176edd22507adab5cc"
+    },
+    {
+      "page": "handler.html",
+      "title": "HANDLER Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/handler.html",
+      "files": [
+        "other/handler.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "e86e9f1967d6e756acb3189b2af54a278fe17ea1cca7959ae50142ffba701659"
+    },
+    {
+      "page": "import-table.html",
+      "title": "IMPORT TABLE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/import-table.html",
+      "files": [
+        "other/import-table.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "3258556a11505de728e6fbe5249a8382f0a47c3b4267666464de1d7e28b4c7ff"
+    },
+    {
+      "page": "insert.html",
+      "title": "INSERT Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/insert.html",
+      "files": [
+        "query/insert.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "3f190f5f34cc52bf601a2b666cf7f2788c7d856e46bb5768228d31df63568215"
+    },
+    {
+      "page": "insert-select.html",
+      "title": "INSERT ... SELECT Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/insert-select.html",
+      "files": [
+        "query/insert.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "b60dba4682f28b1aa02fa6a89c44b4a02d2ac6fbbad6b6448b8cbfaff03ec4a1"
+    },
+    {
+      "page": "insert-on-duplicate.html",
+      "title": "INSERT ... ON DUPLICATE KEY UPDATE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/insert-on-duplicate.html",
+      "files": [
+        "query/insert.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "de5895ab675675668b6b70384f3f95ab753784b76d75e529731f0ee539862e7a"
+    },
+    {
+      "page": "insert-delayed.html",
+      "title": "INSERT DELAYED Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/insert-delayed.html",
+      "files": [
+        "query/insert.snf",
+        "query/replace.snf"
+      ],
+      "status": "partial",
+      "evidence": "DELAYED is accepted but ignored in MySQL 8.4; retained spelling does not promise delayed insertion behavior.",
+      "source_sha256": "a49e8b18cf2c7141ceea5831f49d5b8acb7765e166fcf0671bfe122d38bee772"
+    },
+    {
+      "page": "intersect.html",
+      "title": "INTERSECT Clause",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/intersect.html",
+      "files": [
+        "query/query-expression.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "313d1dad2388fdab53861f91c13cf3b379309f4058632746db66ece8793ea896"
+    },
+    {
+      "page": "load-data.html",
+      "title": "LOAD DATA Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/load-data.html",
+      "files": [
+        "other/load-data.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "e1fded9b44152216364674a96c8124efb5191b575cd33f562cdc60232f4e5b95"
+    },
+    {
+      "page": "load-xml.html",
+      "title": "LOAD XML Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/load-xml.html",
+      "files": [
+        "other/load-xml.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "416b13a04d81c073915f9e483b011fb2f7b7996499ed0f3b9749a4df3d622367"
+    },
+    {
+      "page": "parenthesized-query-expressions.html",
+      "title": "Parenthesized Query Expressions",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/parenthesized-query-expressions.html",
+      "files": [
+        "query/query-expression.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "ed274125061cf6b5b7c4f4cc3242106e817ccbde9204ab3083b13991fe8f6a51"
+    },
+    {
+      "page": "replace.html",
+      "title": "REPLACE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/replace.html",
+      "files": [
+        "query/replace.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "0df2f1c528060f0ec99a29473d411dc15313c8b1877d83a4275cdef0f6e34ad7"
+    },
+    {
+      "page": "select.html",
+      "title": "SELECT Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/select.html",
+      "files": [
+        "query/select.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "7c904c88c9732b052806a4f1eebae6c70cb30d2c04a2d3c7aaa224b0889cd10e"
+    },
+    {
+      "page": "select-into.html",
+      "title": "SELECT ... INTO Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/select-into.html",
+      "files": [
+        "query/query-expression.snf",
+        "query/select.snf",
+        "query/table.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "a7691ef562c6a041ad47538effde28c9a60b130db75d7f71a3197ecfc9915a90"
+    },
+    {
+      "page": "join.html",
+      "title": "JOIN Clause",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/join.html",
+      "files": [
+        "query/delete.snf",
+        "query/select.snf",
+        "query/update.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "9400c4093e7412f4f46369581369cb3c35b8b332f2286b19d4d43edb9f30c96a"
+    },
+    {
+      "page": "set-operations.html",
+      "title": "Set Operations with UNION, INTERSECT, and EXCEPT",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/set-operations.html",
+      "files": [
+        "query/query-expression.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "f0a2e06886c1f94617f9e55706f34d20f90a7324c9540795c73abbd5fbf4e2e1"
+    },
+    {
+      "page": "subqueries.html",
+      "title": "Subqueries",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/subqueries.html",
+      "files": [
+        "query/select.snf"
+      ],
+      "status": "partial",
+      "evidence": "Subquery operator/scalar-expression grammar remains delegated to typed expression inputs; full expression grammar is not expanded. See docs/file-coverage.json query/select.snf.",
+      "source_sha256": "c41423c70e5074513acafa13a2c6970072d17a223fbd04431b8a5af3e9ccfd0c"
+    },
+    {
+      "page": "scalar-subqueries.html",
+      "title": "The Subquery as Scalar Operand",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/scalar-subqueries.html",
+      "files": [
+        "query/select.snf"
+      ],
+      "status": "partial",
+      "evidence": "Subquery operator/scalar-expression grammar remains delegated to typed expression inputs; full expression grammar is not expanded. See docs/file-coverage.json query/select.snf.",
+      "source_sha256": "2168466a1cc6a75e840604a28cbe1e94b9ad0afcf78e39bd939a05facc2219bd"
+    },
+    {
+      "page": "comparisons-using-subqueries.html",
+      "title": "Comparisons Using Subqueries",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/comparisons-using-subqueries.html",
+      "files": [
+        "query/select.snf"
+      ],
+      "status": "partial",
+      "evidence": "Subquery operator/scalar-expression grammar remains delegated to typed expression inputs; full expression grammar is not expanded. See docs/file-coverage.json query/select.snf.",
+      "source_sha256": "70dd758614bff832c9f3fa70cb7b55f96bedf95c939ecd952df5e6e0ab66abcd"
+    },
+    {
+      "page": "any-in-some-subqueries.html",
+      "title": "Subqueries with ANY, IN, or SOME",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/any-in-some-subqueries.html",
+      "files": [
+        "query/select.snf"
+      ],
+      "status": "partial",
+      "evidence": "Subquery operator/scalar-expression grammar remains delegated to typed expression inputs; full expression grammar is not expanded. See docs/file-coverage.json query/select.snf.",
+      "source_sha256": "656bbf53e7805f754a19987dcbede014d65183063f16b8fb0651589791befbfb"
+    },
+    {
+      "page": "all-subqueries.html",
+      "title": "Subqueries with ALL",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/all-subqueries.html",
+      "files": [
+        "query/select.snf"
+      ],
+      "status": "partial",
+      "evidence": "Subquery operator/scalar-expression grammar remains delegated to typed expression inputs; full expression grammar is not expanded. See docs/file-coverage.json query/select.snf.",
+      "source_sha256": "30942168e8373a7be94ef3ada8b13c87095bb178408cfd3346878f8b9bc05fdb"
+    },
+    {
+      "page": "row-subqueries.html",
+      "title": "Row Subqueries",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/row-subqueries.html",
+      "files": [
+        "query/select.snf"
+      ],
+      "status": "partial",
+      "evidence": "Subquery operator/scalar-expression grammar remains delegated to typed expression inputs; full expression grammar is not expanded. See docs/file-coverage.json query/select.snf.",
+      "source_sha256": "58cfebddd76b827680f5154238e0ed4478465b01d4d019cb8c1d22fbece4a6eb"
+    },
+    {
+      "page": "exists-and-not-exists-subqueries.html",
+      "title": "Subqueries with EXISTS or NOT EXISTS",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/exists-and-not-exists-subqueries.html",
+      "files": [
+        "query/select.snf"
+      ],
+      "status": "partial",
+      "evidence": "Subquery operator/scalar-expression grammar remains delegated to typed expression inputs; full expression grammar is not expanded. See docs/file-coverage.json query/select.snf.",
+      "source_sha256": "a6ab04cc6b45fcd3660396a09ae74c8a5f9a06d12a917122c5b8d0c7acc8724f"
+    },
+    {
+      "page": "correlated-subqueries.html",
+      "title": "Correlated Subqueries",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/correlated-subqueries.html",
+      "files": [
+        "query/select.snf"
+      ],
+      "status": "partial",
+      "evidence": "Subquery operator/scalar-expression grammar remains delegated to typed expression inputs; full expression grammar is not expanded. See docs/file-coverage.json query/select.snf.",
+      "source_sha256": "3c23bce5b44e6d3cca0fe2d7f186c0bc7565574dd64eb8d74cf47904b8163957"
+    },
+    {
+      "page": "derived-tables.html",
+      "title": "Derived Tables",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/derived-tables.html",
+      "files": [
+        "query/delete.snf",
+        "query/select.snf",
+        "query/update.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "f40186382fd50e3882e0c88047b0b3c1fe8752499ca6cd20129141d3651e6bd9"
+    },
+    {
+      "page": "lateral-derived-tables.html",
+      "title": "Lateral Derived Tables",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/lateral-derived-tables.html",
+      "files": [
+        "query/delete.snf",
+        "query/select.snf",
+        "query/update.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "d70a5759913e7e60c66c4e78ab6c0f26db92fe7d3fe5307870b24397b42e8128"
+    },
+    {
+      "page": "subquery-errors.html",
+      "title": "Subquery Errors",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/subquery-errors.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "f1bf1a4002aa4b4f95ea84742c1f220e54693a02d8e3573fac82007d883c6b22"
+    },
+    {
+      "page": "optimizing-subqueries.html",
+      "title": "Optimizing Subqueries",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/optimizing-subqueries.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "e521b62f4b3cda607a630dea2edcaab2c2a6a07536b6abb0e4a32200261c126b"
+    },
+    {
+      "page": "subquery-restrictions.html",
+      "title": "Restrictions on Subqueries",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/subquery-restrictions.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "1715c89909ed5ee3a9b90e5d5f0259b318564eb6de4bd2ce5341094fd89e644d"
+    },
+    {
+      "page": "table.html",
+      "title": "TABLE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/table.html",
+      "files": [
+        "query/table.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "91e2e28359192bd82286c82166c091d5f78cc4f7de4ddddc42af379762729702"
+    },
+    {
+      "page": "update.html",
+      "title": "UPDATE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/update.html",
+      "files": [
+        "query/update.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "4ba88ad94c9c2a71b534d86477ac997852b34ddf3de1f1a095f270d5d4a8a8a6"
+    },
+    {
+      "page": "union.html",
+      "title": "UNION Clause",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/union.html",
+      "files": [
+        "query/query-expression.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "0b2ed0aaad393934255b941d4428a60b1135189ae33b7ee5009336ba7d25464b"
+    },
+    {
+      "page": "values.html",
+      "title": "VALUES Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/values.html",
+      "files": [
+        "query/values.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "871454cd1dbc177fc51046bc10f237cc34e3f1484b0f491a37531d60aed05ce1"
+    },
+    {
+      "page": "with.html",
+      "title": "WITH (Common Table Expressions)",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/with.html",
+      "files": [
+        "query/delete.snf",
+        "query/select.snf",
+        "query/update.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "15d9ad27efda70e6662f84ac5e07f37214c0d5d584359a1d48cc81304a457f89"
+    },
+    {
+      "page": "sql-transactional-statements.html",
+      "title": "Transactional and Locking Statements",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/sql-transactional-statements.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "f15f94f7f99c073147ef150d1c60a27d93b0f394dac98ac9205ffe65dba1a175"
+    },
+    {
+      "page": "commit.html",
+      "title": "START TRANSACTION, COMMIT, and ROLLBACK Statements",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/commit.html",
+      "files": [
+        "transaction/begin.snf",
+        "transaction/commit.snf",
+        "transaction/rollback.snf",
+        "transaction/start-transaction.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "5e80ce575a18e843da45e48af7c2c39ec14eb0d85007371a3d4a3699e8cfffe2"
+    },
+    {
+      "page": "cannot-roll-back.html",
+      "title": "Statements That Cannot Be Rolled Back",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/cannot-roll-back.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "4f5f7d0ca83ec392f12021f9b5de3e6338653e3b9f8c90b1f87d5579f61cab66"
+    },
+    {
+      "page": "implicit-commit.html",
+      "title": "Statements That Cause an Implicit Commit",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/implicit-commit.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "f32e86768c9b204df62a98dd5c82d145fdf170c9d937209c7378c36426c8895a"
+    },
+    {
+      "page": "savepoint.html",
+      "title": "SAVEPOINT, ROLLBACK TO SAVEPOINT, and RELEASE SAVEPOINT Statements",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/savepoint.html",
+      "files": [
+        "transaction/release-savepoint.snf",
+        "transaction/rollback-to.snf",
+        "transaction/savepoint.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "71d38255fa8f62975050f64b7dad2d61cc57dde4a8b12c54059dd67c3a1cd8a5"
+    },
+    {
+      "page": "lock-instance-for-backup.html",
+      "title": "LOCK INSTANCE FOR BACKUP and UNLOCK INSTANCE Statements",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/lock-instance-for-backup.html",
+      "files": [
+        "transaction/lock-instance.snf",
+        "transaction/unlock-instance.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "0e8e27e051b57c2ca6597c8d5346dc141b6bc0183cc22aa8edc6fc7f9f65cb7b"
+    },
+    {
+      "page": "lock-tables.html",
+      "title": "LOCK TABLES and UNLOCK TABLES Statements",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/lock-tables.html",
+      "files": [
+        "transaction/lock-tables.snf",
+        "transaction/unlock-tables.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "9a4d964fa6f6dd93f5338e6957a45829e3f68e582961e448a1dd5d0331305a24"
+    },
+    {
+      "page": "set-transaction.html",
+      "title": "SET TRANSACTION Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/set-transaction.html",
+      "files": [
+        "transaction/set-transaction.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "c557bb6ac7d76b7290bed58af688e5f90db91152b00561362c0d89ff429ef10d"
+    },
+    {
+      "page": "xa.html",
+      "title": "XA Transactions",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/xa.html",
+      "files": [
+        "transaction/xa.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "a579a2e5aa67f53915025c44ec146bf409da157eb5918339a397ce87133cc55a"
+    },
+    {
+      "page": "xa-statements.html",
+      "title": "XA Transaction SQL Statements",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/xa-statements.html",
+      "files": [
+        "transaction/xa.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "e4fcdde79dff0789120af7b06daa722a1d9527662ea514793a41e50369c412da"
+    },
+    {
+      "page": "xa-states.html",
+      "title": "XA Transaction States",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/xa-states.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "5849b849e70cb8f801edd1fc9d95066febe9716df004827d9054ce5baf2891d7"
+    },
+    {
+      "page": "xa-restrictions.html",
+      "title": "Restrictions on XA Transactions",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/xa-restrictions.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "f39aa06da2b723850adfb97d32735aaa38c6dd59e023b5cbaa3f1668c47e9eda"
+    },
+    {
+      "page": "sql-replication-statements.html",
+      "title": "Replication Statements",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/sql-replication-statements.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "750017300df8400a92c1ac05e873f1ce3bd47fde250ac7df46849671d196cfa4"
+    },
+    {
+      "page": "replication-statements-source.html",
+      "title": "SQL Statements for Controlling Source Servers",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/replication-statements-source.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "be3a0210afdec238826ce6ff8ee9a5616a355f5d68802d325812f9bbb55dde03"
+    },
+    {
+      "page": "purge-binary-logs.html",
+      "title": "PURGE BINARY LOGS Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/purge-binary-logs.html",
+      "files": [
+        "replication/purge-binary-logs.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "a92cc6ebb54cc2bc86012e76dd5587929a13cb5c132371495906dcf4809a4b62"
+    },
+    {
+      "page": "reset-binary-logs-and-gtids.html",
+      "title": "RESET BINARY LOGS AND GTIDS Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/reset-binary-logs-and-gtids.html",
+      "files": [
+        "replication/reset-binary-logs.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "4bd0e7390cb56b9438d99680c1f2303b597fe857474c2d0fc5666da00ce2d942"
+    },
+    {
+      "page": "set-sql-log-bin.html",
+      "title": "SET sql_log_bin Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/set-sql-log-bin.html",
+      "files": [
+        "other/set.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "538ecf469f30a3bc88300806bea4103def06ab157682cac2e65a92dc8ecf913e"
+    },
+    {
+      "page": "replication-statements-replica.html",
+      "title": "SQL Statements for Controlling Replica Servers",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/replication-statements-replica.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "4ef4e7d7ea3bb76fa76a1374843e3fec0d54e3fcb04e14b41a67363340a9e362"
+    },
+    {
+      "page": "change-replication-filter.html",
+      "title": "CHANGE REPLICATION FILTER Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/change-replication-filter.html",
+      "files": [
+        "replication/change-filter.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "b86b80e7b34e552e40e5e9e9bf0e6d774ea9aaa79ac9ce30e43d193651a3b289"
+    },
+    {
+      "page": "change-replication-source-to.html",
+      "title": "CHANGE REPLICATION SOURCE TO Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/change-replication-source-to.html",
+      "files": [
+        "replication/change-source.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "d9a5c5074860408cc2c7905b4fce39c9ed06d63c17ebe5a9cf66df17b5e51027"
+    },
+    {
+      "page": "reset-replica.html",
+      "title": "RESET REPLICA Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/reset-replica.html",
+      "files": [
+        "replication/reset-replica.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "7df555e2dafa4b8e26517c9406ceaf6ec3b79cc36481bacaed42f85f276b9b4e"
+    },
+    {
+      "page": "start-replica.html",
+      "title": "START REPLICA Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/start-replica.html",
+      "files": [
+        "replication/start-replica.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "b4223ff9817a0956a70488746d5e4a982fbc79ff719185481249ecbbfb875e6f"
+    },
+    {
+      "page": "stop-replica.html",
+      "title": "STOP REPLICA Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/stop-replica.html",
+      "files": [
+        "replication/stop-replica.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "6b8ff56a79d978c1d5db31a0a836cc0ae002940219eda06164aea4e03550f46d"
+    },
+    {
+      "page": "replication-statements-group.html",
+      "title": "SQL Statements for Controlling Group Replication",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/replication-statements-group.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "1da7e3fac6c05bdf0ada2ff7a0d2fe06ac35002321c9658edee89819806a97f2"
+    },
+    {
+      "page": "start-group-replication.html",
+      "title": "START GROUP_REPLICATION Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/start-group-replication.html",
+      "files": [
+        "replication/start-group-replication.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "f84906c975036c7ad25d229a239fb4c150e6cdec2e618069dfd0965ebfcf30d6"
+    },
+    {
+      "page": "stop-group-replication.html",
+      "title": "STOP GROUP_REPLICATION Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/stop-group-replication.html",
+      "files": [
+        "replication/stop-group-replication.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "a2b73a2be513e0518f3a6510ace35f0015dd59d2348fcb721ba94a5f23e1b628"
+    },
+    {
+      "page": "sql-prepared-statements.html",
+      "title": "Prepared Statements",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/sql-prepared-statements.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "366f7979580252bdf263df954f37b27cc8bed51416f9113bf92c36336dc2c1be"
+    },
+    {
+      "page": "prepare.html",
+      "title": "PREPARE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/prepare.html",
+      "files": [
+        "other/prepare.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "09e5a5a8f1df48f2ebd107840beac2a1841127afce7de4d875021d150ecd46d6"
+    },
+    {
+      "page": "execute.html",
+      "title": "EXECUTE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/execute.html",
+      "files": [
+        "other/execute.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "ff73ed3bc86a435e0bd165fee386e3da38cdff15bfb67c39cbd5429c0d4182d9"
+    },
+    {
+      "page": "deallocate-prepare.html",
+      "title": "DEALLOCATE PREPARE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/deallocate-prepare.html",
+      "files": [
+        "other/deallocate-prepare.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "f543852d225f1ec93f1ede795377cd61d10e82735b46a8c8577d73bb0a155092"
+    },
+    {
+      "page": "sql-compound-statements.html",
+      "title": "Compound Statement Syntax",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/sql-compound-statements.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "ee21668f3a42b40528b71c6587db248e8816c486ddcc6153b9e71556ff4059ab"
+    },
+    {
+      "page": "begin-end.html",
+      "title": "BEGIN ... END Compound Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/begin-end.html",
+      "files": [
+        "compound/begin-end.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "8cfde15e868e16d15afba8fa7888aa24b157513e15a7e1a4172ff0aaf3522d46"
+    },
+    {
+      "page": "statement-labels.html",
+      "title": "Statement Labels",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/statement-labels.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "0910362a85ac972880c9f7c6d5fed7af21d7c0d793d30c96fa6602ffe8d4bf15"
+    },
+    {
+      "page": "declare.html",
+      "title": "DECLARE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/declare.html",
+      "files": [
+        "compound/declare-condition.snf",
+        "compound/declare-cursor.snf",
+        "compound/declare-handler.snf",
+        "compound/declare-variable.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "820f2cd0b230bc75e8a293762c288d454584779bf6e1cbbd80017d615bb1b7f9"
+    },
+    {
+      "page": "stored-program-variables.html",
+      "title": "Variables in Stored Programs",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/stored-program-variables.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "2cf1d5e6a08e080726609e0a680c6cf45fe9e3f14278ad35cbe3d682d5c2d3de"
+    },
+    {
+      "page": "declare-local-variable.html",
+      "title": "Local Variable DECLARE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/declare-local-variable.html",
+      "files": [
+        "compound/declare-variable.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "6630e6916d80a307899035f3349435e92eb0f7fc7ef3fbe0bc18780acca57a92"
+    },
+    {
+      "page": "local-variable-scope.html",
+      "title": "Local Variable Scope and Resolution",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/local-variable-scope.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "f00303dc2d12697e1ffb18fde7aba0b4d07194635b9fe945c4d26f0c1f38c313"
+    },
+    {
+      "page": "flow-control-statements.html",
+      "title": "Flow Control Statements",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/flow-control-statements.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "5471ee7b492a88647e4076f1fd7226c66cccb366275d0e23d3525405bd6e2bfc"
+    },
+    {
+      "page": "case.html",
+      "title": "CASE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/case.html",
+      "files": [
+        "compound/case.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "9bf24740230ba85fbbdbb446825154f8765e7903e5c2508c4bae43ae7529482c"
+    },
+    {
+      "page": "if.html",
+      "title": "IF Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/if.html",
+      "files": [
+        "compound/if.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "3e775ee2dc0cd31e61b6e060eeb6909320df889a34ce5be2270a6174b28ff997"
+    },
+    {
+      "page": "iterate.html",
+      "title": "ITERATE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/iterate.html",
+      "files": [
+        "compound/iterate.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "4fd1f6b8fc41e0c0a0b827c025e8651125ac453ae76a77a54fd7198853b6af32"
+    },
+    {
+      "page": "leave.html",
+      "title": "LEAVE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/leave.html",
+      "files": [
+        "compound/leave.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "f00ff04d1d059b949527ea7199900492b05a35038aa7e73055b6d219a5f39e91"
+    },
+    {
+      "page": "loop.html",
+      "title": "LOOP Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/loop.html",
+      "files": [
+        "compound/loop.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "4ce599e589fd9c51a3b0b5c7da256ea7673e1e6d6f4b3a18bc131404121a2921"
+    },
+    {
+      "page": "repeat.html",
+      "title": "REPEAT Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/repeat.html",
+      "files": [
+        "compound/repeat.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "e5785565a240a1b6b42704321ff540287d6bb28ff8a80169bd9936aa5b883287"
+    },
+    {
+      "page": "return.html",
+      "title": "RETURN Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/return.html",
+      "files": [
+        "compound/return.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "0dd21c462158ffbda4e03613581c6b8f095a492ecc6f6a256e9e8355b0fa688f"
+    },
+    {
+      "page": "while.html",
+      "title": "WHILE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/while.html",
+      "files": [
+        "compound/while.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "8100fca392098fd0f44538dc475cfacb7505f4a41b52575748e491a142c9d1a7"
+    },
+    {
+      "page": "cursors.html",
+      "title": "Cursors",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/cursors.html",
+      "files": [
+        "compound/cursor.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "b9c3b86a372eb61aae1406bea58306daf9456828c68e345534290e7474e5639d"
+    },
+    {
+      "page": "close.html",
+      "title": "Cursor CLOSE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/close.html",
+      "files": [
+        "compound/cursor.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "0d76a6c746da5e5968d052f7fbf473ea3079668e9ec3ce74fcb39fdf69c0b58b"
+    },
+    {
+      "page": "declare-cursor.html",
+      "title": "Cursor DECLARE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/declare-cursor.html",
+      "files": [
+        "compound/declare-cursor.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "4886fd216ddff434529bc016a6eff821f53c47ae34d7e56ab91f83d98049a6b6"
+    },
+    {
+      "page": "fetch.html",
+      "title": "Cursor FETCH Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/fetch.html",
+      "files": [
+        "compound/cursor.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "b7137b6b5622192d21419b03b6c352c6ba07490f93534294d6015117cd30e53b"
+    },
+    {
+      "page": "open.html",
+      "title": "Cursor OPEN Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/open.html",
+      "files": [
+        "compound/cursor.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "565c87370e23339a3c2b9ec78aacd181d1159d117d3287a28c9e3f2b54e22718"
+    },
+    {
+      "page": "cursor-restrictions.html",
+      "title": "Restrictions on Server-Side Cursors",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/cursor-restrictions.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "2575e1ebe4b597a84a63d38cf387676a1537dd5aded7f6c43ecbdf632330f29f"
+    },
+    {
+      "page": "condition-handling.html",
+      "title": "Condition Handling",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/condition-handling.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "8538a4bb34365d0698fcf94bd3211016b6833c2194d17008e54efc8374d58e19"
+    },
+    {
+      "page": "declare-condition.html",
+      "title": "DECLARE ... CONDITION Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/declare-condition.html",
+      "files": [
+        "compound/declare-condition.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "ce416fa8799336ac5bed06923016c751c33c687c40318d46d4d4a657e030784e"
+    },
+    {
+      "page": "declare-handler.html",
+      "title": "DECLARE ... HANDLER Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/declare-handler.html",
+      "files": [
+        "compound/declare-handler.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "bfb5bf9df06aeadcaf8936fec813f077443a547e16cb7d5ba3a3141c143dbe64"
+    },
+    {
+      "page": "get-diagnostics.html",
+      "title": "GET DIAGNOSTICS Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/get-diagnostics.html",
+      "files": [
+        "compound/get-diagnostics.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "2b42443ab450326b3a770778c93c32cc6cbce9221ec5b54b1d55e53859a21eec"
+    },
+    {
+      "page": "resignal.html",
+      "title": "RESIGNAL Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/resignal.html",
+      "files": [
+        "compound/resignal.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "13359f9bd12d71a5151a4ad52b3a471ad3691cdafc673980ad328c82abbaa23a"
+    },
+    {
+      "page": "signal.html",
+      "title": "SIGNAL Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/signal.html",
+      "files": [
+        "compound/signal.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "959545cd1072a7f3851906ce65d90c6fbeca980cd930b3442b2c298cce431658"
+    },
+    {
+      "page": "handler-scope.html",
+      "title": "Scope Rules for Handlers",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/handler-scope.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "15ba2395a5b6f9c1732d69e2c3186de9faf92b69b013f36c6422f812ad7b9aa2"
+    },
+    {
+      "page": "diagnostics-area.html",
+      "title": "The MySQL Diagnostics Area",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/diagnostics-area.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "ff3f62801f2b42d8093fe1ba21bf62305141af07c9e1e47440fa0f4592c41fc5"
+    },
+    {
+      "page": "conditions-and-parameters.html",
+      "title": "Condition Handling and OUT or INOUT Parameters",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/conditions-and-parameters.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "ae383686f4f19185b0e6bef61cff9a3708e0c9a811c39a35c4c08bb7c186e3ec"
+    },
+    {
+      "page": "condition-handling-restrictions.html",
+      "title": "Restrictions on Condition Handling",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/condition-handling-restrictions.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "5fd802ee05f35f0402d3eea8a7d74cfae775b7e7ecd89442d8deae3e0859e7d7"
+    },
+    {
+      "page": "sql-server-administration-statements.html",
+      "title": "Database Administration Statements",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/sql-server-administration-statements.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "4fd273200e49bb45586edcbc4134f7a56bcb62a72a164789f19935c4c44fbcce"
+    },
+    {
+      "page": "account-management-statements.html",
+      "title": "Account Management Statements",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/account-management-statements.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "9e70cf8a7f44049c2ea31fb51c60fd95fc08357e51bf4e981c67c5bcfd12215a"
+    },
+    {
+      "page": "alter-user.html",
+      "title": "ALTER USER Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/alter-user.html",
+      "files": [
+        "alter/user.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "0dd8a73d3042d4fd9538c1274e522e1fec0860e0844adaeebe0a10f890c6d5d5"
+    },
+    {
+      "page": "create-role.html",
+      "title": "CREATE ROLE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-role.html",
+      "files": [
+        "create/role.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "805cd042d8f11ba1f356684e5ca6ee8abb8e83b74f7213c34ff774fe3d90cf98"
+    },
+    {
+      "page": "create-user.html",
+      "title": "CREATE USER Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-user.html",
+      "files": [
+        "create/user.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "5fa00b1c5efe3da7a46e2e872d1da0b32824fd866c4d8c8ba831ceb8c8ee7e97"
+    },
+    {
+      "page": "drop-role.html",
+      "title": "DROP ROLE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/drop-role.html",
+      "files": [
+        "drop/role.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "9cba5780178bf7f7a5fa0287e90a7b7a82cc11b8541d1fe56cb64fe921e2bccb"
+    },
+    {
+      "page": "drop-user.html",
+      "title": "DROP USER Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/drop-user.html",
+      "files": [
+        "drop/user.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "a49355d43b97aaa21c9ed33f09c9383dfdbe08494c6b365b61ce70fe08714f7d"
+    },
+    {
+      "page": "grant.html",
+      "title": "GRANT Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/grant.html",
+      "files": [
+        "auth/grant.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "0db65a19bddd0e8243a1c1733a58118e03376fe4bc4944f9b22f93ba91845631"
+    },
+    {
+      "page": "rename-user.html",
+      "title": "RENAME USER Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/rename-user.html",
+      "files": [
+        "auth/rename-user.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "a719d0aed30863d1f92a4845504230cbf1eefb3f92a2212a3570ffd4bc870575"
+    },
+    {
+      "page": "revoke.html",
+      "title": "REVOKE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/revoke.html",
+      "files": [
+        "auth/revoke.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "2b9a8d9da0d3978f7e00eabea1cc3aaeea2d1f8539852705ffdfd4e141c401ca"
+    },
+    {
+      "page": "set-default-role.html",
+      "title": "SET DEFAULT ROLE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/set-default-role.html",
+      "files": [
+        "auth/set-default-role.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "b6910f48aaab4f1e66a932c33793bb63ea7f434f8e9784c4c8d3587bc0cbe7fd"
+    },
+    {
+      "page": "set-password.html",
+      "title": "SET PASSWORD Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/set-password.html",
+      "files": [
+        "auth/set-password.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "4965716d6646f6c22a93be111a2e08e14f42dee8053e4f6c8a6d2577b0be1bed"
+    },
+    {
+      "page": "set-role.html",
+      "title": "SET ROLE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/set-role.html",
+      "files": [
+        "auth/set-role.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "c895ea53d104579d6da629dcd717c1aca349d50e29b584806f9927d95201a239"
+    },
+    {
+      "page": "resource-group-statements.html",
+      "title": "Resource Group Management Statements",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/resource-group-statements.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "11506216e353f8b6e6c79d909b40ebbc3d6e891990ffcf264eb0923d296aaa36"
+    },
+    {
+      "page": "alter-resource-group.html",
+      "title": "ALTER RESOURCE GROUP Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/alter-resource-group.html",
+      "files": [
+        "alter/resource-group.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "a623b617265403ec273b183535746d0bc235cef81f4ce25e5e46387bdf73cecf"
+    },
+    {
+      "page": "create-resource-group.html",
+      "title": "CREATE RESOURCE GROUP Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-resource-group.html",
+      "files": [
+        "create/resource-group.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "e0f3b91e50c3adbe10a1ca9fa23da1038b08cb924e46d3e71b22ba1e0994481a"
+    },
+    {
+      "page": "drop-resource-group.html",
+      "title": "DROP RESOURCE GROUP Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/drop-resource-group.html",
+      "files": [
+        "drop/resource-group.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "ae934f6626dba8eafff5d23e1f25e007e0754a0f8048e653d82a34f63349cf34"
+    },
+    {
+      "page": "set-resource-group.html",
+      "title": "SET RESOURCE GROUP Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/set-resource-group.html",
+      "files": [
+        "other/set-resource-group.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "ebc18276b8530a28b027f13e169d6df329dba0bd80ad6587637235e73f50a380"
+    },
+    {
+      "page": "table-maintenance-statements.html",
+      "title": "Table Maintenance Statements",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/table-maintenance-statements.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "0857fb81f58b03e7a633c54a2c3546cb32de8686d198235da708026905cf1d2b"
+    },
+    {
+      "page": "analyze-table.html",
+      "title": "ANALYZE TABLE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/analyze-table.html",
+      "files": [
+        "other/analyze-table.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "b66fb37e5ce9944ac6309f174cc3271b60db34e99ac41555679e11dbb3de578d"
+    },
+    {
+      "page": "check-table.html",
+      "title": "CHECK TABLE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/check-table.html",
+      "files": [
+        "other/check-table.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "b5913e78db0688a619461c5b399d393faeed47f12255714c8f8e3ae3d15cf505"
+    },
+    {
+      "page": "checksum-table.html",
+      "title": "CHECKSUM TABLE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/checksum-table.html",
+      "files": [
+        "other/checksum-table.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "06865d35d4cb08d47c47c13ac779b9eaa566d6adbb7ccc452b9ab92b61d99b35"
+    },
+    {
+      "page": "optimize-table.html",
+      "title": "OPTIMIZE TABLE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/optimize-table.html",
+      "files": [
+        "other/optimize-table.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "eb2481996df7ad8c5504c650545b8376114e042bfd4f0db3ea91c2ea12d72b6e"
+    },
+    {
+      "page": "repair-table.html",
+      "title": "REPAIR TABLE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/repair-table.html",
+      "files": [
+        "other/repair-table.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "fcecca5298936a9d3d6a39000978229233f8470fc330a15834c29c38be4c4f8e"
+    },
+    {
+      "page": "component-statements.html",
+      "title": "Component, Plugin, and Loadable Function Statements",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/component-statements.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "8dd894d74304964c017156845e0b17f4b4f1fe50247ff31573814a486c2f4742"
+    },
+    {
+      "page": "create-function-loadable.html",
+      "title": "CREATE FUNCTION Statement for Loadable Functions",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-function-loadable.html",
+      "files": [
+        "create/loadable-function.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "564ad8244cf5e441c95bbd27ceb3e8f09edd852768e47bf457ada62662b53491"
+    },
+    {
+      "page": "drop-function-loadable.html",
+      "title": "DROP FUNCTION Statement for Loadable Functions",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/drop-function-loadable.html",
+      "files": [
+        "drop/loadable-function.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "4d019b1603028aa5fa5e2951088c7509dafdc495fd405ef5ee47c5e327417a96"
+    },
+    {
+      "page": "install-component.html",
+      "title": "INSTALL COMPONENT Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/install-component.html",
+      "files": [
+        "other/install-component.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "869fd34ecf562de74de998439529d4b71eeee41e9d01a5fa3f7f9275461a2f73"
+    },
+    {
+      "page": "install-plugin.html",
+      "title": "INSTALL PLUGIN Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/install-plugin.html",
+      "files": [
+        "other/install-plugin.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "080f3049e2e8a4f0068d44a779421a869de297bf7ee72d3c0b54f0acaa58fc7a"
+    },
+    {
+      "page": "uninstall-component.html",
+      "title": "UNINSTALL COMPONENT Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/uninstall-component.html",
+      "files": [
+        "other/uninstall-component.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "9ac412d1ae1f4b71a1581e34f862aa1de3f937b1a2de93e0020853742b5ed9e2"
+    },
+    {
+      "page": "uninstall-plugin.html",
+      "title": "UNINSTALL PLUGIN Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/uninstall-plugin.html",
+      "files": [
+        "other/uninstall-plugin.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "df5e1d1333cb57f359a43df00ee8c16656f88769e340fe86511bacf4d1e685ee"
+    },
+    {
+      "page": "clone.html",
+      "title": "CLONE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/clone.html",
+      "files": [
+        "other/clone.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "137ddd99f6f8c6938d5c39ba4e3fac939144646d0c6ade0bf801db82712f308e"
+    },
+    {
+      "page": "set-statement.html",
+      "title": "SET Statements",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/set-statement.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "5343b548e57ed2491fae5163e2fb2ac22bfb02132a2850cb6f412276127a8fb9"
+    },
+    {
+      "page": "set-variable.html",
+      "title": "SET Syntax for Variable Assignment",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/set-variable.html",
+      "files": [
+        "other/set.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "59480893dcf7463806acc405e7592241584dcf30b4221428d0bac451be2f8dd8"
+    },
+    {
+      "page": "set-character-set.html",
+      "title": "SET CHARACTER SET Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/set-character-set.html",
+      "files": [
+        "other/set-character-set.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "802e575243eb9a11f272ba201bf3a09c2ca769027d5ee0a2931982c92c524bf9"
+    },
+    {
+      "page": "set-names.html",
+      "title": "SET NAMES Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/set-names.html",
+      "files": [
+        "other/set-names.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "df283e61d85adec7493132983282c6ad4e28fc723c99dbf41bc95d678964236e"
+    },
+    {
+      "page": "show.html",
+      "title": "SHOW Statements",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "807472ddc9fcf491585405fa3221e162b8b53348bd4c88fb02e4617fa82407fd"
+    },
+    {
+      "page": "show-binary-log-status.html",
+      "title": "SHOW BINARY LOG STATUS Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-binary-log-status.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "b6d60c7dc18c92d853ebc977171a232a0175913103cbda45a40c0a6ca06d0bee"
+    },
+    {
+      "page": "show-binary-logs.html",
+      "title": "SHOW BINARY LOGS Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-binary-logs.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "e3931901c62fd7ae7a43602da08db001cf569641f48cd1d5e79f249e177890ca"
+    },
+    {
+      "page": "show-binlog-events.html",
+      "title": "SHOW BINLOG EVENTS Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-binlog-events.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "50d5a85eebe440f593ff49362e59944bea46c733b6e81c20fc344927d419ab21"
+    },
+    {
+      "page": "show-character-set.html",
+      "title": "SHOW CHARACTER SET Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-character-set.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "2a6beec4d549afeeac41b36b20558958c954b856a988a072b235e8ae7698a969"
+    },
+    {
+      "page": "show-collation.html",
+      "title": "SHOW COLLATION Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-collation.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "c02a4a9b14411e98d3a632d9aa393b3b08eddec50aa8db144eb6052ab1129d99"
+    },
+    {
+      "page": "show-columns.html",
+      "title": "SHOW COLUMNS Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-columns.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "4534282dbede074f48c7fc19bd8af20b25ca9f1dccf1520c7f3b9fd37122414e"
+    },
+    {
+      "page": "show-create-database.html",
+      "title": "SHOW CREATE DATABASE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-create-database.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "deae3868976665721b3c14ab7d9eb51d6f067d0ecc716d6dcda639859b4f431d"
+    },
+    {
+      "page": "show-create-event.html",
+      "title": "SHOW CREATE EVENT Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-create-event.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "46dd48a19c10329a48619731e03b0f538b8d4bf1fc819ef06e22574dada535c1"
+    },
+    {
+      "page": "show-create-function.html",
+      "title": "SHOW CREATE FUNCTION Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-create-function.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "e10118889a927014cd50a8fc67c26c99cffc05d9f30fc36a2eba6e54bd759c47"
+    },
+    {
+      "page": "show-create-procedure.html",
+      "title": "SHOW CREATE PROCEDURE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-create-procedure.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "1959381bc8fdf8be354e024da98850ca7cb6afa1aab1f140cc511f096f0bd8b6"
+    },
+    {
+      "page": "show-create-table.html",
+      "title": "SHOW CREATE TABLE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-create-table.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "1395662fc54c785e73e3ede2141e2e56f2fd155ad98c313370c4fa03972f5a59"
+    },
+    {
+      "page": "show-create-trigger.html",
+      "title": "SHOW CREATE TRIGGER Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-create-trigger.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "3c2167dba3950534b1fdd1bb2aa3d805ac92db01284c70a22a583e8c4db2c045"
+    },
+    {
+      "page": "show-create-user.html",
+      "title": "SHOW CREATE USER Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-create-user.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "872bcda3874ac454495e02d4e21fc6f89c4d1aee979adb9431dedb2d59cdc74b"
+    },
+    {
+      "page": "show-create-view.html",
+      "title": "SHOW CREATE VIEW Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-create-view.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "b7bbe513b71c69e35aac7fd96dcb7909de17f010be8c3c9ff5bc28fae090e8f1"
+    },
+    {
+      "page": "show-databases.html",
+      "title": "SHOW DATABASES Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-databases.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "047340b21ab719fa63c57259e1f4d1ad233a498ef117943756db729028ec8c93"
+    },
+    {
+      "page": "show-engine.html",
+      "title": "SHOW ENGINE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-engine.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "16cb1298010c9dea3e31d7191a32e4c7d8ef7a4b4dee8e3b192acc5350b6e0c1"
+    },
+    {
+      "page": "show-engines.html",
+      "title": "SHOW ENGINES Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-engines.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "e8dbf9a4cd8378609172928dc24d9fa9625400e5a19edcf0e5c735ae15113ccd"
+    },
+    {
+      "page": "show-errors.html",
+      "title": "SHOW ERRORS Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-errors.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "fdc5424c1049378c20096408b6b4e674f8f38d7ca571aa2376695b8bc49cab01"
+    },
+    {
+      "page": "show-events.html",
+      "title": "SHOW EVENTS Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-events.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "c2c2f4b9125f6d1609252b09b0175560987763e0faa8d745f75446df84717753"
+    },
+    {
+      "page": "show-function-code.html",
+      "title": "SHOW FUNCTION CODE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-function-code.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "09e2a566bf497491cbbc7147d3377dadb7a05bb4d30a91693b12ce3fa3297043"
+    },
+    {
+      "page": "show-function-status.html",
+      "title": "SHOW FUNCTION STATUS Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-function-status.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "1c8c09ca493e62132edcc9f1476693d66ae6999b67ba8587e03b6007b0e75af4"
+    },
+    {
+      "page": "show-grants.html",
+      "title": "SHOW GRANTS Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-grants.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "d880c125318d50c0620fbbeb511497b4f819a20b5ebe5014d176b4d4211904d3"
+    },
+    {
+      "page": "show-index.html",
+      "title": "SHOW INDEX Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-index.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "1c39406fd41e3076e27ef65c2fa696dd3df4a97456c053e3187d730db67889fe"
+    },
+    {
+      "page": "show-master-status.html",
+      "title": "SHOW MASTER STATUS Statement (no longer supported)",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-master-status.html",
+      "files": [],
+      "status": "excluded",
+      "evidence": "MySQL 8.4 manual explicitly marks this statement no longer supported. SHOW BINARY LOG STATUS is the replacement.",
+      "source_sha256": "9dd1a9277c0493529d400188a0f292969778de1fd8ce5d8cb0f7a2f5e7425f32"
+    },
+    {
+      "page": "show-open-tables.html",
+      "title": "SHOW OPEN TABLES Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-open-tables.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "823591e1d8bbfc522a4fd998b5923b3590b6cebf314182514bd1bde29f76650b"
+    },
+    {
+      "page": "show-parse-tree.html",
+      "title": "SHOW PARSE_TREE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-parse-tree.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "d175911568254f9bd78c9266ed4f3460536f5e1b1ef6320880f0b178205ac8c6"
+    },
+    {
+      "page": "show-plugins.html",
+      "title": "SHOW PLUGINS Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-plugins.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "6d919a957bfbf82dc577c839745510224a9c51407f4317ccf215a226cf1f9407"
+    },
+    {
+      "page": "show-privileges.html",
+      "title": "SHOW PRIVILEGES Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-privileges.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "95de1dfbecd9f2c1661a9dfabfd9ee7b17bb732b6c2745d5afa9aadc986fcfc6"
+    },
+    {
+      "page": "show-procedure-code.html",
+      "title": "SHOW PROCEDURE CODE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-procedure-code.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "e8bb97d40096e8a653cb9c9dc6a0aed10b016ad7f0b4c985e403f3e479fa93c8"
+    },
+    {
+      "page": "show-procedure-status.html",
+      "title": "SHOW PROCEDURE STATUS Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-procedure-status.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "279d52c68da14e79d5b465d0ce210fc8741d123a5a178f96ef6ba592a9ad6d05"
+    },
+    {
+      "page": "show-processlist.html",
+      "title": "SHOW PROCESSLIST Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-processlist.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "9e93847e475780410ceeef7489bb5fabd43b669f07f2ea41a8834364c5869c4c"
+    },
+    {
+      "page": "show-profile.html",
+      "title": "SHOW PROFILE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-profile.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "feeefcf1d2f14cf22ed1fe63c69102d08ee79ba2e5da17d35438797f8293410c"
+    },
+    {
+      "page": "show-profiles.html",
+      "title": "SHOW PROFILES Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-profiles.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "44647b92dc0148937d5adaef6e565c7215424ed57ae0c0c576acb7ed85b93a83"
+    },
+    {
+      "page": "show-relaylog-events.html",
+      "title": "SHOW RELAYLOG EVENTS Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-relaylog-events.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "30626ee14fd674983dd9d3ad3e2b37abe9ee77c1d2e99d12efa5e2ec84783c59"
+    },
+    {
+      "page": "show-replica-status.html",
+      "title": "SHOW REPLICA STATUS Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-replica-status.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "c4168319d01af17359f15b0b16953af987c834ffe13d2dbc1af60546aa9428f4"
+    },
+    {
+      "page": "show-replicas.html",
+      "title": "SHOW REPLICAS Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-replicas.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "0e842db1dc2b8c2f4bce33cd8a83feb7f69954f4f6c53205e33bc22cd94f44d9"
+    },
+    {
+      "page": "show-status.html",
+      "title": "SHOW STATUS Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-status.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "69558a22ccf93f69fbd94eb9797dd0226213b46d3596a6245485f71d4ec881d5"
+    },
+    {
+      "page": "show-table-status.html",
+      "title": "SHOW TABLE STATUS Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-table-status.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "299eb07ab3640388fddd5cec0a2bbad3289d7a65341fbcc72bd97184ba736986"
+    },
+    {
+      "page": "show-tables.html",
+      "title": "SHOW TABLES Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-tables.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "517861f8c5aa54e6c964818c6e81c49df3839a6b972055d99aaf7a28cf148dda"
+    },
+    {
+      "page": "show-triggers.html",
+      "title": "SHOW TRIGGERS Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-triggers.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "cbee45ea0e2d260f1d8d5f449937c80dc46fd481b8e1bb0505ea4e9fda2bfc30"
+    },
+    {
+      "page": "show-variables.html",
+      "title": "SHOW VARIABLES Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-variables.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "de09aea50949c478108e47c67f12e6bb28350923bd5ef5f58df2a3164894e559"
+    },
+    {
+      "page": "show-warnings.html",
+      "title": "SHOW WARNINGS Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/show-warnings.html",
+      "files": [
+        "other/show.snf"
+      ],
+      "status": "structured",
+      "evidence": "The corresponding SHOW CASE in other/show.snf expresses this official syntax. The file-level partial applies to the separate PARSE_TREE query binding, not this CASE. Context restrictions remain in docs/input-contracts.md.",
+      "source_sha256": "09d9296975d9f95de518688ec5c612dcb7eb9dc9588a72021b480718e8b5ad09"
+    },
+    {
+      "page": "other-administrative-statements.html",
+      "title": "Other Administrative Statements",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/other-administrative-statements.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "83067050ae600597bdc26acf9130fa6d6f149373b0443b6fe99994c34866843c"
+    },
+    {
+      "page": "binlog.html",
+      "title": "BINLOG Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/binlog.html",
+      "files": [
+        "replication/binlog.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "dd612c9715d2dc574a6b3e7aa60b88bd28a90d1b74c6a8efb332e8b88da6c6ed"
+    },
+    {
+      "page": "cache-index.html",
+      "title": "CACHE INDEX Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/cache-index.html",
+      "files": [
+        "other/cache-index.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "b9c668e0664357ec149a0e9e5583fb570f31443cffb461297bbe7fb205a19716"
+    },
+    {
+      "page": "flush.html",
+      "title": "FLUSH Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/flush.html",
+      "files": [
+        "other/flush.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "4ee928452f2e9c4a14e8fcc036611643e1b7965034e4e9ab391f22e8822ad8d4"
+    },
+    {
+      "page": "kill.html",
+      "title": "KILL Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/kill.html",
+      "files": [
+        "other/kill.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "10798b250b61cbd58c7c5f46fbcd3a36c6e2a9bc666099df8029740a7e03c638"
+    },
+    {
+      "page": "load-index.html",
+      "title": "LOAD INDEX INTO CACHE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/load-index.html",
+      "files": [
+        "other/load-index.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "cc295dfb48badd57a2ee64ba35f312bec6cb4eb271c43e9128563dcaeae220b7"
+    },
+    {
+      "page": "reset.html",
+      "title": "RESET Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/reset.html",
+      "files": [
+        "other/reset.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "9089c84298f21c353fa6f7d0c24e6c808c69d0dc36d87458e29adbc35aa9a399"
+    },
+    {
+      "page": "reset-persist.html",
+      "title": "RESET PERSIST Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/reset-persist.html",
+      "files": [
+        "other/reset-persist.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "15d5536ca4f9ed941b731251d40123f67d2bb0351cd63ebfd2832396f6ee8f31"
+    },
+    {
+      "page": "restart.html",
+      "title": "RESTART Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/restart.html",
+      "files": [
+        "other/restart.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "2bd2b312da64d4893d5287b2e934c731215a326848fba89f7cb443f9db074299"
+    },
+    {
+      "page": "shutdown.html",
+      "title": "SHUTDOWN Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/shutdown.html",
+      "files": [
+        "other/shutdown.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "8dd12f112b503335f09642fc0ee5d4fe731ad2675730966814515cb77ac21c8b"
+    },
+    {
+      "page": "sql-utility-statements.html",
+      "title": "Utility Statements",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/sql-utility-statements.html",
+      "files": [],
+      "status": "context",
+      "evidence": "Reference context, index, examples, implementation behavior or restrictions; not a separately executable SQL statement entry.",
+      "source_sha256": "e97aa8340ba13ed4a53c3f1ab1226757afcbae11f715819e509776f062da737c"
+    },
+    {
+      "page": "describe.html",
+      "title": "DESCRIBE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/describe.html",
+      "files": [
+        "other/describe.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "fdd94f5b2971f0bff2eccdf2b461245829b4e37988afeb562ce46d908c8d4149"
+    },
+    {
+      "page": "explain.html",
+      "title": "EXPLAIN Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/explain.html",
+      "files": [
+        "other/explain.snf"
+      ],
+      "status": "partial",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "770e74ff90ce181d10fd528837b357cb7533f78301a1e49b3f6ea1a4dbc8d26f"
+    },
+    {
+      "page": "help.html",
+      "title": "HELP Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/help.html",
+      "files": [
+        "other/help.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "413188ca0593060ee8677822a716d7a3cadeae7391a6dacac3494f6848b24fe1"
+    },
+    {
+      "page": "use.html",
+      "title": "USE Statement",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/use.html",
+      "files": [
+        "other/use.snf"
+      ],
+      "status": "structured",
+      "evidence": "Compared official 8.4 syntax to the listed definitions. Per-file reviewed structure, exact changes and remaining boundaries are recorded by file in docs/file-coverage.json; consumer input/context rules are in docs/input-contracts.md.",
+      "source_sha256": "d37c3a9b0051ec63edcd1fd966ec3825af6dfb030e1bd4e1ee347bb30a1af7b0"
+    }
+  ]
+}

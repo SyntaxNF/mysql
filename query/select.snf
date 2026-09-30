@@ -5,16 +5,19 @@ SELECT [ ALL | DISTINCT | DISTINCTROW ]
     [ HIGH_PRIORITY ] [ STRAIGHT_JOIN ]
     [ SQL_SMALL_RESULT ] [ SQL_BIG_RESULT ] [ SQL_BUFFER_RESULT ]
     [ SQL_NO_CACHE ] [ SQL_CALC_FOUND_ROWS ]
-    { * | col_expression [ [ AS ] col_alias ] [, ...] }
+    { * | select_item [, ...] }
     [ FROM from_expression [, ...] ]
     [ WHERE boolean_expression ]
-    [ GROUP BY group_by_expression [, ...] [ WITH ROLLUP ] | ROLLUP ( group_by_expression [, ...] ) ]
+    [ GROUP BY { group_by_expression [, ...] [ WITH ROLLUP ] | ROLLUP ( group_by_expression [, ...] ) } ]
     [ HAVING boolean_expression ]
-    [ WINDOW window AS ( window_expression ) [, ...] ]
+    [ WINDOW window_definition [, ...] ]
     [ ORDER BY order_by_expression [, ...] [ WITH ROLLUP ] ]
     [ LIMIT { [ offset , ] limit | limit OFFSET offset } ]
     [ locking_clause ]
     [ into_option ]
+
+# WHERE select_item
+{ table . * | col_expression [ [ AS ] col_alias ] }
 
 # WHERE with_query_definition
 with_name [ ( colname [, ...] ) ] AS ( query_statement )
@@ -25,7 +28,7 @@ table [ PARTITION ( partition [, ...] ) ]
 
 [ LATERAL ] ( query_statement ) [ AS ] table_alias [ ( col_alias [, ...] ) ]
 
-[ LATERAL ] table_function [ AS ] function_alias [ ( col_alias [, ...] ) ]
+json_table_expression
 
 ( from_expression [, ...] )
 
@@ -38,6 +41,24 @@ from_expression STRAIGHT_JOIN from_expression [ ON boolean_expression ]
 from_expression { LEFT | RIGHT } [ OUTER ] JOIN from_expression join_condition
 
 from_expression NATURAL [ INNER | { LEFT | RIGHT } [ OUTER ] ] JOIN from_expression
+
+# WHERE json_table_expression
+JSON_TABLE (
+    value_expression , 'json_path'
+    COLUMNS ( json_column_definition [, ...] )
+) [ AS ] function_alias
+
+# PARTOFIS json_column_definition
+colname FOR ORDINALITY
+
+colname type PATH 'json_path'
+    [ { NULL | DEFAULT 'json_string' | ERROR } ON EMPTY ]
+    [ { NULL | DEFAULT 'json_string' | ERROR } ON ERROR ]
+
+colname type EXISTS PATH 'json_path'
+
+NESTED [ PATH ] 'json_path'
+    COLUMNS ( json_column_definition [, ...] )
 
 # ONEOFIS join_condition
 ON boolean_expression
@@ -58,6 +79,9 @@ USE { INDEX | KEY }
 # WHERE order_by_expression
 { colname | col_expression | position } [ ASC | DESC ]
 
+# WHERE window_definition
+window AS ( window_expression )
+
 # WHERE window_expression
 [ window ]
     [ PARTITION BY col_expression [, ...] ]
@@ -65,21 +89,24 @@ USE { INDEX | KEY }
     [ frame_clause ]
 
 # PARTOFIS frame_clause
-{ ROWS | RANGE } frame_start
+{ ROWS | RANGE } { UNBOUNDED PRECEDING | frame_offset_expression PRECEDING | CURRENT ROW }
 
 { ROWS | RANGE } BETWEEN frame_start AND frame_end
 
 # ONEOFIS frame_start
 UNBOUNDED PRECEDING
-value_expression PRECEDING
+frame_offset_expression PRECEDING
 CURRENT ROW
-value_expression FOLLOWING
+frame_offset_expression FOLLOWING
 
 # ONEOFIS frame_end
-value_expression PRECEDING
+frame_offset_expression PRECEDING
 CURRENT ROW
-value_expression FOLLOWING
+frame_offset_expression FOLLOWING
 UNBOUNDED FOLLOWING
+
+# WHERE frame_offset_expression
+{ frame_offset_value | INTERVAL interval_value interval_unit }
 
 # ONEOFIS into_option
 INTO OUTFILE 'file' [ CHARACTER SET charset ] export_option
@@ -93,9 +120,15 @@ INTO variable [, ...]
     [ ESCAPED BY 'character' ] ]
 [ LINES [ STARTING BY 'string' ] [ TERMINATED BY 'string' ] ]
 
-# ONEOFIS locking_clause
-FOR { UPDATE | SHARE } [ OF table [, ...] ] [ NOWAIT | SKIP LOCKED ]
+# PARTOFIS locking_clause
+FOR { UPDATE | SHARE } [ NOWAIT | SKIP LOCKED ]
+
+scoped_locking_clause [...]
+
 LOCK IN SHARE MODE
+
+# WHERE scoped_locking_clause
+FOR { UPDATE | SHARE } OF table [, ...] [ NOWAIT | SKIP LOCKED ]
 
 # STATEMENT query_statement
 SELECT

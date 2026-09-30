@@ -10,5 +10,9 @@
   "keywords": [
     "snf",
     "mysql"
-  ]
+  ],
+  "scripts": {
+    "validate:snf": "node scripts/validate-snf.mjs",
+    "test:validation": "node --test scripts/snf-conventions.test.mjs scripts/grammar-regressions.test.mjs"
+  }
 }

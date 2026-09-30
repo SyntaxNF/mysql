@@ -2,11 +2,11 @@
 
 [ begin_label : ]
 REPEAT
-    statement [; ...]
+    statement [; ...] ;
 UNTIL boolean_expression
 END REPEAT
 [ end_label ]
 
 # STATEMENT statement
-sql_statement
-compound_statement
+SQL
+COMPOUND

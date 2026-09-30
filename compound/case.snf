@@ -2,18 +2,18 @@
 
 # CASE SIMPLE
 CASE case_expression
-    WHEN when_expression THEN statement [; ...]
-    [ WHEN when_expression THEN statement [; ...] ] [...]
-    [ ELSE statement [; ...] ]
+    WHEN when_expression THEN statement [; ...] ;
+    [ WHEN when_expression THEN statement [; ...] ; ] [...]
+    [ ELSE statement [; ...] ; ]
 END CASE
 
 # CASE SEARCHED
 CASE
-    WHEN boolean_expression THEN statement [; ...]
-    [ WHEN boolean_expression THEN statement [; ...] ] [...]
-    [ ELSE statement [; ...] ]
+    WHEN boolean_expression THEN statement [; ...] ;
+    [ WHEN boolean_expression THEN statement [; ...] ; ] [...]
+    [ ELSE statement [; ...] ; ]
 END CASE
 
 # STATEMENT statement
-sql_statement
-compound_statement
+SQL
+COMPOUND

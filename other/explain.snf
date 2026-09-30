@@ -1,15 +1,25 @@
 # https://dev.mysql.com/doc/refman/8.4/en/explain.html
 
 # CASE QUERY
-EXPLAIN [ FORMAT = { TRADITIONAL | JSON | TREE } ]
+{ EXPLAIN | DESCRIBE | DESC }
+    [ FORMAT = { TRADITIONAL | JSON | TREE } ]
+    [ FOR { SCHEMA | DATABASE } database ]
+    explainable_statement
+
+# CASE JSON_INTO
+{ EXPLAIN | DESCRIBE | DESC } FORMAT = JSON
+    INTO @user_variable
+    [ FOR { SCHEMA | DATABASE } database ]
     explainable_statement
 
 # CASE ANALYZE
-EXPLAIN ANALYZE [ FORMAT = TREE ]
-    explainable_statement
+{ EXPLAIN | DESCRIBE | DESC } ANALYZE [ FORMAT = TREE ]
+    [ FOR { SCHEMA | DATABASE } database ]
+    analyzable_statement
 
 # CASE CONNECTION
-EXPLAIN [ FORMAT = { TRADITIONAL | JSON | TREE } ]
+{ EXPLAIN | DESCRIBE | DESC }
+    [ FORMAT = { TRADITIONAL | JSON | TREE } ]
     FOR CONNECTION connection_id
 
 # CASE TABLE
@@ -22,3 +32,9 @@ DELETE
 INSERT
 REPLACE
 UPDATE
+
+# STATEMENT analyzable_statement
+SELECT
+TABLE
+MULTI_TABLE_UPDATE
+MULTI_TABLE_DELETE

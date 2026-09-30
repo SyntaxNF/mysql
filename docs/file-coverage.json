@@ -1,0 +1,1980 @@
+{
+  "baseline": "MySQL 8.4 LTS",
+  "checked": "2026-09-30",
+  "meaning": "Status concerns explicit canonical statement structure, not SQL runtime acceptance. Partial records retain concrete unresolved grammar or binding boundaries.",
+  "files": [
+    {
+      "file": "alter/database.snf",
+      "status": "structured",
+      "audit_status": "reviewed-no-change",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": false,
+      "changes": [],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/alter-database.html"
+      ],
+      "remaining_gaps": [
+        "At least one database option must be selected; fixed order intentionally omits equivalent permutations."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "alter/event.snf",
+      "status": "partial",
+      "audit_status": "reviewed-and-corrected",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": true,
+      "changes": [
+        "Use explicit SQL/COMPOUND external statement category markers",
+        "Allow documented combinations of event schedule/rename/status/body changes"
+      ],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/alter-event.html"
+      ],
+      "remaining_gaps": [
+        "SQL/COMPOUND payloads are external statement category bindings, not automatically imported grammar.",
+        "Stored-program context restrictions, parameter types and names, matching schema/definer privileges and executable body validity require consumer validation."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "alter/function.snf",
+      "status": "structured",
+      "audit_status": "reviewed-no-change",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": false,
+      "changes": [],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/alter-function.html"
+      ],
+      "remaining_gaps": [
+        "Names, literals, numeric ranges, privileges and object existence are consumer/server constraints; no SQL execution was performed."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "alter/instance.snf",
+      "status": "structured",
+      "audit_status": "reviewed-no-change",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": false,
+      "changes": [],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/alter-instance.html"
+      ],
+      "remaining_gaps": [
+        "mysql_main/mysql_admin are fixed documented channel names despite lowercase spelling; consumers must bind these as literal allowed names, not arbitrary identifiers."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "alter/logfile-group.snf",
+      "status": "structured",
+      "audit_status": "reviewed-no-change",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": false,
+      "changes": [],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/alter-logfile-group.html"
+      ],
+      "remaining_gaps": [
+        "NDB engine applicability and size/path constraints require validation."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "alter/procedure.snf",
+      "status": "structured",
+      "audit_status": "reviewed-no-change",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": false,
+      "changes": [],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/alter-procedure.html"
+      ],
+      "remaining_gaps": [
+        "Names, literals, numeric ranges, privileges and object existence are consumer/server constraints; no SQL execution was performed."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "alter/resource-group.snf",
+      "status": "structured",
+      "audit_status": "reviewed-and-corrected",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": true,
+      "changes": [
+        "Allow VCPU/priority changes with enable/disable"
+      ],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/alter-resource-group.html"
+      ],
+      "remaining_gaps": [
+        "CPU ranges, thread priority bounds, SYSTEM/USER applicability and platform support require validation."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "alter/server.snf",
+      "status": "structured",
+      "audit_status": "reviewed-no-change",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": false,
+      "changes": [],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/alter-server.html"
+      ],
+      "remaining_gaps": [
+        "At least one parenthesized OPTIONS field must be selected; wrapper support and option constraints are external."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "alter/table.snf",
+      "status": "partial",
+      "audit_status": "reviewed-and-corrected",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": true,
+      "changes": [
+        "Add temporal automatic update/default and spatial SRID column attributes",
+        "Add ALTER repartitioning and full subpartition definitions; semantic alter_action naming",
+        "Expose primary column operations as top-level cases",
+        "Allow REMOVE PARTITIONING as final clause with combined changes",
+        "Add ADD PARTITION PARTITIONS count for HASH/KEY tables",
+        "Require explicit SUBPARTITION KEY column list while retaining PARTITION KEY() inference",
+        "Add canonical leading ALGORITHM/LOCK options to standalone partition operations; DISCARD/IMPORT use DEFAULT only"
+      ],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/alter-table.html",
+        "https://dev.mysql.com/doc/refman/8.4/en/create-table.html",
+        "https://dev.mysql.com/doc/refman/8.4/en/timestamp-initialization.html",
+        "https://dev.mysql.com/doc/refman/8.4/en/spatial-type-overview.html",
+        "https://dev.mysql.com/doc/refman/8.4/en/alter-table-partition-operations.html",
+        "https://dev.mysql.com/doc/refman/8.4/en/partitioning-management-hash-key.html",
+        "https://dev.mysql.com/doc/refman/8.4/en/partitioning-subpartitions.html",
+        "https://dev.mysql.com/doc/refman/8.4/en/innodb-online-ddl-operations.html"
+      ],
+      "remaining_gaps": [
+        "Full data-type/expression grammar and engine-dependent online-DDL eligibility remain outside the shell.",
+        "Combined alter_action list does not enforce uniqueness/conflict rules for independent table settings.",
+        "ALGORITHM/LOCK options are structurally modeled for standalone partition operations; accepted combinations still depend on partition method, operation and engine.",
+        "Partition tuple/count/method consistency, spatial/temporal column restrictions and foreign-key/index dependencies need semantic validation.",
+        "For example, InnoDB COALESCE/REORGANIZE PARTITION does not support LOCK=NONE; see Online DDL Operations Table 17.22."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "alter/tablespace.snf",
+      "status": "structured",
+      "audit_status": "reviewed-and-corrected",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": true,
+      "changes": [
+        "Allow NDBCLUSTER engine synonym",
+        "Restrict deprecated ENGINE to the two forms supported in 8.4 and separate undo SET action"
+      ],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/alter-tablespace.html"
+      ],
+      "remaining_gaps": [
+        "At least one applicable option must be selected in option-only branches.",
+        "ENGINE is retained only for NDB ADD DATAFILE and InnoDB UNDO SET state as specified by 8.4 documentation; WAIT/ENGINE_ATTRIBUTE have ignored/reserved semantics."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "alter/user.snf",
+      "status": "structured",
+      "audit_status": "reviewed-and-corrected",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": true,
+      "changes": [
+        "Fix independent password discard, full factor operations/registration, DEFAULT ROLE, TLS/resource cardinality",
+        "Repeat whole account-plus-authentication definitions",
+        "Define whole account-plus-authentication item"
+      ],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/alter-user.html"
+      ],
+      "remaining_gaps": [
+        "Factor identities must be distinct when changing both; plugin policy and password state prerequisites require validation.",
+        "Account literal/USER() context, registration challenge response and policy values are typed consumer inputs."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "alter/view.snf",
+      "status": "partial",
+      "audit_status": "reviewed-and-corrected",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": true,
+      "changes": [
+        "Allow documented TABLE query source"
+      ],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/alter-view.html",
+        "https://dev.mysql.com/doc/refman/8.4/en/create-view.html"
+      ],
+      "remaining_gaps": [
+        "SELECT/TABLE source must bind a valid view query; data-type/expression/query grammar is external.",
+        "Updatability, unique output names, no variables/INTO and algorithm/CHECK OPTION eligibility require semantic validation."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "auth/grant.snf",
+      "status": "structured",
+      "audit_status": "reviewed-and-corrected",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": true,
+      "changes": [
+        "Enumerate static privilege grammar; restrict column lists to four allowed privileges"
+      ],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/grant.html"
+      ],
+      "remaining_gaps": [
+        "dynamic_privilege must be a registered MySQL 8.4 dynamic privilege name; valid privilege/object/level combinations and ALL exclusions require semantic validation.",
+        "account_or_role and role account quoting, AS user privileges and column object existence remain external."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "auth/rename-user.snf",
+      "status": "structured",
+      "audit_status": "reviewed-no-change",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": false,
+      "changes": [],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/rename-user.html"
+      ],
+      "remaining_gaps": [
+        "Names, literals, numeric ranges, privileges and object existence are consumer/server constraints; no SQL execution was performed."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "auth/revoke.snf",
+      "status": "structured",
+      "audit_status": "reviewed-and-corrected",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": true,
+      "changes": [
+        "Enumerate static privilege grammar; restrict column lists to four allowed privileges"
+      ],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/revoke.html"
+      ],
+      "remaining_gaps": [
+        "dynamic_privilege must be a registered MySQL 8.4 dynamic privilege name; privilege scope and partial-revoke configuration remain semantic."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "auth/set-default-role.snf",
+      "status": "structured",
+      "audit_status": "reviewed-no-change",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": false,
+      "changes": [],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/set-default-role.html"
+      ],
+      "remaining_gaps": [
+        "Names, literals, numeric ranges, privileges and object existence are consumer/server constraints; no SQL execution was performed."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "auth/set-password.snf",
+      "status": "structured",
+      "audit_status": "reviewed-and-corrected",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": true,
+      "changes": [
+        "Fix random password syntax to TO RANDOM"
+      ],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/set-password.html"
+      ],
+      "remaining_gaps": [
+        "Names, literals, numeric ranges, privileges and object existence are consumer/server constraints; no SQL execution was performed."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "auth/set-role.snf",
+      "status": "structured",
+      "audit_status": "reviewed-no-change",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": false,
+      "changes": [],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/set-role.html"
+      ],
+      "remaining_gaps": [
+        "Names, literals, numeric ranges, privileges and object existence are consumer/server constraints; no SQL execution was performed."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "compound/begin-end.snf",
+      "status": "partial",
+      "audit_status": "reviewed-and-corrected",
+      "modified": true,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/begin-end.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [
+        "SQL/COMPOUND and declaration categories require consumer binding; scope, label matching and legal nested statements are not resolved by the SNF parser."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "compound/case.snf",
+      "status": "partial",
+      "audit_status": "reviewed-and-corrected",
+      "modified": true,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/case.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [
+        "Nested statement categories and value expressions require consumer binding; branch reachability/type compatibility is semantic."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "compound/cursor.snf",
+      "status": "structured",
+      "audit_status": "reviewed-and-corrected",
+      "modified": true,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/cursors.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "compound/declare-condition.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/declare-condition.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "compound/declare-cursor.snf",
+      "status": "partial",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/declare-cursor.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [
+        "SELECT category must bind a cursor-compatible query, not an arbitrary SELECT/INTO form."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "compound/declare-handler.snf",
+      "status": "partial",
+      "audit_status": "reviewed-and-corrected",
+      "modified": true,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/declare-handler.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [
+        "Handler body categories require consumer binding; handler scope, precedence and condition identity are contextual."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "compound/declare-variable.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/declare-local-variable.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "compound/get-diagnostics.snf",
+      "status": "structured",
+      "audit_status": "reviewed-and-corrected",
+      "modified": true,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/get-diagnostics.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "compound/if.snf",
+      "status": "partial",
+      "audit_status": "reviewed-and-corrected",
+      "modified": true,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/if.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [
+        "Nested statement categories and predicates require consumer binding."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "compound/iterate.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/iterate.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "compound/leave.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/leave.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "compound/loop.snf",
+      "status": "partial",
+      "audit_status": "reviewed-and-corrected",
+      "modified": true,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/loop.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [
+        "Nested statement categories and labels require context binding."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "compound/repeat.snf",
+      "status": "partial",
+      "audit_status": "reviewed-and-corrected",
+      "modified": true,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/repeat.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [
+        "Nested statement categories, predicates and labels require context binding."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "compound/resignal.snf",
+      "status": "structured",
+      "audit_status": "reviewed-and-corrected",
+      "modified": true,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/resignal.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "compound/return.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/return.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "compound/signal.snf",
+      "status": "structured",
+      "audit_status": "reviewed-and-corrected",
+      "modified": true,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/signal.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "compound/while.snf",
+      "status": "partial",
+      "audit_status": "reviewed-and-corrected",
+      "modified": true,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/while.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [
+        "Nested statement categories, predicates and labels require context binding."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "create/database.snf",
+      "status": "structured",
+      "audit_status": "reviewed-no-change",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": false,
+      "changes": [],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/create-database.html"
+      ],
+      "remaining_gaps": [
+        "Names, literals, numeric ranges, privileges and object existence are consumer/server constraints; no SQL execution was performed."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "create/event.snf",
+      "status": "partial",
+      "audit_status": "reviewed-and-corrected",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": true,
+      "changes": [
+        "Use explicit SQL/COMPOUND external statement category markers"
+      ],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/create-event.html"
+      ],
+      "remaining_gaps": [
+        "SQL/COMPOUND payloads are external statement category bindings, not automatically imported grammar.",
+        "Stored-program context restrictions, parameter types and names, matching schema/definer privileges and executable body validity require consumer validation."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "create/function.snf",
+      "status": "partial",
+      "audit_status": "reviewed-and-corrected",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": true,
+      "changes": [
+        "Use explicit SQL/COMPOUND external statement category markers"
+      ],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/create-procedure.html"
+      ],
+      "remaining_gaps": [
+        "SQL/COMPOUND payloads are external statement category bindings, not automatically imported grammar.",
+        "Stored-program context restrictions, parameter types and names, matching schema/definer privileges and executable body validity require consumer validation."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "create/index.snf",
+      "status": "partial",
+      "audit_status": "reviewed-no-change",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": false,
+      "changes": [],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/create-index.html"
+      ],
+      "remaining_gaps": [
+        "Functional, multi-valued, prefix, FULLTEXT/SPATIAL and engine-specific index restrictions are semantic; expression/type grammar remains external.",
+        "USING uses one canonical position; alternate equivalent position is intentionally omitted."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "create/loadable-function.snf",
+      "status": "structured",
+      "audit_status": "reviewed-no-change",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": false,
+      "changes": [],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/create-function-loadable.html"
+      ],
+      "remaining_gaps": [
+        "Names, literals, numeric ranges, privileges and object existence are consumer/server constraints; no SQL execution was performed."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "create/logfile-group.snf",
+      "status": "structured",
+      "audit_status": "reviewed-no-change",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": false,
+      "changes": [],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/create-logfile-group.html"
+      ],
+      "remaining_gaps": [
+        "NDB engine applicability and reserved/ignored options require validation."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "create/procedure.snf",
+      "status": "partial",
+      "audit_status": "reviewed-and-corrected",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": true,
+      "changes": [
+        "Constrain procedure parameter modes",
+        "Use explicit SQL/COMPOUND external statement category markers"
+      ],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/create-procedure.html"
+      ],
+      "remaining_gaps": [
+        "SQL/COMPOUND payloads are external statement category bindings, not automatically imported grammar.",
+        "Stored-program context restrictions, parameter types and names, matching schema/definer privileges and executable body validity require consumer validation."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "create/resource-group.snf",
+      "status": "structured",
+      "audit_status": "reviewed-no-change",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": false,
+      "changes": [],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/create-resource-group.html"
+      ],
+      "remaining_gaps": [
+        "CPU ranges, thread priority bounds, SYSTEM/USER applicability and platform support require validation."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "create/role.snf",
+      "status": "structured",
+      "audit_status": "reviewed-no-change",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": false,
+      "changes": [],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/create-role.html"
+      ],
+      "remaining_gaps": [
+        "Names, literals, numeric ranges, privileges and object existence are consumer/server constraints; no SQL execution was performed."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "create/server.snf",
+      "status": "structured",
+      "audit_status": "reviewed-no-change",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": false,
+      "changes": [],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/create-server.html"
+      ],
+      "remaining_gaps": [
+        "At least one parenthesized OPTIONS field must be selected; wrapper support and option constraints are external."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "create/spatial-reference-system.snf",
+      "status": "structured",
+      "audit_status": "reviewed-and-corrected",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": true,
+      "changes": [
+        "Use primary-object name with unsigned SRID contract"
+      ],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/create-spatial-reference-system.html"
+      ],
+      "remaining_gaps": [
+        "name denotes an unsigned 32-bit SRID, not a quoted identifier; SRS validity/dependencies are checked by server."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "create/table.snf",
+      "status": "partial",
+      "audit_status": "reviewed-and-corrected",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": true,
+      "changes": [
+        "Correct generated-column and COMMENT clause order",
+        "Add temporal automatic update/default and spatial SRID column attributes",
+        "Add inferred KEY partitioning and explicit partition tuple/MAXVALUE boundaries",
+        "Require explicit SUBPARTITION KEY column list while retaining PARTITION KEY() inference"
+      ],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/create-table.html",
+        "https://dev.mysql.com/doc/refman/8.4/en/timestamp-initialization.html",
+        "https://dev.mysql.com/doc/refman/8.4/en/spatial-type-overview.html",
+        "https://dev.mysql.com/doc/refman/8.4/en/partitioning-key.html",
+        "https://dev.mysql.com/doc/refman/8.4/en/partitioning-subpartitions.html"
+      ],
+      "remaining_gaps": [
+        "Full MySQL data-type and expression grammars remain typed inputs.",
+        "Temporal ON UPDATE applies only to TIMESTAMP/DATETIME; SRID only to spatial columns; fractional precision/type agreement is semantic.",
+        "Functional/SPATIAL/FULLTEXT/PRIMARY key constraints and engine-specific index, FK, storage and table options require validation.",
+        "Partition method/boundary compatibility, KEY() inference, tuple arity, subpartition method/number restrictions and unique-key compatibility require validation.",
+        "Parser-accepted option permutations are intentionally canonicalized; engine-specific operational behavior is not guaranteed by the shell."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "create/tablespace.snf",
+      "status": "structured",
+      "audit_status": "reviewed-and-corrected",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": true,
+      "changes": [
+        "Match FILE_BLOCK_SIZE documented syntax",
+        "Allow NDBCLUSTER engine synonym"
+      ],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/create-tablespace.html"
+      ],
+      "remaining_gaps": [
+        "Engine-specific sizes, encryption, file paths and undo/general tablespace constraints require validation; ENGINE_ATTRIBUTE is reserved."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "create/trigger.snf",
+      "status": "partial",
+      "audit_status": "reviewed-and-corrected",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": true,
+      "changes": [
+        "Use explicit SQL/COMPOUND external statement category markers"
+      ],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/create-trigger.html"
+      ],
+      "remaining_gaps": [
+        "SQL/COMPOUND payloads are external statement category bindings, not automatically imported grammar.",
+        "Stored-program context restrictions, parameter types and names, matching schema/definer privileges and executable body validity require consumer validation."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "create/user.snf",
+      "status": "structured",
+      "audit_status": "reviewed-and-corrected",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": true,
+      "changes": [
+        "Constrain MFA/initial authentication and require nonempty TLS/resource clauses"
+      ],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/create-user.html"
+      ],
+      "remaining_gaps": [
+        "MFA plugin policy, factor identity/count and account-format rules require validation.",
+        "TLS/resource clauses are nonempty canonical combinations; password-policy applicability and account-level restrictions remain semantic."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "create/view.snf",
+      "status": "partial",
+      "audit_status": "reviewed-and-corrected",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": true,
+      "changes": [
+        "Move CHECK OPTION after AS query",
+        "Allow documented TABLE query source"
+      ],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/create-view.html"
+      ],
+      "remaining_gaps": [
+        "SELECT/TABLE source must bind a valid view query; data-type/expression/query grammar is external.",
+        "Updatability, unique output names, no variables/INTO and algorithm/CHECK OPTION eligibility require semantic validation."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "drop/database.snf",
+      "status": "structured",
+      "audit_status": "reviewed-no-change",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": false,
+      "changes": [],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/drop-database.html"
+      ],
+      "remaining_gaps": [
+        "Names, literals, numeric ranges, privileges and object existence are consumer/server constraints; no SQL execution was performed."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "drop/event.snf",
+      "status": "structured",
+      "audit_status": "reviewed-no-change",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": false,
+      "changes": [],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/drop-event.html"
+      ],
+      "remaining_gaps": [
+        "Names, literals, numeric ranges, privileges and object existence are consumer/server constraints; no SQL execution was performed."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "drop/function.snf",
+      "status": "structured",
+      "audit_status": "reviewed-no-change",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": false,
+      "changes": [],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/drop-procedure.html"
+      ],
+      "remaining_gaps": [
+        "Names, literals, numeric ranges, privileges and object existence are consumer/server constraints; no SQL execution was performed."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "drop/index.snf",
+      "status": "structured",
+      "audit_status": "reviewed-no-change",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": false,
+      "changes": [],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/drop-index.html"
+      ],
+      "remaining_gaps": [
+        "Names, literals, numeric ranges, privileges and object existence are consumer/server constraints; no SQL execution was performed."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "drop/loadable-function.snf",
+      "status": "structured",
+      "audit_status": "reviewed-no-change",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": false,
+      "changes": [],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/drop-function-loadable.html"
+      ],
+      "remaining_gaps": [
+        "Names, literals, numeric ranges, privileges and object existence are consumer/server constraints; no SQL execution was performed."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "drop/logfile-group.snf",
+      "status": "structured",
+      "audit_status": "reviewed-no-change",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": false,
+      "changes": [],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/drop-logfile-group.html"
+      ],
+      "remaining_gaps": [
+        "NDB engine applicability and dependent object constraints require validation."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "drop/procedure.snf",
+      "status": "structured",
+      "audit_status": "reviewed-no-change",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": false,
+      "changes": [],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/drop-procedure.html"
+      ],
+      "remaining_gaps": [
+        "Names, literals, numeric ranges, privileges and object existence are consumer/server constraints; no SQL execution was performed."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "drop/resource-group.snf",
+      "status": "structured",
+      "audit_status": "reviewed-no-change",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": false,
+      "changes": [],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/drop-resource-group.html"
+      ],
+      "remaining_gaps": [
+        "CPU ranges, thread priority bounds, SYSTEM/USER applicability and platform support require validation."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "drop/role.snf",
+      "status": "structured",
+      "audit_status": "reviewed-no-change",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": false,
+      "changes": [],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/drop-role.html"
+      ],
+      "remaining_gaps": [
+        "Names, literals, numeric ranges, privileges and object existence are consumer/server constraints; no SQL execution was performed."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "drop/server.snf",
+      "status": "structured",
+      "audit_status": "reviewed-no-change",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": false,
+      "changes": [],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/drop-server.html"
+      ],
+      "remaining_gaps": [
+        "Names, literals, numeric ranges, privileges and object existence are consumer/server constraints; no SQL execution was performed."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "drop/spatial-reference-system.snf",
+      "status": "structured",
+      "audit_status": "reviewed-and-corrected",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": true,
+      "changes": [
+        "Use primary-object name with unsigned SRID contract"
+      ],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/drop-spatial-reference-system.html"
+      ],
+      "remaining_gaps": [
+        "name denotes an unsigned 32-bit SRID, not a quoted identifier; SRS validity/dependencies are checked by server."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "drop/table.snf",
+      "status": "structured",
+      "audit_status": "reviewed-no-change",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": false,
+      "changes": [],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/drop-table.html"
+      ],
+      "remaining_gaps": [
+        "Names, literals, numeric ranges, privileges and object existence are consumer/server constraints; no SQL execution was performed."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "drop/tablespace.snf",
+      "status": "structured",
+      "audit_status": "reviewed-no-change",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": false,
+      "changes": [],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/drop-tablespace.html"
+      ],
+      "remaining_gaps": [
+        "Names, literals, numeric ranges, privileges and object existence are consumer/server constraints; no SQL execution was performed."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "drop/trigger.snf",
+      "status": "structured",
+      "audit_status": "reviewed-no-change",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": false,
+      "changes": [],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/drop-trigger.html"
+      ],
+      "remaining_gaps": [
+        "Names, literals, numeric ranges, privileges and object existence are consumer/server constraints; no SQL execution was performed."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "drop/user.snf",
+      "status": "structured",
+      "audit_status": "reviewed-and-corrected",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": true,
+      "changes": [
+        "Use primary-object placeholder name; account format remains required"
+      ],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/drop-user.html"
+      ],
+      "remaining_gaps": [
+        "Names, literals, numeric ranges, privileges and object existence are consumer/server constraints; no SQL execution was performed."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "drop/view.snf",
+      "status": "structured",
+      "audit_status": "reviewed-no-change",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": false,
+      "changes": [],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/drop-view.html"
+      ],
+      "remaining_gaps": [
+        "Names, literals, numeric ranges, privileges and object existence are consumer/server constraints; no SQL execution was performed."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "other/analyze-table.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/analyze-table.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "other/cache-index.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/cache-index.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "other/call.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/call.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "other/check-table.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/check-table.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "other/checksum-table.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/checksum-table.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "other/clone.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/clone.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "other/deallocate-prepare.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/deallocate-prepare.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "other/describe.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/describe.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "other/do.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/do.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "other/execute.snf",
+      "status": "structured",
+      "audit_status": "reviewed-and-corrected",
+      "modified": true,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/execute.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "other/explain.snf",
+      "status": "partial",
+      "audit_status": "reviewed-and-corrected",
+      "modified": true,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/explain.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [
+        "Nested explainable/analyzable categories require consumer binding; ANALYZE table-target cardinality and query applicability are contextual."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "other/flush.snf",
+      "status": "structured",
+      "audit_status": "reviewed-and-corrected",
+      "modified": true,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/flush.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "other/handler.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/handler.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "other/help.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/help.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "other/import-table.snf",
+      "status": "structured",
+      "audit_status": "reviewed-and-corrected",
+      "modified": true,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/import-table.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "other/install-component.snf",
+      "status": "structured",
+      "audit_status": "reviewed-and-corrected",
+      "modified": true,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/install-component.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "other/install-plugin.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/install-plugin.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "other/kill.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/kill.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "other/load-data.snf",
+      "status": "partial",
+      "audit_status": "reviewed-and-corrected",
+      "modified": true,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/load-data.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [
+        "Input fields and assignment structures are explicit; field/file encodings, escaping rules and assignment expressions remain external."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "other/load-index.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/load-index.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "other/load-xml.snf",
+      "status": "partial",
+      "audit_status": "reviewed-and-corrected",
+      "modified": true,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/load-xml.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [
+        "Input fields and assignment structures are explicit; XML mapping, file/string encodings and assignment expressions remain external."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "other/optimize-table.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/optimize-table.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "other/prepare.snf",
+      "status": "partial",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/prepare.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [
+        "preparable_statement is raw statement text supplied as a SQL string or user variable; permitted prepared-statement categories are not expanded."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "other/rename-table.snf",
+      "status": "structured",
+      "audit_status": "reviewed-and-corrected",
+      "modified": true,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/rename-table.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "other/repair-table.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/repair-table.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "other/reset-persist.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/reset-persist.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "other/reset.snf",
+      "status": "structured",
+      "audit_status": "reviewed-and-corrected",
+      "modified": true,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/reset.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "other/restart.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/restart.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "other/set-character-set.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/set-character-set.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "other/set-names.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/set-names.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "other/set-resource-group.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/set-resource-group.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "other/set.snf",
+      "status": "partial",
+      "audit_status": "reviewed-and-corrected",
+      "modified": true,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/set-variable.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [
+        "All assignment target structures are explicit, but variable metadata, inherited scope and expression grammars remain external."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "other/show.snf",
+      "status": "partial",
+      "audit_status": "reviewed-and-corrected",
+      "modified": true,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/show.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [
+        "SHOW PARSE_TREE requires a bound SELECT category. SHOW predicates remain expression inputs; build/privilege restrictions are contextual."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "other/shutdown.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/shutdown.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "other/truncate-table.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/truncate-table.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "other/uninstall-component.snf",
+      "status": "structured",
+      "audit_status": "reviewed-and-corrected",
+      "modified": true,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/uninstall-component.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "other/uninstall-plugin.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/uninstall-plugin.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "other/use.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/use.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "query/delete.snf",
+      "status": "partial",
+      "audit_status": "reviewed-and-corrected",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": true,
+      "changes": [
+        "Replace unsupported generic/LATERAL table function with JSON_TABLE",
+        "Expand JSON_TABLE columns, nested paths and error handling",
+        "Repeat whole multi-table deletion targets",
+        "Define deletion target wildcard as part of list item"
+      ],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/delete.html",
+        "https://dev.mysql.com/doc/refman/8.4/en/join.html",
+        "https://dev.mysql.com/doc/refman/8.4/en/json-table-functions.html"
+      ],
+      "remaining_gaps": [
+        "Query/expression leaves and names are typed inputs; deletable targets, aliases, join cardinality and CTE binding require context validation."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "query/insert.snf",
+      "status": "partial",
+      "audit_status": "reviewed-and-corrected",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": true,
+      "changes": [
+        "Add empty column/value list default-row insertion",
+        "Bind complete parenthesized VALUES tuple to helper before postfix repetition"
+      ],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/insert.html"
+      ],
+      "remaining_gaps": [
+        "DELAYED remains a documented accepted but ignored/deprecated spelling in 8.4; it does not provide delayed insertion behavior.",
+        "Column/value arity, empty-list pairing and ON DUPLICATE KEY alias scope require semantic checks.",
+        "Query leaf binding includes SELECT/TABLE/VALUES; expression and data-type grammar is external."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "query/query-expression.snf",
+      "status": "partial",
+      "audit_status": "reviewed-and-corrected",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": true,
+      "changes": [
+        "Recursive parenthesized/set operands and complete INTO export clauses"
+      ],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/parenthesized-query-expressions.html"
+      ],
+      "remaining_gaps": [
+        "query_block_statement must bind an appropriate SELECT/TABLE/VALUES leaf; local recursion models nesting but does not automatically import other SNF files.",
+        "Only one INTO per complete query expression; leaf ORDER BY/LIMIT placement, set-operation precedence and compatible result arity require context validation."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "query/replace.snf",
+      "status": "partial",
+      "audit_status": "reviewed-and-corrected",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": true,
+      "changes": [
+        "Repeat ROW keyword with every tuple",
+        "Define whole ROW constructor",
+        "Bind complete parenthesized VALUES tuple to helper before postfix repetition",
+        "Add explicit empty-column/empty-values default-only row form, following documented INSERT equivalence"
+      ],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/replace.html",
+        "https://dev.mysql.com/doc/refman/8.4/en/insert.html"
+      ],
+      "remaining_gaps": [
+        "DELAYED is documented but ignored/deprecated in 8.4.",
+        "Explicit DEFAULT_ROW covers the empty-column/empty-values form; row/column arity and engine semantics require validation."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "query/select.snf",
+      "status": "partial",
+      "audit_status": "reviewed-and-corrected",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": true,
+      "changes": [
+        "Correct GROUP BY ROLLUP alternative",
+        "Explicit qualified wildcard select items",
+        "Define wildcard versus expression aliases",
+        "Replace unsupported generic/LATERAL table function with JSON_TABLE",
+        "Expand JSON_TABLE columns, nested paths and error handling",
+        "Exclude single-bound FOLLOWING frame",
+        "Type window frame offsets",
+        "Type window frame offsets",
+        "Explicit temporal RANGE interval offsets",
+        "Model multiple table-scoped locking clauses while keeping unscoped locks separate",
+        "Repeat whole named-window declarations",
+        "Define whole named-window item"
+      ],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/select.html",
+        "https://dev.mysql.com/doc/refman/8.4/en/join.html",
+        "https://dev.mysql.com/doc/refman/8.4/en/json-table-functions.html",
+        "https://dev.mysql.com/doc/refman/8.4/en/window-functions-frames.html"
+      ],
+      "remaining_gaps": [
+        "Expressions, scalar functions, query leaves, identifiers and data types are typed consumer inputs, not a complete MySQL expression/type parser.",
+        "JSON path/string validity and scalar-column conversion rules require validation.",
+        "Window frame offset types/order and inherited-window restrictions require context validation; INTERVAL offsets are RANGE-only.",
+        "Scoped locking clauses must reference distinct tables/aliases; unsupported locking/query contexts require semantic checks."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "query/table.snf",
+      "status": "structured",
+      "audit_status": "reviewed-no-change",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": false,
+      "changes": [],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/table.html"
+      ],
+      "remaining_gaps": [
+        "Canonical TABLE shell follows documented ORDER BY and LIMIT form; names/export literals remain typed inputs."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "query/update.snf",
+      "status": "partial",
+      "audit_status": "reviewed-and-corrected",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": true,
+      "changes": [
+        "Restrict ORDER BY/LIMIT branch to single base table",
+        "Replace unsupported generic/LATERAL table function with JSON_TABLE",
+        "Expand JSON_TABLE columns, nested paths and error handling"
+      ],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/update.html",
+        "https://dev.mysql.com/doc/refman/8.4/en/join.html",
+        "https://dev.mysql.com/doc/refman/8.4/en/json-table-functions.html"
+      ],
+      "remaining_gaps": [
+        "Query/expression leaves and names are typed inputs; update targets and qualified column assignments require consumer binding.",
+        "Single-table branch is restricted to a base-table target to avoid admitting invalid joined UPDATE with ORDER BY/LIMIT."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "query/values.snf",
+      "status": "structured",
+      "audit_status": "reviewed-and-corrected",
+      "scope": "Canonical statement structure; no claim of complete expression, type, semantic or engine validation",
+      "modified": true,
+      "changes": [
+        "Repeat ROW keyword with every tuple",
+        "Define whole ROW constructor"
+      ],
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/values.html"
+      ],
+      "remaining_gaps": [
+        "column_index is the generated column_N identifier, not an arbitrary expression; compatible row arity and scalar expressions require validation."
+      ],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "replication/binlog.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/binlog.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "replication/change-filter.snf",
+      "status": "structured",
+      "audit_status": "reviewed-and-corrected",
+      "modified": true,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/change-replication-filter.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "replication/change-source.snf",
+      "status": "structured",
+      "audit_status": "reviewed-and-corrected",
+      "modified": true,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/change-replication-source-to.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "replication/purge-binary-logs.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/purge-binary-logs.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "replication/reset-binary-logs.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/reset-binary-logs-and-gtids.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "replication/reset-replica.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/reset-replica.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "replication/start-group-replication.snf",
+      "status": "structured",
+      "audit_status": "reviewed-and-corrected",
+      "modified": true,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/start-group-replication.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "replication/start-replica.snf",
+      "status": "structured",
+      "audit_status": "reviewed-and-corrected",
+      "modified": true,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/start-replica.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "replication/stop-group-replication.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/stop-group-replication.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "replication/stop-replica.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/stop-replica.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "transaction/begin.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/commit.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "transaction/commit.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/commit.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "transaction/lock-instance.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/lock-instance-for-backup.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "transaction/lock-tables.snf",
+      "status": "structured",
+      "audit_status": "reviewed-and-corrected",
+      "modified": true,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/lock-tables.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "transaction/release-savepoint.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/savepoint.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "transaction/rollback-to.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/savepoint.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "transaction/rollback.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/commit.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "transaction/savepoint.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/savepoint.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "transaction/set-transaction.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/set-transaction.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "transaction/start-transaction.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/commit.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "transaction/unlock-instance.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/lock-instance-for-backup.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "transaction/unlock-tables.snf",
+      "status": "structured",
+      "audit_status": "reviewed-and-corrected",
+      "modified": true,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/lock-tables.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    },
+    {
+      "file": "transaction/xa.snf",
+      "status": "structured",
+      "audit_status": "reviewed",
+      "modified": false,
+      "sources": [
+        "https://dev.mysql.com/doc/refman/8.4/en/xa-statements.html"
+      ],
+      "scope": "Canonical MySQL 8.4 statement skeleton; scalar input domains, privileges and runtime state are governed by docs/input-contracts.md.",
+      "remaining_gaps": [],
+      "contract": "docs/input-contracts.md"
+    }
+  ]
+}

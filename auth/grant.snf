@@ -1,7 +1,7 @@
 # https://dev.mysql.com/doc/refman/8.4/en/grant.html
 
 # CASE PRIVILEGES
-GRANT { privilege [ ( colname [, ...] ) ] } [, ...]
+GRANT privilege_definition [, ...]
     ON [ object_type ] privilege_level
     TO account_or_role [, ...]
     [ WITH GRANT OPTION ]
@@ -16,6 +16,46 @@ GRANT PROXY ON account_or_role
 GRANT role [, ...]
     TO account_or_role [, ...]
     [ WITH ADMIN OPTION ]
+
+# PARTOFIS privilege_definition
+{ INSERT | REFERENCES | SELECT | UPDATE } [ ( colname [, ...] ) ]
+
+static_privilege
+
+dynamic_privilege
+
+# ONEOFIS static_privilege
+ALL [ PRIVILEGES ]
+ALTER
+ALTER ROUTINE
+CREATE
+CREATE ROLE
+CREATE ROUTINE
+CREATE TABLESPACE
+CREATE TEMPORARY TABLES
+CREATE USER
+CREATE VIEW
+DELETE
+DROP
+DROP ROLE
+EVENT
+EXECUTE
+FILE
+FLUSH_PRIVILEGES
+GRANT OPTION
+INDEX
+LOCK TABLES
+OPTIMIZE_LOCAL_TABLE
+PROCESS
+RELOAD
+REPLICATION CLIENT
+REPLICATION SLAVE
+SHOW DATABASES
+SHOW VIEW
+SHUTDOWN
+SUPER
+TRIGGER
+USAGE
 
 # WHERE object_type
 { TABLE | FUNCTION | PROCEDURE }

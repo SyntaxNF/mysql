@@ -15,5 +15,5 @@ CREATE [ DEFINER = user ] FUNCTION [ IF NOT EXISTS ] name (
 argname argtype
 
 # STATEMENT routine_statement
-sql_statement
-compound_statement
+SQL
+COMPOUND

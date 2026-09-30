@@ -2,7 +2,9 @@
 
 # CASE SINGLE_TABLE
 [ WITH [ RECURSIVE ] with_query_definition [, ...] ]
-UPDATE [ LOW_PRIORITY ] [ IGNORE ] from_expression
+UPDATE [ LOW_PRIORITY ] [ IGNORE ] table
+    [ PARTITION ( partition [, ...] ) ]
+    [ [ AS ] table_alias ] [ index_hint [...] ]
     SET column_assignment [, ...]
     [ WHERE boolean_expression ]
     [ ORDER BY order_by_expression [, ...] ]
@@ -26,7 +28,7 @@ table [ PARTITION ( partition [, ...] ) ]
 
 [ LATERAL ] ( query_statement ) [ AS ] table_alias [ ( col_alias [, ...] ) ]
 
-[ LATERAL ] table_function [ AS ] function_alias [ ( col_alias [, ...] ) ]
+json_table_expression
 
 ( from_expression [, ...] )
 
@@ -39,6 +41,24 @@ from_expression STRAIGHT_JOIN from_expression [ ON boolean_expression ]
 from_expression { LEFT | RIGHT } [ OUTER ] JOIN from_expression join_condition
 
 from_expression NATURAL [ INNER | { LEFT | RIGHT } [ OUTER ] ] JOIN from_expression
+
+# WHERE json_table_expression
+JSON_TABLE (
+    value_expression , 'json_path'
+    COLUMNS ( json_column_definition [, ...] )
+) [ AS ] function_alias
+
+# PARTOFIS json_column_definition
+colname FOR ORDINALITY
+
+colname type PATH 'json_path'
+    [ { NULL | DEFAULT 'json_string' | ERROR } ON EMPTY ]
+    [ { NULL | DEFAULT 'json_string' | ERROR } ON ERROR ]
+
+colname type EXISTS PATH 'json_path'
+
+NESTED [ PATH ] 'json_path'
+    COLUMNS ( json_column_definition [, ...] )
 
 # ONEOFIS join_condition
 ON boolean_expression

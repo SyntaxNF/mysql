@@ -1,16 +1,27 @@
 # https://dev.mysql.com/doc/refman/8.4/en/parenthesized-query-expressions.html
 
 # CASE PARENTHESIZED
-( query_statement [ order_by_clause ] [ limit_clause ] )
+( query_expression_statement )
     [ order_by_clause ]
     [ limit_clause ]
     [ into_clause ]
 
 # CASE SET_OPERATION
-query_block_statement [ set_operation query_block_statement ] [...]
+query_term_statement set_operation query_term_statement
+    [ { set_operation query_term_statement } [...] ]
     [ order_by_clause ]
     [ limit_clause ]
     [ into_clause ]
+
+# WHERE query_expression_statement
+query_term_statement
+    [ { set_operation query_term_statement } [...] ]
+    [ order_by_clause ]
+    [ limit_clause ]
+    [ into_clause ]
+
+# WHERE query_term_statement
+{ query_block_statement | ( query_expression_statement ) }
 
 # WHERE order_by_clause
 ORDER BY order_by_expression [, ...]
@@ -21,13 +32,26 @@ ORDER BY order_by_expression [, ...]
 # WHERE limit_clause
 LIMIT { [ offset , ] limit | limit OFFSET offset }
 
-# WHERE into_clause
-INTO { OUTFILE 'file' | DUMPFILE 'file' | variable [, ...] }
+# PARTOFIS into_clause
+INTO OUTFILE 'file'
+    [ CHARACTER SET charset ]
+    export_options
+
+INTO DUMPFILE 'file'
+
+INTO variable [, ...]
+
+# WHERE export_options
+[ { FIELDS | COLUMNS }
+    [ TERMINATED BY 'string' ]
+    [ [ OPTIONALLY ] ENCLOSED BY 'character' ]
+    [ ESCAPED BY 'character' ] ]
+[ LINES [ STARTING BY 'string' ] [ TERMINATED BY 'string' ] ]
 
 # WHERE set_operation
 { UNION | INTERSECT | EXCEPT } [ ALL | DISTINCT ]
 
-# STATEMENT query_block_statement, query_statement
+# STATEMENT query_block_statement
 SELECT
 TABLE
 VALUES

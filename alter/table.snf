@@ -2,7 +2,30 @@
 
 # CASE OPTIONS
 ALTER TABLE name
-    action [, ...]
+    alter_action [, ...]
+    [ partition_options | REMOVE PARTITIONING ]
+
+# CASE ADD_COLUMN
+ALTER TABLE name ADD [ COLUMN ] colname column_definition
+    [ FIRST | AFTER colname ]
+
+# CASE DROP_COLUMN
+ALTER TABLE name DROP [ COLUMN ] colname
+
+# CASE MODIFY_COLUMN
+ALTER TABLE name MODIFY [ COLUMN ] colname column_definition
+    [ FIRST | AFTER colname ]
+
+# CASE CHANGE_COLUMN
+ALTER TABLE name CHANGE [ COLUMN ] colname new_colname column_definition
+    [ FIRST | AFTER colname ]
+
+# CASE SET_COLUMN_DEFAULT
+ALTER TABLE name ALTER [ COLUMN ] colname
+    SET DEFAULT { value | ( value_expression ) }
+
+# CASE DROP_COLUMN_DEFAULT
+ALTER TABLE name ALTER [ COLUMN ] colname DROP DEFAULT
 
 # CASE RENAME_COLUMN
 ALTER TABLE name
@@ -16,36 +39,60 @@ ALTER TABLE name
 ALTER TABLE name
     RENAME [ TO | AS ] new_name
 
+# CASE PARTITION_BY
+ALTER TABLE name
+    partition_options
+
 # CASE ADD_PARTITION
 ALTER TABLE name
+    [ ALGORITHM [=] { DEFAULT | INPLACE | COPY } , ]
+    [ LOCK [=] { DEFAULT | NONE | SHARED | EXCLUSIVE } , ]
     ADD PARTITION (
         partition_definition [, ...]
     )
 
+# CASE ADD_HASH_KEY_PARTITIONS
+ALTER TABLE name
+    [ ALGORITHM [=] { DEFAULT | INPLACE | COPY } , ]
+    [ LOCK [=] { DEFAULT | NONE | SHARED | EXCLUSIVE } , ]
+    ADD PARTITION PARTITIONS number
+
 # CASE DROP_PARTITION
 ALTER TABLE name
+    [ ALGORITHM [=] { DEFAULT | INPLACE | COPY } , ]
+    [ LOCK [=] { DEFAULT | NONE | SHARED | EXCLUSIVE } , ]
     DROP PARTITION partition [, ...]
 
 # CASE DISCARD_PARTITION
 ALTER TABLE name
+    [ ALGORITHM [=] DEFAULT , ]
+    [ LOCK [=] DEFAULT , ]
     DISCARD PARTITION { partition [, ...] | ALL }
     TABLESPACE
 
 # CASE IMPORT_PARTITION
 ALTER TABLE name
+    [ ALGORITHM [=] DEFAULT , ]
+    [ LOCK [=] DEFAULT , ]
     IMPORT PARTITION { partition [, ...] | ALL }
     TABLESPACE
 
 # CASE TRUNCATE_PARTITION
 ALTER TABLE name
+    [ ALGORITHM [=] { DEFAULT | INPLACE | COPY } , ]
+    [ LOCK [=] { DEFAULT | NONE | SHARED | EXCLUSIVE } , ]
     TRUNCATE PARTITION { partition [, ...] | ALL }
 
 # CASE COALESCE_PARTITION
 ALTER TABLE name
+    [ ALGORITHM [=] { DEFAULT | INPLACE | COPY } , ]
+    [ LOCK [=] { DEFAULT | NONE | SHARED | EXCLUSIVE } , ]
     COALESCE PARTITION number
 
 # CASE REORGANIZE_PARTITION
 ALTER TABLE name
+    [ ALGORITHM [=] { DEFAULT | INPLACE | COPY } , ]
+    [ LOCK [=] { DEFAULT | NONE | SHARED | EXCLUSIVE } , ]
     REORGANIZE PARTITION partition [, ...]
     INTO (
         partition_definition [, ...]
@@ -53,18 +100,22 @@ ALTER TABLE name
 
 # CASE EXCHANGE_PARTITION
 ALTER TABLE name
+    [ ALGORITHM [=] { DEFAULT | INPLACE | COPY } , ]
+    [ LOCK [=] { DEFAULT | NONE | SHARED | EXCLUSIVE } , ]
     EXCHANGE PARTITION partition WITH TABLE table
     [ { WITH | WITHOUT } VALIDATION ]
 
 # CASE MAINTAIN_PARTITION
 ALTER TABLE name
+    [ ALGORITHM [=] { DEFAULT | INPLACE | COPY } , ]
+    [ LOCK [=] { DEFAULT | NONE | SHARED | EXCLUSIVE } , ]
     { ANALYZE | CHECK | OPTIMIZE | REBUILD | REPAIR }
     PARTITION { partition [, ...] | ALL }
 
 # CASE REMOVE_PARTITIONING
 ALTER TABLE name REMOVE PARTITIONING
 
-# PARTOFIS action
+# PARTOFIS alter_action
 AUTOEXTEND_SIZE [=] value
 
 AUTO_INCREMENT [=] value
@@ -211,13 +262,15 @@ ORDER BY colname [, ...]
 # PARTOFIS column_definition
 type
 [ NOT NULL | NULL ]
-[ DEFAULT { value | ( value_expression ) } ]
+[ DEFAULT { value | CURRENT_TIMESTAMP [ ( fractional_precision ) ] | ( value_expression ) } ]
+[ ON UPDATE CURRENT_TIMESTAMP [ ( fractional_precision ) ] ]
 [ VISIBLE | INVISIBLE ]
 [ AUTO_INCREMENT ]
 [ UNIQUE [ KEY ] ]
 [ [ PRIMARY ] KEY ]
 [ COMMENT 'comment' ]
 [ COLLATE collate ]
+[ SRID srid ]
 [ COLUMN_FORMAT { FIXED | DYNAMIC | DEFAULT } ]
 [ ENGINE_ATTRIBUTE [=] 'engine_attribute' ]
 [ SECONDARY_ENGINE_ATTRIBUTE [=] 'secondary_engine_attribute' ]
@@ -262,12 +315,44 @@ REFERENCES table ( colname [, ...] )
 [ ENGINE_ATTRIBUTE [=] 'engine_attribute' ]
 [ SECONDARY_ENGINE_ATTRIBUTE [=] 'secondary_engine_attribute' ]
 
+# WHERE partition_options
+PARTITION BY partition_method
+    [ PARTITIONS number ]
+    [ SUBPARTITION BY subpartition_method [ SUBPARTITIONS number ] ]
+    [ ( partition_definition [, ...] ) ]
+
+# ONEOFIS partition_method
+[ LINEAR ] HASH ( col_expression )
+[ LINEAR ] KEY [ ALGORITHM = { 1 | 2 } ] ( [ colname [, ...] ] )
+RANGE { ( col_expression ) | COLUMNS ( colname [, ...] ) }
+LIST { ( col_expression ) | COLUMNS ( colname [, ...] ) }
+
+# ONEOFIS subpartition_method
+[ LINEAR ] HASH ( col_expression )
+[ LINEAR ] KEY [ ALGORITHM = { 1 | 2 } ] ( colname [, ...] )
+
 # WHERE partition_definition
 PARTITION partition
-    [ VALUES { LESS THAN { ( value [, ...] ) | MAXVALUE } | IN ( value [, ...] ) } ]
+    [ VALUES { LESS THAN { ( partition_bound_value [, ...] ) | MAXVALUE } | IN ( partition_list_value [, ...] ) } ]
     [ [ STORAGE ] ENGINE [=] engine ]
     [ COMMENT [=] 'comment' ]
     [ DATA DIRECTORY [=] 'directory' ]
     [ INDEX DIRECTORY [=] 'directory' ]
     [ MAX_ROWS [=] value ] [ MIN_ROWS [=] value ]
     [ TABLESPACE [=] tablespace ]
+    [ ( subpartition_definition [, ...] ) ]
+
+# WHERE subpartition_definition
+SUBPARTITION subpartition
+    [ [ STORAGE ] ENGINE [=] engine ]
+    [ COMMENT [=] 'comment' ]
+    [ DATA DIRECTORY [=] 'directory' ]
+    [ INDEX DIRECTORY [=] 'directory' ]
+    [ MAX_ROWS [=] value ] [ MIN_ROWS [=] value ]
+    [ TABLESPACE [=] tablespace ]
+
+# WHERE partition_bound_value
+{ value_expression | MAXVALUE }
+
+# WHERE partition_list_value
+{ value_expression | ( value_expression [, ...] ) }

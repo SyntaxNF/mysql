@@ -1,36 +1,22 @@
 # https://dev.mysql.com/doc/refman/8.4/en/change-replication-filter.html
 
-# CASE DO_DATABASE
-CHANGE REPLICATION FILTER
-    REPLICATE_DO_DB = ( database [, ...] )
+CHANGE REPLICATION FILTER filter_option [, ...]
     [ FOR CHANNEL 'channel' ]
 
-# CASE IGNORE_DATABASE
-CHANGE REPLICATION FILTER
-    REPLICATE_IGNORE_DB = ( database [, ...] )
-    [ FOR CHANNEL 'channel' ]
+# ONEOFIS filter_option
+REPLICATE_DO_DB = ( [ database [, ...] ] )
+REPLICATE_IGNORE_DB = ( [ database [, ...] ] )
+REPLICATE_DO_TABLE = ( [ qualified_table [, ...] ] )
+REPLICATE_IGNORE_TABLE = ( [ qualified_table [, ...] ] )
+REPLICATE_WILD_DO_TABLE = ( [ table_pattern_value [, ...] ] )
+REPLICATE_WILD_IGNORE_TABLE = ( [ table_pattern_value [, ...] ] )
+REPLICATE_REWRITE_DB = ( [ database_pair [, ...] ] )
 
-# CASE DO_TABLE
-CHANGE REPLICATION FILTER
-    REPLICATE_DO_TABLE = ( table [, ...] )
-    [ FOR CHANNEL 'channel' ]
+# WHERE qualified_table
+database . table
 
-# CASE IGNORE_TABLE
-CHANGE REPLICATION FILTER
-    REPLICATE_IGNORE_TABLE = ( table [, ...] )
-    [ FOR CHANNEL 'channel' ]
+# WHERE table_pattern_value
+'database_table_pattern'
 
-# CASE WILD_DO_TABLE
-CHANGE REPLICATION FILTER
-    REPLICATE_WILD_DO_TABLE = ( 'table_pattern' [, ...] )
-    [ FOR CHANNEL 'channel' ]
-
-# CASE WILD_IGNORE_TABLE
-CHANGE REPLICATION FILTER
-    REPLICATE_WILD_IGNORE_TABLE = ( 'table_pattern' [, ...] )
-    [ FOR CHANNEL 'channel' ]
-
-# CASE REWRITE_DATABASE
-CHANGE REPLICATION FILTER
-    REPLICATE_REWRITE_DB = ( { ( from_database , to_database ) } [, ...] )
-    [ FOR CHANNEL 'channel' ]
+# WHERE database_pair
+( from_database , to_database )

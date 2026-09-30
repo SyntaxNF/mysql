@@ -12,16 +12,19 @@ DELETE [ LOW_PRIORITY ] [ QUICK ] [ IGNORE ]
 # CASE MULTI_TABLE_FROM
 [ WITH [ RECURSIVE ] with_query_definition [, ...] ]
 DELETE [ LOW_PRIORITY ] [ QUICK ] [ IGNORE ]
-    table [ . * ] [, ...]
+    delete_target [, ...]
     FROM from_expression [, ...]
     [ WHERE boolean_expression ]
 
 # CASE MULTI_TABLE_USING
 [ WITH [ RECURSIVE ] with_query_definition [, ...] ]
 DELETE [ LOW_PRIORITY ] [ QUICK ] [ IGNORE ]
-    FROM table [ . * ] [, ...]
+    FROM delete_target [, ...]
     USING from_expression [, ...]
     [ WHERE boolean_expression ]
+
+# WHERE delete_target
+table [ . * ]
 
 # WHERE order_by_expression
 { colname | col_expression } [ ASC | DESC ]
@@ -32,7 +35,7 @@ table [ PARTITION ( partition [, ...] ) ]
 
 [ LATERAL ] ( query_statement ) [ AS ] table_alias [ ( col_alias [, ...] ) ]
 
-[ LATERAL ] table_function [ AS ] function_alias [ ( col_alias [, ...] ) ]
+json_table_expression
 
 ( from_expression [, ...] )
 
@@ -45,6 +48,24 @@ from_expression STRAIGHT_JOIN from_expression [ ON boolean_expression ]
 from_expression { LEFT | RIGHT } [ OUTER ] JOIN from_expression join_condition
 
 from_expression NATURAL [ INNER | { LEFT | RIGHT } [ OUTER ] ] JOIN from_expression
+
+# WHERE json_table_expression
+JSON_TABLE (
+    value_expression , 'json_path'
+    COLUMNS ( json_column_definition [, ...] )
+) [ AS ] function_alias
+
+# PARTOFIS json_column_definition
+colname FOR ORDINALITY
+
+colname type PATH 'json_path'
+    [ { NULL | DEFAULT 'json_string' | ERROR } ON EMPTY ]
+    [ { NULL | DEFAULT 'json_string' | ERROR } ON ERROR ]
+
+colname type EXISTS PATH 'json_path'
+
+NESTED [ PATH ] 'json_path'
+    COLUMNS ( json_column_definition [, ...] )
 
 # ONEOFIS join_condition
 ON boolean_expression
