@@ -7,7 +7,7 @@ import { pathToFileURL } from 'node:url';
 
 export const parserRevision = 'bcf2c3ac58b45e7d5391716393586b00b11e0c1a';
 export const parserRoot = process.env.SNF_PARSER_ROOT && path.resolve(process.env.SNF_PARSER_ROOT);
-if (!parserRoot) throw new Error('Set SNF_PARSER_ROOT to the pinned parser checkout; see docs/validation.md.');
+if (!parserRoot) throw new Error('Set SNF_PARSER_ROOT to the pinned parser checkout; see README.md.');
 const git = (...args) => execFileSync('git', ['-C', parserRoot, ...args], { encoding: 'utf8' }).trim();
 const actualRevision = git('rev-parse', 'HEAD');
 if (actualRevision !== parserRevision) throw new Error(`Parser revision mismatch: expected ${parserRevision}, got ${actualRevision}`);
