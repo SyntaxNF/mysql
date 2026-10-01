@@ -2,7 +2,7 @@
 
 [ begin_label : ]
 LOOP
-    statement [; ...]
+    statement [; ...] ;
 END LOOP
 [ end_label ]
 

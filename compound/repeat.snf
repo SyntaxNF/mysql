@@ -2,7 +2,7 @@
 
 [ begin_label : ]
 REPEAT
-    statement [; ...]
+    statement [; ...] ;
 UNTIL boolean_expression
 END REPEAT
 [ end_label ]

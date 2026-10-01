@@ -2,6 +2,8 @@
 
 基线：[MySQL 8.4 SQL Statement Syntax](https://dev.mysql.com/doc/refman/8.4/en/sql-statements.html)。检查日期：2026-09-24。
 
+以下保留该次检查记录；2026-10-01 的小范围修正、实际 parser/生成契约验证及来源分歧见 [生成模板验证](validation.md)，不沿用本页旧结果作为本轮证明。
+
 ## 结论
 
 现有 136 个文件已覆盖主要语句族，但存在子句遗漏与错误组合。官方目录不是“一页一个文件”：SHOW 子命令、游标动作及多个查询专题在同一 SNF 中表达，不能直接把页面数当成语句覆盖率。

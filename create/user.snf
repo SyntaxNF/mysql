@@ -15,42 +15,35 @@ CREATE USER [ IF NOT EXISTS ]
     [ COMMENT 'comment' | ATTRIBUTE 'json' ]
 
 # WHERE account_definition
-{
-account
-[ auth_option ]
-}
+account [ auth_option ]
 
 # PARTOFIS auth_option
-IDENTIFIED BY { 'auth_string' | RANDOM PASSWORD }
-[ AND second_auth_option ]
+authentication_definition [ AND second_auth_option ]
 
-IDENTIFIED WITH auth_plugin
-[ BY { 'auth_string' | RANDOM PASSWORD } | AS 'auth_string' ]
-[ AND second_auth_option ]
-
-IDENTIFIED WITH auth_plugin
-initial_auth_option
+IDENTIFIED WITH auth_plugin initial_auth_option
 
 # WHERE second_auth_option
-IDENTIFIED [ WITH auth_plugin ]
-[ BY { 'auth_string' | RANDOM PASSWORD } | AS 'auth_string' ]
-[ AND
-third_auth_option ]
+authentication_definition [ AND authentication_definition ]
 
-# WHERE third_auth_option
-IDENTIFIED [ WITH auth_plugin ]
-[ BY { 'auth_string' | RANDOM PASSWORD } | AS 'auth_string' ]
+# PARTOFIS authentication_definition
+IDENTIFIED BY { 'auth_string' | RANDOM PASSWORD }
 
-# WHERE initial_auth_option
-INITIAL AUTHENTICATION IDENTIFIED
-[ WITH auth_plugin ]
-{ BY { RANDOM PASSWORD | 'auth_string' } | AS 'auth_string' }
+IDENTIFIED WITH auth_plugin
+    [ BY { 'auth_string' | RANDOM PASSWORD } | AS 'auth_string' ]
 
-# WHERE tls_requirements
-[ SSL | X509 ]
-[ [ AND ] CIPHER 'cipher' ]
-[ [ AND ] ISSUER 'issuer' ]
-[ [ AND ] SUBJECT 'subject' ]
+# PARTOFIS initial_auth_option
+INITIAL AUTHENTICATION IDENTIFIED BY { RANDOM PASSWORD | 'auth_string' }
+
+INITIAL AUTHENTICATION IDENTIFIED WITH auth_plugin AS 'auth_string'
+
+# PARTOFIS tls_requirements
+SSL
+
+X509
+
+[ CIPHER 'cipher' ]
+[ ISSUER 'issuer' ]
+[ SUBJECT 'subject' ]
 
 # WHERE resource_options
 [ MAX_QUERIES_PER_HOUR count ]

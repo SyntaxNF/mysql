@@ -4,14 +4,20 @@ GET [ CURRENT | STACKED ] DIAGNOSTICS
     { statement_information | condition_information }
 
 # WHERE statement_information
-statement_item = statement_information_item [, ...]
+statement_information_assignment [, ...]
 
 # WHERE condition_information
 CONDITION condition_number
-    condition_item = condition_information_item [, ...]
+    condition_information_assignment [, ...]
 
 # WHERE statement_information_item
 { NUMBER | ROW_COUNT }
 
 # WHERE condition_information_item
 { CLASS_ORIGIN | SUBCLASS_ORIGIN | RETURNED_SQLSTATE | MESSAGE_TEXT | MYSQL_ERRNO | CONSTRAINT_CATALOG | CONSTRAINT_SCHEMA | CONSTRAINT_NAME | CATALOG_NAME | SCHEMA_NAME | TABLE_NAME | COLUMN_NAME | CURSOR_NAME }
+
+# WHERE statement_information_assignment
+diagnostic_target = statement_information_item
+
+# WHERE condition_information_assignment
+diagnostic_target = condition_information_item

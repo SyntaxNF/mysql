@@ -56,31 +56,33 @@ check_constraint_definition
 # PARTOFIS column_definition
 type
 [ NOT NULL | NULL ]
-[ DEFAULT { value | ( value_expression ) } ]
+[ DEFAULT { value | CURRENT_TIMESTAMP [ ( fractional_precision ) ] | ( value_expression ) } ]
+[ ON UPDATE CURRENT_TIMESTAMP [ ( fractional_precision ) ] ]
 [ VISIBLE | INVISIBLE ]
 [ AUTO_INCREMENT ]
 [ UNIQUE [ KEY ] ]
 [ [ PRIMARY ] KEY ]
+[ COMMENT 'comment' ]
 [ COLLATE collate ]
+[ SRID srid ]
 [ COLUMN_FORMAT { FIXED | DYNAMIC | DEFAULT } ]
 [ ENGINE_ATTRIBUTE [=] 'engine_attribute' ]
 [ SECONDARY_ENGINE_ATTRIBUTE [=] 'secondary_engine_attribute' ]
 [ STORAGE { DISK | MEMORY } ]
 [ reference_definition ]
 [ check_constraint_definition ]
-[ COMMENT 'comment' ]
 
 type
+[ COLLATE collate ]
+[ GENERATED ALWAYS ] AS ( col_expression )
+[ VIRTUAL | STORED ]
 [ NOT NULL | NULL ]
 [ VISIBLE | INVISIBLE ]
 [ UNIQUE [ KEY ] ]
 [ [ PRIMARY ] KEY ]
-[ COLLATE collate ]
-[ GENERATED ALWAYS ] AS ( col_expression )
-[ VIRTUAL | STORED ]
+[ COMMENT 'comment' ]
 [ reference_definition ]
 [ check_constraint_definition ]
-[ COMMENT 'comment' ]
 
 # WHERE index_column_expression
 { colname [ ( length ) ] | ( col_expression ) } [ ASC | DESC ]
@@ -160,7 +162,7 @@ LIST { ( col_expression ) | COLUMNS ( colname [, ...] ) }
 
 # WHERE partition_definition
 PARTITION partition
-    [ VALUES { LESS THAN { ( value [, ...] ) | MAXVALUE } | IN ( value [, ...] ) } ]
+    [ VALUES { LESS THAN { ( partition_bound_expression [, ...] ) | MAXVALUE } | IN ( partition_list_expression [, ...] ) } ]
     [ [ STORAGE ] ENGINE [=] engine ]
     [ COMMENT [=] 'comment' ]
     [ DATA DIRECTORY [=] 'directory' ]
@@ -182,3 +184,9 @@ SUBPARTITION subpartition
 SELECT
 TABLE
 VALUES
+
+# WHERE partition_bound_expression
+{ value_expression | MAXVALUE }
+
+# WHERE partition_list_expression
+{ value_expression | ( value_expression [, ...] ) }

@@ -10,5 +10,9 @@
   "keywords": [
     "snf",
     "mysql"
-  ]
+  ],
+  "scripts": {
+    "validate": "node scripts/validate-snf.mjs",
+    "test": "node --test scripts/*.test.mjs"
+  }
 }

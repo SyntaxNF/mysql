@@ -7,10 +7,16 @@
     [ into_clause ]
 
 # CASE SET_OPERATION
-query_block_statement [ set_operation query_block_statement ] [...]
+query_term_statement set_operation_clause [...]
     [ order_by_clause ]
     [ limit_clause ]
     [ into_clause ]
+
+# WHERE query_term_statement
+{ query_statement | ( query_statement ) }
+
+# WHERE set_operation_clause
+{ UNION | INTERSECT | EXCEPT } [ ALL | DISTINCT ] query_term_statement
 
 # WHERE order_by_clause
 ORDER BY order_by_expression [, ...]
@@ -21,13 +27,23 @@ ORDER BY order_by_expression [, ...]
 # WHERE limit_clause
 LIMIT { [ offset , ] limit | limit OFFSET offset }
 
-# WHERE into_clause
-INTO { OUTFILE 'file' | DUMPFILE 'file' | variable [, ...] }
+# PARTOFIS into_clause
+INTO OUTFILE 'file'
+    [ CHARACTER SET charset ]
+    export_options
 
-# WHERE set_operation
-{ UNION | INTERSECT | EXCEPT } [ ALL | DISTINCT ]
+INTO DUMPFILE 'file'
 
-# STATEMENT query_block_statement, query_statement
+INTO variable [, ...]
+
+# WHERE export_options
+[ { FIELDS | COLUMNS }
+    [ TERMINATED BY 'string' ]
+    [ [ OPTIONALLY ] ENCLOSED BY 'character' ]
+    [ ESCAPED BY 'character' ] ]
+[ LINES [ STARTING BY 'string' ] [ TERMINATED BY 'string' ] ]
+
+# STATEMENT query_statement
 SELECT
 TABLE
 VALUES
