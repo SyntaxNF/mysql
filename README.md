@@ -61,90 +61,30 @@ col_expression [ ASC | DESC ]
 ## 书写与生成规则
 
 - 每个 `.snf` 文件首行链接到对应的 MySQL 8.4 官方语法页。
-- SQL 关键字使用大写，语法占位符使用小写；文件名使用小写和连字符。
-- 主语句中相互独立的 clause 使用四个空格缩进，并按语法顺序分行展示。
-- `ONEOFIS` 的单个候选不能换行；候选需要跨行时使用 `PARTOFIS`。
-- `alter/` 中的 `RENAME`、`ADD`、`DROP`、`SET` 等主操作优先提升为顶层 `# CASE`。只有同类且允许组合的属性才放入 `# CASE OPTIONS`。
-- 相互独立且至多出现一次的 clause 按固定顺序分别写成可选项，不得合并成可重复的 option 循环。
-- 只有值列表、对象列表、语句序列等真正允许重复的结构才使用 `...`。
-- SQL 生成器会移除圆括号内最后一个逗号。因此，圆括号内按固定顺序排列的可选字段可以各自保留尾逗号，无需用 `PARTOFIS` 穷举组合。
-- SNF 表达规范 SQL，不收录仅仅能被服务端解析器容忍、但不适合作为标准生成结果的排列方式。
+- SQL 关键字使用大写，占位符使用小写；文件名使用小写和连字符，独立 clause 使用四个空格缩进。
+- `ONEOFIS` 的单个候选不能换行；跨行候选使用 `PARTOFIS`。
+- `alter/` 的主操作使用顶层 `CASE`，同类且允许组合的属性使用 `CASE OPTIONS`。
+- 独立、至多出现一次的 clause 按固定顺序分别写成可选项；只有真正的列表或语句序列使用重复结构。
+- 重复结构允许零次或多次；包含关键字、括号或分号的整个可选组仍保留其作用。
+- 生成器移除圆括号内的尾逗号，因此括号内固定顺序的可选字段可各自保留尾逗号；括号外不依赖此清理。
+- 表达式、正文和复用查询由调用方按 SQL 上下文提供，列表成员数量按具体语句要求填写。
 
 ## 占位符命名
 
-当前文件所定义主对象的名称统一使用 `name`；只有该主对象的重命名目标使用 `new_name`。其他对象不得复用 `name`，必须使用对象类型或上下文名称，例如 `table`、`constraint`、`index`、`new_index`、`colname`。通用语义与同级 PostgreSQL SNF 保持一致，MySQL 专属概念则保留准确的领域名称。
+主对象使用 `name`，其重命名目标使用 `new_name`；其他对象使用 `table`、`constraint`、`index`、`colname` 等语义名称。共享语义与 PostgreSQL SNF 保持一致，MySQL 专属概念保留 `account`、`auth_plugin`、`charset`、`engine` 等领域名称。
 
-### 语法节点后缀
+节点按角色命名：完整 SQL 使用 `_statement`，表达式使用 `_expression`，对象结构使用 `_definition`，带关键字的位置片段使用 `_clause`，单个设置或设置组使用 `_option` / `_options`，依赖父语句的操作使用 `_action`。别名使用带上下文的 `_alias`，其余按实际含义使用 `_target`、`_assignment`、`_parameter`、`_item` / `_list`、`_mode`、`_method`、`_value`；避免泛化的 `config` 和 `_reference`。普通判断使用 `boolean_expression`，`_condition` 留给 `join_condition` 这类结构节点。
 
-| 后缀 | 适用语义 | 示例 |
-| --- | --- | --- |
-| `_statement` | 可独立执行或可完整嵌套的 SQL。 | `query_statement` |
-| `_expression` | 产生值、布尔结果或关系的表达式。 | `boolean_expression` |
-| `_definition` | 列、约束、参数、分区等对象结构的声明。 | `column_definition` |
-| `_clause` | 带自身关键字、位置固定且不能独立执行的子句。 | `order_by_clause` |
-| `_option` | 一个可选设置或候选项。 | `table_option` |
-| `_options` | 一组允许组合的设置。 | `table_options` |
-| `_action` | 依赖父语句、不能独立执行的操作片段。 | `on_delete_action` |
-| `_alias` | 对象在当前语句中的别名，必须带对象上下文。 | `table_alias` |
-| `_target` | 操作或子句的目标结构。 | `conflict_target` |
-| `_assignment` | 包含左值、赋值运算符和右值的完整结构。 | `column_assignment` |
-| `_parameter` | 配置参数的名称。 | `system_parameter` |
-| `_item` | 同类结构中的一个成员。 | `information_item` |
-| `_list` | 一组同类成员构成的列表。 | `table_index_list` |
-| `_mode` | 行为或状态的选择。 | `lock_mode` |
-| `_method` | 实现方式或算法的选择。 | `partition_method` |
-| `_value` | 不是任意 SQL 表达式的值或枚举。 | `condition_value` |
+## 开发命令
 
-标识符直接使用对象类型名，不为追求后缀形式而误标节点角色。例如，`order_by_clause` 包含 `ORDER BY` 关键字，`order_by_expression` 只表示一个排序项；依赖父语句的操作应命名为 `_action`，而不是 `_statement`。
+按需手动运行。需要 Node.js 20.19+ 或 22.12+、Git、pnpm，以及固定版本的 [SNF parser](https://github.com/SyntaxNF/parser)：
 
-避免使用含义过宽的 `config`，应按角色选择 `_option`、`_options`、`_parameter` 或 `_definition`。引用已有对象时优先使用 `table`、`constraint`、`referenced_table` 等语义名称，而不是泛化的 `_reference`。`_condition` 只用于 `join_condition` 这类带自身结构的条件节点；普通判断条件使用 `boolean_expression`。
+```sh
+git clone https://github.com/SyntaxNF/parser.git ../snf-parser
+git -C ../snf-parser checkout --detach bcf2c3ac58b45e7d5391716393586b00b11e0c1a
+(cd ../snf-parser && pnpm install --frozen-lockfile)
+SNF_PARSER_ROOT=../snf-parser npm run validate
+SNF_PARSER_ROOT=../snf-parser npm test
+```
 
-### 常用占位符
-
-下表是两个 SNF 仓库共享的常用词汇。不是每个文件都需要声明全部节点，但同一名称在不同文件中应保持相同语义。
-
-| 占位符 | 含义 |
-| --- | --- |
-| `name` | 当前文件所定义主对象的名称。 |
-| `new_name` | 当前主对象重命名后的名称。 |
-| `table`、`database`、`schema`、`index`、`constraint`、`tablespace` | 非当前主对象的对应类型标识符。 |
-| `colname` | 列名；多个列名仍通过 `colname [, ...]` 表达。 |
-| `role`、`user` | 角色或用户标识符；是否可互换由具体语句决定。 |
-| `type` | SQL 数据类型。 |
-| `collate` | 排序规则标识符。 |
-| `argname`、`argtype`、`argmode` | 参数名称、参数类型和参数模式。 |
-| `value` | 当前语法位置接受的原子值；若可接受一般 SQL 表达式，应改用 `_expression`。 |
-| `value_expression` | 一般值表达式。 |
-| `boolean_expression` | 返回真假结果的判断表达式。 |
-| `col_expression` | SELECT 列、赋值或其他列上下文中的表达式。 |
-| `from_expression` | `FROM` 上下文中的表、连接或关系表达式。 |
-| `group_by_expression`、`order_by_expression`、`window_expression` | 对应子句中的一个分组项、排序项或窗口表达式。 |
-| `index_column_expression` | 索引中的一个列或表达式项。 |
-| `query_statement` | 可作为查询来源或嵌套查询的完整查询语句。 |
-| `select_statement` | 语法明确要求 `SELECT` 的完整语句。 |
-| `sql_statement` | 上下文允许的通用完整 SQL 语句；优先使用更具体的名称。 |
-| `argument_definition` | 一个函数或存储过程参数的完整声明。 |
-| `column_definition` | 一个列的完整声明。 |
-| `with_query_definition` | `WITH` 中的一个公共表表达式定义。 |
-| `table_alias`、`col_alias`、`function_alias` | 表、列或函数结果的别名。 |
-| `on_delete_action`、`on_update_action` | 外键 `ON DELETE` 或 `ON UPDATE` 后的动作片段。 |
-
-### MySQL 专属占位符
-
-| 占位符 | 含义 |
-| --- | --- |
-| `account` | MySQL 账户，通常包含用户和主机部分。 |
-| `auth_plugin`、`auth_string` | 认证插件和认证字符串。 |
-| `charset` | 字符集。 |
-| `engine` | 存储引擎。 |
-| `system_variable`、`user_variable` | MySQL 系统变量和用户变量。 |
-| `source_log`、`source_position` | 复制源的二进制日志文件和位置。 |
-| `relay_log`、`relay_position` | 副本的中继日志文件和位置。 |
-
-## 覆盖状态
-
-语句入口覆盖、本轮修正和剩余缺口见 [SQL 定义覆盖检查](docs/coverage.md)。文件存在不代表全部语法组合已经验证。
-
-## 生成模板验证
-
-本轮成员绑定、关键词、标点和顺序修正的验证方法与限制见 [生成模板验证](docs/validation.md)。表达式、正文和复用查询是正常输入；模板不负责穷尽 SQL 上下文、权限、状态或所有有效组合。
+已有同版本的干净 parser checkout 可直接复用；`SNF_PARSER_ROOT` 指向该目录。脚本直接加载固定版本源码及锁定依赖，无需构建 parser。
