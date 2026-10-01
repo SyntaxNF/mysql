@@ -4,7 +4,7 @@
 INSERT [ LOW_PRIORITY | DELAYED | HIGH_PRIORITY ] [ IGNORE ]
     [ INTO ] table [ PARTITION ( partition [, ...] ) ]
     [ ( colname [, ...] ) ]
-    { VALUES | VALUE } ( { value_expression | DEFAULT } [, ...] ) [, ...]
+    { VALUES | VALUE } row_expression [, ...]
     [ AS row_alias [ ( col_alias [, ...] ) ] ]
     [ ON DUPLICATE KEY UPDATE column_assignment [, ...] ]
 
@@ -21,6 +21,9 @@ INSERT [ LOW_PRIORITY | HIGH_PRIORITY ] [ IGNORE ]
     [ ( colname [, ...] ) ]
     query_statement
     [ ON DUPLICATE KEY UPDATE column_assignment [, ...] ]
+
+# WHERE row_expression
+( { value_expression | DEFAULT } [, ...] )
 
 # WHERE column_assignment
 colname = { DEFAULT | value_expression | [ row_alias . ] colname | [ table . ] colname | [ row_alias . ] col_alias }

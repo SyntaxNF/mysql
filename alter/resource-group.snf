@@ -6,10 +6,16 @@ ALTER RESOURCE GROUP name
     [ THREAD_PRIORITY [=] priority ]
 
 # CASE ENABLE
-ALTER RESOURCE GROUP name ENABLE
+ALTER RESOURCE GROUP name
+    [ VCPU [=] vcpu [, ...] ]
+    [ THREAD_PRIORITY [=] priority ]
+    ENABLE
 
 # CASE DISABLE
-ALTER RESOURCE GROUP name DISABLE [ FORCE ]
+ALTER RESOURCE GROUP name
+    [ VCPU [=] vcpu [, ...] ]
+    [ THREAD_PRIORITY [=] priority ]
+    DISABLE [ FORCE ]
 
 # ONEOFIS vcpu
 number
