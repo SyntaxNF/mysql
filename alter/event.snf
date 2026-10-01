@@ -9,10 +9,19 @@ ALTER [ DEFINER = user ] EVENT name
 
 # CASE RENAME
 ALTER [ DEFINER = user ] EVENT name
+    [ ON SCHEDULE schedule_definition ]
+    [ ON COMPLETION [ NOT ] PRESERVE ]
     RENAME TO new_name
+    [ ENABLE | DISABLE | DISABLE ON { REPLICA | SLAVE } ]
+    [ COMMENT 'comment' ]
+    [ DO event_statement ]
 
 # CASE BODY
 ALTER [ DEFINER = user ] EVENT name
+    [ ON SCHEDULE schedule_definition ]
+    [ ON COMPLETION [ NOT ] PRESERVE ]
+    [ ENABLE | DISABLE | DISABLE ON { REPLICA | SLAVE } ]
+    [ COMMENT 'comment' ]
     DO event_statement
 
 # PARTOFIS schedule_definition

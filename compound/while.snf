@@ -2,7 +2,7 @@
 
 [ begin_label : ]
 WHILE boolean_expression DO
-    statement [; ...]
+    statement [; ...] ;
 END WHILE
 [ end_label ]
 
