@@ -2,7 +2,8 @@
 
 # CASE OPTIONS
 ALTER TABLE name
-    action [, ...]
+    alter_action [, ...]
+    [ partition_options | REMOVE PARTITIONING ]
 
 # CASE RENAME_COLUMN
 ALTER TABLE name
@@ -18,34 +19,46 @@ ALTER TABLE name
 
 # CASE ADD_PARTITION
 ALTER TABLE name
-    ADD PARTITION (
-        partition_definition [, ...]
-    )
+    [ ALGORITHM [=] { DEFAULT | INSTANT | INPLACE | COPY } , ]
+    [ LOCK [=] { DEFAULT | NONE | SHARED | EXCLUSIVE } , ]
+    ADD PARTITION { ( partition_definition [, ...] ) | PARTITIONS number }
 
 # CASE DROP_PARTITION
 ALTER TABLE name
+    [ ALGORITHM [=] { DEFAULT | INSTANT | INPLACE | COPY } , ]
+    [ LOCK [=] { DEFAULT | NONE | SHARED | EXCLUSIVE } , ]
     DROP PARTITION partition [, ...]
 
 # CASE DISCARD_PARTITION
 ALTER TABLE name
+    [ ALGORITHM [=] { DEFAULT | INSTANT | INPLACE | COPY } , ]
+    [ LOCK [=] { DEFAULT | NONE | SHARED | EXCLUSIVE } , ]
     DISCARD PARTITION { partition [, ...] | ALL }
     TABLESPACE
 
 # CASE IMPORT_PARTITION
 ALTER TABLE name
+    [ ALGORITHM [=] { DEFAULT | INSTANT | INPLACE | COPY } , ]
+    [ LOCK [=] { DEFAULT | NONE | SHARED | EXCLUSIVE } , ]
     IMPORT PARTITION { partition [, ...] | ALL }
     TABLESPACE
 
 # CASE TRUNCATE_PARTITION
 ALTER TABLE name
+    [ ALGORITHM [=] { DEFAULT | INSTANT | INPLACE | COPY } , ]
+    [ LOCK [=] { DEFAULT | NONE | SHARED | EXCLUSIVE } , ]
     TRUNCATE PARTITION { partition [, ...] | ALL }
 
 # CASE COALESCE_PARTITION
 ALTER TABLE name
+    [ ALGORITHM [=] { DEFAULT | INSTANT | INPLACE | COPY } , ]
+    [ LOCK [=] { DEFAULT | NONE | SHARED | EXCLUSIVE } , ]
     COALESCE PARTITION number
 
 # CASE REORGANIZE_PARTITION
 ALTER TABLE name
+    [ ALGORITHM [=] { DEFAULT | INSTANT | INPLACE | COPY } , ]
+    [ LOCK [=] { DEFAULT | NONE | SHARED | EXCLUSIVE } , ]
     REORGANIZE PARTITION partition [, ...]
     INTO (
         partition_definition [, ...]
@@ -53,18 +66,22 @@ ALTER TABLE name
 
 # CASE EXCHANGE_PARTITION
 ALTER TABLE name
+    [ ALGORITHM [=] { DEFAULT | INSTANT | INPLACE | COPY } , ]
+    [ LOCK [=] { DEFAULT | NONE | SHARED | EXCLUSIVE } , ]
     EXCHANGE PARTITION partition WITH TABLE table
     [ { WITH | WITHOUT } VALIDATION ]
 
 # CASE MAINTAIN_PARTITION
 ALTER TABLE name
+    [ ALGORITHM [=] { DEFAULT | INSTANT | INPLACE | COPY } , ]
+    [ LOCK [=] { DEFAULT | NONE | SHARED | EXCLUSIVE } , ]
     { ANALYZE | CHECK | OPTIMIZE | REBUILD | REPAIR }
     PARTITION { partition [, ...] | ALL }
 
 # CASE REMOVE_PARTITIONING
 ALTER TABLE name REMOVE PARTITIONING
 
-# PARTOFIS action
+# PARTOFIS alter_action
 AUTOEXTEND_SIZE [=] value
 
 AUTO_INCREMENT [=] value
@@ -192,6 +209,8 @@ RENAME COLUMN colname TO new_colname
 
 RENAME { INDEX | KEY } index TO new_index
 
+RENAME [ TO | AS ] new_name
+
 DROP PRIMARY KEY
 
 DROP FOREIGN KEY foreign_key
@@ -211,13 +230,15 @@ ORDER BY colname [, ...]
 # PARTOFIS column_definition
 type
 [ NOT NULL | NULL ]
-[ DEFAULT { value | ( value_expression ) } ]
+[ DEFAULT { value | CURRENT_TIMESTAMP [ ( fractional_precision ) ] | ( value_expression ) } ]
+[ ON UPDATE CURRENT_TIMESTAMP [ ( fractional_precision ) ] ]
 [ VISIBLE | INVISIBLE ]
 [ AUTO_INCREMENT ]
 [ UNIQUE [ KEY ] ]
 [ [ PRIMARY ] KEY ]
 [ COMMENT 'comment' ]
 [ COLLATE collate ]
+[ SRID srid ]
 [ COLUMN_FORMAT { FIXED | DYNAMIC | DEFAULT } ]
 [ ENGINE_ATTRIBUTE [=] 'engine_attribute' ]
 [ SECONDARY_ENGINE_ATTRIBUTE [=] 'secondary_engine_attribute' ]
@@ -262,12 +283,44 @@ REFERENCES table ( colname [, ...] )
 [ ENGINE_ATTRIBUTE [=] 'engine_attribute' ]
 [ SECONDARY_ENGINE_ATTRIBUTE [=] 'secondary_engine_attribute' ]
 
+# WHERE partition_options
+PARTITION BY partition_method
+    [ PARTITIONS number ]
+    [ SUBPARTITION BY subpartition_method [ SUBPARTITIONS number ] ]
+    [ ( partition_definition [, ...] ) ]
+
+# ONEOFIS partition_method
+[ LINEAR ] HASH ( col_expression )
+[ LINEAR ] KEY [ ALGORITHM = { 1 | 2 } ] ( colname [, ...] )
+RANGE { ( col_expression ) | COLUMNS ( colname [, ...] ) }
+LIST { ( col_expression ) | COLUMNS ( colname [, ...] ) }
+
+# ONEOFIS subpartition_method
+[ LINEAR ] HASH ( col_expression )
+[ LINEAR ] KEY [ ALGORITHM = { 1 | 2 } ] ( colname [, ...] )
+
 # WHERE partition_definition
 PARTITION partition
-    [ VALUES { LESS THAN { ( value [, ...] ) | MAXVALUE } | IN ( value [, ...] ) } ]
+    [ VALUES { LESS THAN { ( partition_bound_expression [, ...] ) | MAXVALUE } | IN ( partition_list_expression [, ...] ) } ]
     [ [ STORAGE ] ENGINE [=] engine ]
     [ COMMENT [=] 'comment' ]
     [ DATA DIRECTORY [=] 'directory' ]
     [ INDEX DIRECTORY [=] 'directory' ]
     [ MAX_ROWS [=] value ] [ MIN_ROWS [=] value ]
     [ TABLESPACE [=] tablespace ]
+    [ ( subpartition_definition [, ...] ) ]
+
+# WHERE subpartition_definition
+SUBPARTITION subpartition
+    [ [ STORAGE ] ENGINE [=] engine ]
+    [ COMMENT [=] 'comment' ]
+    [ DATA DIRECTORY [=] 'directory' ]
+    [ INDEX DIRECTORY [=] 'directory' ]
+    [ MAX_ROWS [=] value ] [ MIN_ROWS [=] value ]
+    [ TABLESPACE [=] tablespace ]
+
+# WHERE partition_bound_expression
+{ value_expression | MAXVALUE }
+
+# WHERE partition_list_expression
+{ value_expression | ( value_expression [, ...] ) }

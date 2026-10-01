@@ -22,11 +22,11 @@ colname = { value_expression | DEFAULT }
 
 # PARTOFIS from_expression
 table [ PARTITION ( partition [, ...] ) ]
-[ [ AS ] table_alias ] [ index_hint [...] ]
+[ [ AS ] table_alias ] index_hint [...]
 
 [ LATERAL ] ( query_statement ) [ AS ] table_alias [ ( col_alias [, ...] ) ]
 
-[ LATERAL ] table_function [ AS ] function_alias [ ( col_alias [, ...] ) ]
+table_function_expression [ AS ] function_alias
 
 ( from_expression [, ...] )
 
@@ -47,7 +47,7 @@ USING ( colname [, ...] )
 # PARTOFIS index_hint
 USE { INDEX | KEY }
     [ FOR { JOIN | ORDER BY | GROUP BY } ]
-    ( [ index [, ...] ] )
+    ( index [, ...] )
 
 { FORCE | IGNORE } { INDEX | KEY }
     [ FOR { JOIN | ORDER BY | GROUP BY } ]

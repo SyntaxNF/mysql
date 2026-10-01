@@ -3,7 +3,8 @@
 START REPLICA
     [ { IO_THREAD | SQL_THREAD | IO_THREAD , SQL_THREAD } ]
     [ until_option ]
-    [ USER = 'user' [ PASSWORD = 'password' ] ]
+    [ USER = 'user' ]
+    [ PASSWORD = 'password' ]
     [ DEFAULT_AUTH = 'plugin' ]
     [ PLUGIN_DIR = 'directory' ]
     [ FOR CHANNEL 'channel' ]

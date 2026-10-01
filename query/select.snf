@@ -5,27 +5,30 @@ SELECT [ ALL | DISTINCT | DISTINCTROW ]
     [ HIGH_PRIORITY ] [ STRAIGHT_JOIN ]
     [ SQL_SMALL_RESULT ] [ SQL_BIG_RESULT ] [ SQL_BUFFER_RESULT ]
     [ SQL_NO_CACHE ] [ SQL_CALC_FOUND_ROWS ]
-    { * | col_expression [ [ AS ] col_alias ] [, ...] }
+    { * | select_item [, ...] }
     [ FROM from_expression [, ...] ]
     [ WHERE boolean_expression ]
-    [ GROUP BY group_by_expression [, ...] [ WITH ROLLUP ] | ROLLUP ( group_by_expression [, ...] ) ]
+    [ GROUP BY { group_by_expression [, ...] [ WITH ROLLUP ] | ROLLUP ( group_by_expression [, ...] ) } ]
     [ HAVING boolean_expression ]
-    [ WINDOW window AS ( window_expression ) [, ...] ]
+    [ WINDOW window_definition [, ...] ]
     [ ORDER BY order_by_expression [, ...] [ WITH ROLLUP ] ]
     [ LIMIT { [ offset , ] limit | limit OFFSET offset } ]
-    [ locking_clause ]
+    [ locking_clause [...] | LOCK IN SHARE MODE ]
     [ into_option ]
+
+# WHERE select_item
+{ table . * | col_expression [ [ AS ] col_alias ] }
 
 # WHERE with_query_definition
 with_name [ ( colname [, ...] ) ] AS ( query_statement )
 
 # PARTOFIS from_expression
 table [ PARTITION ( partition [, ...] ) ]
-[ [ AS ] table_alias ] [ index_hint [...] ]
+[ [ AS ] table_alias ] index_hint [...]
 
 [ LATERAL ] ( query_statement ) [ AS ] table_alias [ ( col_alias [, ...] ) ]
 
-[ LATERAL ] table_function [ AS ] function_alias [ ( col_alias [, ...] ) ]
+table_function_expression [ AS ] function_alias
 
 ( from_expression [, ...] )
 
@@ -46,7 +49,7 @@ USING ( colname [, ...] )
 # PARTOFIS index_hint
 USE { INDEX | KEY }
     [ FOR { JOIN | ORDER BY | GROUP BY } ]
-    ( [ index [, ...] ] )
+    ( index [, ...] )
 
 { FORCE | IGNORE } { INDEX | KEY }
     [ FOR { JOIN | ORDER BY | GROUP BY } ]
@@ -57,6 +60,9 @@ USE { INDEX | KEY }
 
 # WHERE order_by_expression
 { colname | col_expression | position } [ ASC | DESC ]
+
+# WHERE window_definition
+window AS ( window_expression )
 
 # WHERE window_expression
 [ window ]
@@ -93,9 +99,8 @@ INTO variable [, ...]
     [ ESCAPED BY 'character' ] ]
 [ LINES [ STARTING BY 'string' ] [ TERMINATED BY 'string' ] ]
 
-# ONEOFIS locking_clause
+# WHERE locking_clause
 FOR { UPDATE | SHARE } [ OF table [, ...] ] [ NOWAIT | SKIP LOCKED ]
-LOCK IN SHARE MODE
 
 # STATEMENT query_statement
 SELECT

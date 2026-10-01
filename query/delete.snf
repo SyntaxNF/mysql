@@ -12,27 +12,30 @@ DELETE [ LOW_PRIORITY ] [ QUICK ] [ IGNORE ]
 # CASE MULTI_TABLE_FROM
 [ WITH [ RECURSIVE ] with_query_definition [, ...] ]
 DELETE [ LOW_PRIORITY ] [ QUICK ] [ IGNORE ]
-    table [ . * ] [, ...]
+    delete_target [, ...]
     FROM from_expression [, ...]
     [ WHERE boolean_expression ]
 
 # CASE MULTI_TABLE_USING
 [ WITH [ RECURSIVE ] with_query_definition [, ...] ]
 DELETE [ LOW_PRIORITY ] [ QUICK ] [ IGNORE ]
-    FROM table [ . * ] [, ...]
+    FROM delete_target [, ...]
     USING from_expression [, ...]
     [ WHERE boolean_expression ]
+
+# WHERE delete_target
+table [ . * ]
 
 # WHERE order_by_expression
 { colname | col_expression } [ ASC | DESC ]
 
 # PARTOFIS from_expression
 table [ PARTITION ( partition [, ...] ) ]
-[ [ AS ] table_alias ] [ index_hint [...] ]
+[ [ AS ] table_alias ] index_hint [...]
 
 [ LATERAL ] ( query_statement ) [ AS ] table_alias [ ( col_alias [, ...] ) ]
 
-[ LATERAL ] table_function [ AS ] function_alias [ ( col_alias [, ...] ) ]
+table_function_expression [ AS ] function_alias
 
 ( from_expression [, ...] )
 
@@ -53,7 +56,7 @@ USING ( colname [, ...] )
 # PARTOFIS index_hint
 USE { INDEX | KEY }
     [ FOR { JOIN | ORDER BY | GROUP BY } ]
-    ( [ index [, ...] ] )
+    ( index [, ...] )
 
 { FORCE | IGNORE } { INDEX | KEY }
     [ FOR { JOIN | ORDER BY | GROUP BY } ]

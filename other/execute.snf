@@ -1,3 +1,6 @@
 # https://dev.mysql.com/doc/refman/8.4/en/execute.html
 
-EXECUTE prepare [ USING @user_variable [, ...] ]
+EXECUTE prepare [ USING user_variable_reference [, ...] ]
+
+# WHERE user_variable_reference
+@user_variable

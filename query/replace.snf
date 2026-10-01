@@ -4,7 +4,7 @@
 REPLACE [ LOW_PRIORITY | DELAYED ] [ INTO ] table
     [ PARTITION ( partition [, ...] ) ]
     [ ( colname [, ...] ) ]
-    { { VALUES | VALUE } ( { value_expression | DEFAULT } [, ...] ) [, ...] | VALUES ROW ( { value_expression | DEFAULT } [, ...] ) [, ...] }
+    { { VALUES | VALUE } row_expression [, ...] | VALUES row_constructor_expression [, ...] }
 
 # CASE SET
 REPLACE [ LOW_PRIORITY | DELAYED ] [ INTO ] table
@@ -16,6 +16,12 @@ REPLACE [ LOW_PRIORITY | DELAYED ] [ INTO ] table
     [ PARTITION ( partition [, ...] ) ]
     [ ( colname [, ...] ) ]
     query_statement
+
+# WHERE row_expression
+( { value_expression | DEFAULT } [, ...] )
+
+# WHERE row_constructor_expression
+ROW ( { value_expression | DEFAULT } [, ...] )
 
 # WHERE column_assignment
 colname = { value_expression | DEFAULT }

@@ -8,4 +8,7 @@ LOAD XML [ LOW_PRIORITY | CONCURRENT ] [ LOCAL ]
     [ ROWS IDENTIFIED BY 'tag' ]
     [ IGNORE number { LINES | ROWS } ]
     [ ( field_or_variable [, ...] ) ]
-    [ SET colname = { value_expression | DEFAULT } [, ...] ]
+    [ SET column_assignment [, ...] ]
+
+# WHERE column_assignment
+colname = { value_expression | DEFAULT }

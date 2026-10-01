@@ -19,11 +19,12 @@ SHOW COLLATION
     [ like_or_where ]
 
 # CASE COLUMNS
-SHOW [ FULL ] COLUMNS FROM table [ FROM database ]
+SHOW [ EXTENDED ] [ FULL ] { COLUMNS | FIELDS }
+    { FROM | IN } table [ { FROM | IN } database ]
     [ like_or_where ]
 
 # CASE CREATE_DATABASE
-SHOW CREATE DATABASE database
+SHOW CREATE { DATABASE | SCHEMA } [ IF NOT EXISTS ] database
 
 # CASE CREATE_EVENT
 SHOW CREATE EVENT event
@@ -47,7 +48,7 @@ SHOW CREATE USER account
 SHOW CREATE VIEW view
 
 # CASE DATABASES
-SHOW DATABASES
+SHOW { DATABASES | SCHEMAS }
     [ like_or_where ]
 
 # CASE ENGINE
@@ -60,7 +61,7 @@ SHOW [ STORAGE ] ENGINES
 SHOW ERRORS [ LIMIT [ offset , ] limit ]
 
 # CASE EVENTS
-SHOW EVENTS [ FROM database ]
+SHOW EVENTS [ { FROM | IN } database ]
     [ like_or_where ]
 
 # CASE FUNCTION_CODE
@@ -71,14 +72,16 @@ SHOW FUNCTION STATUS
     [ like_or_where ]
 
 # CASE GRANTS
-SHOW GRANTS [ FOR account ] [ USING role [, ...] ]
+SHOW GRANTS
+    [ FOR { account | CURRENT_USER [ ( ) ] } [ USING role [, ...] ] ]
 
 # CASE INDEX
-SHOW [ EXTENDED ] { INDEX | INDEXES | KEYS } FROM table [ FROM database ]
+SHOW [ EXTENDED ] { INDEX | INDEXES | KEYS }
+    { FROM | IN } table [ { FROM | IN } database ]
     [ WHERE boolean_expression ]
 
 # CASE OPEN_TABLES
-SHOW OPEN TABLES [ FROM database ]
+SHOW OPEN TABLES [ { FROM | IN } database ]
     [ like_or_where ]
 
 # CASE PARSE_TREE
@@ -107,7 +110,7 @@ SHOW PRIVILEGES
 SHOW [ FULL ] PROCESSLIST
 
 # CASE PROFILE
-SHOW PROFILE [ profile_type [, ...] ]
+SHOW PROFILE profile_type [, ...]
     [ FOR QUERY number ]
     [ LIMIT limit [ OFFSET offset ] ]
 
@@ -118,6 +121,7 @@ SHOW PROFILES
 SHOW RELAYLOG EVENTS [ IN 'log' ]
     [ FROM position ]
     [ LIMIT [ offset , ] limit ]
+    [ FOR CHANNEL 'channel' ]
 
 # CASE REPLICA_STATUS
 SHOW REPLICA STATUS [ FOR CHANNEL 'channel' ]
@@ -130,15 +134,15 @@ SHOW [ GLOBAL | SESSION ] STATUS
     [ like_or_where ]
 
 # CASE TABLE_STATUS
-SHOW TABLE STATUS [ FROM database ]
+SHOW TABLE STATUS [ { FROM | IN } database ]
     [ like_or_where ]
 
 # CASE TABLES
-SHOW [ FULL ] TABLES [ FROM database ]
+SHOW [ FULL ] TABLES [ { FROM | IN } database ]
     [ like_or_where ]
 
 # CASE TRIGGERS
-SHOW TRIGGERS [ FROM database ]
+SHOW TRIGGERS [ { FROM | IN } database ]
     [ like_or_where ]
 
 # CASE VARIABLES

@@ -4,7 +4,7 @@
 CREATE TABLESPACE name
     [ ADD DATAFILE 'datafile' ]
     [ AUTOEXTEND_SIZE [=] value ]
-    [ FILE_BLOCK_SIZE [=] value ]
+    [ FILE_BLOCK_SIZE = value ]
     [ ENCRYPTION [=] { 'Y' | 'N' } ]
     [ ENGINE [=] INNODB ]
     [ ENGINE_ATTRIBUTE [=] 'engine_attribute' ]
@@ -19,13 +19,13 @@ CREATE UNDO TABLESPACE name
 # CASE NDB
 CREATE TABLESPACE name
     ADD DATAFILE 'datafile'
-    [ AUTOEXTEND_SIZE [=] value ]
     USE LOGFILE GROUP logfile_group
+    [ AUTOEXTEND_SIZE [=] value ]
     [ EXTENT_SIZE [=] value ]
     [ INITIAL_SIZE [=] value ]
     [ MAX_SIZE [=] value ]
     [ NODEGROUP [=] nodegroup_id ]
     [ WAIT ]
     [ COMMENT [=] 'comment' ]
-    [ ENGINE [=] NDB ]
+    [ ENGINE [=] { NDB | NDBCLUSTER } ]
     [ ENGINE_ATTRIBUTE [=] 'engine_attribute' ]

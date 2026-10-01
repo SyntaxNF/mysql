@@ -5,8 +5,9 @@ ALTER [ ALGORITHM = { UNDEFINED | MERGE | TEMPTABLE } ]
     [ DEFINER = user ]
     [ SQL SECURITY { DEFINER | INVOKER } ]
     VIEW name [ ( colname [, ...] ) ]
-    AS select_statement
+    AS query_statement
     [ WITH [ CASCADED | LOCAL ] CHECK OPTION ]
 
-# STATEMENT select_statement
+# STATEMENT query_statement
 SELECT
+TABLE
