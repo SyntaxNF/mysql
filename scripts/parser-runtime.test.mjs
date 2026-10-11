@@ -38,18 +38,12 @@ function checkBuild(moduleSource, expected) {
         assert.match(result.stderr, expected);
     } finally { rmSync(root, { recursive: true, force: true }); }
 }
-const optionalOnly = `
-export const NodeType = { OPTIONAL: 'op', VARIABLE: 'v' };
-export class SNFParser { parse() { return { children: [{ type: 'op', children: [{ type: 'v' }] }] }; } }
-`;
-test('runtime rejects an explicit-syntax build without the stable UID API', () => {
-    checkBuild(optionalOnly, /must expose the stable UID v1 API/);
+test('runtime rejects a build without the final AST API', () => {
+    checkBuild('export const UID_VERSION = "incomplete";', /must expose the final AST API/);
 });
-test('runtime rejects a build that accepts implicit OPTIONAL alternatives', () => {
-    checkBuild(optionalOnly + `
-export const UID_VERSION = 'snf-uid-v1';
-export const createAddUid = () => {};
-export const addDocumentUid = () => {};
-export class SNFParseError extends Error {}
-`, /must reject alternatives outside explicit braces/);
+test('runtime rejects a build without compiled definitions', () => {
+    checkBuild(`export const UID_VERSION = 'UID_V1';
+export const NodeType = { LOOP: 'lo' };
+export class SNFDocumentParser { parse() { return { entries: [] }; } }
+`, /must compile definitions and loops with metadata/);
 });

@@ -13,5 +13,5 @@ condition
 number
 
 # STATEMENT stored_program_statement
-sql_statement
-compound_statement
+SQL
+COMPOUND

@@ -7,7 +7,7 @@ import { fixture, parse, normalize } from './generator-fixture.mjs';
 for (const kind of ['function', 'procedure']) for (const count of [0, 1, 2]) {
     test(`CREATE ${kind} exposes argument LOOP without an optional gate × ${count}`, () => {
         const f = fixture(`create/${kind}.snf`);
-        const ast = parse(document(`create/${kind}.snf`).blocks.find(block => block.content.startsWith('CREATE')).content);
+        const ast = document(`create/${kind}.snf`).entries[0].ast;
         const sql = f.render(ast, {
             values: { name: 'f', argument_definition: ({ index }) => `p${index} INT`, routine_statement: 'RETURN 1', type: 'INT' },
             count: member => member === 'argument_definition' ? count : 1,
@@ -20,7 +20,7 @@ const { NodeType: T } = parser;
 
 for (const file of files) test(`parser and AST structure: ${file}`, () => assert.deepEqual(inspect(file), []));
 
-// Every fixture is an actual member bound by exchangeLoopNode in its caller.
+// Every fixture is an actual member compiled by the parser in its caller.
 // Zero repetitions are tested as a template contract, not claimed to be valid SQL at every site.
 const members = [
     ['query/insert.snf', 'row_expression', {}, '( value_expression )'],
@@ -70,14 +70,14 @@ test('row parentheses survive an empty inner loop, independently of row count', 
 
 test('whole USING clause can disappear, and two arguments keep both @ prefixes', () => {
     const f = fixture('other/execute.snf');
-    const top = parse(document('other/execute.snf').blocks.find(block => block.content.startsWith('EXECUTE')).content);
+    const top = document('other/execute.snf').entries[0].ast;
     assert.equal(f.render(top, { values: { prepare: 'p' } }), 'EXECUTE p');
     assert.equal(f.render(top, { values: { prepare: 'p', user_variable: ({ index }) => `a${index}` }, include: () => true, count: () => 2 }), 'EXECUTE p USING @a0, @a1');
 });
 
 test('BEGIN can omit its entire body and terminates one or two selected statements', () => {
     const f = fixture('compound/begin-end.snf');
-    const top = parse(document('compound/begin-end.snf').blocks.find(block => block.content.includes('BEGIN')).content);
+    const top = document('compound/begin-end.snf').entries[0].ast;
     assert.equal(f.render(top), 'BEGIN END');
     for (const count of [1, 2]) assert.equal(f.render(top, {
         values: { stored_program_statement: ({ index }) => `SET x = ${index + 1}` },
@@ -88,7 +88,7 @@ test('BEGIN can omit its entire body and terminates one or two selected statemen
 
 test('every compound body loop is followed by its internal final semicolon', () => {
     for (const file of ['begin-end', 'case', 'if', 'loop', 'repeat', 'while']) {
-        for (const block of document(`compound/${file}.snf`).blocks) visit(parse(block.content), node => {
+        for (const entry of document(`compound/${file}.snf`).entries) visit(entry.ast, node => {
             const children = node.children ?? [];
             children.forEach((child, index) => {
                 if (child.type !== T.LOOP || !child.children?.some(item => item.type === T.VARIABLE && /statement$/.test(item.content))) return;
@@ -106,7 +106,7 @@ test('CREATE VIEW puts AS query before CHECK OPTION; view sources include TABLE'
 });
 
 test('GROUP BY remains outside both grouping alternatives', () => {
-    const top = parse(document('query/select.snf').blocks.find(block => block.content.includes('SELECT')).content);
+    const top = document('query/select.snf').entries[0].ast;
     let group;
     visit(top, node => { if (node.type === T.OPTIONAL && /^\s*GROUP BY/.test(node.content)) group = node; });
     assert.ok(group);
@@ -174,11 +174,12 @@ test('replication lists preserve empty parentheses without extra cardinality con
     assert.equal(s.render(ignored, { count: () => 0 }), 'IGNORE_SERVER_IDS = ( )');
 });
 
-test('external statement/body bindings remain usable without a category migration', () => {
-    for (const file of ['compound/begin-end.snf', 'compound/if.snf', 'create/function.snf', 'create/procedure.snf', 'create/trigger.snf', 'create/event.snf']) {
-        const body = source(file).split(/# STATEMENT /).slice(1).join('\n');
-        assert.ok(body.includes('sql_statement'));
-        assert.doesNotMatch(body, /\bDECLARE_(?:VARIABLE|CURSOR|HANDLER)\b|^SQL$|^COMPOUND$/m);
+test('STATEMENT categories use uppercase labels without a variable suffix', () => {
+    for (const file of files) for (const definition of document(file).definitions) {
+        if (definition.kind !== 'STATEMENT') continue;
+        assert.ok(definition.ast.categories.every(category => /^[A-Z][A-Z0-9_]*(?: [A-Z][A-Z0-9_]*)*$/.test(category)));
+        assert.ok(definition.ast.categories.every(category => !category.endsWith('_STATEMENT')));
+        if (definition.ast.categories.includes('SQL')) assert.deepEqual(definition.ast.categories, ['SQL', 'COMPOUND']);
     }
 });
 
@@ -262,7 +263,7 @@ test('documented administration lists combine complete distinct options', () => 
     ]) {
         const f = fixture(file), loop = f.loop(member), choices = f.definitions.get(member);
         assert.equal(f.render(loop, {
-            choose: (candidates, context) => candidates === choices ? selection[context.indices[member]] : 0,
+            choose: (candidates, context) => candidates.length === choices.length && candidates.every((node, index) => node.raw === choices[index].raw) ? selection[context.indices[member]] : 0,
             count: (_, node) => node === loop ? 2 : 1,
         }), expected);
     }

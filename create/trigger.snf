@@ -8,5 +8,5 @@ CREATE [ DEFINER = user ] TRIGGER [ IF NOT EXISTS ] name
     trigger_statement
 
 # STATEMENT trigger_statement
-sql_statement
-compound_statement
+SQL
+COMPOUND

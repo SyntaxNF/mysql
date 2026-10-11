@@ -94,3 +94,10 @@ npm test
 基础检查统一覆盖源文件与 AST 范围、显式 OPTIONAL/ENUM/GROUP、完整成员的 LOOP 绑定、冗余纯循环可选层、四空格缩进与末尾换行，对所有文件执行。生成回归覆盖 0/1/2 次循环、显式枚举、可选项、分隔符及自由输入原文保留。SQL Server 的 `validate` 还包含其指令/固定文本约定检查和生成结构检查；各库保留自己的方言回归。
 
 `scripts/parser-runtime.mjs`、`scripts/snf-contract.mjs` 及其测试在四库保持一致；`generator-fixture.mjs` 仅本地文档加载入口不同，`generator-contract.test.mjs` 保持一致。修改公共契约时同步四库。报告的 `parserInput` 是实际加载路径；这些检查验证 SNF 和测试辅助生成行为，不执行数据库 SQL。
+
+
+`SNFDocumentParser.parse()` 一次返回最终 AST：从 `document.entries` 获取入口，从 `document.definitions` 获取已编译定义；`blocks` 只保留源码。WHERE/ONEOFIS/PARTOFIS 引用已经展开，LOOP 直接包含完整成员和 `separator`，QUOTED 保留引号序列。递归引用的 `target` 已绑定到定义根 UID，STATEMENT 只保留名称与类别，不加载外部模板。
+
+所有最终节点自动带 `uid`，动态节点同时带 `name`；VARIABLE/REFERENCE/STATEMENT 取自身名称，OPTIONAL/ENUM/LOOP 使用大写功能名称，允许重名。消费方无需额外结构转换或 UID 分配。源节点通过 `sourceBlock` 和 `start/end` 指向定义或引用的实际来源。
+
+STATEMENT 内容使用大写语句或类别名称，例如 `SELECT`、`TABLE`；通用 SQL 与复合语句类别统一写为 `SQL`、`COMPOUND`，不带 `_STATEMENT` 后缀。

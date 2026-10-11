@@ -3,8 +3,8 @@
 import assert from 'node:assert/strict';
 import { parser } from './parser-runtime.mjs';
 import { document, visit } from './validate-snf.mjs';
-const { SNFParser, exchangeLoopNode, NodeType: T } = parser;
-export const parse = text => exchangeLoopNode(new SNFParser().parse(text));
+const { SNFParser, NodeType: T } = parser;
+export const parse = text => new SNFParser().parse(text);
 export function normalize(text) {
     let result = '', quote, pendingSpace = false;
     for (let i = 0; i < text.length; i++) {
@@ -45,56 +45,55 @@ export function stripTrailingCommas(text) {
 }
 export function fixture(file) {
     const doc = document(file);
-    const definitions = new Map();
-    let part;
-    for (const block of doc.blocks) {
-        const match = block.comment.match(/^# (WHERE|ONEOFIS|PARTOFIS) (.+)$/m);
-        if (match) {
-            const [, kind, names] = match;
-            const choices = kind === 'ONEOFIS' ? block.content.split('\n').map(parse) : [parse(block.content)];
-            for (const name of names.split(',').map(value => value.trim())) definitions.set(name, choices);
-            part = kind === 'PARTOFIS' ? choices : undefined;
-        } else if (part && !block.comment) part.push(parse(block.content));
-        else part = undefined;
+    const definitions = new Map(), targets = new Map();
+    for (const definition of doc.definitions) {
+        const choices = ['ONEOFIS','PARTOFIS'].includes(definition.kind) ? definition.ast.children[0].children : [definition.ast];
+        definition.names.forEach(name => definitions.set(name, choices));
+        targets.set(definition.ast.uid, definition.ast);
     }
     const block = directive => {
-        const found = doc.blocks.find(candidate => candidate.comment.split('\n').includes(directive));
+        const found = [...doc.entries, ...doc.definitions].find(item => item.blocks.some(index => doc.blocks[index].comment.split('\n').includes(directive)));
         assert.ok(found, `${file}: missing ${directive}`);
-        return parse(found.content);
+        return found.ast;
     };
     const loop = member => {
-        const found = [];
-        for (const candidate of doc.blocks) visit(parse(candidate.content), node => {
-            if (node.type === T.LOOP && node.children?.some(child => child.type === T.VARIABLE && child.content === member)) found.push(node);
+        let found;
+        for (const candidate of [...doc.entries, ...doc.definitions]) visit(candidate.ast, node => {
+            if (!found && node.type === T.LOOP && node.children?.some(child => (child.binding?.name ?? child.content) === member)) found = node;
         });
-        assert.ok(found.length, `${file}: no complete-member loop for ${member}`);
-        return found[0];
+        assert.ok(found, `${file}: no complete-member loop for ${member}`);
+        return found;
     };
     function render(node, options = {}, context = {}) {
         const depth = context.depth ?? 0;
-        assert.ok(depth < 30, 'fixture recursion needs an explicit input');
+        assert.ok(depth < 300, 'fixture recursion needs an explicit input');
         const children = (nodes = []) => nodes.map(child => render(child, options, { ...context, depth: depth + 1 })).join('');
         const choice = choices => choices[options.choose?.(choices, context) ?? 0];
         switch (node.type) {
+            case T.COLLECTION:
+            case T.REFERENCE:
+            case T.STATEMENT:
             case T.VARIABLE: {
-                if (Object.hasOwn(options.values ?? {}, node.content)) {
-                    const value = options.values[node.content];
+                const key = node.binding?.name ?? node.content;
+                if (Object.hasOwn(options.values ?? {}, key)) {
+                    const value = options.values[key];
                     const input = String(typeof value === 'function' ? value(context) : value);
-                    // Keep opaque user inputs byte-for-byte outside fixture whitespace/comma cleanup.
                     const index = context.inputs.push(input) - 1;
                     return `\u0001INPUT_${index}\u0002`;
                 }
-                if (definitions.has(node.content)) return render(choice(definitions.get(node.content)), options, { ...context, depth: depth + 1 });
-                return node.content;
+                if (node.type === T.REFERENCE) return render(targets.get(node.target), options, { ...context, depth: depth + 1 });
+                return node.children ? children(node.children) : node.content;
             }
+            case T.QUOTED: return node.quote + children(node.children) + node.quote;
             case T.OPTIONAL: return options.include?.(node, context) ? children(node.children) : '';
             case T.ENUM: return render(choice(node.children), options, { ...context, depth: depth + 1 });
             case T.LOOP: {
-                assert.ok(Array.isArray(node.ast), 'detached postfix repetition');
-                const member = node.children.find(child => child.type === T.VARIABLE)?.content;
+                assert.equal(typeof node.separator, 'string');
+                const child = node.children[0];
+                const member = child.binding?.name ?? ([T.VARIABLE,T.STATEMENT,T.REFERENCE].includes(child.type) ? child.content : undefined);
                 const count = options.count?.(member, node, context) ?? 1;
                 assert.ok(Number.isInteger(count) && count >= 0, 'LOOP cardinality is zero or more');
-                let separator = node.ast.filter(child => child.type !== T.REPEAT).map(child => child.content).join('') || ' ';
+                let separator = node.separator ? `${node.separator} ` : ' ';
                 // Word separators, e.g. [OR ...], need token boundaries on both sides.
                 if (/^\s*[A-Za-z]/.test(separator)) separator = ` ${separator.trim()} `;
                 return Array.from({ length: count }, (_, index) => node.children.map(child => render(child, options, { ...context, index, indices: { ...context.indices, [member]: index }, depth: depth + 1 })).join('').trim()).join(separator);

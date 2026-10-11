@@ -15,5 +15,5 @@ CASE
 END CASE
 
 # STATEMENT statement
-sql_statement
-compound_statement
+SQL
+COMPOUND

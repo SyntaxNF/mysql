@@ -27,3 +27,11 @@ test('enum selection is separate from optional inclusion', () => {
     assert.equal(f.render(ast), 'TEST');
     assert.equal(f.render(ast, { include: () => true, choose: () => 1, values: { test_value: 'v' } }), 'TEST SECOND v');
 });
+
+for (const count of [0, 1, 2]) {
+    test(`doubled quotes repeat as one whole member x ${count}`, () => {
+        for (const member of ["'IT''S'", '"A""B"', "''''", "''"]) {
+            assert.equal(f.render(parse(`${member} [, ...]`), { count: () => count }), Array(count).fill(member).join(', '));
+        }
+    });
+}

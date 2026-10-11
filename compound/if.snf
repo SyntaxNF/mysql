@@ -6,5 +6,5 @@ IF boolean_expression THEN statement [; ...] ;
 END IF
 
 # STATEMENT statement
-sql_statement
-compound_statement
+SQL
+COMPOUND

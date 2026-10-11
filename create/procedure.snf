@@ -14,5 +14,5 @@ CREATE [ DEFINER = user ] PROCEDURE [ IF NOT EXISTS ] name (
 [ argmode ] argname argtype
 
 # STATEMENT routine_statement
-sql_statement
-compound_statement
+SQL
+COMPOUND

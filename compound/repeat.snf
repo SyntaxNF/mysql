@@ -8,5 +8,5 @@ END REPEAT
 [ end_label ]
 
 # STATEMENT statement
-sql_statement
-compound_statement
+SQL
+COMPOUND
