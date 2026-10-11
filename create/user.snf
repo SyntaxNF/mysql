@@ -5,14 +5,14 @@ CREATE USER [ IF NOT EXISTS ]
     [ DEFAULT ROLE role [, ...] ]
     [ REQUIRE { NONE | tls_requirements } ]
     [ WITH resource_options ]
-    [ PASSWORD EXPIRE [ DEFAULT | NEVER | INTERVAL number DAY ] ]
+    [ PASSWORD EXPIRE [ { DEFAULT | NEVER | INTERVAL number DAY } ] ]
     [ PASSWORD HISTORY { DEFAULT | number } ]
     [ PASSWORD REUSE INTERVAL { DEFAULT | number DAY } ]
-    [ PASSWORD REQUIRE CURRENT [ DEFAULT | OPTIONAL ] ]
+    [ PASSWORD REQUIRE CURRENT [ { DEFAULT | OPTIONAL } ] ]
     [ FAILED_LOGIN_ATTEMPTS number ]
     [ PASSWORD_LOCK_TIME { number | UNBOUNDED } ]
-    [ ACCOUNT LOCK | ACCOUNT UNLOCK ]
-    [ COMMENT 'comment' | ATTRIBUTE 'json' ]
+    [ { ACCOUNT LOCK | ACCOUNT UNLOCK } ]
+    [ { COMMENT 'comment' | ATTRIBUTE 'json' } ]
 
 # WHERE account_definition
 account [ auth_option ]
@@ -29,7 +29,7 @@ authentication_definition [ AND authentication_definition ]
 IDENTIFIED BY { 'auth_string' | RANDOM PASSWORD }
 
 IDENTIFIED WITH auth_plugin
-    [ BY { 'auth_string' | RANDOM PASSWORD } | AS 'auth_string' ]
+    [ { BY { 'auth_string' | RANDOM PASSWORD } | AS 'auth_string' } ]
 
 # PARTOFIS initial_auth_option
 INITIAL AUTHENTICATION IDENTIFIED BY { RANDOM PASSWORD | 'auth_string' }

@@ -11,7 +11,7 @@ local_or_parameter_variable_assignment
 system_variable_target { = | := } { value_expression | DEFAULT }
 
 # ONEOFIS system_variable_target
-[ GLOBAL | PERSIST | PERSIST_ONLY | SESSION | LOCAL ] system_variable
+[ { GLOBAL | PERSIST | PERSIST_ONLY | SESSION | LOCAL } ] system_variable
 @@ [ { GLOBAL | PERSIST | PERSIST_ONLY | SESSION | LOCAL } . ] system_variable
 
 # WHERE user_variable_assignment

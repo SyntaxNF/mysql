@@ -12,7 +12,7 @@ CREATE [ TEMPORARY ] TABLE [ IF NOT EXISTS ] name
     [ ( create_definition [, ...] ) ]
     table_options
     [ partition_options ]
-    [ IGNORE | REPLACE ]
+    [ { IGNORE | REPLACE } ]
     [ AS ] query_statement
 
 # CASE LIKE
@@ -28,7 +28,7 @@ colname column_definition
 )
 index_options
 
-{ FULLTEXT | SPATIAL } [ INDEX | KEY ] [ index ] (
+{ FULLTEXT | SPATIAL } [ { INDEX | KEY } ] [ index ] (
     index_column_expression [, ...]
 )
 index_options
@@ -40,7 +40,7 @@ PRIMARY KEY [ USING { BTREE | HASH } ] (
 index_options
 
 [ CONSTRAINT [ constraint ] ]
-UNIQUE [ INDEX | KEY ] [ index ] [ USING { BTREE | HASH } ] (
+UNIQUE [ { INDEX | KEY } ] [ index ] [ USING { BTREE | HASH } ] (
     index_column_expression [, ...]
 )
 index_options
@@ -55,10 +55,10 @@ check_constraint_definition
 
 # PARTOFIS column_definition
 type
-[ NOT NULL | NULL ]
+[ { NOT NULL | NULL } ]
 [ DEFAULT { value | CURRENT_TIMESTAMP [ ( fractional_precision ) ] | ( value_expression ) } ]
 [ ON UPDATE CURRENT_TIMESTAMP [ ( fractional_precision ) ] ]
-[ VISIBLE | INVISIBLE ]
+[ { VISIBLE | INVISIBLE } ]
 [ AUTO_INCREMENT ]
 [ UNIQUE [ KEY ] ]
 [ [ PRIMARY ] KEY ]
@@ -75,9 +75,9 @@ type
 type
 [ COLLATE collate ]
 [ GENERATED ALWAYS ] AS ( col_expression )
-[ VIRTUAL | STORED ]
-[ NOT NULL | NULL ]
-[ VISIBLE | INVISIBLE ]
+[ { VIRTUAL | STORED } ]
+[ { NOT NULL | NULL } ]
+[ { VISIBLE | INVISIBLE } ]
 [ UNIQUE [ KEY ] ]
 [ [ PRIMARY ] KEY ]
 [ COMMENT 'comment' ]
@@ -85,7 +85,7 @@ type
 [ check_constraint_definition ]
 
 # WHERE index_column_expression
-{ colname [ ( length ) ] | ( col_expression ) } [ ASC | DESC ]
+{ colname [ ( length ) ] | ( col_expression ) } [ { ASC | DESC } ]
 
 # WHERE check_constraint_definition
 [ CONSTRAINT [ constraint ] ]
@@ -94,7 +94,7 @@ type
 
 # WHERE reference_definition
 REFERENCES table ( colname [, ...] )
-    [ MATCH FULL | MATCH PARTIAL | MATCH SIMPLE ]
+    [ { MATCH FULL | MATCH PARTIAL | MATCH SIMPLE } ]
     [ ON DELETE on_delete_action ]
     [ ON UPDATE on_update_action ]
 
@@ -105,7 +105,7 @@ REFERENCES table ( colname [, ...] )
 [ KEY_BLOCK_SIZE [=] value ]
 [ WITH PARSER parser ]
 [ COMMENT 'comment' ]
-[ VISIBLE | INVISIBLE ]
+[ { VISIBLE | INVISIBLE } ]
 [ ENGINE_ATTRIBUTE [=] 'engine_attribute' ]
 [ SECONDARY_ENGINE_ATTRIBUTE [=] 'secondary_engine_attribute' ]
 

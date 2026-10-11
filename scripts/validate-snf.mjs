@@ -1,8 +1,9 @@
 // SNF syntax/AST checks only. This script does not execute or validate SQL semantics.
+import { inspectContract } from './snf-contract.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { parser, parserRevision } from './parser-runtime.mjs';
+import { parser, parserRevision, parserInput } from './parser-runtime.mjs';
 const { SNFDocumentParser, SNFParser, exchangeLoopNode, NodeType } = parser;
 export const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const families = ['alter', 'auth', 'compound', 'create', 'drop', 'other', 'query', 'replication', 'transaction'];
@@ -18,6 +19,7 @@ export function inspect(file) {
     let doc;
     try { doc = new SNFDocumentParser().parse(text); } catch (error) { return [...errors, error.message]; }
     if (doc.lines.map(line => line.content + line.ending).join('') !== text) errors.push('lossless source round-trip mismatch');
+    errors.push(...inspectContract(doc, parser));
     for (const block of doc.blocks) {
         visit(block.ast, node => {
             if (block.content.slice(node.start, node.end) !== node.raw) errors.push(`source-span mismatch at line ${block.startLine}`);
@@ -35,6 +37,6 @@ export function inspect(file) {
 }
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
     const errors = files.flatMap(file => inspect(file).map(error => `${file}: ${error}`));
-    console.log(JSON.stringify({ parserRevision, parserInput: 'verified src/index.ts', files: files.length, errors }, null, 2));
+    console.log(JSON.stringify({ parserRevision, parserInput, files: files.length, errors }, null, 2));
     if (errors.length) process.exitCode = 1;
 }

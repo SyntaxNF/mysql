@@ -14,14 +14,14 @@ ALTER USER [ IF EXISTS ]
     account_definition [, ...]
     [ REQUIRE { NONE | tls_requirements } ]
     [ WITH resource_options ]
-    [ PASSWORD EXPIRE [ DEFAULT | NEVER | INTERVAL number DAY ] ]
+    [ PASSWORD EXPIRE [ { DEFAULT | NEVER | INTERVAL number DAY } ] ]
     [ PASSWORD HISTORY { DEFAULT | number } ]
     [ PASSWORD REUSE INTERVAL { DEFAULT | number DAY } ]
-    [ PASSWORD REQUIRE CURRENT [ DEFAULT | OPTIONAL ] ]
+    [ PASSWORD REQUIRE CURRENT [ { DEFAULT | OPTIONAL } ] ]
     [ FAILED_LOGIN_ATTEMPTS number ]
     [ PASSWORD_LOCK_TIME { number | UNBOUNDED } ]
-    [ ACCOUNT LOCK | ACCOUNT UNLOCK ]
-    [ COMMENT 'comment' | ATTRIBUTE 'json' ]
+    [ { ACCOUNT LOCK | ACCOUNT UNLOCK } ]
+    [ { COMMENT 'comment' | ATTRIBUTE 'json' } ]
 
 # CASE DEFAULT_ROLE
 ALTER USER [ IF EXISTS ] account DEFAULT ROLE

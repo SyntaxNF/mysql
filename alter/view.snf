@@ -6,7 +6,7 @@ ALTER [ ALGORITHM = { UNDEFINED | MERGE | TEMPTABLE } ]
     [ SQL SECURITY { DEFINER | INVOKER } ]
     VIEW name [ ( colname [, ...] ) ]
     AS query_statement
-    [ WITH [ CASCADED | LOCAL ] CHECK OPTION ]
+    [ WITH [ { CASCADED | LOCAL } ] CHECK OPTION ]
 
 # STATEMENT query_statement
 SELECT

@@ -4,7 +4,7 @@ CREATE RESOURCE GROUP name
     TYPE = { SYSTEM | USER }
     [ VCPU [=] vcpu [, ...] ]
     [ THREAD_PRIORITY [=] priority ]
-    [ ENABLE | DISABLE ]
+    [ { ENABLE | DISABLE } ]
 
 # ONEOFIS vcpu
 number

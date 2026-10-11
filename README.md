@@ -4,7 +4,7 @@
 
 ## 版本基线
 
-本仓库以 [MySQL 8.4 Reference Manual](https://dev.mysql.com/doc/refman/8.4/en/sql-statements.html) 的 SQL Statement Syntax 为唯一语法基线，不混入 MySQL 5.7、8.0 或 Innovation Release 的兼容写法。
+本仓库以 [MySQL 8.4 Reference Manual](https://dev.mysql.com/doc/refman/8.4/en/sql-statements.html) 的 SQL Statement Syntax 为语法基线。
 
 ## 目录
 
@@ -28,13 +28,14 @@
 | `placeholder` | 需要由调用方提供或由其他语法节点展开的占位符。 |
 | `[ syntax ]` | 整个 `syntax` 可选，最多出现一次。 |
 | `{ a \| b }` | 必须从候选项中选择一个。 |
+| `[ { a \| b } ]` | 可选的显式枚举；`[ a \| b ]` 不合法。 |
 | `syntax [...]` | 前一个 `syntax` 可以出现零次或多次，成员之间没有额外分隔符。 |
 | `item [, ...]` | `item` 可以出现零次或多次，多个成员之间使用逗号分隔。 |
 | `statement [; ...]` | `statement` 可以出现零次或多次，多个语句之间使用分号分隔。 |
 | `( syntax )` | 需要原样生成的 SQL 圆括号。 |
 | `'value'` | 需要原样生成的 SQL 字符串字面量。 |
 
-省略号只用于服务端语法确实允许重复的列表或语句序列。`[=]` 等紧凑写法表示对应符号本身可选。
+省略号只用于服务端语法确实允许重复的列表或语句序列。`[=]` 等紧凑写法表示对应符号本身可选。未转义的 `|` 只能直接出现在 `{}` 内。
 
 ### 定义指令
 
@@ -53,7 +54,7 @@
 ALTER TABLE name RENAME TO new_name
 
 # WHERE order_by_expression
-col_expression [ ASC | DESC ]
+col_expression [ { ASC | DESC } ]
 
 # STATEMENT query_statement
 ```
@@ -77,14 +78,19 @@ col_expression [ ASC | DESC ]
 
 ## 开发命令
 
-按需手动运行。需要 Node.js 20.19+ 或 22.12+、Git、pnpm，以及固定版本的 [SNF parser](https://github.com/SyntaxNF/parser)：
+按需手动运行。当前定义使用显式 OPTIONAL/ENUM 语法，需要先构建[SNF parser](https://github.com/SyntaxNF/parser)，再显式选择工作区构建：
 
 ```sh
-git clone https://github.com/SyntaxNF/parser.git ../snf-parser
-git -C ../snf-parser checkout --detach bcf2c3ac58b45e7d5391716393586b00b11e0c1a
-(cd ../snf-parser && pnpm install --frozen-lockfile)
-SNF_PARSER_ROOT=../snf-parser npm run validate
-SNF_PARSER_ROOT=../snf-parser npm test
+(cd /absolute/path/to/parser && pnpm build)
+export SNF_PARSER_WORKTREE_MODULE=/absolute/path/to/parser/dist/esm/index.mjs
+npm run validate
+npm test
 ```
 
-已有同版本的干净 parser checkout 可直接复用；`SNF_PARSER_ROOT` 指向该目录。脚本直接加载固定版本源码及锁定依赖，无需构建 parser。
+脚本只通过 `SNF_PARSER_WORKTREE_MODULE` 加载指定构建，标记为 `working-tree-build`；缺少该配置会直接报错。修改 parser 后应重新构建。
+
+四库统一使用 `npm run validate` 执行全部结构检查、`npm test` 执行全部回归；`validate:snf` 为结构检查入口，`test:regression` 为回归入口。无需安装本库依赖，使用 Node.js 22 和上面明确指定的 parser 构建。
+
+基础检查统一覆盖源文件与 AST 范围、显式 OPTIONAL/ENUM/GROUP、完整成员的 LOOP 绑定、冗余纯循环可选层、四空格缩进与末尾换行，对所有文件执行。生成回归覆盖 0/1/2 次循环、显式枚举、可选项、分隔符及自由输入原文保留。SQL Server 的 `validate` 还包含其指令/固定文本约定检查和生成结构检查；各库保留自己的方言回归。
+
+`scripts/parser-runtime.mjs`、`scripts/snf-contract.mjs` 及其测试在四库保持一致；`generator-fixture.mjs` 仅本地文档加载入口不同，`generator-contract.test.mjs` 保持一致。修改公共契约时同步四库。报告的 `parserInput` 是实际加载路径；这些检查验证 SNF 和测试辅助生成行为，不执行数据库 SQL。

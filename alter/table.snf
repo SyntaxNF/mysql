@@ -3,7 +3,7 @@
 # CASE OPTIONS
 ALTER TABLE name
     alter_action [, ...]
-    [ partition_options | REMOVE PARTITIONING ]
+    [ { partition_options | REMOVE PARTITIONING } ]
 
 # CASE RENAME_COLUMN
 ALTER TABLE name
@@ -15,7 +15,7 @@ ALTER TABLE name
 
 # CASE RENAME
 ALTER TABLE name
-    RENAME [ TO | AS ] new_name
+    RENAME [ { TO | AS } ] new_name
 
 # CASE ADD_PARTITION
 ALTER TABLE name
@@ -138,7 +138,7 @@ UNION [=] ( table [, ...] )
 
 ADD [ COLUMN ] colname
     column_definition
-    [ FIRST | AFTER colname ]
+    [ { FIRST | AFTER colname } ]
 
 ADD [ COLUMN ] (
     { colname column_definition } [, ...]
@@ -149,7 +149,7 @@ ADD { INDEX | KEY } [ index ]
     ( index_column_expression [, ...] )
     index_options
 
-ADD { FULLTEXT | SPATIAL } [ INDEX | KEY ] [ index ]
+ADD { FULLTEXT | SPATIAL } [ { INDEX | KEY } ] [ index ]
     ( index_column_expression [, ...] )
     index_options
 
@@ -160,7 +160,7 @@ ADD [ CONSTRAINT [ constraint ] ]
     index_options
 
 ADD [ CONSTRAINT [ constraint ] ]
-    UNIQUE [ INDEX | KEY ] [ index ]
+    UNIQUE [ { INDEX | KEY } ] [ index ]
     [ USING { BTREE | HASH } ]
     ( index_column_expression [, ...] )
     index_options
@@ -189,7 +189,7 @@ ALTER INDEX index
 
 CHANGE [ COLUMN ] colname new_colname
     column_definition
-    [ FIRST | AFTER colname ]
+    [ { FIRST | AFTER colname } ]
 
 [ DEFAULT ] CHARACTER SET [=] charset
     [ COLLATE [=] collate ]
@@ -209,7 +209,7 @@ RENAME COLUMN colname TO new_colname
 
 RENAME { INDEX | KEY } index TO new_index
 
-RENAME [ TO | AS ] new_name
+RENAME [ { TO | AS } ] new_name
 
 DROP PRIMARY KEY
 
@@ -221,7 +221,7 @@ LOCK [=] { DEFAULT | NONE | SHARED | EXCLUSIVE }
 
 MODIFY [ COLUMN ] colname
     column_definition
-    [ FIRST | AFTER colname ]
+    [ { FIRST | AFTER colname } ]
 
 ORDER BY colname [, ...]
 
@@ -229,10 +229,10 @@ ORDER BY colname [, ...]
 
 # PARTOFIS column_definition
 type
-[ NOT NULL | NULL ]
+[ { NOT NULL | NULL } ]
 [ DEFAULT { value | CURRENT_TIMESTAMP [ ( fractional_precision ) ] | ( value_expression ) } ]
 [ ON UPDATE CURRENT_TIMESTAMP [ ( fractional_precision ) ] ]
-[ VISIBLE | INVISIBLE ]
+[ { VISIBLE | INVISIBLE } ]
 [ AUTO_INCREMENT ]
 [ UNIQUE [ KEY ] ]
 [ [ PRIMARY ] KEY ]
@@ -249,9 +249,9 @@ type
 type
 [ COLLATE collate ]
 [ GENERATED ALWAYS ] AS ( col_expression )
-[ VIRTUAL | STORED ]
-[ NOT NULL | NULL ]
-[ VISIBLE | INVISIBLE ]
+[ { VIRTUAL | STORED } ]
+[ { NOT NULL | NULL } ]
+[ { VISIBLE | INVISIBLE } ]
 [ UNIQUE [ KEY ] ]
 [ [ PRIMARY ] KEY ]
 [ COMMENT 'comment' ]
@@ -259,11 +259,11 @@ type
 [ check_constraint_definition ]
 
 # WHERE index_column_expression
-{ colname [ ( length ) ] | ( col_expression ) } [ ASC | DESC ]
+{ colname [ ( length ) ] | ( col_expression ) } [ { ASC | DESC } ]
 
 # WHERE reference_definition
 REFERENCES table ( colname [, ...] )
-    [ MATCH FULL | MATCH PARTIAL | MATCH SIMPLE ]
+    [ { MATCH FULL | MATCH PARTIAL | MATCH SIMPLE } ]
     [ ON DELETE on_delete_action ]
     [ ON UPDATE on_update_action ]
 
@@ -279,7 +279,7 @@ REFERENCES table ( colname [, ...] )
 [ KEY_BLOCK_SIZE [=] value ]
 [ WITH PARSER parser ]
 [ COMMENT 'comment' ]
-[ VISIBLE | INVISIBLE ]
+[ { VISIBLE | INVISIBLE } ]
 [ ENGINE_ATTRIBUTE [=] 'engine_attribute' ]
 [ SECONDARY_ENGINE_ATTRIBUTE [=] 'secondary_engine_attribute' ]
 

@@ -4,7 +4,7 @@ CREATE [ DEFINER = user ] EVENT [ IF NOT EXISTS ] name
     ON SCHEDULE
     schedule_definition
     [ ON COMPLETION [ NOT ] PRESERVE ]
-    [ ENABLE | DISABLE | DISABLE ON { REPLICA | SLAVE } ]
+    [ { ENABLE | DISABLE | DISABLE ON { REPLICA | SLAVE } } ]
     [ COMMENT 'comment' ]
     DO event_statement
 

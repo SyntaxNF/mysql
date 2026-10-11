@@ -27,7 +27,7 @@ DELETE [ LOW_PRIORITY ] [ QUICK ] [ IGNORE ]
 table [ . * ]
 
 # WHERE order_by_expression
-{ colname | col_expression } [ ASC | DESC ]
+{ colname | col_expression } [ { ASC | DESC } ]
 
 # PARTOFIS from_expression
 table [ PARTITION ( partition [, ...] ) ]
@@ -47,7 +47,7 @@ from_expression STRAIGHT_JOIN from_expression [ ON boolean_expression ]
 
 from_expression { LEFT | RIGHT } [ OUTER ] JOIN from_expression join_condition
 
-from_expression NATURAL [ INNER | { LEFT | RIGHT } [ OUTER ] ] JOIN from_expression
+from_expression NATURAL [ { INNER | { LEFT | RIGHT } [ OUTER ] } ] JOIN from_expression
 
 # ONEOFIS join_condition
 ON boolean_expression

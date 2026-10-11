@@ -4,7 +4,7 @@
 ALTER [ DEFINER = user ] EVENT name
     [ ON SCHEDULE schedule_definition ]
     [ ON COMPLETION [ NOT ] PRESERVE ]
-    [ ENABLE | DISABLE | DISABLE ON { REPLICA | SLAVE } ]
+    [ { ENABLE | DISABLE | DISABLE ON { REPLICA | SLAVE } } ]
     [ COMMENT 'comment' ]
 
 # CASE RENAME
@@ -12,7 +12,7 @@ ALTER [ DEFINER = user ] EVENT name
     [ ON SCHEDULE schedule_definition ]
     [ ON COMPLETION [ NOT ] PRESERVE ]
     RENAME TO new_name
-    [ ENABLE | DISABLE | DISABLE ON { REPLICA | SLAVE } ]
+    [ { ENABLE | DISABLE | DISABLE ON { REPLICA | SLAVE } } ]
     [ COMMENT 'comment' ]
     [ DO event_statement ]
 
@@ -20,7 +20,7 @@ ALTER [ DEFINER = user ] EVENT name
 ALTER [ DEFINER = user ] EVENT name
     [ ON SCHEDULE schedule_definition ]
     [ ON COMPLETION [ NOT ] PRESERVE ]
-    [ ENABLE | DISABLE | DISABLE ON { REPLICA | SLAVE } ]
+    [ { ENABLE | DISABLE | DISABLE ON { REPLICA | SLAVE } } ]
     [ COMMENT 'comment' ]
     DO event_statement
 

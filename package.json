@@ -12,7 +12,9 @@
     "mysql"
   ],
   "scripts": {
-    "validate": "node scripts/validate-snf.mjs",
-    "test": "node --test scripts/*.test.mjs"
+    "validate": "npm run validate:snf",
+    "test": "npm run test:regression",
+    "validate:snf": "node scripts/validate-snf.mjs",
+    "test:regression": "node --test scripts/*.test.mjs"
   }
 }

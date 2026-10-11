@@ -11,7 +11,7 @@ INTO DUMPFILE 'file'
 INTO variable [, ...]
 
 # WHERE order_by_expression
-colname [ ASC | DESC ]
+colname [ { ASC | DESC } ]
 
 # WHERE export_option
 [ { FIELDS | COLUMNS }

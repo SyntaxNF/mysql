@@ -18,7 +18,7 @@
     FOR CONNECTION connection_id
 
 # CASE TABLE
-{ EXPLAIN | DESCRIBE | DESC } table [ colname | 'pattern' ]
+{ EXPLAIN | DESCRIBE | DESC } table [ { colname | 'pattern' } ]
 
 # STATEMENT explainable_statement
 SELECT

@@ -3,6 +3,19 @@ import assert from 'node:assert/strict';
 import { parser } from './parser-runtime.mjs';
 import { files, inspect, source, document, visit } from './validate-snf.mjs';
 import { fixture, parse, normalize } from './generator-fixture.mjs';
+
+for (const kind of ['function', 'procedure']) for (const count of [0, 1, 2]) {
+    test(`CREATE ${kind} exposes argument LOOP without an optional gate × ${count}`, () => {
+        const f = fixture(`create/${kind}.snf`);
+        const ast = parse(document(`create/${kind}.snf`).blocks.find(block => block.content.startsWith('CREATE')).content);
+        const sql = f.render(ast, {
+            values: { name: 'f', argument_definition: ({ index }) => `p${index} INT`, routine_statement: 'RETURN 1', type: 'INT' },
+            count: member => member === 'argument_definition' ? count : 1,
+        });
+        const args = Array.from({ length: count }, (_, index) => `p${index} INT`).join(', ');
+        assert.ok(sql.includes(count ? `( ${args} )` : '( )'), sql);
+    });
+}
 const { NodeType: T } = parser;
 
 for (const file of files) test(`parser and AST structure: ${file}`, () => assert.deepEqual(inspect(file), []));
@@ -211,7 +224,7 @@ test('ordinary ALTER actions join repartitioning without an extra comma', () => 
         values: { name: 't', alter_action: 'ADD c INT', partition_options: 'PARTITION BY HASH (c)' },
         include: node => node.content.includes('partition_options'),
     }), 'ALTER TABLE t ADD c INT PARTITION BY HASH (c)');
-    const rename = f.definitions.get('alter_action').find(node => /^RENAME \[ TO/.test(node.content));
+    const rename = f.definitions.get('alter_action').find(node => /^RENAME \[ \{ TO/.test(node.content));
     assert.ok(rename, 'table rename also works in a combined action list');
 });
 

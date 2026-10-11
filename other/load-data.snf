@@ -1,7 +1,7 @@
 # https://dev.mysql.com/doc/refman/8.4/en/load-data.html
 
-LOAD DATA [ LOW_PRIORITY | CONCURRENT ] [ LOCAL ]
-    INFILE 'file' [ REPLACE | IGNORE ]
+LOAD DATA [ { LOW_PRIORITY | CONCURRENT } ] [ LOCAL ]
+    INFILE 'file' [ { REPLACE | IGNORE } ]
     INTO TABLE table
     [ PARTITION ( partition [, ...] ) ]
     [ CHARACTER SET charset ]

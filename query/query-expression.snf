@@ -16,13 +16,13 @@ query_term_statement set_operation_clause [...]
 { query_statement | ( query_statement ) }
 
 # WHERE set_operation_clause
-{ UNION | INTERSECT | EXCEPT } [ ALL | DISTINCT ] query_term_statement
+{ UNION | INTERSECT | EXCEPT } [ { ALL | DISTINCT } ] query_term_statement
 
 # WHERE order_by_clause
 ORDER BY order_by_expression [, ...]
 
 # WHERE order_by_expression
-{ colname | col_expression | position } [ ASC | DESC ]
+{ colname | col_expression | position } [ { ASC | DESC } ]
 
 # WHERE limit_clause
 LIMIT { [ offset , ] limit | limit OFFSET offset }

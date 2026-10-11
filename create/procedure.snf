@@ -1,7 +1,7 @@
 # https://dev.mysql.com/doc/refman/8.4/en/create-procedure.html
 
 CREATE [ DEFINER = user ] PROCEDURE [ IF NOT EXISTS ] name (
-    [ argument_definition [, ...] ]
+    argument_definition [, ...]
 )
     [ COMMENT 'comment' ]
     [ LANGUAGE SQL ]

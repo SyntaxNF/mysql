@@ -3,7 +3,7 @@
 # CASE START
 XA { START | BEGIN }
     xid
-    [ JOIN | RESUME ]
+    [ { JOIN | RESUME } ]
 
 # CASE END
 XA END

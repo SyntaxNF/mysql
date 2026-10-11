@@ -1,7 +1,7 @@
 # https://dev.mysql.com/doc/refman/8.4/en/select.html
 
 [ WITH [ RECURSIVE ] with_query_definition [, ...] ]
-SELECT [ ALL | DISTINCT | DISTINCTROW ]
+SELECT [ { ALL | DISTINCT | DISTINCTROW } ]
     [ HIGH_PRIORITY ] [ STRAIGHT_JOIN ]
     [ SQL_SMALL_RESULT ] [ SQL_BIG_RESULT ] [ SQL_BUFFER_RESULT ]
     [ SQL_NO_CACHE ] [ SQL_CALC_FOUND_ROWS ]
@@ -13,7 +13,7 @@ SELECT [ ALL | DISTINCT | DISTINCTROW ]
     [ WINDOW window_definition [, ...] ]
     [ ORDER BY order_by_expression [, ...] [ WITH ROLLUP ] ]
     [ LIMIT { [ offset , ] limit | limit OFFSET offset } ]
-    [ locking_clause [...] | LOCK IN SHARE MODE ]
+    [ { locking_clause [...] | LOCK IN SHARE MODE } ]
     [ into_option ]
 
 # WHERE select_item
@@ -40,7 +40,7 @@ from_expression STRAIGHT_JOIN from_expression [ ON boolean_expression ]
 
 from_expression { LEFT | RIGHT } [ OUTER ] JOIN from_expression join_condition
 
-from_expression NATURAL [ INNER | { LEFT | RIGHT } [ OUTER ] ] JOIN from_expression
+from_expression NATURAL [ { INNER | { LEFT | RIGHT } [ OUTER ] } ] JOIN from_expression
 
 # ONEOFIS join_condition
 ON boolean_expression
@@ -59,7 +59,7 @@ USE { INDEX | KEY }
 { colname | col_expression | position }
 
 # WHERE order_by_expression
-{ colname | col_expression | position } [ ASC | DESC ]
+{ colname | col_expression | position } [ { ASC | DESC } ]
 
 # WHERE window_definition
 window AS ( window_expression )
@@ -100,7 +100,7 @@ INTO variable [, ...]
 [ LINES [ STARTING BY 'string' ] [ TERMINATED BY 'string' ] ]
 
 # WHERE locking_clause
-FOR { UPDATE | SHARE } [ OF table [, ...] ] [ NOWAIT | SKIP LOCKED ]
+FOR { UPDATE | SHARE } [ OF table [, ...] ] [ { NOWAIT | SKIP LOCKED } ]
 
 # STATEMENT query_statement
 SELECT
