@@ -67,7 +67,11 @@ export function fixture(file) {
     function render(node, options = {}, context = {}) {
         const depth = context.depth ?? 0;
         assert.ok(depth < 300, 'fixture recursion needs an explicit input');
-        const children = (nodes = []) => nodes.map(child => render(child, options, { ...context, depth: depth + 1 })).join('');
+        const children = (nodes = [], quoted = context.quoted) =>
+            nodes.map(child => render(child, options, { ...context, quoted, depth: depth + 1 })).join('');
+        // Only emitting, unquoted OPTIONAL/GROUP boundaries supply spacing.
+        // Ordinary tokens keep their template spacing, including tight prefixes.
+        const boundary = text => context.quoted ? text : text.trim() ? ` ${text} ` : '';
         const choice = choices => choices[options.choose?.(choices, context) ?? 0];
         switch (node.type) {
             case T.COLLECTION:
@@ -84,8 +88,9 @@ export function fixture(file) {
                 if (node.type === T.REFERENCE) return render(targets.get(node.target), options, { ...context, depth: depth + 1 });
                 return node.children ? children(node.children) : node.content;
             }
-            case T.QUOTED: return node.quote + children(node.children) + node.quote;
-            case T.OPTIONAL: return options.include?.(node, context) ? children(node.children) : '';
+            case T.QUOTED: return node.quote + children(node.children, true) + node.quote;
+            case T.OPTIONAL: return options.include?.(node, context) ? boundary(children(node.children)) : '';
+            case T.GROUP: return boundary(children(node.children));
             case T.ENUM: return render(choice(node.children), options, { ...context, depth: depth + 1 });
             case T.LOOP: {
                 assert.equal(typeof node.separator, 'string');

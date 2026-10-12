@@ -98,6 +98,8 @@ npm test
 
 `SNFDocumentParser.parse()` 一次返回最终 AST：从 `document.entries` 获取入口，从 `document.definitions` 获取已编译定义；`blocks` 只保留源码。WHERE/ONEOFIS/PARTOFIS 引用已经展开，LOOP 直接包含完整成员和 `separator`，QUOTED 保留引号序列。递归引用的 `target` 已绑定到定义根 UID，STATEMENT 只保留名称与类别，不加载外部模板。
 
+最终 AST 保留普通行内 BLANK（引号外归一为单空格），仅清理引号外 OPTIONAL / GROUP 首尾排版区域中不带 `indentLevel` 的 BLANK；换行、缩进锚点及引号内空白保留。生成器为实际输出内容的 OPTIONAL / GROUP 在左右提供空格，与已有水平空白合并，避免行首尾或换行旁多余空格；空分组、未选可选项和零次循环不产生间隔。其余节点按叶子 `content` 和保留的空白拼接，不推断标点连接；引号内不补分组间隔，自由输入文本原样保留。需要紧贴的前缀应纳入完整候选，如 `{ 'value' | N'value' }`、`@@GLOBAL.system_variable`，不要在前缀与正文之间设置 OPTIONAL / GROUP 边界。
+
 所有最终节点自动带 `uid`，动态节点同时带 `name`；VARIABLE/REFERENCE/STATEMENT 取自身名称，OPTIONAL/ENUM/LOOP 使用大写功能名称，允许重名。消费方无需额外结构转换或 UID 分配。源节点通过 `sourceBlock` 和 `start/end` 指向定义或引用的实际来源。
 
 STATEMENT 内容使用大写语句或类别名称，例如 `SELECT`、`TABLE`；通用 SQL 与复合语句类别统一写为 `SQL`、`COMPOUND`，不带 `_STATEMENT` 后缀。

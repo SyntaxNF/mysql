@@ -12,7 +12,7 @@ system_variable_target { = | := } { value_expression | DEFAULT }
 
 # ONEOFIS system_variable_target
 [ { GLOBAL | PERSIST | PERSIST_ONLY | SESSION | LOCAL } ] system_variable
-@@ [ { GLOBAL | PERSIST | PERSIST_ONLY | SESSION | LOCAL } . ] system_variable
+{ @@system_variable | @@GLOBAL.system_variable | @@PERSIST.system_variable | @@PERSIST_ONLY.system_variable | @@SESSION.system_variable | @@LOCAL.system_variable }
 
 # WHERE user_variable_assignment
 @user_variable { = | := } value_expression

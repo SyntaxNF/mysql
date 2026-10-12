@@ -35,3 +35,21 @@ for (const count of [0, 1, 2]) {
         }
     });
 }
+
+test('generation spaces container boundaries and preserves template token joins', () => {
+    const ast = parse('SELECT[ DISTINCT]{schema.table|other}[ AS alias]');
+    assert.equal(f.render(ast), 'SELECT schema.table');
+    assert.equal(f.render(ast, { include: () => true }), 'SELECT DISTINCT schema.table AS alias');
+    assert.equal(f.render(ast, { choose: () => 1 }), 'SELECT other');
+    assert.equal(f.render(parse('SELECT item[, ...] FROM table'), { count: () => 0 }), 'SELECT FROM table');
+    assert.equal(f.render(parse("SELECT 'A [ B ] C'"), { include: () => true }), "SELECT 'A  B  C'");
+});
+
+test('complete prefixed literals and escaped identifiers need no punctuation inference', () => {
+    const ast = parse("LANGUAGE = { 'language' | N'language' }");
+    assert.equal(f.render(ast), "LANGUAGE = 'language'");
+    assert.equal(f.render(ast, { choose: () => 1 }), "LANGUAGE = N'language'");
+    assert.equal(f.render(parse(String.raw`SELECT schema.table, func(arg), @variable, \[DEFAULT\]`)),
+        'SELECT schema.table, func(arg), @variable, [DEFAULT]');
+    assert.equal(f.render(parse("N[ option ]'language'")), "N'language'");
+});

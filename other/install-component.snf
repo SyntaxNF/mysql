@@ -3,8 +3,15 @@
 INSTALL COMPONENT component_value [, ...]
     [ SET component_variable_assignment [, ...] ]
 
-# WHERE component_variable
-{ GLOBAL | @@GLOBAL. | PERSIST | @@PERSIST. } [ component_prefix . ] system_variable
+# ONEOFIS component_variable
+GLOBAL system_variable
+GLOBAL component_prefix.system_variable
+@@GLOBAL.system_variable
+@@GLOBAL.component_prefix.system_variable
+PERSIST system_variable
+PERSIST component_prefix.system_variable
+@@PERSIST.system_variable
+@@PERSIST.component_prefix.system_variable
 
 # WHERE component_variable_assignment
 component_variable = value_expression

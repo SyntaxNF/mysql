@@ -288,3 +288,21 @@ test('SHOW/EXPLAIN expose actual additional syntax without new statement-binding
     const rendered = explain.render(explain.block('# CASE QUERY'), { values: { explainable_statement: 'SELECT 1' }, include: () => true, choose: choices => Math.max(0, choices.findIndex(node => node.content.trim() === 'JSON')) });
     assert.equal(rendered, 'EXPLAIN FORMAT = JSON INTO @user_variable FOR SCHEMA database SELECT 1');
 });
+
+test('system-variable prefixes stay attached within complete alternatives', () => {
+    const f = fixture('other/set.snf');
+    const target = f.definitions.get('system_variable_target')[1];
+    for (const [index, prefix] of ['@@', '@@GLOBAL.', '@@PERSIST.', '@@PERSIST_ONLY.', '@@SESSION.', '@@LOCAL.'].entries()) {
+        assert.equal(f.render(target, { choose: () => index, values: { system_variable: 'sql_mode' } }), `${prefix}sql_mode`);
+    }
+});
+test('component-variable alternatives include their complete scope and optional component name', () => {
+    const f = fixture('other/install-component.snf');
+    const choices = f.definitions.get('component_variable');
+    const expected = ['GLOBAL v', 'GLOBAL c.v', '@@GLOBAL.v', '@@GLOBAL.c.v',
+        'PERSIST v', 'PERSIST c.v', '@@PERSIST.v', '@@PERSIST.c.v'];
+    assert.equal(choices.length, expected.length);
+    for (const [index, node] of choices.entries()) {
+        assert.equal(f.render(node, { values: { component_prefix: 'c', system_variable: 'v' } }), expected[index]);
+    }
+});
