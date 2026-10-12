@@ -16,5 +16,6 @@
     "test": "npm run test:regression",
     "validate:snf": "node scripts/validate-snf.mjs",
     "test:regression": "node --test scripts/*.test.mjs"
-  }
+  },
+  "license": "MIT"
 }
