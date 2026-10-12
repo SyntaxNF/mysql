@@ -34,7 +34,7 @@ export function inspectContract(document, parser) {
                 const ownName = [T.VARIABLE, T.REFERENCE, T.STATEMENT].includes(node.type);
                 if (typeof node.name !== 'string' || !node.name || node.name !== (ownName ? node.content : node.name.toUpperCase())) fail(`missing or invalid parser name${at}`);
             } else if (node.name !== undefined) fail(`unexpected parser naming metadata${at}`);
-            if ([T.SPLIT,T.REPEAT,T.QUOTE,T.DOUBLEQUOTE].includes(node.type) || Object.hasOwn(node,'ast')) fail(`unfinished syntax node${at}`);
+            if ([T.SPLIT,T.REPEAT].includes(node.type) || Object.hasOwn(node,'ast')) fail(`unfinished syntax node${at}`);
             if (node.type === T.ENUM && ((!node.synthetic && (!node.raw.startsWith('{') || !node.raw.endsWith('}'))) || !node.children?.length || node.children.some(child => child.type !== T.GROUP))) fail(`ENUM requires explicit braces or a compiled definition and GROUP children${at}`);
             if (node.type === T.GROUP && (parent?.type !== T.ENUM || !significant(node.children).length)) fail(`GROUP requires ENUM parent and a nonempty alternative${at}`);
             if (node.type === T.OPTIONAL && (!node.raw.startsWith('[') || !node.raw.endsWith(']'))) fail(`OPTIONAL requires explicit brackets${at}`);
